@@ -4,17 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>کنکور همراه | تأیید عضویت</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Vazirmatn', 'Segoe UI', sans-serif;
+            font-family: 'Vazirmatn', 'Segoe UI', Tahoma, sans-serif;
         }
 
         body {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #4776E6 0%, #8E54E9 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -23,59 +22,34 @@
         }
 
         .container {
-            max-width: 450px;
+            max-width: 400px;
             width: 100%;
             background: white;
-            border-radius: 25px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            border-radius: 30px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
             overflow: hidden;
-        }
-
-        .verify-screen {
             padding: 40px 30px;
             text-align: center;
         }
 
-        .logo {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #0088cc, #006699);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 25px;
-        }
-
-        .logo i {
-            font-size: 3rem;
-            color: white;
-        }
-
-        h2 {
+        h1 {
             color: #333;
             margin-bottom: 10px;
-            font-size: 1.8rem;
+            font-size: 2rem;
         }
 
-        .subtitle {
+        p {
             color: #666;
             margin-bottom: 30px;
-            font-size: 0.95rem;
+            line-height: 1.8;
         }
 
-        .channel-box {
+        .channel {
             background: #e3f2fd;
             border: 2px solid #0088cc;
-            border-radius: 15px;
+            border-radius: 20px;
             padding: 25px;
-            margin-bottom: 25px;
-        }
-
-        .channel-label {
-            color: #0088cc;
-            font-weight: bold;
-            margin-bottom: 10px;
+            margin-bottom: 30px;
         }
 
         .channel-name {
@@ -83,21 +57,21 @@
             font-weight: bold;
             color: #0088cc;
             direction: ltr;
-            letter-spacing: 1px;
+            margin: 10px 0;
         }
 
         .btn {
-            display: inline-block;
-            padding: 14px 28px;
+            display: block;
+            width: 100%;
+            padding: 15px;
             border: none;
-            border-radius: 10px;
-            font-size: 1rem;
+            border-radius: 15px;
+            font-size: 1.2rem;
             font-weight: bold;
             cursor: pointer;
             text-decoration: none;
+            margin: 10px 0;
             transition: all 0.3s;
-            width: 100%;
-            margin: 5px 0;
         }
 
         .btn-telegram {
@@ -107,23 +81,23 @@
 
         .btn-telegram:hover {
             background: #006699;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,136,204,0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,136,204,0.3);
         }
 
         .btn-primary {
-            background: #4361ee;
+            background: #4776E6;
             color: white;
         }
 
         .btn-primary:hover {
-            background: #3a0ca3;
-            transform: translateY(-2px);
+            background: #2c3e50;
+            transform: translateY(-3px);
         }
 
         .bot-box {
             background: #f8f9fa;
-            border-radius: 15px;
+            border-radius: 20px;
             padding: 25px;
             margin: 25px 0;
         }
@@ -131,8 +105,8 @@
         .bot-username {
             background: #e3f2fd;
             padding: 15px;
-            border-radius: 10px;
-            font-size: 1.3rem;
+            border-radius: 12px;
+            font-size: 1.5rem;
             font-weight: bold;
             color: #0088cc;
             direction: ltr;
@@ -142,13 +116,13 @@
 
         .code-input {
             width: 100%;
-            padding: 18px;
-            font-size: 2rem;
+            padding: 15px;
+            font-size: 2.5rem;
             text-align: center;
             border: 3px solid #ddd;
             border-radius: 15px;
             margin: 20px 0;
-            letter-spacing: 10px;
+            letter-spacing: 15px;
             font-weight: bold;
             direction: ltr;
         }
@@ -156,183 +130,148 @@
         .code-input:focus {
             border-color: #0088cc;
             outline: none;
-            box-shadow: 0 0 0 3px rgba(0,136,204,0.2);
         }
 
-        .status-message {
-            padding: 12px;
-            border-radius: 8px;
+        .message {
+            padding: 15px;
+            border-radius: 10px;
             margin: 15px 0;
             display: none;
         }
 
-        .status-message.success {
+        .message.success {
             background: #d4edda;
             color: #155724;
             border: 1px solid #c3e6cb;
             display: block;
         }
 
-        .status-message.error {
+        .message.error {
             background: #f8d7da;
             color: #721c24;
             border: 1px solid #f5c6cb;
             display: block;
         }
 
-        .status-message.info {
-            background: #d1ecf1;
-            color: #0c5460;
-            border: 1px solid #bee5eb;
-            display: block;
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #0088cc;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-left: 10px;
         }
 
-        .footer {
-            margin-top: 30px;
-            font-size: 0.8rem;
-            color: #999;
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div id="verifyScreen" class="verify-screen">
-            <div class="logo">
-                <i class="fas fa-graduation-cap"></i>
-            </div>
-            
-            <h2>کنکور همراه</h2>
-            <p class="subtitle">برنامه‌ریزی هوشمند برای موفقیت</p>
-            
-            <div class="channel-box">
-                <div class="channel-label">
+        <h1>📚 کنکور همراه</h1>
+        <p>برنامه‌ریزی هوشمند برای موفقیت در کنکور</p>
+
+        <div class="channel">
+            <div style="margin-bottom: 10px;">عضویت در کانال:</div>
+            <div class="channel-name">@konkorkhabar</div>
+            <a href="https://t.me/konkorkhabar" target="_blank">
+                <button class="btn btn-telegram">
                     <i class="fab fa-telegram"></i> عضویت در کانال
-                </div>
-                <div class="channel-name">@konkorkhabar</div>
-                <a href="https://t.me/konkorkhabar" target="_blank">
-                    <button class="btn btn-telegram" style="margin-top: 15px;">
-                        <i class="fab fa-telegram"></i> عضویت در کانال
-                    </button>
-                </a>
-            </div>
-            
-            <div class="bot-box">
-                <i class="fab fa-telegram" style="font-size: 2.5rem; color: #0088cc;"></i>
-                <h3 style="margin: 15px 0;">دریافت کد تأیید</h3>
-                <p style="color: #666; margin-bottom: 10px;">به ربات زیر مراجعه و /start را بزنید:</p>
-                
-                <div class="bot-username">
-                    @Taeeedbot
-                </div>
-                
-                <a href="https://t.me/Taeeedbot" target="_blank">
-                    <button class="btn btn-telegram">
-                        <i class="fab fa-telegram"></i> رفتن به ربات
-                    </button>
-                </a>
-            </div>
-            
-            <div style="margin-top: 20px;">
-                <p style="font-weight: bold; margin-bottom: 10px;">کد دریافتی را وارد کنید:</p>
-                <input type="text" id="code" class="code-input" maxlength="6" placeholder="••••••">
-                
-                <div id="statusMessage" class="status-message"></div>
-                
-                <button class="btn btn-primary" onclick="verifyMembership()">
-                    <i class="fas fa-check-circle"></i> تأیید عضویت
                 </button>
+            </a>
+        </div>
+
+        <div class="bot-box">
+            <h3 style="margin-bottom: 15px;">🤖 دریافت کد تأیید</h3>
+            <p>به ربات زیر مراجعه و /start را بزنید:</p>
+            
+            <div class="bot-username">
+                @Taeeedbot
             </div>
             
-            <div class="footer">
-                <i class="fas fa-shield-alt"></i>
-                داده‌های شما امن و محرمانه
-            </div>
+            <a href="https://t.me/Taeeedbot" target="_blank">
+                <button class="btn btn-telegram">
+                    <i class="fab fa-telegram"></i> رفتن به ربات
+                </button>
+            </a>
         </div>
-        
-        <div id="mainApp" style="display: none;">
-            <!-- برنامه اصلی اینجا قرار می‌گیرد -->
+
+        <div style="margin-top: 20px;">
+            <p style="margin-bottom: 10px; font-weight: bold;">کد دریافتی را وارد کنید:</p>
+            <input type="text" id="code" class="code-input" maxlength="6" placeholder="------">
+            
+            <div id="message" class="message"></div>
+            
+            <button class="btn btn-primary" onclick="verifyCode()">
+                <span id="btnText">تأیید عضویت</span>
+                <span id="loading" class="loading" style="display: none;"></span>
+            </button>
         </div>
+
+        <p style="margin-top: 30px; font-size: 0.8rem; color: #999;">
+            <i class="fas fa-shield-alt"></i> داده‌های شما امن و محرمانه
+        </p>
     </div>
 
     <script>
-        // ==================== بررسی عضویت واقعی ====================
-        
-        async function verifyMembership() {
+        // کدهای معتبر (همونایی که ربات میده)
+        const validCodes = [
+            '123456', '234567', '345678', '456789', '567890',
+            '678901', '789012', '890123', '901234', '112233',
+            '223344', '334455', '445566', '556677', '667788',
+            '778899', '889900', '990011', '135791', '246802'
+        ];
+
+        function verifyCode() {
             const code = document.getElementById('code').value.trim();
-            const statusDiv = document.getElementById('statusMessage');
+            const messageDiv = document.getElementById('message');
+            const btnText = document.getElementById('btnText');
+            const loading = document.getElementById('loading');
             
             if (code.length !== 6) {
-                showStatus('لطفاً کد ۶ رقمی را کامل وارد کنید', 'error');
+                messageDiv.className = 'message error';
+                messageDiv.innerHTML = '❌ لطفاً کد ۶ رقمی را کامل وارد کنید';
                 return;
             }
             
-            showStatus('در حال بررسی کد...', 'info');
+            // نمایش loading
+            btnText.style.display = 'none';
+            loading.style.display = 'inline-block';
+            messageDiv.className = 'message';
             
-            // بررسی کد با ربات
-            const isValid = await checkCodeWithBot(code);
-            
-            if (isValid) {
-                showStatus('✅ عضویت شما تأیید شد! در حال انتقال به برنامه...', 'success');
+            // شبیه‌سازی بررسی با سرور
+            setTimeout(() => {
+                btnText.style.display = 'inline';
+                loading.style.display = 'none';
                 
-                // ذخیره در localStorage
-                localStorage.setItem('verified', 'true');
-                localStorage.setItem('verification_code', code);
-                localStorage.setItem('verified_at', Date.now());
-                
-                // انتقال به برنامه اصلی بعد از 2 ثانیه
-                setTimeout(() => {
-                    document.getElementById('verifyScreen').style.display = 'none';
-                    document.getElementById('mainApp').style.display = 'block';
-                    loadMainApp();
-                }, 2000);
-            } else {
-                showStatus('❌ کد نامعتبر است. لطفاً از ربات کد جدید بگیرید', 'error');
-            }
-        }
-        
-        // شبیه‌سازی بررسی با ربات
-        function checkCodeWithBot(code) {
-            return new Promise((resolve) => {
-                // اینجا باید با سرور یا ربات شما ارتباط برقرار کند
-                // برای الان، یک شبیه‌سازی ساده:
-                
-                // در واقعیت، باید یک API به ربات خود وصل کنید
-                // یا از Webhook استفاده کنید
-                
-                const validCodes = [
-                    '123456', '234567', '345678', 
-                    '456789', '567890', '678901'
-                ];
-                
-                setTimeout(() => {
-                    resolve(validCodes.includes(code));
-                }, 1000);
-            });
-        }
-        
-        function showStatus(message, type) {
-            const statusDiv = document.getElementById('statusMessage');
-            statusDiv.className = `status-message ${type}`;
-            statusDiv.innerHTML = `<i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i> ${message}`;
-        }
-        
-        function loadMainApp() {
-            // اینجا برنامه اصلی شما قرار می‌گیرد
-            document.getElementById('mainApp').innerHTML = `
-                <div style="padding: 30px; text-align: center;">
-                    <h1 style="color: #4361ee;">به کنکور همراه خوش آمدید</h1>
-                    <p style="color: #666; margin: 20px 0;">شما با موفقیت وارد شدید</p>
-                    <i class="fas fa-check-circle" style="font-size: 5rem; color: #2ec4b6;"></i>
-                </div>
-            `;
+                if (validCodes.includes(code)) {
+                    messageDiv.className = 'message success';
+                    messageDiv.innerHTML = '✅ عضویت شما تأیید شد! در حال انتقال...';
+                    
+                    // ذخیره در localStorage
+                    localStorage.setItem('verified', 'true');
+                    localStorage.setItem('code', code);
+                    
+                    // انتقال به برنامه اصلی بعد از ۲ ثانیه
+                    setTimeout(() => {
+                        window.location.href = 'https://masin009.github.io/planb/main.html';
+                    }, 2000);
+                } else {
+                    messageDiv.className = 'message error';
+                    messageDiv.innerHTML = '❌ کد نامعتبر است. دوباره از ربات بگیرید';
+                }
+            }, 1500);
         }
         
         // بررسی در شروع
         if (localStorage.getItem('verified') === 'true') {
-            document.getElementById('verifyScreen').style.display = 'none';
-            document.getElementById('mainApp').style.display = 'block';
-            loadMainApp();
+            window.location.href = 'https://masin009.github.io/planb/main.html';
         }
     </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </body>
 </html>
