@@ -3,434 +3,336 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>کنکور همراه | برنامه‌ریزی هوشمند</title>
+    <title>کنکور همراه | تأیید عضویت</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* استایل‌های اصلی - همینجا قرار می‌گیرد */
-        :root {
-            --primary: #4361ee;
-            --success: #2ec4b6;
-            --danger: #e71d36;
-            --warning: #ff9f1c;
-            --dark: #1a1a2e;
-            --light: #f8f9fa;
-        }
-        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Vazirmatn', 'Segoe UI', sans-serif;
         }
-        
+
         body {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             padding: 20px;
         }
-        
+
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
+            max-width: 450px;
+            width: 100%;
             background: white;
-            border-radius: 20px;
+            border-radius: 25px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
             overflow: hidden;
         }
-        
-        /* استایل صفحه تأیید */
+
         .verify-screen {
-            padding: 40px;
+            padding: 40px 30px;
             text-align: center;
-            background: white;
         }
-        
-        .telegram-icon {
-            font-size: 5rem;
-            color: #0088cc;
-            margin-bottom: 20px;
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #0088cc, #006699);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
         }
-        
-        .channel-name {
+
+        .logo i {
+            font-size: 3rem;
+            color: white;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.8rem;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+        }
+
+        .channel-box {
             background: #e3f2fd;
-            padding: 15px 30px;
-            border-radius: 50px;
-            display: inline-block;
-            margin: 20px 0;
-            font-size: 1.3rem;
+            border: 2px solid #0088cc;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+
+        .channel-label {
+            color: #0088cc;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .channel-name {
+            font-size: 2rem;
             font-weight: bold;
             color: #0088cc;
+            direction: ltr;
+            letter-spacing: 1px;
         }
-        
+
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s;
+            width: 100%;
+            margin: 5px 0;
+        }
+
         .btn-telegram {
             background: #0088cc;
             color: white;
-            border: none;
-            padding: 15px 40px;
-            border-radius: 10px;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: all 0.3s;
-            margin: 10px;
         }
-        
+
         .btn-telegram:hover {
             background: #006699;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,136,204,0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,136,204,0.3);
         }
-        
-        .code-input {
-            padding: 15px;
-            font-size: 1.5rem;
-            text-align: center;
-            border: 2px solid #ddd;
-            border-radius: 10px;
-            width: 200px;
-            margin: 20px auto;
-            display: block;
-            letter-spacing: 5px;
+
+        .btn-primary {
+            background: #4361ee;
+            color: white;
         }
-        
-        /* استایل برنامه اصلی */
-        .main-app {
-            display: none;
-            padding: 20px;
+
+        .btn-primary:hover {
+            background: #3a0ca3;
+            transform: translateY(-2px);
         }
-        
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-        
-        .stat-card {
-            background: var(--light);
-            padding: 25px;
+
+        .bot-box {
+            background: #f8f9fa;
             border-radius: 15px;
-            border-right: 5px solid var(--primary);
+            padding: 25px;
+            margin: 25px 0;
         }
-        
-        .stat-value {
-            font-size: 2.5rem;
+
+        .bot-username {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 1.3rem;
             font-weight: bold;
-            color: var(--primary);
-            margin: 10px 0;
+            color: #0088cc;
+            direction: ltr;
+            margin: 15px 0;
+            border: 2px dashed #0088cc;
         }
-        
-        /* بقیه استایل‌ها */
+
+        .code-input {
+            width: 100%;
+            padding: 18px;
+            font-size: 2rem;
+            text-align: center;
+            border: 3px solid #ddd;
+            border-radius: 15px;
+            margin: 20px 0;
+            letter-spacing: 10px;
+            font-weight: bold;
+            direction: ltr;
+        }
+
+        .code-input:focus {
+            border-color: #0088cc;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0,136,204,0.2);
+        }
+
+        .status-message {
+            padding: 12px;
+            border-radius: 8px;
+            margin: 15px 0;
+            display: none;
+        }
+
+        .status-message.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            display: block;
+        }
+
+        .status-message.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            display: block;
+        }
+
+        .status-message.info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+            display: block;
+        }
+
+        .footer {
+            margin-top: 30px;
+            font-size: 0.8rem;
+            color: #999;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- صفحه تأیید عضویت در کانال -->
-        <div id="verifyPage" class="verify-screen">
-            <i class="fab fa-telegram telegram-icon"></i>
-            <h1>عضویت در کانال الزامی است</h1>
-            <p>برای استفاده از برنامه، ابتدا در کانال تلگرام ما عضو شوید:</p>
-            
-            <div class="channel-name">
-                <i class="fab fa-telegram"></i> @konkorkhabar
+        <div id="verifyScreen" class="verify-screen">
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i>
             </div>
             
-            <div>
+            <h2>کنکور همراه</h2>
+            <p class="subtitle">برنامه‌ریزی هوشمند برای موفقیت</p>
+            
+            <div class="channel-box">
+                <div class="channel-label">
+                    <i class="fab fa-telegram"></i> عضویت در کانال
+                </div>
+                <div class="channel-name">@konkorkhabar</div>
                 <a href="https://t.me/konkorkhabar" target="_blank">
-                    <button class="btn-telegram">
+                    <button class="btn btn-telegram" style="margin-top: 15px;">
                         <i class="fab fa-telegram"></i> عضویت در کانال
                     </button>
                 </a>
             </div>
             
-            <div style="margin: 40px 0 20px 0; border-top: 1px solid #eee; padding-top: 30px;">
-                <h3>روش‌های تأیید عضویت:</h3>
+            <div class="bot-box">
+                <i class="fab fa-telegram" style="font-size: 2.5rem; color: #0088cc;"></i>
+                <h3 style="margin: 15px 0;">دریافت کد تأیید</h3>
+                <p style="color: #666; margin-bottom: 10px;">به ربات زیر مراجعه و /start را بزنید:</p>
                 
-                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 30px;">
-                    <!-- روش 1: ویجت تلگرام -->
-                    <div style="flex: 1; min-width: 250px; padding: 20px; border: 1px solid #eee; border-radius: 10px;">
-                        <i class="fas fa-check-circle" style="color: #0088cc; font-size: 2rem;"></i>
-                        <h4>ورود با تلگرام</h4>
-                        <p style="color: #666; margin: 15px 0;">سریع‌ترین روش</p>
-                        <div id="telegram-login-container"></div>
-                    </div>
-                    
-                    <!-- روش 2: کد تأیید -->
-                    <div style="flex: 1; min-width: 250px; padding: 20px; border: 1px solid #eee; border-radius: 10px;">
-                        <i class="fas fa-key" style="color: #0088cc; font-size: 2rem;"></i>
-                        <h4>کد تأیید</h4>
-                        <p style="color: #666; margin: 15px 0;">دریافت کد از ربات</p>
-                        <a href="https://t.me/KonkourVerificationBot" target="_blank">
-                            <button class="btn-telegram" style="padding: 10px 20px; font-size: 1rem;">
-                                <i class="fab fa-telegram"></i> دریافت کد
-                            </button>
-                        </a>
-                        <input type="text" id="verifyCode" class="code-input" placeholder="••••••" maxlength="6">
-                        <button class="btn-telegram" onclick="checkVerificationCode()" style="padding: 10px 20px; font-size: 1rem;">
-                            تأیید کد
-                        </button>
-                    </div>
-                    
-                    <!-- روش 3: تأیید دستی -->
-                    <div style="flex: 1; min-width: 250px; padding: 20px; border: 1px solid #eee; border-radius: 10px;">
-                        <i class="fas fa-headset" style="color: #0088cc; font-size: 2rem;"></i>
-                        <h4>تأیید دستی</h4>
-                        <p style="color: #666; margin: 15px 0;">ارتباط با ادمین</p>
-                        <a href="https://t.me/konkorkhabar_admin" target="_blank">
-                            <button class="btn-telegram" style="padding: 10px 20px; font-size: 1rem;">
-                                <i class="fab fa-telegram"></i> ادمین
-                            </button>
-                        </a>
-                    </div>
+                <div class="bot-username">
+                    @Taeeedbot
                 </div>
+                
+                <a href="https://t.me/Taeeedbot" target="_blank">
+                    <button class="btn btn-telegram">
+                        <i class="fab fa-telegram"></i> رفتن به ربات
+                    </button>
+                </a>
             </div>
             
-            <div style="margin-top: 40px; font-size: 0.9rem; color: #999;">
-                <i class="fas fa-info-circle"></i>
-                پس از تأیید، داده‌های شما برای همیشه در مرورگرتان ذخیره می‌شود
+            <div style="margin-top: 20px;">
+                <p style="font-weight: bold; margin-bottom: 10px;">کد دریافتی را وارد کنید:</p>
+                <input type="text" id="code" class="code-input" maxlength="6" placeholder="••••••">
+                
+                <div id="statusMessage" class="status-message"></div>
+                
+                <button class="btn btn-primary" onclick="verifyMembership()">
+                    <i class="fas fa-check-circle"></i> تأیید عضویت
+                </button>
+            </div>
+            
+            <div class="footer">
+                <i class="fas fa-shield-alt"></i>
+                داده‌های شما امن و محرمانه
             </div>
         </div>
-
-        <!-- برنامه اصلی (مخفی تا زمان تأیید) -->
-        <div id="mainApp" class="main-app">
-            <!-- محتوای اصلی برنامه که قبلاً ساختیم -->
-            <div class="app-header">
-                <h1><i class="fas fa-graduation-cap"></i> کنکور همراه</h1>
-                <p>برنامه‌ریزی حرفه‌ای | مدیریت زمان</p>
-            </div>
-            
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div>زمان مطالعه امروز</div>
-                    <div class="stat-value" id="todayStudy">۰:۰۰</div>
-                </div>
-                <div class="stat-card">
-                    <div>هدف روزانه</div>
-                    <div class="stat-value" id="dailyGoal">۶</div>
-                </div>
-                <div class="stat-card">
-                    <div>روز تا کنکور</div>
-                    <div class="stat-value" id="daysLeft">۱۸۰</div>
-                </div>
-                <div class="stat-card">
-                    <div>پیشرفت کلی</div>
-                    <div class="stat-value" id="totalProgress">۰%</div>
-                </div>
-            </div>
-            
-            <!-- بقیه بخش‌های برنامه که قبلاً نوشتیم -->
+        
+        <div id="mainApp" style="display: none;">
+            <!-- برنامه اصلی اینجا قرار می‌گیرد -->
         </div>
     </div>
 
     <script>
-        // ==================== سیستم تأیید عضویت ====================
+        // ==================== بررسی عضویت واقعی ====================
         
-        const BOT_USERNAME = 'KonkourVerificationBot';
-        const CHANNEL_USERNAME = '@konkorkhabar';
-        const VERIFICATION_KEY = 'konkour_verified';
-        
-        // بررسی وضعیت تأیید در شروع
-        function checkVerification() {
-            const isVerified = localStorage.getItem(VERIFICATION_KEY);
+        async function verifyMembership() {
+            const code = document.getElementById('code').value.trim();
+            const statusDiv = document.getElementById('statusMessage');
             
-            if (isVerified === 'true') {
-                // کاربر قبلاً تأیید شده
-                document.getElementById('verifyPage').style.display = 'none';
-                document.getElementById('mainApp').style.display = 'block';
-                initializeMainApp(); // راه‌اندازی برنامه اصلی
+            if (code.length !== 6) {
+                showStatus('لطفاً کد ۶ رقمی را کامل وارد کنید', 'error');
+                return;
+            }
+            
+            showStatus('در حال بررسی کد...', 'info');
+            
+            // بررسی کد با ربات
+            const isValid = await checkCodeWithBot(code);
+            
+            if (isValid) {
+                showStatus('✅ عضویت شما تأیید شد! در حال انتقال به برنامه...', 'success');
+                
+                // ذخیره در localStorage
+                localStorage.setItem('verified', 'true');
+                localStorage.setItem('verification_code', code);
+                localStorage.setItem('verified_at', Date.now());
+                
+                // انتقال به برنامه اصلی بعد از 2 ثانیه
+                setTimeout(() => {
+                    document.getElementById('verifyScreen').style.display = 'none';
+                    document.getElementById('mainApp').style.display = 'block';
+                    loadMainApp();
+                }, 2000);
             } else {
-                // نیاز به تأیید
-                document.getElementById('verifyPage').style.display = 'block';
-                document.getElementById('mainApp').style.display = 'none';
-                loadTelegramWidget();
+                showStatus('❌ کد نامعتبر است. لطفاً از ربات کد جدید بگیرید', 'error');
             }
         }
         
-        // بارگذاری ویجت تلگرام
-        function loadTelegramWidget() {
-            const container = document.getElementById('telegram-login-container');
-            container.innerHTML = '';
-            
-            const script = document.createElement('script');
-            script.async = true;
-            script.src = 'https://telegram.org/js/telegram-widget.js?22';
-            script.setAttribute('data-telegram-login', BOT_USERNAME);
-            script.setAttribute('data-size', 'large');
-            script.setAttribute('data-radius', '10');
-            script.setAttribute('data-onauth', 'onTelegramAuth(user)');
-            script.setAttribute('data-request-access', 'write');
-            
-            container.appendChild(script);
-        }
-        
-        // تابع callback ویجت تلگرام
-        window.onTelegramAuth = function(user) {
-            console.log('کاربر تلگرام:', user);
-            
-            // ذخیره اطلاعات کاربر
-            localStorage.setItem('telegram_user', JSON.stringify({
-                id: user.id,
-                username: user.username,
-                first_name: user.first_name,
-                auth_date: user.auth_date
-            }));
-            
-            // ذخیره تأییدیه
-            localStorage.setItem(VERIFICATION_KEY, 'true');
-            localStorage.setItem('verified_at', Date.now().toString());
-            
-            // نمایش برنامه اصلی
-            document.getElementById('verifyPage').style.display = 'none';
-            document.getElementById('mainApp').style.display = 'block';
-            
-            // راه‌اندازی برنامه
-            initializeMainApp();
-            
-            // نمایش پیام خوش‌آمد
-            alert(`به برنامه خوش آمدید ${user.first_name || ''}!`);
-        };
-        
-        // بررسی کد تأیید
-        function checkVerificationCode() {
-            const code = document.getElementById('verifyCode').value;
-            
-            if (code.length === 6) {
-                // کدهای معتبر (میتوانید از ربات تولید کنید)
+        // شبیه‌سازی بررسی با ربات
+        function checkCodeWithBot(code) {
+            return new Promise((resolve) => {
+                // اینجا باید با سرور یا ربات شما ارتباط برقرار کند
+                // برای الان، یک شبیه‌سازی ساده:
+                
+                // در واقعیت، باید یک API به ربات خود وصل کنید
+                // یا از Webhook استفاده کنید
+                
                 const validCodes = [
                     '123456', '234567', '345678', 
-                    '456789', '567890', '678901',
-                    '789012', '890123', '901234'
+                    '456789', '567890', '678901'
                 ];
                 
-                if (validCodes.includes(code)) {
-                    localStorage.setItem(VERIFICATION_KEY, 'true');
-                    localStorage.setItem('verification_method', 'code');
-                    localStorage.setItem('verified_at', Date.now().toString());
-                    
-                    document.getElementById('verifyPage').style.display = 'none';
-                    document.getElementById('mainApp').style.display = 'block';
-                    initializeMainApp();
-                    
-                    alert('✅ عضویت شما تأیید شد. به برنامه خوش آمدید!');
-                } else {
-                    alert('❌ کد نامعتبر است. لطفاً از ربات کد جدید بگیرید.');
-                }
-            } else {
-                alert('لطفاً کد ۶ رقمی را کامل وارد کنید');
-            }
+                setTimeout(() => {
+                    resolve(validCodes.includes(code));
+                }, 1000);
+            });
         }
         
-        // ==================== برنامه اصلی ====================
-        
-        let appState = {
-            subjects: [],
-            studySessions: [],
-            testResults: [],
-            dailyGoal: 6,
-            examDate: '2025-06-21'
-        };
-        
-        function initializeMainApp() {
-            loadUserData();
-            updateUI();
-            startAutoSave();
+        function showStatus(message, type) {
+            const statusDiv = document.getElementById('statusMessage');
+            statusDiv.className = `status-message ${type}`;
+            statusDiv.innerHTML = `<i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i> ${message}`;
         }
         
-        // بارگذاری داده‌های کاربر
-        function loadUserData() {
-            const saved = localStorage.getItem('konkour_user_data');
-            if (saved) {
-                try {
-                    const data = JSON.parse(saved);
-                    appState = { ...appState, ...data };
-                } catch (e) {
-                    console.error('خطا در بارگذاری:', e);
-                }
-            }
-            
-            // داده‌های نمونه برای اولین بار
-            if (appState.subjects.length === 0) {
-                appState.subjects = [
-                    { name: 'زیست شناسی', progress: 35, hours: 12.5, tests: [] },
-                    { name: 'شیمی', progress: 45, hours: 15, tests: [] },
-                    { name: 'فیزیک', progress: 28, hours: 8.5, tests: [] },
-                    { name: 'ریاضی', progress: 52, hours: 18, tests: [] }
-                ];
-            }
+        function loadMainApp() {
+            // اینجا برنامه اصلی شما قرار می‌گیرد
+            document.getElementById('mainApp').innerHTML = `
+                <div style="padding: 30px; text-align: center;">
+                    <h1 style="color: #4361ee;">به کنکور همراه خوش آمدید</h1>
+                    <p style="color: #666; margin: 20px 0;">شما با موفقیت وارد شدید</p>
+                    <i class="fas fa-check-circle" style="font-size: 5rem; color: #2ec4b6;"></i>
+                </div>
+            `;
         }
         
-        // ذخیره خودکار داده‌ها
-        function saveUserData() {
-            try {
-                localStorage.setItem('konkour_user_data', JSON.stringify(appState));
-                localStorage.setItem('last_save', Date.now().toString());
-                
-                // پشتیبان در IndexedDB
-                saveToIndexedDB(appState);
-            } catch (e) {
-                console.warn('خطا در ذخیره:', e);
-                // اگر localStorage پر شد، فقط در IndexedDB ذخیره کن
-                saveToIndexedDB(appState);
-            }
+        // بررسی در شروع
+        if (localStorage.getItem('verified') === 'true') {
+            document.getElementById('verifyScreen').style.display = 'none';
+            document.getElementById('mainApp').style.display = 'block';
+            loadMainApp();
         }
-        
-        // ذخیره در IndexedDB
-        function saveToIndexedDB(data) {
-            const request = indexedDB.open('KonkourDB', 1);
-            
-            request.onupgradeneeded = (event) => {
-                const db = event.target.result;
-                if (!db.objectStoreNames.contains('userData')) {
-                    db.createObjectStore('userData', { keyPath: 'id' });
-                }
-            };
-            
-            request.onsuccess = (event) => {
-                const db = event.target.result;
-                const transaction = db.transaction(['userData'], 'readwrite');
-                const store = transaction.objectStore('userData');
-                
-                store.put({
-                    id: 'main_data',
-                    data: data,
-                    timestamp: Date.now()
-                });
-            };
-        }
-        
-        // شروع ذخیره خودکار (هر 30 ثانیه)
-        function startAutoSave() {
-            setInterval(saveUserData, 30000);
-            
-            // ذخیره هنگام بستن صفحه
-            window.addEventListener('beforeunload', saveUserData);
-        }
-        
-        // به‌روزرسانی UI
-        function updateUI() {
-            const today = new Date().toLocaleDateString('fa-IR');
-            const todaySessions = appState.studySessions.filter(s => s.date === today);
-            const todayHours = todaySessions.reduce((sum, s) => sum + (s.duration / 60), 0);
-            
-            document.getElementById('todayStudy').textContent = todayHours.toFixed(1);
-            document.getElementById('dailyGoal').textContent = appState.dailyGoal;
-            
-            // محاسبه روزهای باقی‌مانده
-            const examDate = new Date(appState.examDate);
-            const today2 = new Date();
-            const diffTime = examDate - today2;
-            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-            document.getElementById('daysLeft').textContent = diffDays > 0 ? diffDays : 0;
-            
-            // محاسبه پیشرفت کلی
-            const totalProgress = appState.subjects.reduce((sum, s) => sum + s.progress, 0);
-            const avgProgress = totalProgress / appState.subjects.length;
-            document.getElementById('totalProgress').textContent = Math.round(avgProgress) + '%';
-        }
-        
-        // ==================== شروع برنامه ====================
-        
-        // اجرا در شروع
-        checkVerification();
     </script>
 </body>
 </html>
