@@ -43,7 +43,6 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            animation: slideDown 0.5s ease;
             font-size: 0.9rem;
         }
 
@@ -54,11 +53,9 @@
             padding: 6px 15px;
             border-radius: 50px;
             font-weight: bold;
-            transition: all 0.3s;
             display: flex;
             align-items: center;
             gap: 5px;
-            font-size: 0.85rem;
         }
 
         .auth-container {
@@ -79,6 +76,8 @@
             animation: float 6s ease-in-out infinite;
         }
 
+        @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
         .logo-icon {
             width: 70px;
             height: 70px;
@@ -90,10 +89,7 @@
             margin: 0 auto 15px;
         }
 
-        .logo-icon i {
-            font-size: 2rem;
-            color: white;
-        }
+        .logo-icon i { font-size: 2rem; color: white; }
 
         .logo h1 {
             font-size: 1.6rem;
@@ -101,11 +97,6 @@
             background: linear-gradient(135deg, #667eea, #764ba2);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-        }
-
-        .logo p {
-            color: #666;
-            font-size: 0.9rem;
         }
 
         .input-group {
@@ -120,7 +111,6 @@
             transform: translateY(-50%);
             color: #999;
             font-size: 1.1rem;
-            z-index: 1;
         }
 
         .input-group input {
@@ -129,13 +119,11 @@
             border: 2px solid #e0e0e0;
             border-radius: 15px;
             font-size: 0.95rem;
-            transition: all 0.3s;
             background: #f8f9fa;
         }
 
         .input-group input:focus {
             border-color: #667eea;
-            background: white;
             outline: none;
             box-shadow: 0 0 0 4px rgba(102,126,234,0.1);
         }
@@ -147,14 +135,9 @@
             transform: translateY(-50%);
             color: #999;
             cursor: pointer;
-            font-size: 1.1rem;
             background: transparent;
             border: none;
             padding: 5px;
-        }
-
-        .toggle-password:hover {
-            color: #667eea;
         }
 
         .btn {
@@ -172,44 +155,14 @@
             gap: 10px;
         }
 
-        .btn-primary {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-        }
+        .btn-primary { background: linear-gradient(135deg, #667eea, #764ba2); color: white; }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(102,126,234,0.3); }
+        .btn-success { background: linear-gradient(135deg, #2ecc71, #27ae60); color: white; }
+        .btn-outline { background: transparent; border: 2px solid #667eea; color: #667eea; }
+        .btn-outline:hover { background: #667eea; color: white; }
 
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(102,126,234,0.3);
-        }
-
-        .btn-success {
-            background: linear-gradient(135deg, #2ecc71, #27ae60);
-            color: white;
-        }
-
-        .btn-outline {
-            background: transparent;
-            border: 2px solid #667eea;
-            color: #667eea;
-        }
-
-        .btn-outline:hover {
-            background: #667eea;
-            color: white;
-        }
-
-        .switch-link {
-            text-align: center;
-            margin-top: 20px;
-            color: #666;
-        }
-
-        .switch-link a {
-            color: #667eea;
-            text-decoration: none;
-            font-weight: bold;
-            cursor: pointer;
-        }
+        .switch-link { text-align: center; margin-top: 20px; color: #666; }
+        .switch-link a { color: #667eea; text-decoration: none; font-weight: bold; cursor: pointer; }
 
         .message {
             padding: 12px;
@@ -219,59 +172,18 @@
             align-items: center;
             gap: 8px;
         }
+        .message.error { background: #fee; color: #c33; display: flex; }
+        .message.success { background: #e8f5e9; color: #2e7d32; display: flex; }
 
-        .message.error {
-            background: #fee;
-            color: #c33;
-            display: flex;
-        }
-
-        .message.success {
-            background: #e8f5e9;
-            color: #2e7d32;
-            display: flex;
-        }
-
-        .major-selector {
-            text-align: center;
-            padding: 20px;
-        }
-
-        .major-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            margin: 30px 0;
-        }
-
+        .major-selector { text-align: center; padding: 20px; }
+        .major-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin: 30px 0; }
         .major-card {
-            background: #f8f9fa;
-            border: 2px solid #e0e0e0;
-            border-radius: 15px;
-            padding: 20px;
-            cursor: pointer;
-            transition: all 0.3s;
+            background: #f8f9fa; border: 2px solid #e0e0e0; border-radius: 15px; padding: 20px; cursor: pointer; transition: all 0.3s;
         }
-
-        .major-card:hover {
-            transform: translateY(-5px);
-            border-color: #667eea;
-        }
-
-        .major-card.selected {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            border-color: transparent;
-        }
-
-        .major-card i {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-
-        .major-card h3 {
-            font-size: 1.2rem;
-        }
+        .major-card:hover { transform: translateY(-5px); border-color: #667eea; }
+        .major-card.selected { background: linear-gradient(135deg, #667eea, #764ba2); color: white; border-color: transparent; }
+        .major-card i { font-size: 2.5rem; margin-bottom: 10px; }
+        .major-card h3 { font-size: 1.2rem; }
 
         .app-header {
             background: linear-gradient(135deg, #667eea, #764ba2);
@@ -284,911 +196,264 @@
             gap: 15px;
         }
 
-        .user-info {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
+        .user-info { display: flex; align-items: center; gap: 15px; }
         .user-avatar {
-            width: 45px;
-            height: 45px;
-            background: rgba(255,255,255,0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
+            width: 45px; height: 45px; background: rgba(255,255,255,0.2); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
         }
-
-        .user-details h3 {
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-        }
-
-        .user-details p {
-            font-size: 0.85rem;
-            opacity: 0.9;
-        }
-
-        .user-medals-container {
-            display: flex;
-            gap: 5px;
-            margin-top: 5px;
-        }
-
-        .user-medal-icon {
-            width: 22px;
-            height: 22px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.8rem;
-            color: white;
-            background: linear-gradient(135deg, #ffd700, #e6c300);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-
-        .user-medal-icon.bronze { background: linear-gradient(135deg, #cd7f32, #b06d2a); }
-        .user-medal-icon.silver { background: linear-gradient(135deg, #c0c0c0, #a0a0a0); }
-        .user-medal-icon.gold { background: linear-gradient(135deg, #ffd700, #e6c300); }
-        .user-medal-icon.platinum { background: linear-gradient(135deg, #e5e4e2, #c0c0c0); }
-        .user-medal-icon.diamond { background: linear-gradient(135deg, #b9f2ff, #9ad9e6); }
+        .user-details h3 { font-size: 1.1rem; margin-bottom: 5px; }
+        .user-details p { font-size: 0.85rem; opacity: 0.9; }
 
         .logout-btn {
-            background: rgba(255,255,255,0.15);
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 10px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            transition: all 0.3s;
+            background: rgba(255,255,255,0.15); color: white; border: none; padding: 8px 15px; border-radius: 10px;
+            cursor: pointer; display: flex; align-items: center; gap: 5px; transition: all 0.3s;
         }
-
-        .logout-btn:hover {
-            background: rgba(255,255,255,0.25);
-            transform: translateY(-2px);
-        }
+        .logout-btn:hover { background: rgba(255,255,255,0.25); transform: translateY(-2px); }
 
         .motivation-banner {
             background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            padding: 15px 20px;
-            border-radius: 15px;
-            margin: 15px 20px;
-            text-align: center;
-            font-size: 1.1rem;
-            font-weight: 500;
-            box-shadow: 0 5px 15px rgba(102,126,234,0.3);
+            color: white; padding: 15px 20px; border-radius: 15px; margin: 15px 20px;
+            text-align: center; font-size: 1.1rem; font-weight: 500; box-shadow: 0 5px 15px rgba(102,126,234,0.3);
         }
-
-        .motivation-author {
-            font-size: 0.9rem;
-            opacity: 0.9;
-            margin-top: 5px;
-            font-style: italic;
-        }
+        .motivation-author { font-size: 0.9rem; opacity: 0.9; margin-top: 5px; font-style: italic; }
 
         .main-menu {
-            background: rgba(255,255,255,0.95);
-            border-bottom: 1px solid rgba(0,0,0,0.1);
-            padding: 0 15px;
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            background: rgba(255,255,255,0.95); border-bottom: 1px solid rgba(0,0,0,0.1);
+            padding: 0 15px; position: sticky; top: 0; z-index: 100;
         }
-
         .menu-items {
-            display: flex;
-            gap: 3px;
-            overflow-x: auto;
-            padding: 8px 0;
+            display: flex; gap: 3px; overflow-x: auto; padding: 8px 0;
         }
-
-        .menu-items::-webkit-scrollbar {
-            height: 5px;
-        }
-
-        .menu-items::-webkit-scrollbar-thumb {
-            background: #667eea;
-            border-radius: 10px;
-        }
-
+        .menu-items::-webkit-scrollbar { height: 5px; }
+        .menu-items::-webkit-scrollbar-thumb { background: #667eea; border-radius: 10px; }
         .menu-item {
-            padding: 8px 12px;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: all 0.3s;
-            white-space: nowrap;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            color: #666;
-            font-size: 0.85rem;
+            padding: 8px 12px; border-radius: 10px; cursor: pointer; white-space: nowrap;
+            display: flex; align-items: center; gap: 5px; color: #666; font-size: 0.85rem;
         }
+        .menu-item:hover { background: #f0f0f0; color: #333; }
+        .menu-item.active { background: linear-gradient(135deg, #667eea, #764ba2); color: white; }
 
-        .menu-item:hover {
-            background: #f0f0f0;
-            color: #333;
-        }
-
-        .menu-item.active {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-        }
-
-        .menu-item i {
-            font-size: 0.9rem;
-        }
-
-        .section {
-            display: none;
-            padding: 15px;
-        }
-
-        .section.active {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        .section { display: none; padding: 15px; animation: fadeIn 0.5s ease; }
+        .section.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
         .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 12px;
-            margin-bottom: 20px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 20px;
         }
-
         .stat-card {
-            background: white;
-            border-radius: 15px;
-            padding: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            background: white; border-radius: 15px; padding: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .stat-header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+        .stat-header i { font-size: 1.3rem; color: #667eea; }
+        .stat-value { font-size: 1.8rem; font-weight: bold; color: #667eea; margin: 5px 0; }
+        .stat-label { color: #666; font-size: 0.85rem; }
+        .stat-progress { height: 5px; background: #e0e0e0; border-radius: 3px; margin-top: 10px; overflow: hidden; }
+        .stat-progress-bar { height: 100%; background: linear-gradient(90deg, #667eea, #764ba2); transition: width 0.5s ease; }
+
+        .subjects-section, .weekly-planner, .notes-section, .exam-section, .medals-section {
+            background: white; border-radius: 15px; padding: 15px; margin: 15px 0; box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
 
-        .stat-header {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 10px;
-        }
-
-        .stat-header i {
-            font-size: 1.3rem;
-            color: #667eea;
-        }
-
-        .stat-value {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: #667eea;
-            margin: 5px 0;
-        }
-
-        .stat-label {
-            color: #666;
-            font-size: 0.85rem;
-        }
-
-        .stat-progress {
-            height: 5px;
-            background: #e0e0e0;
-            border-radius: 3px;
-            margin-top: 10px;
-            overflow: hidden;
-        }
-
-        .stat-progress-bar {
-            height: 100%;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-            border-radius: 3px;
-            transition: width 0.5s ease;
-        }
-
-        .subjects-section {
-            background: white;
-            border-radius: 15px;
-            padding: 15px;
-            margin: 15px 0;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-
-        .section-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 15px;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .section-title {
-            font-size: 1.1rem;
-            color: #333;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .section-title i {
-            color: #667eea;
-        }
+        .section-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 15px; flex-wrap: wrap; gap: 10px; }
+        .section-title { font-size: 1.1rem; color: #333; display: flex; align-items: center; gap: 8px; }
+        .section-title i { color: #667eea; }
 
         .grade-tabs {
-            display: flex;
-            gap: 5px;
-            background: #f0f0f0;
-            padding: 3px;
-            border-radius: 50px;
+            display: flex; gap: 5px; background: #f0f0f0; padding: 3px; border-radius: 50px;
         }
-
         .grade-tab {
-            padding: 5px 12px;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-weight: 500;
-            font-size: 0.85rem;
+            padding: 5px 12px; border-radius: 50px; cursor: pointer; font-weight: 500; font-size: 0.85rem;
         }
+        .grade-tab.active { background: linear-gradient(135deg, #667eea, #764ba2); color: white; }
 
-        .grade-tab.active {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-        }
-
-        .subjects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 15px;
-        }
-
+        .subjects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 15px; }
         .subject-card {
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-            border-radius: 12px;
-            padding: 15px;
-            border: 2px solid transparent;
-            transition: all 0.3s;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef); border-radius: 12px; padding: 15px;
+            border: 2px solid transparent; transition: all 0.3s;
         }
+        .subject-card:hover { transform: translateY(-3px); border-color: #667eea; }
 
-        .subject-card:hover {
-            transform: translateY(-3px);
-            border-color: #667eea;
-        }
-
-        .subject-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 12px;
-        }
-
-        .subject-icon {
-            width: 45px;
-            height: 45px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
-            color: white;
-        }
-
-        .subject-info {
-            flex: 1;
-        }
-
-        .subject-name {
-            font-weight: bold;
-            font-size: 1rem;
-            margin-bottom: 3px;
-        }
-
-        .subject-grade {
-            color: #666;
-            font-size: 0.8rem;
-        }
+        .subject-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+        .subject-icon { width: 45px; height: 45px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; color: white; }
+        .subject-info { flex: 1; }
+        .subject-name { font-weight: bold; font-size: 1rem; margin-bottom: 3px; }
+        .subject-grade { color: #666; font-size: 0.8rem; }
 
         .subject-stats {
-            display: flex;
-            justify-content: space-between;
-            margin: 12px 0;
-            padding: 8px 0;
-            border-top: 1px solid #e0e0e0;
-            border-bottom: 1px solid #e0e0e0;
+            display: flex; justify-content: space-between; margin: 12px 0; padding: 8px 0;
+            border-top: 1px solid #e0e0e0; border-bottom: 1px solid #e0e0e0;
         }
+        .subject-stat { text-align: center; }
+        .subject-stat-value { font-weight: bold; color: #667eea; font-size: 1.1rem; }
+        .subject-stat-label { color: #666; font-size: 0.75rem; margin-top: 3px; }
 
-        .subject-stat {
-            text-align: center;
-        }
+        .progress-bar { height: 6px; background: #e0e0e0; border-radius: 3px; overflow: hidden; margin: 10px 0; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, #667eea, #764ba2); transition: width 0.5s ease; }
 
-        .subject-stat-value {
-            font-weight: bold;
-            color: #667eea;
-            font-size: 1.1rem;
-        }
-
-        .subject-stat-label {
-            color: #666;
-            font-size: 0.75rem;
-            margin-top: 3px;
-        }
-
-        .progress-bar {
-            height: 6px;
-            background: #e0e0e0;
-            border-radius: 3px;
-            overflow: hidden;
-            margin: 10px 0;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-            border-radius: 3px;
-            transition: width 0.5s ease;
-        }
-
-        .subject-actions {
-            display: flex;
-            gap: 8px;
-            margin-top: 12px;
-        }
-
+        .subject-actions { display: flex; gap: 8px; margin-top: 12px; }
         .subject-btn {
-            flex: 1;
-            padding: 8px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 5px;
-            font-size: 0.85rem;
-            font-weight: 500;
+            flex: 1; padding: 8px; border: none; border-radius: 8px; cursor: pointer;
+            display: flex; align-items: center; justify-content: center; gap: 5px; font-size: 0.85rem; font-weight: 500;
         }
-
-        .btn-study {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-        }
-
-        .btn-test {
-            background: linear-gradient(135deg, #2ecc71, #27ae60);
-            color: white;
-        }
-
-        .btn-notes {
-            background: linear-gradient(135deg, #f39c12, #e67e22);
-            color: white;
-        }
-
-        .subject-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-        }
+        .btn-study { background: linear-gradient(135deg, #667eea, #764ba2); color: white; }
+        .btn-test { background: linear-gradient(135deg, #2ecc71, #27ae60); color: white; }
+        .btn-notes { background: linear-gradient(135deg, #f39c12, #e67e22); color: white; }
+        .subject-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 10px rgba(0,0,0,0.1); }
 
         .timer-section {
-            background: linear-gradient(135deg, #1a1a2e, #16213e);
-            color: white;
-            padding: 20px;
-            border-radius: 20px;
-            margin: 15px 0;
+            background: linear-gradient(135deg, #1a1a2e, #16213e); color: white; padding: 20px; border-radius: 20px; margin: 15px 0;
         }
-
         .timer-display {
-            font-size: 3.5rem;
-            font-weight: 800;
-            text-align: center;
-            font-family: 'Courier New', monospace;
-            margin: 15px 0;
-            text-shadow: 0 0 15px rgba(102,126,234,0.5);
+            font-size: 3.5rem; font-weight: 800; text-align: center; font-family: 'Courier New', monospace;
+            margin: 15px 0; text-shadow: 0 0 15px rgba(102,126,234,0.5);
         }
-
-        .timer-controls {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
+        .timer-controls { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
         .timer-btn {
-            padding: 12px 20px;
-            border: none;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 0.95rem;
-            cursor: pointer;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            min-width: 120px;
-            justify-content: center;
+            padding: 12px 20px; border: none; border-radius: 50px; font-weight: bold; font-size: 0.95rem;
+            cursor: pointer; display: flex; align-items: center; gap: 8px; min-width: 120px; justify-content: center;
         }
-
-        .timer-btn.start {
-            background: linear-gradient(135deg, #2ecc71, #27ae60);
-            color: white;
-        }
-
-        .timer-btn.pause {
-            background: linear-gradient(135deg, #f39c12, #e67e22);
-            color: white;
-        }
-
-        .timer-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-        }
-
-        .timer-selector {
-            display: flex;
-            justify-content: center;
-            gap: 8px;
-            margin: 15px 0;
-            flex-wrap: wrap;
-        }
-
+        .timer-btn.start { background: linear-gradient(135deg, #2ecc71, #27ae60); color: white; }
+        .timer-btn.pause { background: linear-gradient(135deg, #f39c12, #e67e22); color: white; }
+        .timer-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
+        .timer-selector { display: flex; justify-content: center; gap: 8px; margin: 15px 0; flex-wrap: wrap; }
         .timer-type {
-            padding: 8px 15px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s;
-            border: 1px solid rgba(255,255,255,0.2);
-            font-size: 0.9rem;
+            padding: 8px 15px; background: rgba(255,255,255,0.1); border-radius: 50px; cursor: pointer;
+            border: 1px solid rgba(255,255,255,0.2); font-size: 0.9rem;
         }
-
-        .timer-type.active {
-            background: white;
-            color: #1a1a2e;
-            transform: scale(1.05);
+        .timer-type.active { background: white; color: #1a1a2e; transform: scale(1.05); }
+        .timer-inputs { display: flex; flex-direction: column; gap: 10px; margin-top: 15px; }
+        .timer-input-group { width: 100%; }
+        .timer-input-group label { display: block; color: rgba(255,255,255,0.8); font-size: 0.85rem; margin-bottom: 5px; }
+        .timer-input-group select, .timer-input-group input {
+            width: 100%; padding: 10px; border-radius: 8px; border: none;
+            background: rgba(255,255,255,0.1); color: white; font-size: 0.95rem;
         }
+        .timer-input-group select option { background: #1a1a2e; color: white; }
+        #testFields { display: none; flex-direction: column; gap: 10px; }
+        @media (min-width: 768px) { .timer-inputs, #testFields { flex-direction: row; } .timer-input-group { flex: 1; } }
 
-        .timer-type:hover {
-            background: rgba(255,255,255,0.2);
-        }
-
-        .timer-inputs {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-top: 15px;
-        }
-
-        .timer-input-group {
-            width: 100%;
-        }
-
-        .timer-input-group label {
-            display: block;
-            color: rgba(255,255,255,0.8);
-            font-size: 0.85rem;
-            margin-bottom: 5px;
-        }
-
-        .timer-input-group select,
-        .timer-input-group input {
-            width: 100%;
-            padding: 10px;
-            border-radius: 8px;
-            border: none;
-            background: rgba(255,255,255,0.1);
-            color: white;
-            font-size: 0.95rem;
-        }
-
-        .timer-input-group select option {
-            background: #1a1a2e;
-            color: white;
-        }
-
-        #testFields {
-            display: none;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        @media (min-width: 768px) {
-            .timer-inputs, #testFields {
-                flex-direction: row;
-            }
-            .timer-input-group {
-                flex: 1;
-            }
-        }
-
-        /* برنامه هفتگی - روزها زیر هم */
-        .weekly-planner {
-            background: white;
-            border-radius: 15px;
-            padding: 15px;
-            margin: 15px 0;
-        }
-
-        .planner-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .week-navigation {
-            display: flex;
-            gap: 10px;
-        }
-
+        .planner-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .week-navigation { display: flex; gap: 10px; }
         .week-btn {
-            padding: 8px 15px;
-            background: #f0f0f0;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 5px;
+            padding: 8px 15px; background: #f0f0f0; border: none; border-radius: 8px; cursor: pointer;
+            display: flex; align-items: center; gap: 5px;
         }
-
-        .week-btn:hover {
-            background: #667eea;
-            color: white;
-        }
-
-        .week-days {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
+        .week-btn:hover { background: #667eea; color: white; }
+        .week-days { display: flex; flex-direction: column; gap: 10px; }
         .day-row {
-            display: grid;
-            grid-template-columns: 100px 1fr 80px;
-            gap: 10px;
-            background: #f8f9fa;
-            padding: 10px;
-            border-radius: 10px;
-            align-items: center;
-            border-right: 4px solid #667eea;
+            display: grid; grid-template-columns: 100px 1fr 80px; gap: 10px; background: #f8f9fa;
+            padding: 10px; border-radius: 10px; align-items: center; border-right: 4px solid #667eea;
         }
-
-        .day-row.today {
-            background: #eef2ff;
-            border-right-color: #ffd700;
-        }
-
-        .day-name {
-            font-weight: bold;
-            color: #333;
-        }
-
-        .day-tasks-list {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-        }
-
+        .day-row.today { background: #eef2ff; border-right-color: #ffd700; }
+        .day-name { font-weight: bold; color: #333; }
+        .day-tasks-list { display: flex; flex-direction: column; gap: 5px; }
         .task-badge {
-            background: white;
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-size: 0.85rem;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            border-right: 2px solid #667eea;
+            background: white; padding: 5px 10px; border-radius: 5px; font-size: 0.85rem;
+            display: flex; align-items: center; gap: 5px; border-right: 2px solid #667eea; cursor: pointer;
         }
+        .task-badge.completed { border-right-color: #2ecc71; opacity: 0.7; }
+        .task-time { color: #667eea; font-weight: bold; font-size: 0.8rem; }
+        .day-total { text-align: center; font-weight: bold; color: #667eea; }
 
-        .task-badge.completed {
-            border-right-color: #2ecc71;
-            opacity: 0.7;
-        }
-
-        .task-time {
-            color: #667eea;
-            font-weight: bold;
-            font-size: 0.8rem;
-        }
-
-        .day-total {
-            text-align: center;
-            font-weight: bold;
-            color: #667eea;
-        }
-
-        .view-toggle {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
+        .view-toggle { display: flex; gap: 10px; margin-bottom: 20px; }
         .view-btn {
-            padding: 8px 15px;
-            background: #f0f0f0;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s;
+            padding: 8px 15px; background: #f0f0f0; border: none; border-radius: 8px; cursor: pointer;
         }
+        .view-btn.active { background: #667eea; color: white; }
 
-        .view-btn.active {
-            background: #667eea;
-            color: white;
-        }
-
-        /* نمای جدولی هفتگی */
-        .weekly-table {
-            display: none;
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-
-        .weekly-table.active {
-            display: table;
-        }
-
-        .weekly-table th {
-            background: #667eea;
-            color: white;
-            padding: 10px;
-            text-align: center;
-            font-size: 0.9rem;
-        }
-
-        .weekly-table td {
-            border: 1px solid #e0e0e0;
-            padding: 8px;
-            vertical-align: top;
-            height: 100px;
-            font-size: 0.8rem;
-        }
-
-        .weekly-table .today {
-            background: #eef2ff;
-        }
-
+        .weekly-table { display: none; width: 100%; border-collapse: collapse; margin-top: 20px; }
+        .weekly-table.active { display: table; }
+        .weekly-table th { background: #667eea; color: white; padding: 10px; text-align: center; font-size: 0.9rem; }
+        .weekly-table td { border: 1px solid #e0e0e0; padding: 8px; vertical-align: top; height: 100px; font-size: 0.8rem; }
+        .weekly-table .today { background: #eef2ff; }
         .table-task {
-            background: #f8f9fa;
-            padding: 5px;
-            margin: 3px 0;
-            border-radius: 3px;
-            border-right: 2px solid #667eea;
+            background: #f8f9fa; padding: 5px; margin: 3px 0; border-radius: 3px; border-right: 2px solid #667eea; cursor: pointer;
+        }
+        .table-task.completed { border-right-color: #2ecc71; }
+
+        /* ========== نمودارهای حرفه‌ای ========== */
+        .charts-section { padding: 15px 0; }
+        
+        .chart-card {
+            background: linear-gradient(135deg, #ffffff, #f8f9fa);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 1px solid rgba(102,126,234,0.1);
+            position: relative;
+            overflow: hidden;
         }
 
-        .table-task.completed {
-            border-right-color: #2ecc71;
+        .chart-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #667eea);
+            background-size: 200% 100%;
+            animation: gradientMove 3s linear infinite;
         }
 
-        /* نمودارها */
-        .charts-section {
-            padding: 15px 0;
-        }
-
-        .chart-container {
-            background: white;
-            border-radius: 15px;
-            padding: 15px;
-            margin-bottom: 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
+        @keyframes gradientMove { 0% { background-position: 0% 50%; } 100% { background-position: 200% 50%; } }
 
         .chart-header {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
         }
 
         .chart-title {
-            font-size: 1rem;
+            font-size: 1.2rem;
             color: #333;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
         }
 
         .chart-title i {
+            font-size: 1.4rem;
             color: #667eea;
+            background: rgba(102,126,234,0.1);
+            padding: 8px;
+            border-radius: 10px;
         }
 
         .chart-controls {
             display: flex;
-            gap: 5px;
+            gap: 8px;
+            background: #f0f0f0;
+            padding: 4px;
+            border-radius: 50px;
         }
 
         .chart-btn {
-            padding: 5px 12px;
-            border: 2px solid #e0e0e0;
+            padding: 6px 15px;
+            border: none;
             border-radius: 50px;
-            background: white;
+            background: transparent;
             cursor: pointer;
+            font-size: 0.85rem;
             transition: all 0.3s;
-            font-size: 0.8rem;
-            white-space: nowrap;
         }
 
         .chart-btn.active {
             background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
-            border-color: transparent;
         }
 
-        canvas {
+        .chart-wrapper {
+            position: relative;
+            height: 300px;
             width: 100%;
-            height: 250px !important;
         }
 
-        .notes-section {
-            background: white;
-            border-radius: 15px;
-            padding: 15px;
-            margin: 15px 0;
-        }
-
-        .notes-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 15px;
-            margin-top: 15px;
-        }
-
-        .note-card {
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-            border-radius: 12px;
-            padding: 15px;
-            border: 2px solid #e0e0e0;
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-
-        .note-card:hover {
-            transform: translateY(-3px);
-            border-color: #f39c12;
-        }
-
-        .note-header {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 8px;
-        }
-
-        .note-icon {
-            width: 35px;
-            height: 35px;
-            background: linear-gradient(135deg, #f39c12, #e67e22);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-        }
-
-        .note-title {
-            font-weight: bold;
-            color: #333;
-            font-size: 0.95rem;
-        }
-
-        .note-date {
-            color: #666;
-            font-size: 0.75rem;
-            margin-top: 3px;
-        }
-
-        .note-preview {
-            color: #666;
-            font-size: 0.85rem;
-            margin-top: 8px;
-            padding-top: 8px;
-            border-top: 1px solid #e0e0e0;
-        }
-
-        .add-note-btn {
-            width: 100%;
-            padding: 12px;
-            background: linear-gradient(135deg, #f39c12, #e67e22);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-size: 1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            margin-top: 15px;
-        }
-
-        .add-note-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 15px rgba(243,156,18,0.3);
-        }
-
-        .exam-section {
-            background: white;
-            border-radius: 15px;
-            padding: 15px;
-            margin: 15px 0;
-        }
-
-        .exam-form {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 12px;
-        }
-
-        .exam-input {
-            padding: 10px;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            font-size: 0.95rem;
-            transition: all 0.3s;
-        }
-
-        .exam-input:focus {
-            border-color: #667eea;
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(102,126,234,0.1);
-        }
-
-        .exam-subjects-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-            margin: 15px 0;
-        }
-
-        .exam-list {
-            margin-top: 20px;
-        }
-
-        .exam-item {
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-            padding: 12px;
-            border-radius: 10px;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-right: 3px solid #667eea;
-            font-size: 0.9rem;
-        }
-
-        .exam-item:hover {
-            transform: translateX(-3px);
-            box-shadow: 0 5px 10px rgba(102,126,234,0.1);
-        }
-
-        @media (min-width: 768px) {
-            .exam-form {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .exam-subjects-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        .medals-section {
-            background: white;
-            border-radius: 15px;
-            padding: 15px;
-            margin: 15px 0;
-        }
-
+        /* مدال‌ها - فقط در بخش خودشون */
         .medals-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -1219,129 +484,79 @@
             justify-content: center;
         }
 
-        .medal-icon i {
-            font-size: 2rem;
-        }
-
+        .medal-icon i { font-size: 2rem; }
         .medal-bronze { color: #cd7f32; }
         .medal-silver { color: #c0c0c0; }
         .medal-gold { color: #ffd700; }
         .medal-platinum { color: #e5e4e2; }
         .medal-diamond { color: #b9f2ff; }
 
-        .medal-name {
-            font-weight: bold;
-            margin: 5px 0;
-            font-size: 0.95rem;
-        }
-
-        .medal-desc {
-            color: #666;
-            font-size: 0.8rem;
-            margin-bottom: 10px;
-        }
-
-        .medal-progress {
-            height: 4px;
-            background: #e0e0e0;
-            border-radius: 2px;
-            overflow: hidden;
-            margin: 10px 0;
-        }
-
-        .medal-progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #ffd700, #ff6b6b);
-            border-radius: 2px;
-            transition: width 0.5s ease;
-        }
-
-        .medal-status {
-            font-size: 0.8rem;
-            font-weight: bold;
-        }
-
+        .medal-name { font-weight: bold; margin: 5px 0; font-size: 0.95rem; }
+        .medal-desc { color: #666; font-size: 0.8rem; margin-bottom: 10px; }
+        .medal-progress { height: 4px; background: #e0e0e0; border-radius: 2px; overflow: hidden; margin: 10px 0; }
+        .medal-progress-fill { height: 100%; background: linear-gradient(90deg, #ffd700, #ff6b6b); transition: width 0.5s ease; }
+        .medal-status { font-size: 0.8rem; font-weight: bold; }
         .medal-status.unlocked { color: #27ae60; }
         .medal-status.locked { color: #e74c3c; }
 
         .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.5);
-            backdrop-filter: blur(8px);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-            padding: 15px;
+            display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.5); backdrop-filter: blur(8px); z-index: 1000;
+            align-items: center; justify-content: center; padding: 15px;
         }
-
-        .modal.active {
-            display: flex;
-            animation: fadeIn 0.3s ease;
-        }
-
+        .modal.active { display: flex; animation: fadeIn 0.3s ease; }
         .modal-content {
-            background: white;
-            border-radius: 20px;
-            padding: 20px;
-            max-width: 500px;
-            width: 100%;
-            max-height: 80vh;
-            overflow-y: auto;
+            background: white; border-radius: 20px; padding: 20px; max-width: 500px; width: 100%;
+            max-height: 80vh; overflow-y: auto;
         }
-
-        .modal-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 15px;
-        }
-
-        .modal-header h3 {
-            color: #333;
-            font-size: 1.2rem;
-        }
-
-        .modal-close {
-            background: none;
-            border: none;
-            font-size: 1.3rem;
-            cursor: pointer;
-            color: #999;
-            transition: all 0.3s;
-        }
-
-        .modal-close:hover {
-            color: #e74c3c;
-            transform: rotate(90deg);
-        }
+        .modal-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 15px; }
+        .modal-header h3 { color: #333; font-size: 1.2rem; }
+        .modal-close { background: none; border: none; font-size: 1.3rem; cursor: pointer; color: #999; }
+        .modal-close:hover { color: #e74c3c; transform: rotate(90deg); }
 
         .notification {
-            position: fixed;
-            left: 10px;
-            right: 10px;
-            bottom: 10px;
-            background: white;
-            border-radius: 10px;
-            padding: 12px 15px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-            border-right: 4px solid #667eea;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            z-index: 1001;
-            animation: slideIn 0.3s ease;
+            position: fixed; left: 10px; right: 10px; bottom: 10px; background: white; border-radius: 10px;
+            padding: 12px 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.2); border-right: 4px solid #667eea;
+            display: flex; align-items: center; gap: 10px; z-index: 1001; animation: slideIn 0.3s ease;
             font-size: 0.95rem;
         }
+        @keyframes slideIn { from { transform: translateY(100%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
 
-        @keyframes slideIn {
-            from { transform: translateY(100%); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+        .notes-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px; margin-top: 15px; }
+        .note-card {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef); border-radius: 12px; padding: 15px;
+            border: 2px solid #e0e0e0; transition: all 0.3s; cursor: pointer;
         }
+        .note-card:hover { transform: translateY(-3px); border-color: #f39c12; }
+        .note-header { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+        .note-icon {
+            width: 35px; height: 35px; background: linear-gradient(135deg, #f39c12, #e67e22);
+            border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white;
+        }
+        .note-title { font-weight: bold; color: #333; font-size: 0.95rem; }
+        .note-date { color: #666; font-size: 0.75rem; margin-top: 3px; }
+        .note-preview { color: #666; font-size: 0.85rem; margin-top: 8px; padding-top: 8px; border-top: 1px solid #e0e0e0; }
+        .add-note-btn {
+            width: 100%; padding: 12px; background: linear-gradient(135deg, #f39c12, #e67e22); color: white;
+            border: none; border-radius: 10px; font-size: 1rem; font-weight: bold; cursor: pointer;
+            display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 15px;
+        }
+        .add-note-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 15px rgba(243,156,18,0.3); }
+
+        .exam-form { display: grid; grid-template-columns: 1fr; gap: 12px; }
+        .exam-input {
+            padding: 10px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 0.95rem;
+        }
+        .exam-input:focus { border-color: #667eea; outline: none; box-shadow: 0 0 0 3px rgba(102,126,234,0.1); }
+        .exam-subjects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 15px 0; }
+        .exam-list { margin-top: 20px; }
+        .exam-item {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef); padding: 12px; border-radius: 10px;
+            margin-bottom: 8px; display: flex; align-items: center; justify-content: space-between;
+            border-right: 3px solid #667eea; font-size: 0.9rem;
+        }
+        .exam-item:hover { transform: translateX(-3px); box-shadow: 0 5px 10px rgba(102,126,234,0.1); }
+        @media (min-width: 768px) { .exam-form { grid-template-columns: repeat(2, 1fr); } .exam-subjects-grid { grid-template-columns: repeat(3, 1fr); } }
     </style>
 </head>
 <body>
@@ -1419,7 +634,6 @@
                     <div class="user-details">
                         <h3 id="displayName"></h3>
                         <p id="displayMajor"></p>
-                        <div class="user-medals-container" id="userMedals"></div>
                     </div>
                 </div>
                 <button class="logout-btn" onclick="logout()"><i class="fas fa-sign-out-alt"></i> خروج</button>
@@ -1544,52 +758,112 @@
                 </div>
             </div>
 
+            <!-- بخش نمودارها با طراحی حرفه‌ای -->
             <div id="charts" class="section">
                 <div class="charts-section">
-                    <div class="chart-container">
+                    <!-- نمودار رادار (تار عنکبوت) -->
+                    <div class="chart-card">
                         <div class="chart-header">
-                            <div class="chart-title"><i class="fas fa-chart-line"></i> پیشرفت هفتگی</div>
+                            <div class="chart-title">
+                                <i class="fas fa-chart-pie"></i>
+                                <span>نمودار تجمیعی دروس (تار عنکبوت)</span>
+                            </div>
                         </div>
-                        <canvas id="weeklyProgressChart"></canvas>
-                    </div>
-                    <div class="chart-container">
-                        <div class="chart-header">
-                            <div class="chart-title"><i class="fas fa-chart-bar"></i> پیشرفت ماهانه</div>
+                        <div class="chart-wrapper">
+                            <canvas id="radarChart"></canvas>
                         </div>
-                        <canvas id="monthlyProgressChart"></canvas>
                     </div>
-                    <div class="chart-container">
+
+                    <!-- نمودار پیشرفت هفتگی -->
+                    <div class="chart-card">
                         <div class="chart-header">
-                            <div class="chart-title"><i class="fas fa-chart-area"></i> پیشرفت شش ماهه</div>
+                            <div class="chart-title">
+                                <i class="fas fa-chart-line"></i>
+                                <span>پیشرفت هفتگی</span>
+                            </div>
+                            <div class="chart-controls">
+                                <span class="chart-btn active" onclick="changeChartPeriod('week', this)">هفته</span>
+                                <span class="chart-btn" onclick="changeChartPeriod('month', this)">ماه</span>
+                            </div>
                         </div>
-                        <canvas id="sixMonthProgressChart"></canvas>
+                        <div class="chart-wrapper">
+                            <canvas id="weeklyProgressChart"></canvas>
+                        </div>
                     </div>
-                    <div class="chart-container">
+
+                    <!-- نمودار ساعت مطالعه روزانه -->
+                    <div class="chart-card">
                         <div class="chart-header">
-                            <div class="chart-title"><i class="fas fa-clock"></i> ساعت مطالعه روزانه</div>
+                            <div class="chart-title">
+                                <i class="fas fa-clock"></i>
+                                <span>ساعت مطالعه روزانه</span>
+                            </div>
                             <div class="chart-controls">
                                 <span class="chart-btn active" onclick="changeTimeChartPeriod('week', this)">هفته</span>
                                 <span class="chart-btn" onclick="changeTimeChartPeriod('month', this)">ماه</span>
                                 <span class="chart-btn" onclick="changeTimeChartPeriod('year', this)">سال</span>
                             </div>
                         </div>
-                        <canvas id="timeChart"></canvas>
-                    </div>
-                    <div class="chart-container">
-                        <div class="chart-header">
-                            <div class="chart-title"><i class="fas fa-chart-pie"></i> توزیع زمان مطالعه</div>
+                        <div class="chart-wrapper">
+                            <canvas id="timeChart"></canvas>
                         </div>
-                        <canvas id="distributionChart"></canvas>
                     </div>
-                    <div class="chart-container">
+
+                    <!-- نمودار توزیع زمان مطالعه -->
+                    <div class="chart-card">
                         <div class="chart-header">
-                            <div class="chart-title"><i class="fas fa-chart-bar"></i> نتایج آزمون‌ها</div>
+                            <div class="chart-title">
+                                <i class="fas fa-chart-pie"></i>
+                                <span>توزیع زمان مطالعه</span>
+                            </div>
                         </div>
-                        <canvas id="examChart"></canvas>
+                        <div class="chart-wrapper">
+                            <canvas id="distributionChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- نمودار نتایج آزمون‌ها -->
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <div class="chart-title">
+                                <i class="fas fa-chart-bar"></i>
+                                <span>نتایج آزمون‌ها</span>
+                            </div>
+                        </div>
+                        <div class="chart-wrapper">
+                            <canvas id="examChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- نمودار پیشرفت شش ماهه -->
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <div class="chart-title">
+                                <i class="fas fa-chart-area"></i>
+                                <span>پیشرفت شش ماهه</span>
+                            </div>
+                        </div>
+                        <div class="chart-wrapper">
+                            <canvas id="sixMonthProgressChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- نمودار پیشرفت ماهانه -->
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <div class="chart-title">
+                                <i class="fas fa-chart-bar"></i>
+                                <span>پیشرفت ماهانه</span>
+                            </div>
+                        </div>
+                        <div class="chart-wrapper">
+                            <canvas id="monthlyProgressChart"></canvas>
+                        </div>
                     </div>
                 </div>
             </div>
 
+            <!-- بخش مدال‌ها -->
             <div id="medals" class="section">
                 <div class="medals-section">
                     <div class="section-header"><div class="section-title"><i class="fas fa-medal"></i> مدال‌های افتخار</div></div>
@@ -1790,8 +1064,8 @@
         let currentQuoteIndex = -1;
         let currentWeekOffset = 0;
 
-        function getUsers() { return JSON.parse(localStorage.getItem('konkour_users_v7') || '{}'); }
-        function saveUsers(users) { localStorage.setItem('konkour_users_v7', JSON.stringify(users)); }
+        function getUsers() { return JSON.parse(localStorage.getItem('konkour_users_v8') || '{}'); }
+        function saveUsers(users) { localStorage.setItem('konkour_users_v8', JSON.stringify(users)); }
 
         function togglePassword(inputId, btn) {
             const input = document.getElementById(inputId);
@@ -1927,7 +1201,6 @@
             updateRecentActivities();
             renderNotes();
             renderMedals();
-            updateUserMedals();
         }
 
         function showMainApp() {
@@ -2050,14 +1323,12 @@
         function renderWeekPlanner() {
             const days = ['شنبه', 'یکشنبه', 'دوشنبه', 'سه‌شنبه', 'چهارشنبه', 'پنجشنبه', 'جمعه'];
             const today = new Date().getDay();
-            const todayIndex = today === 0 ? 6 : today - 1; // تبدیل به شنبه=0
+            const todayIndex = today === 0 ? 6 : today - 1;
 
-            // به‌روزرسانی برچسب هفته
             const weekStart = getDateForDayOffset(0);
             const weekEnd = getDateForDayOffset(6);
             document.getElementById('currentWeekLabel').textContent = `${weekStart} تا ${weekEnd}`;
 
-            // نمایش ردیفی
             const rowsContainer = document.getElementById('weekRows');
             rowsContainer.innerHTML = '';
             for (let i = 0; i < 7; i++) {
@@ -2080,7 +1351,6 @@
                 `;
             }
 
-            // نمایش جدولی
             const tableBody = document.getElementById('weekTableBody');
             tableBody.innerHTML = '<tr>';
             for (let i = 0; i < 7; i++) {
@@ -2423,124 +1693,371 @@
             `).join('');
         }
 
+        // ==================== نمودارهای حرفه‌ای ====================
         function renderAllCharts() {
             if (!currentUser) return;
             const users = getUsers();
             const userData = users[currentUser].data;
 
-            // نمودار هفتگی
+            // نمودار رادار (تار عنکبوت)
+            const radarCtx = document.getElementById('radarChart').getContext('2d');
+            if (charts.radar) charts.radar.destroy();
+            
+            const radarSubjects = userData.subjects.slice(0, 6);
+            const radarLabels = radarSubjects.map(s => s.name.split(' ')[0]);
+            const radarData = radarSubjects.map(s => {
+                const lastTest = s.tests[s.tests.length - 1];
+                return lastTest ? lastTest.percent : s.progress;
+            });
+
+            charts.radar = new Chart(radarCtx, {
+                type: 'radar',
+                data: {
+                    labels: radarLabels,
+                    datasets: [{
+                        label: 'پیشرفت دروس',
+                        data: radarData,
+                        backgroundColor: 'rgba(102,126,234,0.2)',
+                        borderColor: '#667eea',
+                        borderWidth: 3,
+                        pointBackgroundColor: radarSubjects.map(s => s.color),
+                        pointBorderColor: '#fff',
+                        pointBorderWidth: 2,
+                        pointRadius: 6,
+                        pointHoverRadius: 8
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: { 
+                            callbacks: { 
+                                label: (ctx) => `${ctx.raw}%` 
+                            } 
+                        }
+                    },
+                    scales: {
+                        r: {
+                            beginAtZero: true,
+                            max: 100,
+                            ticks: { stepSize: 20, callback: (v) => v + '%' },
+                            grid: { color: 'rgba(0,0,0,0.1)' }
+                        }
+                    }
+                }
+            });
+
+            // نمودار پیشرفت هفتگی
             const weekCtx = document.getElementById('weeklyProgressChart').getContext('2d');
             if (charts.weekly) charts.weekly.destroy();
+            
+            const weekDays = ['ش', 'ی', 'د', 'س', 'چ', 'پ', 'ج'];
             let weekData = [];
             for (let i = 0; i < 7; i++) {
                 const dateKey = getDateForDayOffset(i);
                 const daySessions = userData.sessions.filter(s => s.date.split('T')[0] === dateKey);
                 weekData.push(daySessions.reduce((sum, s) => sum + s.duration / 3600, 0));
             }
+
             charts.weekly = new Chart(weekCtx, {
-                type: 'bar',
+                type: 'line',
                 data: {
-                    labels: ['ش', 'ی', 'د', 'س', 'چ', 'پ', 'ج'],
-                    datasets: [{ label: 'ساعت مطالعه', data: weekData, backgroundColor: '#667eea' }]
+                    labels: weekDays,
+                    datasets: [{
+                        label: 'ساعت مطالعه',
+                        data: weekData,
+                        borderColor: '#667eea',
+                        backgroundColor: 'rgba(102,126,234,0.1)',
+                        borderWidth: 3,
+                        fill: true,
+                        tension: 0.4,
+                        pointBackgroundColor: '#667eea',
+                        pointBorderColor: '#fff',
+                        pointBorderWidth: 2,
+                        pointRadius: 6
+                    }]
                 },
-                options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true } } }
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: { callbacks: { label: (ctx) => `${ctx.raw} ساعت` } }
+                    },
+                    scales: {
+                        y: { 
+                            beginAtZero: true,
+                            grid: { color: 'rgba(0,0,0,0.05)' },
+                            ticks: { callback: (v) => v + 'h' }
+                        },
+                        x: { grid: { display: false } }
+                    }
+                }
             });
 
-            // نمودار ماهانه
-            const monthCtx = document.getElementById('monthlyProgressChart').getContext('2d');
-            if (charts.monthly) charts.monthly.destroy();
-            let monthData = [];
-            let monthLabels = [];
-            for (let i = 29; i >= 0; i--) {
-                const date = new Date(); date.setDate(date.getDate() - i);
-                const dateKey = date.toISOString().split('T')[0];
-                const daySessions = userData.sessions.filter(s => s.date.split('T')[0] === dateKey);
-                monthData.push(daySessions.reduce((sum, s) => sum + s.duration / 3600, 0));
-                if (i % 5 === 0) monthLabels.push(date.getDate());
-                else monthLabels.push('');
+            // نمودار ساعت مطالعه روزانه
+            const timeCtx = document.getElementById('timeChart').getContext('2d');
+            if (charts.time) charts.time.destroy();
+
+            let timeLabels = [];
+            let timeData = [];
+            const period = document.querySelector('#timeChart').parentElement.parentElement.querySelector('.chart-btn.active')?.textContent || 'هفته';
+
+            if (period === 'هفته') {
+                for (let i = 6; i >= 0; i--) {
+                    const date = new Date();
+                    date.setDate(date.getDate() - i);
+                    const dateKey = date.toISOString().split('T')[0];
+                    const daySessions = userData.sessions.filter(s => s.date.split('T')[0] === dateKey);
+                    timeLabels.push(date.toLocaleDateString('fa-IR', { weekday: 'short' }));
+                    timeData.push(daySessions.reduce((sum, s) => sum + s.duration / 3600, 0));
+                }
+            } else if (period === 'ماه') {
+                for (let i = 29; i >= 0; i--) {
+                    const date = new Date();
+                    date.setDate(date.getDate() - i);
+                    const dateKey = date.toISOString().split('T')[0];
+                    const daySessions = userData.sessions.filter(s => s.date.split('T')[0] === dateKey);
+                    if (i % 5 === 0) timeLabels.push(date.getDate());
+                    else timeLabels.push('');
+                    timeData.push(daySessions.reduce((sum, s) => sum + s.duration / 3600, 0));
+                }
+            } else {
+                for (let i = 11; i >= 0; i--) {
+                    const date = new Date();
+                    date.setMonth(date.getMonth() - i);
+                    const monthKey = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`;
+                    const monthSessions = userData.sessions.filter(s => s.date.startsWith(monthKey));
+                    timeLabels.push(date.toLocaleDateString('fa-IR', { month: 'short' }));
+                    timeData.push(monthSessions.reduce((sum, s) => sum + s.duration / 3600, 0));
+                }
             }
-            charts.monthly = new Chart(monthCtx, {
-                type: 'line',
-                data: { labels: monthLabels, datasets: [{ data: monthData, borderColor: '#667eea', backgroundColor: 'rgba(102,126,234,0.1)', fill: true, tension: 0.4 }] },
-                options: { responsive: true, plugins: { legend: { display: false } } }
+
+            charts.time = new Chart(timeCtx, {
+                type: 'bar',
+                data: {
+                    labels: timeLabels,
+                    datasets: [{
+                        label: 'ساعت مطالعه',
+                        data: timeData,
+                        backgroundColor: 'rgba(102,126,234,0.7)',
+                        borderRadius: 8,
+                        barPercentage: 0.7
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: { callbacks: { label: (ctx) => `${ctx.raw} ساعت` } }
+                    },
+                    scales: {
+                        y: { 
+                            beginAtZero: true,
+                            grid: { color: 'rgba(0,0,0,0.05)' },
+                            ticks: { callback: (v) => v + 'h' }
+                        },
+                        x: { grid: { display: false } }
+                    }
+                }
             });
+
+            // نمودار توزیع زمان
+            const distCtx = document.getElementById('distributionChart').getContext('2d');
+            if (charts.distribution) charts.distribution.destroy();
+
+            const subjectHours = {};
+            userData.sessions.forEach(s => {
+                subjectHours[s.subject] = (subjectHours[s.subject] || 0) + s.duration / 3600;
+            });
+
+            if (Object.keys(subjectHours).length > 0) {
+                const colors = ['#667eea', '#764ba2', '#2ecc71', '#f39c12', '#e74c3c', '#3498db', '#9b59b6', '#1abc9c'];
+                charts.distribution = new Chart(distCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: Object.keys(subjectHours),
+                        datasets: [{
+                            data: Object.values(subjectHours),
+                            backgroundColor: Object.keys(subjectHours).map((_, i) => colors[i % colors.length] + '80'),
+                            borderColor: Object.keys(subjectHours).map((_, i) => colors[i % colors.length]),
+                            borderWidth: 2,
+                            hoverOffset: 20
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { position: 'bottom', rtl: true, labels: { usePointStyle: true, boxWidth: 8 } },
+                            tooltip: { callbacks: { label: (ctx) => `${ctx.label}: ${ctx.raw.toFixed(1)} ساعت` } }
+                        },
+                        cutout: '60%',
+                        animation: { animateRotate: true }
+                    }
+                });
+            }
+
+            // نمودار آزمون‌ها
+            const examCtx = document.getElementById('examChart').getContext('2d');
+            if (charts.exam) charts.exam.destroy();
+
+            const exams = userData.exams.slice(-10);
+            if (exams.length > 0) {
+                const examLabels = exams.map((_, i) => i + 1);
+                const examScores = exams.map(e => 
+                    Object.values(e.subjects).reduce((a, b) => a + b, 0) / Object.keys(e.subjects).length || 0
+                );
+
+                charts.exam = new Chart(examCtx, {
+                    type: 'line',
+                    data: {
+                        labels: examLabels,
+                        datasets: [{
+                            label: 'میانگین درصد',
+                            data: examScores,
+                            borderColor: '#667eea',
+                            backgroundColor: 'rgba(102,126,234,0.1)',
+                            borderWidth: 3,
+                            fill: true,
+                            tension: 0.4,
+                            pointBackgroundColor: '#667eea',
+                            pointBorderColor: '#fff',
+                            pointBorderWidth: 2,
+                            pointRadius: 6
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { display: false },
+                            tooltip: { callbacks: { label: (ctx) => `${ctx.raw.toFixed(1)}%` } }
+                        },
+                        scales: {
+                            y: { 
+                                beginAtZero: true, 
+                                max: 100,
+                                grid: { color: 'rgba(0,0,0,0.05)' },
+                                ticks: { callback: (v) => v + '%' }
+                            },
+                            x: { grid: { display: false }, title: { display: true, text: 'آزمون‌ها' } }
+                        }
+                    }
+                });
+            }
 
             // نمودار شش ماهه
             const sixMonthCtx = document.getElementById('sixMonthProgressChart').getContext('2d');
             if (charts.sixMonth) charts.sixMonth.destroy();
+
             let sixMonthData = [];
             let sixMonthLabels = [];
             for (let i = 5; i >= 0; i--) {
-                const month = new Date(); month.setMonth(month.getMonth() - i);
+                const month = new Date();
+                month.setMonth(month.getMonth() - i);
                 const monthKey = `${month.getFullYear()}-${String(month.getMonth() + 1).padStart(2, '0')}`;
                 const monthSessions = userData.sessions.filter(s => s.date.startsWith(monthKey));
                 sixMonthData.push(monthSessions.reduce((sum, s) => sum + s.duration / 3600, 0));
                 sixMonthLabels.push(month.toLocaleDateString('fa-IR', { month: 'short' }));
             }
+
             charts.sixMonth = new Chart(sixMonthCtx, {
                 type: 'bar',
-                data: { labels: sixMonthLabels, datasets: [{ data: sixMonthData, backgroundColor: '#2ecc71' }] },
-                options: { responsive: true, plugins: { legend: { display: false } } }
+                data: {
+                    labels: sixMonthLabels,
+                    datasets: [{
+                        label: 'ساعت مطالعه',
+                        data: sixMonthData,
+                        backgroundColor: 'rgba(46,204,113,0.7)',
+                        borderRadius: 8
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: { callbacks: { label: (ctx) => `${ctx.raw.toFixed(1)} ساعت` } }
+                    },
+                    scales: {
+                        y: { 
+                            beginAtZero: true,
+                            grid: { color: 'rgba(0,0,0,0.05)' },
+                            ticks: { callback: (v) => v + 'h' }
+                        }
+                    }
+                }
             });
 
-            // نمودار زمان
-            const timeCtx = document.getElementById('timeChart').getContext('2d');
-            if (charts.time) charts.time.destroy();
-            let timeData = [];
-            let timeLabels = [];
-            for (let i = 6; i >= 0; i--) {
-                const date = new Date(); date.setDate(date.getDate() - i);
-                const dateKey = date.toISOString().split('T')[0];
-                const daySessions = userData.sessions.filter(s => s.date.split('T')[0] === dateKey);
-                timeData.push(daySessions.reduce((sum, s) => sum + s.duration / 3600, 0));
-                timeLabels.push(date.toLocaleDateString('fa-IR', { weekday: 'short' }));
+            // نمودار ماهانه
+            const monthCtx = document.getElementById('monthlyProgressChart').getContext('2d');
+            if (charts.monthly) charts.monthly.destroy();
+
+            let monthData = [];
+            let monthLabels = [];
+            for (let i = 3; i >= 0; i--) {
+                const weekStart = new Date();
+                weekStart.setDate(weekStart.getDate() - (i * 7));
+                const weekEnd = new Date(weekStart);
+                weekEnd.setDate(weekEnd.getDate() + 7);
+                const weekSessions = userData.sessions.filter(s => {
+                    const d = new Date(s.date);
+                    return d >= weekStart && d < weekEnd;
+                });
+                monthData.push(weekSessions.reduce((sum, s) => sum + s.duration / 3600, 0));
+                monthLabels.push(`هفته ${4 - i}`);
             }
-            charts.time = new Chart(timeCtx, {
-                type: 'bar',
-                data: { labels: timeLabels, datasets: [{ data: timeData, backgroundColor: '#667eea' }] },
-                options: { responsive: true, plugins: { legend: { display: false } } }
+
+            charts.monthly = new Chart(monthCtx, {
+                type: 'line',
+                data: {
+                    labels: monthLabels,
+                    datasets: [{
+                        label: 'ساعت مطالعه',
+                        data: monthData,
+                        borderColor: '#f39c12',
+                        backgroundColor: 'rgba(243,156,18,0.1)',
+                        borderWidth: 3,
+                        fill: true,
+                        tension: 0.4,
+                        pointBackgroundColor: '#f39c12'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: { callbacks: { label: (ctx) => `${ctx.raw.toFixed(1)} ساعت` } }
+                    },
+                    scales: {
+                        y: { 
+                            beginAtZero: true,
+                            grid: { color: 'rgba(0,0,0,0.05)' },
+                            ticks: { callback: (v) => v + 'h' }
+                        }
+                    }
+                }
             });
-
-            // نمودار توزیع
-            const distCtx = document.getElementById('distributionChart').getContext('2d');
-            if (charts.distribution) charts.distribution.destroy();
-            const subjectHours = {};
-            userData.sessions.forEach(s => { subjectHours[s.subject] = (subjectHours[s.subject] || 0) + s.duration / 3600; });
-            if (Object.keys(subjectHours).length) {
-                charts.distribution = new Chart(distCtx, {
-                    type: 'doughnut',
-                    data: {
-                        labels: Object.keys(subjectHours),
-                        datasets: [{ data: Object.values(subjectHours), backgroundColor: ['#667eea', '#764ba2', '#2ecc71', '#f39c12', '#e74c3c'] }]
-                    },
-                    options: { responsive: true, plugins: { legend: { position: 'bottom' } } }
-                });
-            }
-
-            // نمودار آزمون
-            const examCtx = document.getElementById('examChart').getContext('2d');
-            if (charts.exam) charts.exam.destroy();
-            const exams = userData.exams.slice(-5);
-            if (exams.length) {
-                charts.exam = new Chart(examCtx, {
-                    type: 'line',
-                    data: {
-                        labels: exams.map((_, i) => i + 1),
-                        datasets: [{
-                            data: exams.map(e => Object.values(e.subjects).reduce((a, b) => a + b, 0) / Object.keys(e.subjects).length || 0),
-                            borderColor: '#667eea', backgroundColor: 'rgba(102,126,234,0.1)', fill: true, tension: 0.4
-                        }]
-                    },
-                    options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { min: 0, max: 100 } } }
-                });
-            }
         }
 
         function changeTimeChartPeriod(period, element) {
-            document.querySelectorAll('.chart-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('#timeChart').parentElement.parentElement.querySelectorAll('.chart-btn').forEach(b => b.classList.remove('active'));
             element.classList.add('active');
+            renderAllCharts();
         }
 
+        function changeChartPeriod(period, element) {
+            document.querySelectorAll('#weeklyProgressChart').parentElement.parentElement.querySelectorAll('.chart-btn').forEach(b => b.classList.remove('active'));
+            element.classList.add('active');
+            renderAllCharts();
+        }
+
+        // ==================== مدال‌ها ====================
         function renderMedals() {
             const container = document.getElementById('medalsGrid');
             const users = getUsers();
@@ -2587,44 +2104,36 @@
             let newMedals = false;
             const today = new Date().toISOString().split('T')[0];
             const todayHours = userData.sessions.filter(s => s.date.split('T')[0] === today).reduce((sum, s) => sum + s.duration / 3600, 0);
+            
             MEDALS.study.forEach(medal => {
                 if (todayHours >= medal.target && !userData.medals.includes(medal.name)) {
                     userData.medals.push(medal.name); newMedals = true;
                     showNotification(`🏆 مدال "${medal.name}" را به دست آوردید!`, 'success');
                 }
             });
+            
             const allTests = userData.subjects.flatMap(s => s.tests);
             const avgScore = allTests.length ? allTests.reduce((sum, t) => sum + t.percent, 0) / allTests.length : 0;
+            
             MEDALS.test.forEach(medal => {
                 if (avgScore >= medal.target && !userData.medals.includes(medal.name)) {
                     userData.medals.push(medal.name); newMedals = true;
                     showNotification(`🏆 مدال "${medal.name}" را به دست آوردید!`, 'success');
                 }
             });
+            
             const firstDay = new Date(userData.createdAt);
             const today2 = new Date();
             const daysDiff = Math.floor((today2 - firstDay) / (1000 * 60 * 60 * 24));
+            
             MEDALS.consistency.forEach(medal => {
                 if (daysDiff >= medal.target && !userData.medals.includes(medal.name)) {
                     userData.medals.push(medal.name); newMedals = true;
                     showNotification(`🏆 مدال "${medal.name}" را به دست آوردید!`, 'success');
                 }
             });
-            if (newMedals) { saveUsers(users); renderMedals(); updateUserMedals(); }
-        }
-
-        function updateUserMedals() {
-            const container = document.getElementById('userMedals');
-            const users = getUsers();
-            const userMedals = users[currentUser].data.medals || [];
-            container.innerHTML = userMedals.slice(0, 5).map(medal => {
-                let color = 'gold';
-                if (medal.includes('برنز')) color = 'bronze';
-                else if (medal.includes('نقره')) color = 'silver';
-                else if (medal.includes('پلاتین')) color = 'platinum';
-                else if (medal.includes('الماس')) color = 'diamond';
-                return `<div class="user-medal-icon ${color}" title="${medal}"><i class="fas fa-medal"></i></div>`;
-            }).join('');
+            
+            if (newMedals) { saveUsers(users); renderMedals(); }
         }
 
         function showNotification(message, type) {
