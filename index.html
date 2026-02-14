@@ -25,7 +25,7 @@
         }
 
         .container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -44,8 +44,6 @@
             align-items: center;
             justify-content: space-between;
             animation: slideDown 0.5s ease;
-            position: relative;
-            overflow: hidden;
             font-size: 0.9rem;
         }
 
@@ -172,26 +170,6 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.3);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-
-        .btn:hover::before {
-            width: 300px;
-            height: 300px;
         }
 
         .btn-primary {
@@ -231,25 +209,6 @@
             text-decoration: none;
             font-weight: bold;
             cursor: pointer;
-            position: relative;
-        }
-
-        .switch-link a::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            transform: scaleX(0);
-            transition: transform 0.3s;
-            transform-origin: right;
-        }
-
-        .switch-link a:hover::after {
-            transform: scaleX(1);
-            transform-origin: left;
         }
 
         .message {
@@ -323,16 +282,12 @@
             justify-content: space-between;
             flex-wrap: wrap;
             gap: 15px;
-            position: relative;
-            overflow: hidden;
         }
 
         .user-info {
             display: flex;
             align-items: center;
             gap: 15px;
-            position: relative;
-            z-index: 1;
         }
 
         .user-avatar {
@@ -344,7 +299,6 @@
             align-items: center;
             justify-content: center;
             font-size: 1.2rem;
-            backdrop-filter: blur(5px);
         }
 
         .user-details h3 {
@@ -364,14 +318,16 @@
         }
 
         .user-medal-icon {
-            width: 20px;
-            height: 20px;
+            width: 22px;
+            height: 22px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.7rem;
+            font-size: 0.8rem;
             color: white;
+            background: linear-gradient(135deg, #ffd700, #e6c300);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
 
         .user-medal-icon.bronze { background: linear-gradient(135deg, #cd7f32, #b06d2a); }
@@ -391,9 +347,6 @@
             align-items: center;
             gap: 5px;
             transition: all 0.3s;
-            backdrop-filter: blur(5px);
-            position: relative;
-            z-index: 1;
         }
 
         .logout-btn:hover {
@@ -411,8 +364,6 @@
             font-size: 1.1rem;
             font-weight: 500;
             box-shadow: 0 5px 15px rgba(102,126,234,0.3);
-            position: relative;
-            overflow: hidden;
         }
 
         .motivation-author {
@@ -424,7 +375,6 @@
 
         .main-menu {
             background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(0,0,0,0.1);
             padding: 0 15px;
             position: sticky;
@@ -437,17 +387,10 @@
             gap: 3px;
             overflow-x: auto;
             padding: 8px 0;
-            scrollbar-width: thin;
-            scrollbar-color: #667eea #e0e0e0;
         }
 
         .menu-items::-webkit-scrollbar {
             height: 5px;
-        }
-
-        .menu-items::-webkit-scrollbar-track {
-            background: #e0e0e0;
-            border-radius: 10px;
         }
 
         .menu-items::-webkit-scrollbar-thumb {
@@ -509,24 +452,6 @@
             border-radius: 15px;
             padding: 15px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .stat-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-        }
-
-        .stat-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
 
         .stat-header {
@@ -636,7 +561,6 @@
         .subject-card:hover {
             transform: translateY(-3px);
             border-color: #667eea;
-            box-shadow: 0 10px 20px rgba(102,126,234,0.1);
         }
 
         .subject-header {
@@ -655,7 +579,6 @@
             justify-content: center;
             font-size: 1.3rem;
             color: white;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
         }
 
         .subject-info {
@@ -760,7 +683,6 @@
             padding: 20px;
             border-radius: 20px;
             margin: 15px 0;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
         }
 
         .timer-display {
@@ -823,7 +745,6 @@
             border-radius: 50px;
             cursor: pointer;
             transition: all 0.3s;
-            backdrop-filter: blur(10px);
             border: 1px solid rgba(255,255,255,0.2);
             font-size: 0.9rem;
         }
@@ -879,10 +800,7 @@
         }
 
         @media (min-width: 768px) {
-            .timer-inputs {
-                flex-direction: row;
-            }
-            #testFields {
+            .timer-inputs, #testFields {
                 flex-direction: row;
             }
             .timer-input-group {
@@ -890,195 +808,225 @@
             }
         }
 
+        /* برنامه هفتگی - روزها زیر هم */
         .weekly-planner {
             background: white;
             border-radius: 15px;
             padding: 15px;
             margin: 15px 0;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
 
-        .week-days-modern {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            gap: 5px;
-            margin: 15px 0;
+        .planner-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
         }
 
-        .day-card-modern {
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-            border-radius: 10px;
-            padding: 10px 3px;
-            text-align: center;
-            transition: all 0.3s;
-            border: 2px solid transparent;
+        .week-navigation {
+            display: flex;
+            gap: 10px;
+        }
+
+        .week-btn {
+            padding: 8px 15px;
+            background: #f0f0f0;
+            border: none;
+            border-radius: 8px;
             cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
 
-        .day-card-modern.today {
-            background: linear-gradient(135deg, #667eea, #764ba2);
+        .week-btn:hover {
+            background: #667eea;
             color: white;
-        }
-
-        .day-name-modern {
-            font-weight: bold;
-            font-size: 0.9rem;
-            margin-bottom: 3px;
-        }
-
-        .day-progress-modern {
-            font-size: 1rem;
-            font-weight: bold;
-            color: #667eea;
-        }
-
-        .day-card-modern.today .day-progress-modern {
-            color: white;
-        }
-
-        .day-bar-modern {
-            height: 3px;
-            background: #e0e0e0;
-            border-radius: 2px;
-            margin-top: 5px;
-            overflow: hidden;
-        }
-
-        .day-bar-fill-modern {
-            height: 100%;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-            border-radius: 2px;
-            transition: width 0.5s ease;
         }
 
         .week-days {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            gap: 10px;
-            margin-top: 20px;
-        }
-
-        .day-planner {
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-            border-radius: 12px;
-            padding: 12px;
-            min-height: 300px;
-            border: 2px solid #e0e0e0;
-            transition: all 0.3s;
-        }
-
-        .day-planner:hover {
-            transform: translateY(-3px);
-            border-color: #667eea;
-        }
-
-        .day-planner.today {
-            border-color: #667eea;
-            background: linear-gradient(135deg, #eef2ff, #e0e7ff);
-        }
-
-        .day-header {
             display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .day-row {
+            display: grid;
+            grid-template-columns: 100px 1fr 80px;
+            gap: 10px;
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 10px;
             align-items: center;
-            justify-content: space-between;
-            margin-bottom: 10px;
-            padding-bottom: 8px;
-            border-bottom: 1px solid #e0e0e0;
+            border-right: 4px solid #667eea;
+        }
+
+        .day-row.today {
+            background: #eef2ff;
+            border-right-color: #ffd700;
         }
 
         .day-name {
             font-weight: bold;
             color: #333;
-            font-size: 1rem;
         }
 
-        .day-date {
-            color: #666;
+        .day-tasks-list {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .task-badge {
+            background: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            border-right: 2px solid #667eea;
+        }
+
+        .task-badge.completed {
+            border-right-color: #2ecc71;
+            opacity: 0.7;
+        }
+
+        .task-time {
+            color: #667eea;
+            font-weight: bold;
             font-size: 0.8rem;
         }
 
-        .day-tasks {
-            min-height: 200px;
-            max-height: 200px;
-            overflow-y: auto;
-            padding-right: 5px;
-        }
-
-        .day-tasks::-webkit-scrollbar {
-            width: 4px;
-        }
-
-        .day-tasks::-webkit-scrollbar-track {
-            background: #e0e0e0;
-            border-radius: 10px;
-        }
-
-        .day-tasks::-webkit-scrollbar-thumb {
-            background: #667eea;
-            border-radius: 10px;
-        }
-
-        .task-item {
-            background: white;
-            padding: 8px;
-            border-radius: 8px;
-            margin-bottom: 6px;
-            border-right: 3px solid #667eea;
-            font-size: 0.85rem;
-            cursor: pointer;
-            transition: all 0.3s;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-
-        .task-item:hover {
-            transform: translateX(-3px);
-            box-shadow: 0 5px 10px rgba(102,126,234,0.1);
-        }
-
-        .task-item.completed {
-            opacity: 0.7;
-            border-right-color: #2ecc71;
-            background: linear-gradient(135deg, #f0fff0, #e8ffe8);
-        }
-
-        .task-item .task-time {
+        .day-total {
+            text-align: center;
+            font-weight: bold;
             color: #667eea;
-            font-size: 0.75rem;
-            margin-bottom: 2px;
-            font-weight: bold;
         }
 
-        .task-item .task-subject {
-            font-weight: bold;
-            margin-bottom: 2px;
+        .view-toggle {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
         }
 
-        .task-item .task-desc {
-            color: #666;
-            font-size: 0.75rem;
-        }
-
-        .add-task-btn {
-            width: 100%;
-            padding: 8px;
+        .view-btn {
+            padding: 8px 15px;
             background: #f0f0f0;
-            border: 2px dashed #999;
+            border: none;
             border-radius: 8px;
-            color: #666;
             cursor: pointer;
             transition: all 0.3s;
+        }
+
+        .view-btn.active {
+            background: #667eea;
+            color: white;
+        }
+
+        /* نمای جدولی هفتگی */
+        .weekly-table {
+            display: none;
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .weekly-table.active {
+            display: table;
+        }
+
+        .weekly-table th {
+            background: #667eea;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .weekly-table td {
+            border: 1px solid #e0e0e0;
+            padding: 8px;
+            vertical-align: top;
+            height: 100px;
+            font-size: 0.8rem;
+        }
+
+        .weekly-table .today {
+            background: #eef2ff;
+        }
+
+        .table-task {
+            background: #f8f9fa;
+            padding: 5px;
+            margin: 3px 0;
+            border-radius: 3px;
+            border-right: 2px solid #667eea;
+        }
+
+        .table-task.completed {
+            border-right-color: #2ecc71;
+        }
+
+        /* نمودارها */
+        .charts-section {
+            padding: 15px 0;
+        }
+
+        .chart-container {
+            background: white;
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .chart-header {
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 5px;
-            margin-top: 8px;
-            font-size: 0.85rem;
+            justify-content: space-between;
+            margin-bottom: 15px;
         }
 
-        .add-task-btn:hover {
-            background: #e0e0e0;
-            border-color: #667eea;
+        .chart-title {
+            font-size: 1rem;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .chart-title i {
             color: #667eea;
+        }
+
+        .chart-controls {
+            display: flex;
+            gap: 5px;
+        }
+
+        .chart-btn {
+            padding: 5px 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 50px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.8rem;
+            white-space: nowrap;
+        }
+
+        .chart-btn.active {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-color: transparent;
+        }
+
+        canvas {
+            width: 100%;
+            height: 250px !important;
         }
 
         .notes-section {
@@ -1086,7 +1034,6 @@
             border-radius: 15px;
             padding: 15px;
             margin: 15px 0;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
 
         .notes-grid {
@@ -1108,7 +1055,6 @@
         .note-card:hover {
             transform: translateY(-3px);
             border-color: #f39c12;
-            box-shadow: 0 8px 15px rgba(243,156,18,0.1);
         }
 
         .note-header {
@@ -1177,7 +1123,6 @@
             border-radius: 15px;
             padding: 15px;
             margin: 15px 0;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
 
         .exam-form {
@@ -1219,7 +1164,6 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            transition: all 0.3s;
             border-right: 3px solid #667eea;
             font-size: 0.9rem;
         }
@@ -1238,82 +1182,11 @@
             }
         }
 
-        .charts-section {
-            padding: 15px 0;
-        }
-
-        .chart-section-title {
-            font-size: 1.1rem;
-            margin: 20px 0 10px;
-            padding-right: 10px;
-            border-right: 3px solid #667eea;
-            color: #333;
-        }
-
-        .chart-container {
-            background: white;
-            border-radius: 15px;
-            padding: 15px;
-            margin-bottom: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-
-        .chart-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 15px;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .chart-title {
-            font-size: 1rem;
-            color: #333;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .chart-title i {
-            color: #667eea;
-        }
-
-        .chart-controls {
-            display: flex;
-            gap: 5px;
-            overflow-x: auto;
-            padding-bottom: 5px;
-        }
-
-        .chart-btn {
-            padding: 5px 12px;
-            border: 2px solid #e0e0e0;
-            border-radius: 50px;
-            background: white;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-size: 0.8rem;
-            white-space: nowrap;
-        }
-
-        .chart-btn.active {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            border-color: transparent;
-        }
-
-        canvas {
-            width: 100%;
-            height: 200px !important;
-        }
-
         .medals-section {
             background: white;
             border-radius: 15px;
             padding: 15px;
             margin: 15px 0;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
 
         .medals-grid {
@@ -1323,7 +1196,7 @@
             margin-top: 15px;
         }
 
-        .medal-card-new {
+        .medal-card {
             background: linear-gradient(135deg, #f8f9fa, #e9ecef);
             border-radius: 12px;
             padding: 15px;
@@ -1332,12 +1205,12 @@
             border: 2px solid transparent;
         }
 
-        .medal-card-new.unlocked {
+        .medal-card.unlocked {
             border-color: #ffd700;
             box-shadow: 0 0 20px rgba(255,215,0,0.2);
         }
 
-        .medal-icon-new {
+        .medal-icon {
             width: 50px;
             height: 50px;
             margin: 0 auto 8px;
@@ -1346,7 +1219,7 @@
             justify-content: center;
         }
 
-        .medal-icon-new i {
+        .medal-icon i {
             font-size: 2rem;
         }
 
@@ -1356,19 +1229,19 @@
         .medal-platinum { color: #e5e4e2; }
         .medal-diamond { color: #b9f2ff; }
 
-        .medal-name-new {
+        .medal-name {
             font-weight: bold;
             margin: 5px 0;
             font-size: 0.95rem;
         }
 
-        .medal-desc-new {
+        .medal-desc {
             color: #666;
             font-size: 0.8rem;
             margin-bottom: 10px;
         }
 
-        .medal-progress-new {
+        .medal-progress {
             height: 4px;
             background: #e0e0e0;
             border-radius: 2px;
@@ -1376,20 +1249,20 @@
             margin: 10px 0;
         }
 
-        .medal-progress-fill-new {
+        .medal-progress-fill {
             height: 100%;
             background: linear-gradient(90deg, #ffd700, #ff6b6b);
             border-radius: 2px;
             transition: width 0.5s ease;
         }
 
-        .medal-status-new {
+        .medal-status {
             font-size: 0.8rem;
             font-weight: bold;
         }
 
-        .medal-status-new.unlocked { color: #27ae60; }
-        .medal-status-new.locked { color: #e74c3c; }
+        .medal-status.unlocked { color: #27ae60; }
+        .medal-status.locked { color: #e74c3c; }
 
         .modal {
             display: none;
@@ -1419,7 +1292,6 @@
             width: 100%;
             max-height: 80vh;
             overflow-y: auto;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
         }
 
         .modal-header {
@@ -1470,57 +1342,19 @@
             from { transform: translateY(100%); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
         }
-
-        @media (min-width: 768px) {
-            .stats-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-            .subjects-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .week-days {
-                grid-template-columns: repeat(7, 1fr);
-            }
-            .medals-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            .notification {
-                left: 20px;
-                right: 20px;
-                max-width: 400px;
-                margin: 0 auto;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .subjects-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            .medals-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="telegram-banner">
-            <div>
-                <i class="fab fa-telegram"></i>
-                <span>آخرین اخبار و آپدیت‌ها</span>
-            </div>
-            <a href="https://t.me/konkorkhabar" target="_blank">
-                <i class="fab fa-telegram"></i>
-                <span>@konkorkhabar</span>
-            </a>
+            <div><i class="fab fa-telegram"></i> آخرین اخبار و آپدیت‌ها</div>
+            <a href="https://t.me/konkorkhabar" target="_blank"><i class="fab fa-telegram"></i> @konkorkhabar</a>
         </div>
 
         <div id="authContainer" class="auth-container">
             <div class="auth-box">
                 <div class="logo">
-                    <div class="logo-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
+                    <div class="logo-icon"><i class="fas fa-graduation-cap"></i></div>
                     <h1>کنکور همراه</h1>
                     <p>برنامه‌ریزی هوشمند برای موفقیت</p>
                 </div>
@@ -1533,17 +1367,11 @@
                     <div class="input-group">
                         <i class="fas fa-lock"></i>
                         <input type="password" id="loginPassword" placeholder="رمز عبور">
-                        <button class="toggle-password" onclick="togglePassword('loginPassword', this)">
-                            <i class="fas fa-eye"></i>
-                        </button>
+                        <button class="toggle-password" onclick="togglePassword('loginPassword', this)"><i class="fas fa-eye"></i></button>
                     </div>
                     <div id="loginMessage" class="message"></div>
-                    <button class="btn btn-primary" onclick="login()">
-                        <i class="fas fa-sign-in-alt"></i> ورود
-                    </button>
-                    <div class="switch-link">
-                        حساب کاربری ندارید؟ <a onclick="showRegister()">ثبت‌نام کنید</a>
-                    </div>
+                    <button class="btn btn-primary" onclick="login()"><i class="fas fa-sign-in-alt"></i> ورود</button>
+                    <div class="switch-link">حساب کاربری ندارید؟ <a onclick="showRegister()">ثبت‌نام کنید</a></div>
                 </div>
 
                 <div id="registerForm" style="display: none;">
@@ -1554,24 +1382,16 @@
                     <div class="input-group">
                         <i class="fas fa-lock"></i>
                         <input type="password" id="registerPassword" placeholder="رمز عبور">
-                        <button class="toggle-password" onclick="togglePassword('registerPassword', this)">
-                            <i class="fas fa-eye"></i>
-                        </button>
+                        <button class="toggle-password" onclick="togglePassword('registerPassword', this)"><i class="fas fa-eye"></i></button>
                     </div>
                     <div class="input-group">
                         <i class="fas fa-lock"></i>
                         <input type="password" id="registerConfirm" placeholder="تکرار رمز عبور">
-                        <button class="toggle-password" onclick="togglePassword('registerConfirm', this)">
-                            <i class="fas fa-eye"></i>
-                        </button>
+                        <button class="toggle-password" onclick="togglePassword('registerConfirm', this)"><i class="fas fa-eye"></i></button>
                     </div>
                     <div id="registerMessage" class="message"></div>
-                    <button class="btn btn-primary" onclick="register()">
-                        <i class="fas fa-user-plus"></i> ثبت‌نام
-                    </button>
-                    <div class="switch-link">
-                        قبلاً ثبت‌نام کرده‌اید؟ <a onclick="showLogin()">وارد شوید</a>
-                    </div>
+                    <button class="btn btn-primary" onclick="register()"><i class="fas fa-user-plus"></i> ثبت‌نام</button>
+                    <div class="switch-link">قبلاً ثبت‌نام کرده‌اید؟ <a onclick="showLogin()">وارد شوید</a></div>
                 </div>
             </div>
         </div>
@@ -1579,186 +1399,94 @@
         <div id="majorSelector" style="display: none; padding: 20px;">
             <div class="major-selector">
                 <div class="logo">
-                    <div class="logo-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
+                    <div class="logo-icon"><i class="fas fa-graduation-cap"></i></div>
                     <h2>رشته خود را انتخاب کنید</h2>
                     <p>برای شروع، رشته تحصیلی خود را انتخاب کنید</p>
                 </div>
-
                 <div class="major-grid">
-                    <div class="major-card" onclick="selectMajor('تجربی')">
-                        <i class="fas fa-dna"></i>
-                        <h3>تجربی</h3>
-                    </div>
-                    <div class="major-card" onclick="selectMajor('ریاضی')">
-                        <i class="fas fa-calculator"></i>
-                        <h3>ریاضی</h3>
-                    </div>
-                    <div class="major-card" onclick="selectMajor('انسانی')">
-                        <i class="fas fa-landmark"></i>
-                        <h3>انسانی</h3>
-                    </div>
+                    <div class="major-card" onclick="selectMajor('تجربی')"><i class="fas fa-dna"></i><h3>تجربی</h3></div>
+                    <div class="major-card" onclick="selectMajor('ریاضی')"><i class="fas fa-calculator"></i><h3>ریاضی</h3></div>
+                    <div class="major-card" onclick="selectMajor('انسانی')"><i class="fas fa-landmark"></i><h3>انسانی</h3></div>
                 </div>
-
-                <button class="btn btn-primary" id="confirmMajorBtn" onclick="confirmMajor()" disabled>
-                    تأیید و ادامه
-                </button>
+                <button class="btn btn-primary" id="confirmMajorBtn" onclick="confirmMajor()" disabled>تأیید و ادامه</button>
             </div>
         </div>
 
         <div id="mainApp" class="main-app" style="display: none;">
             <div class="app-header">
                 <div class="user-info">
-                    <div class="user-avatar">
-                        <i class="fas fa-user"></i>
-                    </div>
+                    <div class="user-avatar"><i class="fas fa-user"></i></div>
                     <div class="user-details">
                         <h3 id="displayName"></h3>
                         <p id="displayMajor"></p>
                         <div class="user-medals-container" id="userMedals"></div>
                     </div>
                 </div>
-                <button class="logout-btn" onclick="logout()">
-                    <i class="fas fa-sign-out-alt"></i> خروج
-                </button>
+                <button class="logout-btn" onclick="logout()"><i class="fas fa-sign-out-alt"></i> خروج</button>
             </div>
 
             <div id="motivationBanner" class="motivation-banner"></div>
 
             <div class="main-menu">
                 <div class="menu-items">
-                    <div class="menu-item active" onclick="showSection('dashboard')">
-                        <i class="fas fa-home"></i>
-                        <span>داشبورد</span>
-                    </div>
-                    <div class="menu-item" onclick="showSection('planner')">
-                        <i class="fas fa-calendar-alt"></i>
-                        <span>برنامه هفتگی</span>
-                    </div>
-                    <div class="menu-item" onclick="showSection('subjects')">
-                        <i class="fas fa-book"></i>
-                        <span>دروس</span>
-                    </div>
-                    <div class="menu-item" onclick="showSection('timer')">
-                        <i class="fas fa-stopwatch"></i>
-                        <span>تایمر</span>
-                    </div>
-                    <div class="menu-item" onclick="showSection('notes')">
-                        <i class="fas fa-sticky-note"></i>
-                        <span>دفترچه نکات</span>
-                    </div>
-                    <div class="menu-item" onclick="showSection('exams')">
-                        <i class="fas fa-clipboard-check"></i>
-                        <span>آزمون‌ها</span>
-                    </div>
-                    <div class="menu-item" onclick="showSection('charts')">
-                        <i class="fas fa-chart-line"></i>
-                        <span>نمودارها</span>
-                    </div>
-                    <div class="menu-item" onclick="showSection('medals')">
-                        <i class="fas fa-medal"></i>
-                        <span>مدال‌ها</span>
-                    </div>
+                    <div class="menu-item active" onclick="showSection('dashboard')"><i class="fas fa-home"></i>داشبورد</div>
+                    <div class="menu-item" onclick="showSection('planner')"><i class="fas fa-calendar-alt"></i>برنامه هفتگی</div>
+                    <div class="menu-item" onclick="showSection('subjects')"><i class="fas fa-book"></i>دروس</div>
+                    <div class="menu-item" onclick="showSection('timer')"><i class="fas fa-stopwatch"></i>تایمر</div>
+                    <div class="menu-item" onclick="showSection('notes')"><i class="fas fa-sticky-note"></i>دفترچه نکات</div>
+                    <div class="menu-item" onclick="showSection('exams')"><i class="fas fa-clipboard-check"></i>آزمون‌ها</div>
+                    <div class="menu-item" onclick="showSection('charts')"><i class="fas fa-chart-line"></i>نمودارها</div>
+                    <div class="menu-item" onclick="showSection('medals')"><i class="fas fa-medal"></i>مدال‌ها</div>
                 </div>
             </div>
 
             <div id="dashboard" class="section active">
                 <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-header">
-                            <i class="fas fa-clock"></i>
-                            <span>مطالعه امروز</span>
-                        </div>
-                        <div class="stat-value" id="todayStudy">۰</div>
-                        <div class="stat-label">ساعت</div>
-                        <div class="stat-progress">
-                            <div class="stat-progress-bar" id="todayProgress" style="width: 0%"></div>
-                        </div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-header">
-                            <i class="fas fa-calendar-week"></i>
-                            <span>مطالعه هفته</span>
-                        </div>
-                        <div class="stat-value" id="weekStudy">۰</div>
-                        <div class="stat-label">ساعت</div>
-                        <div class="stat-progress">
-                            <div class="stat-progress-bar" id="weekProgress" style="width: 0%"></div>
-                        </div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-header">
-                            <i class="fas fa-check-circle"></i>
-                            <span>موفقیت روز</span>
-                        </div>
-                        <div class="stat-value" id="todaySuccess">۰%</div>
-                        <div class="stat-label">از برنامه</div>
-                        <div class="stat-progress">
-                            <div class="stat-progress-bar" id="successProgress" style="width: 0%"></div>
-                        </div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-header">
-                            <i class="fas fa-trophy"></i>
-                            <span>موفقیت هفته</span>
-                        </div>
-                        <div class="stat-value" id="weekSuccess">۰%</div>
-                        <div class="stat-label">میانگین</div>
-                        <div class="stat-progress">
-                            <div class="stat-progress-bar" id="weekSuccessProgress" style="width: 0%"></div>
-                        </div>
-                    </div>
+                    <div class="stat-card"><div class="stat-header"><i class="fas fa-clock"></i><span>مطالعه امروز</span></div><div class="stat-value" id="todayStudy">۰</div><div class="stat-label">ساعت</div><div class="stat-progress"><div class="stat-progress-bar" id="todayProgress" style="width:0%"></div></div></div>
+                    <div class="stat-card"><div class="stat-header"><i class="fas fa-calendar-week"></i><span>مطالعه هفته</span></div><div class="stat-value" id="weekStudy">۰</div><div class="stat-label">ساعت</div><div class="stat-progress"><div class="stat-progress-bar" id="weekProgress" style="width:0%"></div></div></div>
+                    <div class="stat-card"><div class="stat-header"><i class="fas fa-check-circle"></i><span>موفقیت روز</span></div><div class="stat-value" id="todaySuccess">۰%</div><div class="stat-label">از برنامه</div><div class="stat-progress"><div class="stat-progress-bar" id="successProgress" style="width:0%"></div></div></div>
+                    <div class="stat-card"><div class="stat-header"><i class="fas fa-trophy"></i><span>موفقیت هفته</span></div><div class="stat-value" id="weekSuccess">۰%</div><div class="stat-label">میانگین</div><div class="stat-progress"><div class="stat-progress-bar" id="weekSuccessProgress" style="width:0%"></div></div></div>
                 </div>
-
                 <div class="weekly-planner">
                     <div class="section-header">
-                        <div class="section-title">
-                            <i class="fas fa-calendar-day"></i>
-                            <span>برنامه امروز</span>
-                        </div>
-                        <button class="btn btn-outline" onclick="showSection('planner')">
-                            <i class="fas fa-edit"></i> ویرایش
-                        </button>
+                        <div class="section-title"><i class="fas fa-calendar-day"></i> برنامه امروز</div>
+                        <button class="btn btn-outline" onclick="showSection('planner')"><i class="fas fa-edit"></i> ویرایش</button>
                     </div>
-                    <div id="todayTasks" class="day-tasks"></div>
+                    <div id="todayTasks" class="day-tasks-list"></div>
                 </div>
-
                 <div class="subjects-section">
-                    <div class="section-header">
-                        <div class="section-title">
-                            <i class="fas fa-history"></i>
-                            <span>فعالیت‌های اخیر</span>
-                        </div>
-                    </div>
+                    <div class="section-header"><div class="section-title"><i class="fas fa-history"></i> فعالیت‌های اخیر</div></div>
                     <div id="recentActivities"></div>
                 </div>
             </div>
 
             <div id="planner" class="section">
                 <div class="weekly-planner">
-                    <div class="section-header">
-                        <div class="section-title">
-                            <i class="fas fa-calendar-alt"></i>
-                            <span>برنامه‌ریزی هفتگی</span>
+                    <div class="planner-header">
+                        <div class="section-title"><i class="fas fa-calendar-alt"></i> برنامه‌ریزی هفتگی</div>
+                        <div class="week-navigation">
+                            <button class="week-btn" onclick="changeWeek(-1)"><i class="fas fa-chevron-right"></i> هفته قبل</button>
+                            <span id="currentWeekLabel" style="font-weight:bold; padding:0 10px;">هفته جاری</span>
+                            <button class="week-btn" onclick="changeWeek(1)">هفته بعد <i class="fas fa-chevron-left"></i></button>
                         </div>
-                        <button class="btn btn-primary" onclick="openAddTaskModal()">
-                            <i class="fas fa-plus"></i> افزودن تسک
-                        </button>
                     </div>
-
-                    <div class="week-days-modern" id="weekDaysModern"></div>
-                    <div class="week-days" id="weekDays"></div>
+                    <div class="view-toggle">
+                        <button class="view-btn active" onclick="toggleView('rows')">نمای روزانه</button>
+                        <button class="view-btn" onclick="toggleView('table')">جدول هفتگی</button>
+                    </div>
+                    <div id="weekRows" class="week-days"></div>
+                    <table id="weekTable" class="weekly-table">
+                        <thead><tr><th>شنبه</th><th>یکشنبه</th><th>دوشنبه</th><th>سه‌شنبه</th><th>چهارشنبه</th><th>پنجشنبه</th><th>جمعه</th></tr></thead>
+                        <tbody id="weekTableBody"></tbody>
+                    </table>
+                    <button class="btn btn-primary" onclick="openAddTaskModal()" style="margin-top:20px;"><i class="fas fa-plus"></i> افزودن تسک جدید</button>
                 </div>
             </div>
 
             <div id="subjects" class="section">
                 <div class="subjects-section">
                     <div class="section-header">
-                        <div class="section-title">
-                            <i class="fas fa-book"></i>
-                            <span>دروس من</span>
-                        </div>
+                        <div class="section-title"><i class="fas fa-book"></i> دروس من</div>
                         <div class="grade-tabs">
                             <span class="grade-tab active" onclick="filterGrade('all', this)">همه</span>
                             <span class="grade-tab" onclick="filterGrade('10', this)">دهم</span>
@@ -1772,134 +1500,73 @@
 
             <div id="timer" class="section">
                 <div class="timer-section">
-                    <h3 style="text-align: center; margin-bottom: 15px;">تایمر هوشمند</h3>
-                    
+                    <h3 style="text-align:center; margin-bottom:15px;">تایمر هوشمند</h3>
                     <div class="timer-selector">
                         <span class="timer-type active" onclick="selectTimerType('study', this)">مطالعه</span>
                         <span class="timer-type" onclick="selectTimerType('test', this)">تست‌زنی</span>
                         <span class="timer-type" onclick="selectTimerType('rest', this)">استراحت</span>
                     </div>
-
                     <div class="timer-display" id="timerDisplay">۰۰:۰۰</div>
-
                     <div class="timer-controls">
-                        <button class="timer-btn start" onclick="startTimer()">
-                            <i class="fas fa-play"></i> شروع
-                        </button>
-                        <button class="timer-btn pause" onclick="pauseTimer()">
-                            <i class="fas fa-pause"></i> توقف
-                        </button>
+                        <button class="timer-btn start" onclick="startTimer()"><i class="fas fa-play"></i> شروع</button>
+                        <button class="timer-btn pause" onclick="pauseTimer()"><i class="fas fa-pause"></i> توقف</button>
                     </div>
-
                     <div class="timer-inputs">
-                        <div class="timer-input-group">
-                            <label>درس</label>
-                            <select id="timerSubject"></select>
-                        </div>
-                        <div class="timer-input-group">
-                            <label>پایه</label>
-                            <select id="timerGrade">
-                                <option value="10">دهم</option>
-                                <option value="11">یازدهم</option>
-                                <option value="12">دوازدهم</option>
-                            </select>
-                        </div>
+                        <div class="timer-input-group"><label>درس</label><select id="timerSubject"></select></div>
+                        <div class="timer-input-group"><label>پایه</label><select id="timerGrade"><option value="10">دهم</option><option value="11">یازدهم</option><option value="12">دوازدهم</option></select></div>
                     </div>
-
                     <div id="testFields" class="timer-inputs">
-                        <div class="timer-input-group">
-                            <label>تعداد صحیح</label>
-                            <input type="number" id="correctCount" placeholder="مثلاً ۳۲">
-                        </div>
-                        <div class="timer-input-group">
-                            <label>تعداد غلط</label>
-                            <input type="number" id="wrongCount" placeholder="مثلاً ۸">
-                        </div>
+                        <div class="timer-input-group"><label>تعداد صحیح</label><input type="number" id="correctCount" placeholder="مثلاً ۳۲"></div>
+                        <div class="timer-input-group"><label>تعداد غلط</label><input type="number" id="wrongCount" placeholder="مثلاً ۸"></div>
                     </div>
-
-                    <button class="btn btn-primary" onclick="saveSession()" style="margin-top: 15px;">
-                        <i class="fas fa-save"></i> ذخیره جلسه
-                    </button>
+                    <button class="btn btn-primary" onclick="saveSession()" style="margin-top:15px;"><i class="fas fa-save"></i> ذخیره جلسه</button>
                 </div>
             </div>
 
             <div id="notes" class="section">
                 <div class="notes-section">
-                    <div class="section-header">
-                        <div class="section-title">
-                            <i class="fas fa-sticky-note"></i>
-                            <span>دفترچه نکات</span>
-                        </div>
-                    </div>
+                    <div class="section-header"><div class="section-title"><i class="fas fa-sticky-note"></i> دفترچه نکات</div></div>
                     <div id="notesGrid" class="notes-grid"></div>
-                    <button class="add-note-btn" onclick="openAddNoteModal()">
-                        <i class="fas fa-plus"></i> افزودن نکته جدید
-                    </button>
+                    <button class="add-note-btn" onclick="openAddNoteModal()"><i class="fas fa-plus"></i> افزودن نکته جدید</button>
                 </div>
             </div>
 
             <div id="exams" class="section">
                 <div class="exam-section">
-                    <div class="section-header">
-                        <div class="section-title">
-                            <i class="fas fa-clipboard-check"></i>
-                            <span>ثبت آزمون</span>
-                        </div>
-                    </div>
-
+                    <div class="section-header"><div class="section-title"><i class="fas fa-clipboard-check"></i> ثبت آزمون</div></div>
                     <div class="exam-form">
-                        <select id="examGrade" class="exam-input" onchange="updateExamSubjects()">
-                            <option value="">انتخاب پایه</option>
-                            <option value="10">دهم</option>
-                            <option value="11">یازدهم</option>
-                            <option value="12">دوازدهم</option>
-                        </select>
+                        <select id="examGrade" class="exam-input" onchange="updateExamSubjects()"><option value="">انتخاب پایه</option><option value="10">دهم</option><option value="11">یازدهم</option><option value="12">دوازدهم</option></select>
                         <input type="text" id="examName" class="exam-input" placeholder="نام آزمون (مثلاً قلمچی)">
                     </div>
-
                     <div id="examSubjectsContainer" class="exam-subjects-grid"></div>
-
                     <button class="btn btn-primary" onclick="saveExam()">ثبت آزمون</button>
-
                     <div id="examList" class="exam-list"></div>
                 </div>
             </div>
 
             <div id="charts" class="section">
                 <div class="charts-section">
-                    <div class="chart-section-title">
-                        <i class="fas fa-chart-line"></i> پیشرفت هفتگی
-                    </div>
                     <div class="chart-container">
+                        <div class="chart-header">
+                            <div class="chart-title"><i class="fas fa-chart-line"></i> پیشرفت هفتگی</div>
+                        </div>
                         <canvas id="weeklyProgressChart"></canvas>
-                    </div>
-
-                    <div class="chart-section-title">
-                        <i class="fas fa-chart-bar"></i> پیشرفت ماهانه
-                    </div>
-                    <div class="chart-container">
-                        <canvas id="monthlyProgressChart"></canvas>
-                    </div>
-
-                    <div class="chart-section-title">
-                        <i class="fas fa-chart-area"></i> پیشرفت شش ماهه
-                    </div>
-                    <div class="chart-container">
-                        <canvas id="sixMonthProgressChart"></canvas>
-                    </div>
-
-                    <div class="chart-section-title">
-                        <i class="fas fa-chart-pie"></i> پیشرفت سالانه
-                    </div>
-                    <div class="chart-container">
-                        <canvas id="yearlyProgressChart"></canvas>
-                    </div>
-
-                    <div class="chart-section-title">
-                        <i class="fas fa-clock"></i> ساعت مطالعه روزانه
                     </div>
                     <div class="chart-container">
                         <div class="chart-header">
+                            <div class="chart-title"><i class="fas fa-chart-bar"></i> پیشرفت ماهانه</div>
+                        </div>
+                        <canvas id="monthlyProgressChart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <div class="chart-header">
+                            <div class="chart-title"><i class="fas fa-chart-area"></i> پیشرفت شش ماهه</div>
+                        </div>
+                        <canvas id="sixMonthProgressChart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <div class="chart-header">
+                            <div class="chart-title"><i class="fas fa-clock"></i> ساعت مطالعه روزانه</div>
                             <div class="chart-controls">
                                 <span class="chart-btn active" onclick="changeTimeChartPeriod('week', this)">هفته</span>
                                 <span class="chart-btn" onclick="changeTimeChartPeriod('month', this)">ماه</span>
@@ -1908,38 +1575,24 @@
                         </div>
                         <canvas id="timeChart"></canvas>
                     </div>
-
-                    <div class="chart-section-title">
-                        <i class="fas fa-chart-pie"></i> توزیع زمان مطالعه
-                    </div>
                     <div class="chart-container">
+                        <div class="chart-header">
+                            <div class="chart-title"><i class="fas fa-chart-pie"></i> توزیع زمان مطالعه</div>
+                        </div>
                         <canvas id="distributionChart"></canvas>
                     </div>
-
-                    <div class="chart-section-title">
-                        <i class="fas fa-chart-bar"></i> نتایج آزمون‌ها
-                    </div>
                     <div class="chart-container">
+                        <div class="chart-header">
+                            <div class="chart-title"><i class="fas fa-chart-bar"></i> نتایج آزمون‌ها</div>
+                        </div>
                         <canvas id="examChart"></canvas>
-                    </div>
-
-                    <div class="chart-section-title">
-                        <i class="fas fa-chart-radar"></i> تحلیل جامع دروس
-                    </div>
-                    <div class="chart-container">
-                        <canvas id="radarChart"></canvas>
                     </div>
                 </div>
             </div>
 
             <div id="medals" class="section">
                 <div class="medals-section">
-                    <div class="section-header">
-                        <div class="section-title">
-                            <i class="fas fa-medal"></i>
-                            <span>مدال‌های افتخار</span>
-                        </div>
-                    </div>
+                    <div class="section-header"><div class="section-title"><i class="fas fa-medal"></i> مدال‌های افتخار</div></div>
                     <div class="medals-grid" id="medalsGrid"></div>
                 </div>
             </div>
@@ -1947,7 +1600,7 @@
     </div>
 
     <script>
-        // ==================== دروس کامل و صحیح بر اساس منابع معتبر ====================
+        // ==================== دروس کامل و صحیح ====================
         const SUBJECTS = {
             تجربی: {
                 10: [
@@ -2055,68 +1708,24 @@
             }
         };
 
-        // ==================== دروس تخصصی هر پایه ====================
         function getSpecializedSubjects(major, grade) {
             const allSubjects = SUBJECTS[major][grade];
             if (!allSubjects) return [];
-            
             if (major === 'تجربی') {
-                if (grade === '11') {
-                    return allSubjects.filter(s => 
-                        s.name.includes('زیست') || s.name.includes('فیزیک') || 
-                        s.name.includes('شیمی') || s.name.includes('ریاضی') || 
-                        s.name.includes('زمین')
-                    );
-                } else {
-                    return allSubjects.filter(s => 
-                        s.name.includes('زیست') || s.name.includes('فیزیک') || 
-                        s.name.includes('شیمی') || s.name.includes('ریاضی')
-                    );
-                }
+                if (grade === '11') return allSubjects.filter(s => s.name.includes('زیست') || s.name.includes('فیزیک') || s.name.includes('شیمی') || s.name.includes('ریاضی') || s.name.includes('زمین'));
+                else return allSubjects.filter(s => s.name.includes('زیست') || s.name.includes('فیزیک') || s.name.includes('شیمی') || s.name.includes('ریاضی'));
             } else if (major === 'ریاضی') {
-                if (grade === '10') {
-                    return allSubjects.filter(s => 
-                        s.name.includes('ریاضی') || s.name.includes('فیزیک') || 
-                        s.name.includes('شیمی') || s.name.includes('هندسه')
-                    );
-                } else if (grade === '11') {
-                    return allSubjects.filter(s => 
-                        s.name.includes('حسابان') || s.name.includes('فیزیک') || 
-                        s.name.includes('شیمی') || s.name.includes('هندسه') || 
-                        s.name.includes('آمار') || s.name.includes('زمین')
-                    );
-                } else if (grade === '12') {
-                    return allSubjects.filter(s => 
-                        s.name.includes('حسابان') || s.name.includes('فیزیک') || 
-                        s.name.includes('شیمی') || s.name.includes('هندسه') || 
-                        s.name.includes('گسسته')
-                    );
-                }
+                if (grade === '10') return allSubjects.filter(s => s.name.includes('ریاضی') || s.name.includes('فیزیک') || s.name.includes('شیمی') || s.name.includes('هندسه'));
+                else if (grade === '11') return allSubjects.filter(s => s.name.includes('حسابان') || s.name.includes('فیزیک') || s.name.includes('شیمی') || s.name.includes('هندسه') || s.name.includes('آمار') || s.name.includes('زمین'));
+                else if (grade === '12') return allSubjects.filter(s => s.name.includes('حسابان') || s.name.includes('فیزیک') || s.name.includes('شیمی') || s.name.includes('هندسه') || s.name.includes('گسسته'));
             } else if (major === 'انسانی') {
-                if (grade === '10') {
-                    return allSubjects.filter(s => 
-                        s.name.includes('فلسفه') || s.name.includes('منطق') || 
-                        s.name.includes('جامعه') || s.name.includes('اقتصاد') || 
-                        s.name.includes('تاریخ') || s.name.includes('جغرافیا')
-                    );
-                } else if (grade === '11') {
-                    return allSubjects.filter(s => 
-                        s.name.includes('فلسفه') || s.name.includes('روانشناسی') || 
-                        s.name.includes('جامعه') || s.name.includes('تاریخ') || 
-                        s.name.includes('جغرافیا')
-                    );
-                } else if (grade === '12') {
-                    return allSubjects.filter(s => 
-                        s.name.includes('فلسفه') || s.name.includes('منطق') || 
-                        s.name.includes('جامعه') || s.name.includes('تاریخ') || 
-                        s.name.includes('جغرافیا')
-                    );
-                }
+                if (grade === '10') return allSubjects.filter(s => s.name.includes('فلسفه') || s.name.includes('منطق') || s.name.includes('جامعه') || s.name.includes('اقتصاد') || s.name.includes('تاریخ') || s.name.includes('جغرافیا'));
+                else if (grade === '11') return allSubjects.filter(s => s.name.includes('فلسفه') || s.name.includes('روانشناسی') || s.name.includes('جامعه') || s.name.includes('تاریخ') || s.name.includes('جغرافیا'));
+                else if (grade === '12') return allSubjects.filter(s => s.name.includes('فلسفه') || s.name.includes('منطق') || s.name.includes('جامعه') || s.name.includes('تاریخ') || s.name.includes('جغرافیا'));
             }
             return [];
         }
 
-        // ==================== جملات انگیزشی ====================
         const MOTIVATIONAL_QUOTES = [
             { text: "تا نهایت شب صبور باش که صبح نزدیک است", author: "مولانا" },
             { text: "توانا بود هر که دانا بود", author: "فردوسی" },
@@ -2141,86 +1750,9 @@
             { text: "نگران نباش از اینکه آرام آرام پیش می‌روی، نگران کسانی باش که ایستاده‌اند", author: "کنفوسیوس" },
             { text: "هر روز کاری انجام بده که تو را به هدفت نزدیک‌تر کند", author: "برایان تریسی" },
             { text: "مهم نیست چقدر آرام پیش می‌روی، مهم این است که نمی‌ایستی", author: "کنفوسیوس" },
-            { text: "سخت‌ترین قدم، قدم اول است", author: "ضرب‌المثل" },
-            { text: "قطره باران از دریا جدا نیست", author: "مولانا" },
-            { text: "چون درخت برهنه در زمستان صبور باش تا بهار برسد", author: "ضرب‌المثل" },
-            { text: "با امید زندگی کن که امید کارساز است", author: "صائب تبریزی" },
-            { text: "تا مرد سخن نگفته باشد، عیب و هنرش نهفته باشد", author: "سعدی" },
-            { text: "به دنبال علم رفتن بر هر مسلمانی واجب است", author: "پیامبر اکرم" },
-            { text: "ز گهواره تا گور دانش بجوی", author: "پیامبر اکرم" },
-            { text: "کتاب، بهترین دوست انسان است", author: "ضرب‌المثل" },
-            { text: "دانش سرمایه‌ای است که هیچ بانکی نمی‌تواند آن را پس بگیرد", author: "ضرب‌المثل" },
-            { text: "امروز برای فردا سرمایه‌گذاری کن", author: "ضرب‌المثل" },
-            { text: "درس امروز، فردای روشن", author: "شعار آموزشی" },
-            { text: "بخون تا به آنچه می‌خواهی برسی", author: "پیام مشاور" },
-            { text: "کنکور یه شبه نیست، یه راهه", author: "رتبه برتر" },
-            { text: "با برنامه‌ریزی به هدف می‌رسی", author: "مشاور کنکور" },
-            { text: "تکرار، مادر مهارت است", author: "ضرب‌المثل" },
-            { text: "تمرین و تکرار، رمز موفقیت", author: "ضرب‌المثل" },
-            { text: "سحرخیز باش تا کامروا شوی", author: "ضرب‌المثل" },
-            { text: "کار نیکو کردن از پر کردن است", author: "سعدی" },
-            { text: "عاقلان را یک اشاره بس بود", author: "مولانا" },
-            { text: "هر چه کنی به خود کنی، گر همه نیک و بد کنی", author: "سعدی" },
-            { text: "بنشینم و صبر پیشه کنم، کاری دگر نیامد", author: "حافظ" },
-            { text: "دست یابد به مراد آنکه صبورانه رود", author: "سعدی" },
-            { text: "صبر تلخ است ولیکن بر شیرینی دارد", author: "سعدی" },
-            { text: "هر که صبر آرد، به مراد آید", author: "ضرب‌المثل" },
-            { text: "پشت هر سختی، آسانی است", author: "قرآن کریم" },
-            { text: "ان‌مع العسر یسرا", author: "قرآن کریم" },
-            { text: "و اینکه لیس للانسان الا ما سعی", author: "قرآن کریم" },
-            { text: "هر کس تلاش کند، به نتیجه می‌رسد", author: "ضرب‌المثل" },
-            { text: "خستگی‌های امروز، پیروزی‌های فرداست", author: "ضرب‌المثل" },
-            { text: "امروز سختی، فردا آسانی", author: "ضرب‌المثل" },
-            { text: "راه صدساله را یک شبه نمی‌روند", author: "ضرب‌المثل" },
-            { text: "با گام‌های کوچک به قله می‌رسی", author: "ضرب‌المثل" },
-            { text: "قطره قطره دریا شود", author: "ضرب‌المثل" },
-            { text: "کند و پیوسته، به مقصد می‌رسد", author: "ضرب‌المثل" },
-            { text: "آرام آرام اما محکم", author: "ضرب‌المثل" },
-            { text: "تداوم، رمز موفقیت است", author: "ضرب‌المثل" },
-            { text: "هر روز یک قدم جلوتر", author: "ضرب‌المثل" },
-            { text: "امروز بهتر از دیروز", author: "ضرب‌المثل" },
-            { text: "فردا دیر است، امروز را غنیمت شمار", author: "ضرب‌المثل" },
-            { text: "زندگی صحنه یکتای هنرمندی ماست", author: "فردوسی" },
-            { text: "به دانش فزای و به یزدان گرای", author: "فردوسی" },
-            { text: "که راز موفقیت در تلاش است", author: "سعدی" },
-            { text: "به کوشش ز هر چیز، بهتر سرای", author: "فردوسی" },
-            { text: "چو دانه نکاری، نروید ز خاک", author: "سعدی" },
-            { text: "بکوش که هر چه کوشی، همان بردروی", author: "سعدی" },
-            { text: "جهان را به کوشش توان یافتن", author: "فردوسی" },
-            { text: "به رنج و به سختی شود کام‌یاب", author: "فردوسی" },
-            { text: "هر آن کو نکوشید، ناکام ماند", author: "فردوسی" },
-            { text: "به همت رسد هر کسی به مراد", author: "سعدی" },
-            { text: "اگر همت بلند است، همه کار ممکن است", author: "صائب تبریزی" },
-            { text: "بلند همت باش که مردان کارزار", author: "ضرب‌المثل" },
-            { text: "همت بلند دار که مردان روزگار", author: "ضرب‌المثل" },
-            { text: "از همت است کامیابی", author: "ضرب‌المثل" },
-            { text: "به همت، کوه را از جا توان کند", author: "ضرب‌المثل" },
-            { text: "همت اگر هست، مقصد نزدیک است", author: "ضرب‌المثل" },
-            { text: "خواستن، توانستن است", author: "ضرب‌المثل" },
-            { text: "اگر بخواهی، می‌توانی", author: "ضرب‌المثل" },
-            { text: "اراده، کوه را جابجا می‌کند", author: "ضرب‌المثل" },
-            { text: "با اراده، محال ممکن می‌شود", author: "ضرب‌المثل" },
-            { text: "پشتکار، کلید موفقیت است", author: "ضرب‌المثل" },
-            { text: "با پشتکار به هر چه بخواهی می‌رسی", author: "ضرب‌المثل" },
-            { text: "پشتکار، سدهای بزرگ را می‌شکند", author: "ضرب‌المثل" },
-            { text: "تلاش کن که تلاش، ثمر دارد", author: "ضرب‌المثل" },
-            { text: "هر که تلاش کرد، یافت", author: "ضرب‌المثل" },
-            { text: "تلاش، رمز پیروزی است", author: "ضرب‌المثل" },
-            { text: "با تلاش، می‌توان به قله رسید", author: "ضرب‌المثل" },
-            { text: "تلاش کن و ناامید مشو", author: "ضرب‌المثل" },
-            { text: "تلاش امروز، ثمره فردا", author: "ضرب‌المثل" },
-            { text: "هر که طاووس خواهد، جور هندوستان کشد", author: "سعدی" },
-            { text: "هر که میوه خواهد، باید درخت بنشاند", author: "سعدی" },
-            { text: "هر که زر خواهد، سخن باید گفت", author: "سعدی" },
-            { text: "هر که عسل خواهد، نیش زنبور کشد", author: "ضرب‌المثل" },
-            { text: "هر که گنج خواهد، به رنج افتد", author: "ضرب‌المثل" },
-            { text: "هر که ماه خواهد، به گردون رسد", author: "ضرب‌المثل" },
-            { text: "هر که علم خواهد، به خواندن رسد", author: "ضرب‌المثل" },
-            { text: "هر که دانش خواهد، به تلاش رسد", author: "ضرب‌المثل" },
-            { text: "هر که موفقیت خواهد، به کوشش رسد", author: "ضرب‌المثل" }
+            { text: "سخت‌ترین قدم، قدم اول است", author: "ضرب‌المثل" }
         ];
 
-        // ==================== مدال‌ها ====================
         const MEDALS = {
             study: [
                 { name: 'مطالعه‌گر برنزی', desc: '۸ ساعت مطالعه در یک روز', icon: 'fa-clock', target: 8, color: 'bronze', emoji: '🥉' },
@@ -2247,27 +1779,19 @@
             ]
         };
 
-        // ==================== متغیرهای اصلی ====================
         let currentUser = null;
         let selectedMajor = null;
         let timerInterval = null;
         let timerSeconds = 0;
         let timerRunning = false;
         let timerType = 'study';
-        let currentSubject = null;
-        let currentGrade = null;
         let currentTaskId = null;
         let charts = {};
         let currentQuoteIndex = -1;
+        let currentWeekOffset = 0;
 
-        // ==================== مدیریت کاربران ====================
-        function getUsers() {
-            return JSON.parse(localStorage.getItem('konkour_users_v6') || '{}');
-        }
-
-        function saveUsers(users) {
-            localStorage.setItem('konkour_users_v6', JSON.stringify(users));
-        }
+        function getUsers() { return JSON.parse(localStorage.getItem('konkour_users_v7') || '{}'); }
+        function saveUsers(users) { localStorage.setItem('konkour_users_v7', JSON.stringify(users)); }
 
         function togglePassword(inputId, btn) {
             const input = document.getElementById(inputId);
@@ -2280,7 +1804,6 @@
             document.getElementById('loginForm').style.display = 'none';
             document.getElementById('registerForm').style.display = 'block';
         }
-
         function showLogin() {
             document.getElementById('registerForm').style.display = 'none';
             document.getElementById('loginForm').style.display = 'block';
@@ -2292,54 +1815,21 @@
             const confirm = document.getElementById('registerConfirm').value;
             const messageDiv = document.getElementById('registerMessage');
 
-            if (!username || !password || !confirm) {
-                showMessage(messageDiv, 'لطفاً تمام فیلدها را پر کنید', 'error');
-                return;
-            }
-
-            if (username.length < 3) {
-                showMessage(messageDiv, 'نام کاربری باید حداقل ۳ کاراکتر باشد', 'error');
-                return;
-            }
-
-            if (password.length < 4) {
-                showMessage(messageDiv, 'رمز عبور باید حداقل ۴ کاراکتر باشد', 'error');
-                return;
-            }
-
-            if (password !== confirm) {
-                showMessage(messageDiv, 'رمز عبور و تکرار آن یکسان نیستند', 'error');
-                return;
-            }
+            if (!username || !password || !confirm) { showMessage(messageDiv, 'لطفاً تمام فیلدها را پر کنید', 'error'); return; }
+            if (username.length < 3) { showMessage(messageDiv, 'نام کاربری باید حداقل ۳ کاراکتر باشد', 'error'); return; }
+            if (password.length < 4) { showMessage(messageDiv, 'رمز عبور باید حداقل ۴ کاراکتر باشد', 'error'); return; }
+            if (password !== confirm) { showMessage(messageDiv, 'رمز عبور و تکرار آن یکسان نیستند', 'error'); return; }
 
             const users = getUsers();
-            if (users[username]) {
-                showMessage(messageDiv, 'این نام کاربری قبلاً ثبت شده است', 'error');
-                return;
-            }
+            if (users[username]) { showMessage(messageDiv, 'این نام کاربری قبلاً ثبت شده است', 'error'); return; }
 
             users[username] = {
-                password: password,
-                major: null,
-                data: {
-                    subjects: [],
-                    sessions: [],
-                    exams: [],
-                    notes: [],
-                    tasks: {},
-                    medals: [],
-                    createdAt: Date.now(),
-                    lastActive: Date.now()
-                }
+                password: password, major: null,
+                data: { subjects: [], sessions: [], exams: [], notes: [], tasks: {}, medals: [], createdAt: Date.now(), lastActive: Date.now() }
             };
-
             saveUsers(users);
             showMessage(messageDiv, 'ثبت‌نام با موفقیت انجام شد', 'success');
-            
-            setTimeout(() => {
-                currentUser = username;
-                showMajorSelection();
-            }, 1500);
+            setTimeout(() => { currentUser = username; showMajorSelection(); }, 1500);
         }
 
         function login() {
@@ -2347,34 +1837,20 @@
             const password = document.getElementById('loginPassword').value;
             const messageDiv = document.getElementById('loginMessage');
 
-            if (!username || !password) {
-                showMessage(messageDiv, 'لطفاً نام کاربری و رمز عبور را وارد کنید', 'error');
-                return;
-            }
+            if (!username || !password) { showMessage(messageDiv, 'لطفاً نام کاربری و رمز عبور را وارد کنید', 'error'); return; }
 
             const users = getUsers();
             const user = users[username];
-
-            if (!user || user.password !== password) {
-                showMessage(messageDiv, 'نام کاربری یا رمز عبور اشتباه است', 'error');
-                return;
-            }
+            if (!user || user.password !== password) { showMessage(messageDiv, 'نام کاربری یا رمز عبور اشتباه است', 'error'); return; }
 
             currentUser = username;
             localStorage.setItem('lastUser', username);
-            
-            if (!user.major) {
-                showMajorSelection();
-            } else {
-                selectedMajor = user.major;
-                loadUserData();
-                showMainApp();
-            }
+            if (!user.major) showMajorSelection();
+            else { selectedMajor = user.major; loadUserData(); showMainApp(); }
         }
 
         function logout() {
-            currentUser = null;
-            selectedMajor = null;
+            currentUser = null; selectedMajor = null;
             document.getElementById('authContainer').style.display = 'flex';
             document.getElementById('majorSelector').style.display = 'none';
             document.getElementById('mainApp').style.display = 'none';
@@ -2396,11 +1872,9 @@
 
         function confirmMajor() {
             if (!selectedMajor || !currentUser) return;
-            
             const users = getUsers();
             users[currentUser].major = selectedMajor;
             saveUsers(users);
-            
             initializeSubjects();
             initializeTasks();
             initializeNotes();
@@ -2410,20 +1884,11 @@
 
         function initializeSubjects() {
             if (!currentUser || !selectedMajor) return;
-            
             const users = getUsers();
-            const userData = users[currentUser].data;
-            
-            if (userData.subjects.length === 0) {
+            if (users[currentUser].data.subjects.length === 0) {
                 for (let grade in SUBJECTS[selectedMajor]) {
                     SUBJECTS[selectedMajor][grade].forEach(subj => {
-                        userData.subjects.push({
-                            ...subj,
-                            grade: grade,
-                            hours: 0,
-                            tests: [],
-                            progress: 0
-                        });
+                        users[currentUser].data.subjects.push({ ...subj, grade: grade, hours: 0, tests: [], progress: 0 });
                     });
                 }
                 saveUsers(users);
@@ -2432,43 +1897,33 @@
 
         function initializeTasks() {
             if (!currentUser) return;
-            
             const users = getUsers();
-            if (!users[currentUser].data.tasks) {
-                users[currentUser].data.tasks = {};
-            }
+            if (!users[currentUser].data.tasks) users[currentUser].data.tasks = {};
             saveUsers(users);
         }
 
         function initializeNotes() {
             if (!currentUser) return;
-            
             const users = getUsers();
-            if (!users[currentUser].data.notes) {
-                users[currentUser].data.notes = [];
-            }
+            if (!users[currentUser].data.notes) users[currentUser].data.notes = [];
             saveUsers(users);
         }
 
         function loadUserData() {
             if (!currentUser) return;
-            
             const users = getUsers();
             users[currentUser].data.lastActive = Date.now();
             saveUsers(users);
-            
             document.getElementById('displayName').textContent = currentUser;
             document.getElementById('displayMajor').textContent = `رشته ${users[currentUser].major}`;
-            
             showMotivationalQuote();
             renderSubjects();
             updateStats();
-            renderWeekDays();
-            renderWeekDaysModern();
+            renderWeekPlanner();
             renderTodayTasks();
             updateTimerSubjects();
             updateExamList();
-            updateCharts();
+            renderAllCharts();
             updateRecentActivities();
             renderNotes();
             renderMedals();
@@ -2485,14 +1940,13 @@
         function showSection(sectionId) {
             document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
             document.querySelectorAll('.menu-item').forEach(m => m.classList.remove('active'));
-            
             document.getElementById(sectionId).classList.add('active');
             event.currentTarget.classList.add('active');
-            
             if (sectionId === 'medals') renderMedals();
             if (sectionId === 'notes') renderNotes();
-            if (sectionId === 'charts') updateCharts();
+            if (sectionId === 'charts') renderAllCharts();
             if (sectionId === 'exams') updateExamList();
+            if (sectionId === 'planner') renderWeekPlanner();
         }
 
         function showMessage(element, text, type) {
@@ -2502,91 +1956,58 @@
             setTimeout(() => element.style.display = 'none', 3000);
         }
 
-        // ==================== جمله انگیزشی ====================
         function showMotivationalQuote() {
             const banner = document.getElementById('motivationBanner');
             const today = new Date().toDateString();
             const savedQuote = localStorage.getItem(`quote_${currentUser}_${today}`);
-            
             if (savedQuote) {
                 const quote = JSON.parse(savedQuote);
                 banner.innerHTML = `<div>${quote.text}</div><div class="motivation-author">- ${quote.author}</div>`;
                 return;
             }
-            
-            let randomIndex;
-            do {
-                randomIndex = Math.floor(Math.random() * MOTIVATIONAL_QUOTES.length);
-            } while (randomIndex === currentQuoteIndex && MOTIVATIONAL_QUOTES.length > 1);
-            
+            let randomIndex = Math.floor(Math.random() * MOTIVATIONAL_QUOTES.length);
             currentQuoteIndex = randomIndex;
             const quote = MOTIVATIONAL_QUOTES[randomIndex];
             banner.innerHTML = `<div>${quote.text}</div><div class="motivation-author">- ${quote.author}</div>`;
             localStorage.setItem(`quote_${currentUser}_${today}`, JSON.stringify(quote));
         }
 
-        // ==================== مدیریت دروس ====================
         function renderSubjects() {
             const grid = document.getElementById('subjectsGrid');
             const users = getUsers();
             const subjects = users[currentUser].data.subjects;
-            
             grid.innerHTML = '';
-            
             subjects.forEach((subject, index) => {
                 const totalTests = subject.tests.length;
                 const avgScore = totalTests > 0 ? (subject.tests.reduce((s, t) => s + t.percent, 0) / totalTests).toFixed(1) : 0;
-                
-                const card = document.createElement('div');
-                card.className = 'subject-card';
-                card.dataset.grade = subject.grade;
-                card.innerHTML = `
-                    <div class="subject-header">
-                        <div class="subject-icon" style="background: ${subject.color};">
-                            <i class="fas ${subject.icon}"></i>
+                grid.innerHTML += `
+                    <div class="subject-card" data-grade="${subject.grade}">
+                        <div class="subject-header">
+                            <div class="subject-icon" style="background: ${subject.color};"><i class="fas ${subject.icon}"></i></div>
+                            <div class="subject-info">
+                                <div class="subject-name">${subject.name}</div>
+                                <div class="subject-grade">پایه ${subject.grade === '10' ? 'دهم' : subject.grade === '11' ? 'یازدهم' : 'دوازدهم'}</div>
+                            </div>
                         </div>
-                        <div class="subject-info">
-                            <div class="subject-name">${subject.name}</div>
-                            <div class="subject-grade">پایه ${subject.grade === '10' ? 'دهم' : subject.grade === '11' ? 'یازدهم' : 'دوازدهم'}</div>
+                        <div class="subject-stats">
+                            <div class="subject-stat"><div class="subject-stat-value">${subject.hours.toFixed(1)}</div><div class="subject-stat-label">ساعت</div></div>
+                            <div class="subject-stat"><div class="subject-stat-value">${totalTests}</div><div class="subject-stat-label">تست</div></div>
+                            <div class="subject-stat"><div class="subject-stat-value">${avgScore}%</div><div class="subject-stat-label">درصد</div></div>
                         </div>
-                    </div>
-                    <div class="subject-stats">
-                        <div class="subject-stat">
-                            <div class="subject-stat-value">${subject.hours.toFixed(1)}</div>
-                            <div class="subject-stat-label">ساعت</div>
+                        <div class="progress-bar"><div class="progress-fill" style="width: ${subject.progress}%;"></div></div>
+                        <div class="subject-actions">
+                            <button class="subject-btn btn-study" onclick="startStudyFromSubject('${subject.name}', '${subject.grade}')"><i class="fas fa-play"></i> مطالعه</button>
+                            <button class="subject-btn btn-test" onclick="startTestFromSubject('${subject.name}', '${subject.grade}')"><i class="fas fa-clipboard-check"></i> تست</button>
+                            <button class="subject-btn btn-notes" onclick="openNoteForSubject('${subject.name}', '${subject.grade}')"><i class="fas fa-sticky-note"></i> نکته</button>
                         </div>
-                        <div class="subject-stat">
-                            <div class="subject-stat-value">${totalTests}</div>
-                            <div class="subject-stat-label">تست</div>
-                        </div>
-                        <div class="subject-stat">
-                            <div class="subject-stat-value">${avgScore}%</div>
-                            <div class="subject-stat-label">درصد</div>
-                        </div>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: ${subject.progress}%;"></div>
-                    </div>
-                    <div class="subject-actions">
-                        <button class="subject-btn btn-study" onclick="startStudyFromSubject('${subject.name}', '${subject.grade}')">
-                            <i class="fas fa-play"></i> مطالعه
-                        </button>
-                        <button class="subject-btn btn-test" onclick="startTestFromSubject('${subject.name}', '${subject.grade}')">
-                            <i class="fas fa-clipboard-check"></i> تست
-                        </button>
-                        <button class="subject-btn btn-notes" onclick="openNoteForSubject('${subject.name}', '${subject.grade}')">
-                            <i class="fas fa-sticky-note"></i> نکته
-                        </button>
                     </div>
                 `;
-                grid.appendChild(card);
             });
         }
 
         function filterGrade(grade, element) {
             document.querySelectorAll('.grade-tab').forEach(t => t.classList.remove('active'));
             element.classList.add('active');
-            
             document.querySelectorAll('.subject-card').forEach(card => {
                 card.style.display = grade === 'all' || card.dataset.grade === grade ? 'block' : 'none';
             });
@@ -2606,105 +2027,93 @@
             selectTimerType('test', document.querySelectorAll('.timer-type')[1]);
         }
 
-        function openNoteForSubject(subject, grade) {
-            openAddNoteModal(subject, grade);
-        }
+        function openNoteForSubject(subject, grade) { openAddNoteModal(subject, grade); }
 
-        // ==================== برنامه‌ریزی هفتگی ====================
-        function getDateForDayByIndex(dayIndex) {
+        function getDateForDayOffset(dayIndex) {
             const today = new Date();
-            const currentDay = today.getDay();
-            const diff = dayIndex - currentDay;
+            const currentDay = today.getDay(); // 0 یکشنبه
             const targetDate = new Date(today);
-            targetDate.setDate(today.getDate() + diff);
+            targetDate.setDate(today.getDate() + (dayIndex - currentDay) + (currentWeekOffset * 7));
             const year = targetDate.getFullYear();
             const month = String(targetDate.getMonth() + 1).padStart(2, '0');
             const day = String(targetDate.getDate()).padStart(2, '0');
             return `${year}-${month}-${day}`;
         }
 
-        function getTasksForDayByDayName(dayName) {
+        function getTasksForDay(dayIndex) {
             const users = getUsers();
             if (!users[currentUser]?.data?.tasks) return [];
-            
-            const today = new Date();
-            const days = ['یکشنبه', 'دوشنبه', 'سه‌شنبه', 'چهارشنبه', 'پنجشنبه', 'جمعه', 'شنبه'];
-            const dayIndex = days.indexOf(dayName);
-            const currentDay = today.getDay();
-            const diff = dayIndex - currentDay;
-            const targetDate = new Date(today);
-            targetDate.setDate(today.getDate() + diff);
-            const dateKey = targetDate.toISOString().split('T')[0];
-            
+            const dateKey = getDateForDayOffset(dayIndex);
             return users[currentUser].data.tasks[dateKey] || [];
         }
 
-        function renderWeekDaysModern() {
-            const container = document.getElementById('weekDaysModern');
-            const days = ['یکشنبه', 'دوشنبه', 'سه‌شنبه', 'چهارشنبه', 'پنجشنبه', 'جمعه', 'شنبه'];
-            const shortDays = ['ی', 'د', 'س', 'چ', 'پ', 'ج', 'ش'];
+        function renderWeekPlanner() {
+            const days = ['شنبه', 'یکشنبه', 'دوشنبه', 'سه‌شنبه', 'چهارشنبه', 'پنجشنبه', 'جمعه'];
             const today = new Date().getDay();
-            
-            container.innerHTML = '';
-            
-            days.forEach((day, index) => {
-                const isToday = index === today;
-                const tasks = getTasksForDayByDayName(day);
-                const completed = tasks.filter(t => t.completed).length;
-                const percent = tasks.length > 0 ? Math.round((completed / tasks.length) * 100) : 0;
-                
-                const dayDiv = document.createElement('div');
-                dayDiv.className = `day-card-modern ${isToday ? 'today' : ''}`;
-                dayDiv.onclick = () => {
-                    const dateKey = getDateForDayByIndex(index);
-                    const dayTasks = tasks.map(t => `${t.subject} - ${t.time} ${t.completed ? '✅' : '⏳'}`).join('\n');
-                    alert(`برنامه ${day}\n${dateKey}\n\n${dayTasks || 'تسکی وجود ندارد'}`);
-                };
-                dayDiv.innerHTML = `
-                    <div class="day-name-modern">${shortDays[index]}</div>
-                    <div class="day-progress-modern">${percent}%</div>
-                    <div class="day-bar-modern">
-                        <div class="day-bar-fill-modern" style="width: ${percent}%"></div>
+            const todayIndex = today === 0 ? 6 : today - 1; // تبدیل به شنبه=0
+
+            // به‌روزرسانی برچسب هفته
+            const weekStart = getDateForDayOffset(0);
+            const weekEnd = getDateForDayOffset(6);
+            document.getElementById('currentWeekLabel').textContent = `${weekStart} تا ${weekEnd}`;
+
+            // نمایش ردیفی
+            const rowsContainer = document.getElementById('weekRows');
+            rowsContainer.innerHTML = '';
+            for (let i = 0; i < 7; i++) {
+                const tasks = getTasksForDay(i);
+                const isToday = i === todayIndex;
+                rowsContainer.innerHTML += `
+                    <div class="day-row ${isToday ? 'today' : ''}">
+                        <div class="day-name">${days[i]}</div>
+                        <div class="day-tasks-list">
+                            ${tasks.length ? tasks.map(t => `
+                                <div class="task-badge ${t.completed ? 'completed' : ''}" onclick="openCompleteTaskModal('${getDateForDayOffset(i)}', ${tasks.indexOf(t)})">
+                                    <span class="task-time">${t.time || '--:--'}</span>
+                                    <span>${t.subject}</span>
+                                    ${t.completed ? '<i class="fas fa-check-circle" style="color:#2ecc71;"></i>' : ''}
+                                </div>
+                            `).join('') : '<span style="color:#999;">تسکی وجود ندارد</span>'}
+                        </div>
+                        <div class="day-total">${tasks.filter(t => t.completed).length}/${tasks.length}</div>
                     </div>
                 `;
-                container.appendChild(dayDiv);
-            });
+            }
+
+            // نمایش جدولی
+            const tableBody = document.getElementById('weekTableBody');
+            tableBody.innerHTML = '<tr>';
+            for (let i = 0; i < 7; i++) {
+                const tasks = getTasksForDay(i);
+                const isToday = i === todayIndex;
+                tableBody.innerHTML += `
+                    <td class="${isToday ? 'today' : ''}">
+                        ${tasks.map(t => `
+                            <div class="table-task ${t.completed ? 'completed' : ''}" onclick="openCompleteTaskModal('${getDateForDayOffset(i)}', ${tasks.indexOf(t)})">
+                                <span class="task-time">${t.time || '--:--'}</span> ${t.subject}
+                            </div>
+                        `).join('')}
+                    </td>
+                `;
+            }
+            tableBody.innerHTML += '</tr>';
         }
 
-        function renderWeekDays() {
-            const container = document.getElementById('weekDays');
-            const days = ['یکشنبه', 'دوشنبه', 'سه‌شنبه', 'چهارشنبه', 'پنجشنبه', 'جمعه', 'شنبه'];
-            const today = new Date().getDay();
-            
-            container.innerHTML = '';
-            
-            days.forEach((day, index) => {
-                const isToday = index === today;
-                const tasks = getTasksForDayByDayName(day);
-                
-                const dayDiv = document.createElement('div');
-                dayDiv.className = `day-planner ${isToday ? 'today' : ''}`;
-                dayDiv.innerHTML = `
-                    <div class="day-header">
-                        <span class="day-name">${day}</span>
-                        <span class="day-date">${getDateForDayByIndex(index)}</span>
-                    </div>
-                    <div class="day-tasks">
-                        ${tasks.length ? tasks.map((task, taskIndex) => `
-                            <div class="task-item ${task.completed ? 'completed' : ''}" onclick="openCompleteTaskModal('${getDateForDayByIndex(index)}', ${taskIndex})">
-                                <div class="task-time">${task.time || 'زمان نامشخص'}</div>
-                                <div class="task-subject">${task.subject}</div>
-                                <div class="task-desc">${task.description || ''}</div>
-                                ${task.completed ? `<div style="color: #2ecc71; font-size: 0.75rem;">✅ ${task.percent}%</div>` : ''}
-                            </div>
-                        `).join('') : '<p style="color: #999; text-align: center; padding: 10px;">تسکی وجود ندارد</p>'}
-                    </div>
-                    <button class="add-task-btn" onclick="openAddTaskModal(${index})">
-                        <i class="fas fa-plus"></i> افزودن تسک
-                    </button>
-                `;
-                container.appendChild(dayDiv);
-            });
+        function changeWeek(direction) {
+            currentWeekOffset += direction;
+            renderWeekPlanner();
+        }
+
+        function toggleView(view) {
+            document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+            if (view === 'rows') {
+                document.getElementById('weekRows').style.display = 'flex';
+                document.getElementById('weekTable').style.display = 'none';
+            } else {
+                document.getElementById('weekRows').style.display = 'none';
+                document.getElementById('weekTable').style.display = 'table';
+            }
         }
 
         function renderTodayTasks() {
@@ -2712,15 +2121,13 @@
             const today = new Date().toISOString().split('T')[0];
             const users = getUsers();
             const tasks = users[currentUser]?.data?.tasks?.[today] || [];
-            
             container.innerHTML = tasks.length ? tasks.map((task, index) => `
-                <div class="task-item ${task.completed ? 'completed' : ''}" onclick="openCompleteTaskModal('${today}', ${index})">
-                    <div class="task-time">${task.time || 'زمان نامشخص'}</div>
-                    <div class="task-subject">${task.subject}</div>
-                    <div class="task-desc">${task.description || ''}</div>
-                    ${task.completed ? `<div style="color: #2ecc71; font-size: 0.75rem;">✅ ${task.percent}%</div>` : ''}
+                <div class="task-badge ${task.completed ? 'completed' : ''}" onclick="openCompleteTaskModal('${today}', ${index})">
+                    <span class="task-time">${task.time || '--:--'}</span>
+                    <span>${task.subject}</span>
+                    ${task.completed ? `<span>${task.percent}%</span>` : ''}
                 </div>
-            `).join('') : '<p style="color: #999; text-align: center; padding: 20px;">برنامه‌ای برای امروز ندارید</p>';
+            `).join('') : '<span style="color:#999;">برنامه‌ای برای امروز ندارید</span>';
         }
 
         function openAddTaskModal(dayIndex = null) {
@@ -2728,19 +2135,16 @@
             modal.className = 'modal active';
             modal.innerHTML = `
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <h3>افزودن تسک جدید</h3>
-                        <button class="modal-close" onclick="this.parentElement.parentElement.parentElement.remove()">&times;</button>
-                    </div>
-                    <div style="padding: 15px;">
-                        <select id="modalTaskDay" class="exam-input" style="margin-bottom: 10px;">
-                            <option value="0">یکشنبه</option><option value="1">دوشنبه</option><option value="2">سه‌شنبه</option>
-                            <option value="3">چهارشنبه</option><option value="4">پنجشنبه</option><option value="5">جمعه</option><option value="6">شنبه</option>
+                    <div class="modal-header"><h3>افزودن تسک جدید</h3><button class="modal-close" onclick="this.parentElement.parentElement.parentElement.remove()">&times;</button></div>
+                    <div style="padding:15px;">
+                        <select id="modalTaskDay" class="exam-input" style="margin-bottom:10px;">
+                            <option value="0">شنبه</option><option value="1">یکشنبه</option><option value="2">دوشنبه</option>
+                            <option value="3">سه‌شنبه</option><option value="4">چهارشنبه</option><option value="5">پنجشنبه</option><option value="6">جمعه</option>
                         </select>
-                        <select id="modalTaskSubject" class="exam-input" style="margin-bottom: 10px;">${getSubjectsOptions()}</select>
-                        <input type="time" id="modalTaskTime" class="exam-input" style="margin-bottom: 10px;">
-                        <input type="number" id="modalTaskDuration" class="exam-input" placeholder="مدت زمان (دقیقه)" style="margin-bottom: 10px;">
-                        <textarea id="modalTaskDesc" class="exam-input" placeholder="توضیحات" rows="3" style="margin-bottom: 10px;"></textarea>
+                        <select id="modalTaskSubject" class="exam-input" style="margin-bottom:10px;">${getSubjectsOptions()}</select>
+                        <input type="time" id="modalTaskTime" class="exam-input" style="margin-bottom:10px;">
+                        <input type="number" id="modalTaskDuration" class="exam-input" placeholder="مدت زمان (دقیقه)" style="margin-bottom:10px;">
+                        <textarea id="modalTaskDesc" class="exam-input" placeholder="توضیحات" rows="3" style="margin-bottom:10px;"></textarea>
                         <button class="btn btn-primary" onclick="saveTaskFromModal()">ذخیره تسک</button>
                     </div>
                 </div>
@@ -2751,8 +2155,7 @@
 
         function getSubjectsOptions() {
             const users = getUsers();
-            const subjects = users[currentUser].data.subjects;
-            return subjects.map(s => `<option value="${s.name}">${s.name}</option>`).join('');
+            return users[currentUser].data.subjects.map(s => `<option value="${s.name}">${s.name}</option>`).join('');
         }
 
         function saveTaskFromModal() {
@@ -2761,24 +2164,16 @@
             const time = document.getElementById('modalTaskTime').value;
             const duration = document.getElementById('modalTaskDuration').value;
             const desc = document.getElementById('modalTaskDesc').value;
-            
-            if (!subject || !time) {
-                alert('لطفاً درس و زمان را انتخاب کنید');
-                return;
-            }
-            
-            const dateKey = getDateForDayByIndex(parseInt(day));
+            if (!subject || !time) { alert('لطفاً درس و زمان را انتخاب کنید'); return; }
+            const dateKey = getDateForDayOffset(parseInt(day));
             const users = getUsers();
             if (!users[currentUser].data.tasks[dateKey]) users[currentUser].data.tasks[dateKey] = [];
-            
             users[currentUser].data.tasks[dateKey].push({
                 subject, time, duration, description: desc, completed: false, percent: 0, note: '', createdAt: Date.now()
             });
-            
             saveUsers(users);
             document.querySelector('.modal').remove();
-            renderWeekDays();
-            renderWeekDaysModern();
+            renderWeekPlanner();
             renderTodayTasks();
             updateStats();
             showNotification('تسک با موفقیت افزوده شد', 'success');
@@ -2790,13 +2185,10 @@
             modal.className = 'modal active';
             modal.innerHTML = `
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <h3>ثبت نتیجه تسک</h3>
-                        <button class="modal-close" onclick="this.parentElement.parentElement.parentElement.remove()">&times;</button>
-                    </div>
-                    <div style="padding: 15px;">
-                        <input type="number" id="modalCompletePercent" class="exam-input" placeholder="درصد تکمیل" min="0" max="100" style="margin-bottom: 10px;">
-                        <textarea id="modalCompleteNote" class="exam-input" placeholder="یادداشت" rows="3" style="margin-bottom: 10px;"></textarea>
+                    <div class="modal-header"><h3>ثبت نتیجه تسک</h3><button class="modal-close" onclick="this.parentElement.parentElement.parentElement.remove()">&times;</button></div>
+                    <div style="padding:15px;">
+                        <input type="number" id="modalCompletePercent" class="exam-input" placeholder="درصد تکمیل" min="0" max="100" style="margin-bottom:10px;">
+                        <textarea id="modalCompleteNote" class="exam-input" placeholder="یادداشت" rows="3" style="margin-bottom:10px;"></textarea>
                         <button class="btn btn-success" onclick="completeTaskFromModal()">ثبت و تکمیل</button>
                     </div>
                 </div>
@@ -2807,61 +2199,43 @@
         function completeTaskFromModal() {
             const percent = document.getElementById('modalCompletePercent').value;
             const note = document.getElementById('modalCompleteNote').value;
-            
-            if (!percent || percent < 0 || percent > 100) {
-                alert('لطفاً درصد معتبر وارد کنید');
-                return;
-            }
-            
+            if (!percent || percent < 0 || percent > 100) { alert('لطفاً درصد معتبر وارد کنید'); return; }
             const users = getUsers();
             const task = users[currentUser].data.tasks[currentTaskId.dateKey][currentTaskId.taskIndex];
-            task.completed = true;
-            task.percent = percent;
-            task.note = note;
-            task.completedAt = Date.now();
-            
+            task.completed = true; task.percent = percent; task.note = note; task.completedAt = Date.now();
             saveUsers(users);
             document.querySelector('.modal').remove();
-            renderWeekDays();
-            renderWeekDaysModern();
+            renderWeekPlanner();
             renderTodayTasks();
             updateStats();
             checkMedals();
             showNotification('تسک با موفقیت ثبت شد', 'success');
         }
 
-        // ==================== آمار و موفقیت ====================
         function updateStats() {
             const users = getUsers();
             const userData = users[currentUser].data;
-            
             const today = new Date().toISOString().split('T')[0];
             const todaySessions = userData.sessions.filter(s => s.date.split('T')[0] === today);
             const todayHours = todaySessions.reduce((sum, s) => sum + s.duration / 3600, 0);
-            
-            const weekAgo = new Date();
-            weekAgo.setDate(weekAgo.getDate() - 7);
+            const weekAgo = new Date(); weekAgo.setDate(weekAgo.getDate() - 7);
             const weekSessions = userData.sessions.filter(s => new Date(s.date) > weekAgo);
             const weekHours = weekSessions.reduce((sum, s) => sum + s.duration / 3600, 0);
-            
             const todayTasks = userData.tasks[today] || [];
             const completedToday = todayTasks.filter(t => t.completed).length;
             const todaySuccess = todayTasks.length > 0 ? (completedToday / todayTasks.length) * 100 : 0;
-            
             let totalTasks = 0, completedTasks = 0;
             for (let i = 0; i < 7; i++) {
-                const dateKey = getDateForDayByIndex(i);
+                const dateKey = getDateForDayOffset(i);
                 const dayTasks = userData.tasks[dateKey] || [];
                 totalTasks += dayTasks.length;
                 completedTasks += dayTasks.filter(t => t.completed).length;
             }
             const weekSuccess = totalTasks > 0 ? (completedTasks / totalTasks) * 100 : 0;
-            
             document.getElementById('todayStudy').textContent = todayHours.toFixed(1);
             document.getElementById('weekStudy').textContent = weekHours.toFixed(1);
             document.getElementById('todaySuccess').textContent = todaySuccess.toFixed(0) + '%';
             document.getElementById('weekSuccess').textContent = weekSuccess.toFixed(0) + '%';
-            
             document.getElementById('todayProgress').style.width = Math.min(100, (todayHours / 8) * 100) + '%';
             document.getElementById('weekProgress').style.width = Math.min(100, (weekHours / 56) * 100) + '%';
             document.getElementById('successProgress').style.width = todaySuccess + '%';
@@ -2872,58 +2246,32 @@
             const container = document.getElementById('recentActivities');
             const users = getUsers();
             const sessions = users[currentUser].data.sessions.slice(-5).reverse();
-            
-            if (!sessions.length) {
-                container.innerHTML = '<p style="color: #999; text-align: center;">هنوز فعالیتی ثبت نشده</p>';
-                return;
-            }
-            
+            if (!sessions.length) { container.innerHTML = '<p style="color:#999;">هنوز فعالیتی ثبت نشده</p>'; return; }
             container.innerHTML = sessions.map(s => `
                 <div class="exam-item">
                     <div><strong>${s.subject}</strong> - ${s.type === 'study' ? 'مطالعه' : s.type === 'test' ? 'تست‌زنی' : 'استراحت'}</div>
-                    <div>
-                        <span>${Math.floor(s.duration / 60)} دقیقه</span>
-                        ${s.correct ? `<span style="color: #2ecc71; margin-right: 10px;">${s.correct} صحیح</span>` : ''}
-                        ${s.wrong ? `<span style="color: #e74c3c;">${s.wrong} غلط</span>` : ''}
-                    </div>
+                    <div>${Math.floor(s.duration / 60)} دقیقه ${s.correct ? `• ${s.correct} صحیح` : ''} ${s.wrong ? `• ${s.wrong} غلط` : ''}</div>
                 </div>
             `).join('');
         }
 
-        // ==================== تایمر ====================
         function selectTimerType(type, element) {
             timerType = type;
             document.querySelectorAll('.timer-type').forEach(t => t.classList.remove('active'));
             element.classList.add('active');
             document.getElementById('testFields').style.display = type === 'test' ? 'flex' : 'none';
-            resetTimer();
+            timerSeconds = 0; updateTimerDisplay();
         }
 
         function startTimer() {
             if (timerRunning) return;
-            const subject = document.getElementById('timerSubject').value;
-            if (!subject) {
-                showNotification('لطفاً یک درس انتخاب کنید', 'error');
-                return;
-            }
-            currentSubject = subject;
-            currentGrade = document.getElementById('timerGrade').value;
+            if (!document.getElementById('timerSubject').value) { showNotification('لطفاً یک درس انتخاب کنید', 'error'); return; }
             timerRunning = true;
             timerInterval = setInterval(() => { timerSeconds++; updateTimerDisplay(); }, 1000);
             showNotification('تایمر شروع شد', 'success');
         }
 
-        function pauseTimer() {
-            timerRunning = false;
-            if (timerInterval) clearInterval(timerInterval);
-            showNotification('تایمر متوقف شد', 'warning');
-        }
-
-        function resetTimer() {
-            timerSeconds = 0;
-            updateTimerDisplay();
-        }
-
+        function pauseTimer() { timerRunning = false; if (timerInterval) clearInterval(timerInterval); showNotification('تایمر متوقف شد', 'warning'); }
         function updateTimerDisplay() {
             const mins = Math.floor(timerSeconds / 60);
             const secs = timerSeconds % 60;
@@ -2931,87 +2279,55 @@
         }
 
         function saveSession() {
-            if (timerSeconds < 60) {
-                showNotification('حداقل زمان مطالعه ۱ دقیقه است', 'error');
-                return;
-            }
-            
+            if (timerSeconds < 60) { showNotification('حداقل زمان مطالعه ۱ دقیقه است', 'error'); return; }
             const subject = document.getElementById('timerSubject').value;
             const grade = document.getElementById('timerGrade').value;
-            if (!subject || !grade) {
-                showNotification('لطفاً درس و پایه را انتخاب کنید', 'error');
-                return;
-            }
-            
+            if (!subject || !grade) { showNotification('لطفاً درس و پایه را انتخاب کنید', 'error'); return; }
+
             const users = getUsers();
             const userData = users[currentUser].data;
             const hours = timerSeconds / 3600;
-            
             const subjectIndex = userData.subjects.findIndex(s => s.name === subject && s.grade === grade);
             if (subjectIndex !== -1) {
                 userData.subjects[subjectIndex].hours += hours;
                 userData.subjects[subjectIndex].progress = Math.min(100, userData.subjects[subjectIndex].progress + (hours * 2));
             }
-            
+
             const session = {
                 subject, grade, duration: timerSeconds, type: timerType, date: new Date().toISOString(),
                 correct: timerType === 'test' ? document.getElementById('correctCount').value : null,
                 wrong: timerType === 'test' ? document.getElementById('wrongCount').value : null
             };
-            
             userData.sessions.push(session);
-            
+
             if (timerType === 'test' && session.correct && session.wrong && subjectIndex !== -1) {
-                const correct = parseInt(session.correct);
-                const wrong = parseInt(session.wrong);
-                const total = correct + wrong;
-                const percent = Math.round((correct / total) * 100);
-                userData.subjects[subjectIndex].tests.push({
-                    date: new Date().toISOString(), correct, wrong, total, percent
-                });
+                const correct = parseInt(session.correct), wrong = parseInt(session.wrong);
+                const total = correct + wrong, percent = Math.round((correct / total) * 100);
+                userData.subjects[subjectIndex].tests.push({ date: new Date().toISOString(), correct, wrong, total, percent });
             }
-            
+
             saveUsers(users);
-            resetTimer();
-            document.getElementById('correctCount').value = '';
-            document.getElementById('wrongCount').value = '';
-            
-            renderSubjects();
-            updateStats();
-            updateCharts();
-            updateRecentActivities();
-            checkMedals();
+            timerSeconds = 0; updateTimerDisplay();
+            document.getElementById('correctCount').value = ''; document.getElementById('wrongCount').value = '';
+            renderSubjects(); updateStats(); renderAllCharts(); updateRecentActivities(); checkMedals();
             showNotification('جلسه با موفقیت ذخیره شد', 'success');
         }
 
         function updateTimerSubjects() {
             const select = document.getElementById('timerSubject');
             const users = getUsers();
-            const subjects = users[currentUser].data.subjects;
             select.innerHTML = '<option value="">انتخاب درس</option>' + 
-                subjects.map(s => `<option value="${s.name}">${s.name}</option>`).join('');
+                users[currentUser].data.subjects.map(s => `<option value="${s.name}">${s.name}</option>`).join('');
         }
 
-        // ==================== دفترچه نکات ====================
         function renderNotes() {
             const container = document.getElementById('notesGrid');
             const users = getUsers();
             const notes = users[currentUser].data.notes || [];
-            
-            if (!notes.length) {
-                container.innerHTML = '<p style="color: #999; text-align: center;">هنوز نکته‌ای ثبت نکرده‌اید</p>';
-                return;
-            }
-            
+            if (!notes.length) { container.innerHTML = '<p style="color:#999;">هنوز نکته‌ای ثبت نکرده‌اید</p>'; return; }
             container.innerHTML = notes.slice().reverse().map(note => `
                 <div class="note-card" onclick="viewNote('${note.id}')">
-                    <div class="note-header">
-                        <div class="note-icon"><i class="fas fa-sticky-note"></i></div>
-                        <div>
-                            <div class="note-title">${note.title}</div>
-                            <div class="note-date">${note.subject} - ${note.grade === '10' ? 'دهم' : note.grade === '11' ? 'یازدهم' : 'دوازدهم'}</div>
-                        </div>
-                    </div>
+                    <div class="note-header"><div class="note-icon"><i class="fas fa-sticky-note"></i></div><div><div class="note-title">${note.title}</div><div class="note-date">${note.subject} - ${note.grade === '10' ? 'دهم' : note.grade === '11' ? 'یازدهم' : 'دوازدهم'}</div></div></div>
                     <div class="note-preview">${note.content.substring(0, 100)}${note.content.length > 100 ? '...' : ''}</div>
                 </div>
             `).join('');
@@ -3022,17 +2338,12 @@
             modal.className = 'modal active';
             modal.innerHTML = `
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <h3>افزودن نکته جدید</h3>
-                        <button class="modal-close" onclick="this.parentElement.parentElement.parentElement.remove()">&times;</button>
-                    </div>
-                    <div style="padding: 15px;">
-                        <select id="modalNoteSubject" class="exam-input" style="margin-bottom: 10px;">${getSubjectsOptions()}</select>
-                        <select id="modalNoteGrade" class="exam-input" style="margin-bottom: 10px;">
-                            <option value="10">دهم</option><option value="11">یازدهم</option><option value="12">دوازدهم</option>
-                        </select>
-                        <input type="text" id="modalNoteTitle" class="exam-input" placeholder="عنوان نکته" style="margin-bottom: 10px;">
-                        <textarea id="modalNoteContent" class="exam-input" placeholder="متن نکته ..." rows="5" style="margin-bottom: 10px;"></textarea>
+                    <div class="modal-header"><h3>افزودن نکته جدید</h3><button class="modal-close" onclick="this.parentElement.parentElement.parentElement.remove()">&times;</button></div>
+                    <div style="padding:15px;">
+                        <select id="modalNoteSubject" class="exam-input" style="margin-bottom:10px;">${getSubjectsOptions()}</select>
+                        <select id="modalNoteGrade" class="exam-input" style="margin-bottom:10px;"><option value="10">دهم</option><option value="11">یازدهم</option><option value="12">دوازدهم</option></select>
+                        <input type="text" id="modalNoteTitle" class="exam-input" placeholder="عنوان نکته" style="margin-bottom:10px;">
+                        <textarea id="modalNoteContent" class="exam-input" placeholder="متن نکته ..." rows="5" style="margin-bottom:10px;"></textarea>
                         <button class="btn btn-primary" onclick="saveNoteFromModal()">ذخیره نکته</button>
                     </div>
                 </div>
@@ -3047,17 +2358,9 @@
             const grade = document.getElementById('modalNoteGrade').value;
             const title = document.getElementById('modalNoteTitle').value;
             const content = document.getElementById('modalNoteContent').value;
-            
-            if (!subject || !grade || !title || !content) {
-                alert('لطفاً تمام فیلدها را پر کنید');
-                return;
-            }
-            
+            if (!subject || !grade || !title || !content) { alert('لطفاً تمام فیلدها را پر کنید'); return; }
             const users = getUsers();
-            users[currentUser].data.notes.push({
-                id: Date.now().toString(), subject, grade, title, content, createdAt: new Date().toISOString()
-            });
-            
+            users[currentUser].data.notes.push({ id: Date.now().toString(), subject, grade, title, content, createdAt: new Date().toISOString() });
             saveUsers(users);
             document.querySelector('.modal').remove();
             renderNotes();
@@ -3068,104 +2371,191 @@
             const users = getUsers();
             const note = users[currentUser].data.notes.find(n => n.id === noteId);
             if (!note) return;
-            
             const modal = document.createElement('div');
             modal.className = 'modal active';
             modal.innerHTML = `
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <h3>${note.title}</h3>
-                        <button class="modal-close" onclick="this.parentElement.parentElement.parentElement.remove()">&times;</button>
-                    </div>
-                    <div style="padding: 15px;">
+                    <div class="modal-header"><h3>${note.title}</h3><button class="modal-close" onclick="this.parentElement.parentElement.parentElement.remove()">&times;</button></div>
+                    <div style="padding:15px;">
                         <p><strong>درس:</strong> ${note.subject} - پایه ${note.grade === '10' ? 'دهم' : note.grade === '11' ? 'یازدهم' : 'دوازدهم'}</p>
                         <p><strong>تاریخ:</strong> ${new Date(note.createdAt).toLocaleDateString('fa-IR')}</p>
-                        <div style="background: #f8f9fa; padding: 15px; border-radius: 10px; margin: 15px 0; white-space: pre-wrap;">${note.content}</div>
+                        <div style="background:#f8f9fa; padding:15px; border-radius:10px; margin:15px 0;">${note.content}</div>
                     </div>
                 </div>
             `;
             document.body.appendChild(modal);
         }
 
-        // ==================== آزمون‌ها ====================
         function updateExamSubjects() {
             const grade = document.getElementById('examGrade').value;
             const container = document.getElementById('examSubjectsContainer');
-            if (!grade || !selectedMajor) {
-                container.innerHTML = '';
-                return;
-            }
+            if (!grade || !selectedMajor) { container.innerHTML = ''; return; }
             const specializedSubjects = getSpecializedSubjects(selectedMajor, grade);
-            container.innerHTML = specializedSubjects.map(subject => `
-                <div><input type="number" id="exam_${subject.name.replace(/\s+/g, '_')}" placeholder="${subject.name}" class="exam-input" style="width: 100%;"></div>
+            container.innerHTML = specializedSubjects.map(s => `
+                <div><input type="number" id="exam_${s.name.replace(/\s+/g, '_')}" placeholder="${s.name}" class="exam-input"></div>
             `).join('');
         }
 
         function saveExam() {
             const grade = document.getElementById('examGrade').value;
             const name = document.getElementById('examName').value;
-            if (!grade || !name) {
-                showNotification('لطفاً پایه و نام آزمون را وارد کنید', 'error');
-                return;
-            }
-            
+            if (!grade || !name) { showNotification('لطفاً پایه و نام آزمون را وارد کنید', 'error'); return; }
             const users = getUsers();
             const examData = { grade, name, subjects: {}, date: new Date().toISOString() };
             const specializedSubjects = getSpecializedSubjects(selectedMajor, grade);
-            
             specializedSubjects.forEach(subject => {
                 const input = document.getElementById(`exam_${subject.name.replace(/\s+/g, '_')}`);
                 if (input && input.value) examData.subjects[subject.name] = parseInt(input.value);
             });
-            
             users[currentUser].data.exams.push(examData);
             saveUsers(users);
-            
-            document.getElementById('examGrade').value = '';
-            document.getElementById('examName').value = '';
-            document.getElementById('examSubjectsContainer').innerHTML = '';
-            
-            updateExamList();
-            updateCharts();
-            checkMedals();
+            document.getElementById('examGrade').value = ''; document.getElementById('examName').value = ''; document.getElementById('examSubjectsContainer').innerHTML = '';
+            updateExamList(); renderAllCharts(); checkMedals();
             showNotification('آزمون با موفقیت ثبت شد', 'success');
         }
 
         function updateExamList() {
             const list = document.getElementById('examList');
-            const users = getUsers();
-            const exams = users[currentUser].data.exams || [];
-            
-            if (!exams.length) {
-                list.innerHTML = '<p style="text-align: center; color: #666;">هنوز آزمونی ثبت نشده</p>';
-                return;
-            }
-            
-            list.innerHTML = exams.slice(-5).reverse().map(exam => `
-                <div class="exam-item">
-                    <div><strong>${exam.name}</strong> - پایه ${exam.grade === '10' ? 'دهم' : exam.grade === '11' ? 'یازدهم' : 'دوازدهم'}</div>
-                    <div>${Object.entries(exam.subjects).map(([s, score]) => `<span style="margin-right: 10px;">${s.split(' ')[0]}: ${score}%</span>`).join('')}</div>
-                </div>
+            const exams = getUsers()[currentUser].data.exams || [];
+            if (!exams.length) { list.innerHTML = '<p style="color:#666;">هنوز آزمونی ثبت نشده</p>'; return; }
+            list.innerHTML = exams.slice(-5).reverse().map(e => `
+                <div class="exam-item"><div><strong>${e.name}</strong> - پایه ${e.grade === '10' ? 'دهم' : e.grade === '11' ? 'یازدهم' : 'دوازدهم'}</div><div>${Object.entries(e.subjects).map(([s, sc]) => `${s.split(' ')[0]}: ${sc}%`).join(' | ')}</div></div>
             `).join('');
         }
 
-        // ==================== مدال‌ها ====================
+        function renderAllCharts() {
+            if (!currentUser) return;
+            const users = getUsers();
+            const userData = users[currentUser].data;
+
+            // نمودار هفتگی
+            const weekCtx = document.getElementById('weeklyProgressChart').getContext('2d');
+            if (charts.weekly) charts.weekly.destroy();
+            let weekData = [];
+            for (let i = 0; i < 7; i++) {
+                const dateKey = getDateForDayOffset(i);
+                const daySessions = userData.sessions.filter(s => s.date.split('T')[0] === dateKey);
+                weekData.push(daySessions.reduce((sum, s) => sum + s.duration / 3600, 0));
+            }
+            charts.weekly = new Chart(weekCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['ش', 'ی', 'د', 'س', 'چ', 'پ', 'ج'],
+                    datasets: [{ label: 'ساعت مطالعه', data: weekData, backgroundColor: '#667eea' }]
+                },
+                options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true } } }
+            });
+
+            // نمودار ماهانه
+            const monthCtx = document.getElementById('monthlyProgressChart').getContext('2d');
+            if (charts.monthly) charts.monthly.destroy();
+            let monthData = [];
+            let monthLabels = [];
+            for (let i = 29; i >= 0; i--) {
+                const date = new Date(); date.setDate(date.getDate() - i);
+                const dateKey = date.toISOString().split('T')[0];
+                const daySessions = userData.sessions.filter(s => s.date.split('T')[0] === dateKey);
+                monthData.push(daySessions.reduce((sum, s) => sum + s.duration / 3600, 0));
+                if (i % 5 === 0) monthLabels.push(date.getDate());
+                else monthLabels.push('');
+            }
+            charts.monthly = new Chart(monthCtx, {
+                type: 'line',
+                data: { labels: monthLabels, datasets: [{ data: monthData, borderColor: '#667eea', backgroundColor: 'rgba(102,126,234,0.1)', fill: true, tension: 0.4 }] },
+                options: { responsive: true, plugins: { legend: { display: false } } }
+            });
+
+            // نمودار شش ماهه
+            const sixMonthCtx = document.getElementById('sixMonthProgressChart').getContext('2d');
+            if (charts.sixMonth) charts.sixMonth.destroy();
+            let sixMonthData = [];
+            let sixMonthLabels = [];
+            for (let i = 5; i >= 0; i--) {
+                const month = new Date(); month.setMonth(month.getMonth() - i);
+                const monthKey = `${month.getFullYear()}-${String(month.getMonth() + 1).padStart(2, '0')}`;
+                const monthSessions = userData.sessions.filter(s => s.date.startsWith(monthKey));
+                sixMonthData.push(monthSessions.reduce((sum, s) => sum + s.duration / 3600, 0));
+                sixMonthLabels.push(month.toLocaleDateString('fa-IR', { month: 'short' }));
+            }
+            charts.sixMonth = new Chart(sixMonthCtx, {
+                type: 'bar',
+                data: { labels: sixMonthLabels, datasets: [{ data: sixMonthData, backgroundColor: '#2ecc71' }] },
+                options: { responsive: true, plugins: { legend: { display: false } } }
+            });
+
+            // نمودار زمان
+            const timeCtx = document.getElementById('timeChart').getContext('2d');
+            if (charts.time) charts.time.destroy();
+            let timeData = [];
+            let timeLabels = [];
+            for (let i = 6; i >= 0; i--) {
+                const date = new Date(); date.setDate(date.getDate() - i);
+                const dateKey = date.toISOString().split('T')[0];
+                const daySessions = userData.sessions.filter(s => s.date.split('T')[0] === dateKey);
+                timeData.push(daySessions.reduce((sum, s) => sum + s.duration / 3600, 0));
+                timeLabels.push(date.toLocaleDateString('fa-IR', { weekday: 'short' }));
+            }
+            charts.time = new Chart(timeCtx, {
+                type: 'bar',
+                data: { labels: timeLabels, datasets: [{ data: timeData, backgroundColor: '#667eea' }] },
+                options: { responsive: true, plugins: { legend: { display: false } } }
+            });
+
+            // نمودار توزیع
+            const distCtx = document.getElementById('distributionChart').getContext('2d');
+            if (charts.distribution) charts.distribution.destroy();
+            const subjectHours = {};
+            userData.sessions.forEach(s => { subjectHours[s.subject] = (subjectHours[s.subject] || 0) + s.duration / 3600; });
+            if (Object.keys(subjectHours).length) {
+                charts.distribution = new Chart(distCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: Object.keys(subjectHours),
+                        datasets: [{ data: Object.values(subjectHours), backgroundColor: ['#667eea', '#764ba2', '#2ecc71', '#f39c12', '#e74c3c'] }]
+                    },
+                    options: { responsive: true, plugins: { legend: { position: 'bottom' } } }
+                });
+            }
+
+            // نمودار آزمون
+            const examCtx = document.getElementById('examChart').getContext('2d');
+            if (charts.exam) charts.exam.destroy();
+            const exams = userData.exams.slice(-5);
+            if (exams.length) {
+                charts.exam = new Chart(examCtx, {
+                    type: 'line',
+                    data: {
+                        labels: exams.map((_, i) => i + 1),
+                        datasets: [{
+                            data: exams.map(e => Object.values(e.subjects).reduce((a, b) => a + b, 0) / Object.keys(e.subjects).length || 0),
+                            borderColor: '#667eea', backgroundColor: 'rgba(102,126,234,0.1)', fill: true, tension: 0.4
+                        }]
+                    },
+                    options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { min: 0, max: 100 } } }
+                });
+            }
+        }
+
+        function changeTimeChartPeriod(period, element) {
+            document.querySelectorAll('.chart-btn').forEach(b => b.classList.remove('active'));
+            element.classList.add('active');
+        }
+
         function renderMedals() {
             const container = document.getElementById('medalsGrid');
             const users = getUsers();
             const userMedals = users[currentUser].data.medals || [];
-            
             let html = '';
             [...MEDALS.study, ...MEDALS.test, ...MEDALS.consistency].forEach(medal => {
                 const unlocked = userMedals.includes(medal.name);
                 const progress = calculateMedalProgress(medal);
                 html += `
-                    <div class="medal-card-new ${unlocked ? 'unlocked' : ''}">
-                        <div class="medal-icon-new"><i class="fas ${medal.icon} medal-${medal.color}"></i></div>
-                        <div class="medal-name-new">${medal.emoji} ${medal.name}</div>
-                        <div class="medal-desc-new">${medal.desc}</div>
-                        <div class="medal-progress-new"><div class="medal-progress-fill-new" style="width: ${progress}%"></div></div>
-                        <div class="medal-status-new ${unlocked ? 'unlocked' : 'locked'}">${unlocked ? '🏆 باز شده' : '🔒 در حال پیشرفت'}</div>
+                    <div class="medal-card ${unlocked ? 'unlocked' : ''}">
+                        <div class="medal-icon"><i class="fas ${medal.icon} medal-${medal.color}"></i></div>
+                        <div class="medal-name">${medal.emoji} ${medal.name}</div>
+                        <div class="medal-desc">${medal.desc}</div>
+                        <div class="medal-progress"><div class="medal-progress-fill" style="width:${progress}%"></div></div>
+                        <div class="medal-status ${unlocked ? 'unlocked' : 'locked'}">${unlocked ? '🏆 باز شده' : '🔒 در حال پیشرفت'}</div>
                     </div>
                 `;
             });
@@ -3175,7 +2565,6 @@
         function calculateMedalProgress(medal) {
             const users = getUsers();
             const userData = users[currentUser].data;
-            
             if (medal.name.includes('مطالعه')) {
                 const today = new Date().toISOString().split('T')[0];
                 const todayHours = userData.sessions.filter(s => s.date.split('T')[0] === today).reduce((sum, s) => sum + s.duration / 3600, 0);
@@ -3196,53 +2585,38 @@
             const users = getUsers();
             const userData = users[currentUser].data;
             let newMedals = false;
-            
             const today = new Date().toISOString().split('T')[0];
             const todayHours = userData.sessions.filter(s => s.date.split('T')[0] === today).reduce((sum, s) => sum + s.duration / 3600, 0);
-            
             MEDALS.study.forEach(medal => {
                 if (todayHours >= medal.target && !userData.medals.includes(medal.name)) {
-                    userData.medals.push(medal.name);
-                    newMedals = true;
+                    userData.medals.push(medal.name); newMedals = true;
                     showNotification(`🏆 مدال "${medal.name}" را به دست آوردید!`, 'success');
                 }
             });
-            
             const allTests = userData.subjects.flatMap(s => s.tests);
             const avgScore = allTests.length ? allTests.reduce((sum, t) => sum + t.percent, 0) / allTests.length : 0;
-            
             MEDALS.test.forEach(medal => {
                 if (avgScore >= medal.target && !userData.medals.includes(medal.name)) {
-                    userData.medals.push(medal.name);
-                    newMedals = true;
+                    userData.medals.push(medal.name); newMedals = true;
                     showNotification(`🏆 مدال "${medal.name}" را به دست آوردید!`, 'success');
                 }
             });
-            
             const firstDay = new Date(userData.createdAt);
             const today2 = new Date();
             const daysDiff = Math.floor((today2 - firstDay) / (1000 * 60 * 60 * 24));
-            
             MEDALS.consistency.forEach(medal => {
                 if (daysDiff >= medal.target && !userData.medals.includes(medal.name)) {
-                    userData.medals.push(medal.name);
-                    newMedals = true;
+                    userData.medals.push(medal.name); newMedals = true;
                     showNotification(`🏆 مدال "${medal.name}" را به دست آوردید!`, 'success');
                 }
             });
-            
-            if (newMedals) {
-                saveUsers(users);
-                renderMedals();
-                updateUserMedals();
-            }
+            if (newMedals) { saveUsers(users); renderMedals(); updateUserMedals(); }
         }
 
         function updateUserMedals() {
             const container = document.getElementById('userMedals');
             const users = getUsers();
             const userMedals = users[currentUser].data.medals || [];
-            
             container.innerHTML = userMedals.slice(0, 5).map(medal => {
                 let color = 'gold';
                 if (medal.includes('برنز')) color = 'bronze';
@@ -3253,50 +2627,14 @@
             }).join('');
         }
 
-        // ==================== نمودارها ====================
-        function updateCharts() {
-            if (!currentUser) return;
-            const users = getUsers();
-            const userData = users[currentUser].data;
-            
-            const ctx1 = document.getElementById('weeklyProgressChart')?.getContext('2d');
-            if (ctx1) {
-                if (charts.weekly) charts.weekly.destroy();
-                const weekData = [];
-                for (let i = 0; i < 4; i++) {
-                    const weekStart = new Date();
-                    weekStart.setDate(weekStart.getDate() - (i * 7));
-                    weekData.push(userData.sessions.filter(s => new Date(s.date) > weekStart).reduce((sum, s) => sum + s.duration / 3600, 0));
-                }
-                charts.weekly = new Chart(ctx1, {
-                    type: 'line',
-                    data: {
-                        labels: ['هفته ۴', 'هفته ۳', 'هفته ۲', 'هفته ۱'],
-                        datasets: [{ label: 'ساعت مطالعه', data: weekData.reverse(), borderColor: '#667eea', backgroundColor: 'rgba(102,126,234,0.1)', borderWidth: 3, fill: true, tension: 0.4 }]
-                    },
-                    options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true } } }
-                });
-            }
-        }
-
-        function changeTimeChartPeriod(period, element) {
-            document.querySelectorAll('.chart-btn').forEach(b => b.classList.remove('active'));
-            element.classList.add('active');
-        }
-
-        // ==================== نوتیفیکیشن ====================
         function showNotification(message, type) {
             const notif = document.createElement('div');
             notif.className = 'notification';
-            notif.innerHTML = `<i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}" style="color: ${type === 'success' ? '#2ecc71' : '#e74c3c'};"></i><span>${message}</span>`;
+            notif.innerHTML = `<i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}" style="color:${type === 'success' ? '#2ecc71' : '#e74c3c'};"></i><span>${message}</span>`;
             document.body.appendChild(notif);
-            setTimeout(() => {
-                notif.style.animation = 'slideIn 0.3s reverse';
-                setTimeout(() => notif.remove(), 300);
-            }, 3000);
+            setTimeout(() => { notif.style.animation = 'slideIn 0.3s reverse'; setTimeout(() => notif.remove(), 300); }, 3000);
         }
 
-        // ==================== بررسی وضعیت در شروع ====================
         (function checkLogin() {
             const users = getUsers();
             const lastUser = localStorage.getItem('lastUser');
