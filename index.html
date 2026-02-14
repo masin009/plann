@@ -887,6 +887,11 @@
             color: white;
         }
 
+        .btn-notes {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            color: white;
+        }
+
         .subject-btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.2);
@@ -1017,6 +1022,383 @@
         .timer-type:hover {
             background: rgba(255,255,255,0.2);
             transform: translateY(-3px);
+        }
+
+        .timer-inputs {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .timer-input-group {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .timer-input-group label {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9rem;
+        }
+
+        .timer-input-group input {
+            padding: 12px;
+            border-radius: 10px;
+            border: none;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            font-size: 1rem;
+        }
+
+        .timer-input-group input::placeholder {
+            color: rgba(255,255,255,0.5);
+        }
+
+        .timer-input-group select {
+            padding: 12px;
+            border-radius: 10px;
+            border: none;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .timer-input-group select option {
+            background: #1a1a2e;
+            color: white;
+        }
+
+        /* دفترچه نکات */
+        .notes-section {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            margin: 25px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .notes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .note-card {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 15px;
+            padding: 20px;
+            border: 2px solid #e0e0e0;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .note-card:hover {
+            transform: translateY(-5px);
+            border-color: #f39c12;
+            box-shadow: 0 10px 20px rgba(243,156,18,0.2);
+        }
+
+        .note-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .note-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .note-title {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .note-date {
+            color: #666;
+            font-size: 0.85rem;
+            margin-top: 5px;
+        }
+
+        .note-preview {
+            color: #666;
+            font-size: 0.95rem;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .add-note-btn {
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .add-note-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(243,156,18,0.3);
+        }
+
+        /* درخت رشد */
+        .tree-section {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            margin: 25px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .tree-container {
+            position: relative;
+            height: 200px;
+            margin: 30px 0;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+        }
+
+        .tree-graphic {
+            position: relative;
+            width: 100px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        .tree-trunk {
+            width: 20px;
+            background: linear-gradient(90deg, #8B4513, #A0522D);
+            border-radius: 10px 10px 0 0;
+            transition: height 1s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            bottom: 0;
+        }
+
+        .tree-leaves {
+            width: 0;
+            height: 0;
+            border-left: 40px solid transparent;
+            border-right: 40px solid transparent;
+            border-bottom: 80px solid #2ecc71;
+            transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-bottom: -20px;
+            filter: drop-shadow(0 5px 10px rgba(46,204,113,0.3));
+        }
+
+        .tree-stage {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #2ecc71;
+            white-space: nowrap;
+        }
+
+        .tree-progress {
+            height: 10px;
+            background: #e0e0e0;
+            border-radius: 5px;
+            margin-top: 20px;
+            overflow: hidden;
+        }
+
+        .tree-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #2ecc71, #27ae60);
+            border-radius: 5px;
+            transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .tree-stats {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .tree-stat {
+            text-align: center;
+        }
+
+        .tree-stat-value {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #2ecc71;
+        }
+
+        .tree-stat-label {
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        /* مدال‌ها */
+        .medals-section {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            margin: 25px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .medals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .medal-card {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            border: 2px solid #e0e0e0;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .medal-card.unlocked {
+            border-color: #f1c40f;
+            background: linear-gradient(135deg, #fef9e7, #fef5e7);
+        }
+
+        .medal-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #f1c40f20, #f39c1220);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .medal-card.unlocked::before {
+            opacity: 0.3;
+        }
+
+        .medal-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            position: relative;
+            z-index: 1;
+        }
+
+        .medal-icon.gold {
+            background: linear-gradient(135deg, #f1c40f, #f39c12);
+        }
+
+        .medal-icon.silver {
+            background: linear-gradient(135deg, #bdc3c7, #95a5a6);
+        }
+
+        .medal-icon.bronze {
+            background: linear-gradient(135deg, #e67e22, #d35400);
+        }
+
+        .medal-icon.platinum {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+        }
+
+        .medal-name {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .medal-desc {
+            color: #666;
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+        }
+
+        .medal-progress {
+            height: 5px;
+            background: #e0e0e0;
+            border-radius: 5px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+
+        .medal-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #f1c40f, #f39c12);
+            border-radius: 5px;
+            transition: width 0.5s ease;
+        }
+
+        .medal-locked {
+            color: #999;
+            font-size: 0.85rem;
+        }
+
+        .medal-unlocked {
+            color: #27ae60;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+
+        .user-medals {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+            justify-content: center;
+        }
+
+        .user-medal-icon {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f1c40f, #f39c12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.8rem;
+            cursor: help;
+            transition: all 0.3s;
+        }
+
+        .user-medal-icon:hover {
+            transform: scale(1.2);
         }
 
         /* برنامه‌ریزی هفتگی */
@@ -1383,7 +1765,7 @@
             background: white;
             border-radius: 30px;
             padding: 30px;
-            max-width: 500px;
+            max-width: 600px;
             width: 100%;
             max-height: 80vh;
             overflow-y: auto;
@@ -1414,6 +1796,52 @@
         .modal-close:hover {
             color: #e74c3c;
             transform: rotate(90deg);
+        }
+
+        .note-editor {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .note-editor select,
+        .note-editor input,
+        .note-editor textarea {
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+        }
+
+        .note-editor textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .image-upload {
+            border: 2px dashed #667eea;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .image-upload:hover {
+            background: #f0f0f0;
+        }
+
+        .image-upload i {
+            font-size: 2rem;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .image-preview {
+            max-width: 100%;
+            max-height: 200px;
+            margin-top: 10px;
+            border-radius: 10px;
         }
 
         /* نوتیفیکیشن */
@@ -1464,6 +1892,64 @@
             .major-grid {
                 grid-template-columns: 1fr;
             }
+
+            .medals-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .notes-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* استایل‌های کشویی برای select */
+        select {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>");
+            background-repeat: no-repeat;
+            background-position: left 12px center;
+            background-size: 16px;
+            padding-left: 40px !important;
+        }
+
+        select option {
+            padding: 10px;
+        }
+
+        /* مدال‌های کاربر */
+        .user-medals-container {
+            display: flex;
+            gap: 5px;
+            margin-top: 5px;
+        }
+
+        .user-medal-icon {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            color: white;
+        }
+
+        .user-medal-icon.gold {
+            background: linear-gradient(135deg, #f1c40f, #f39c12);
+        }
+
+        .user-medal-icon.silver {
+            background: linear-gradient(135deg, #bdc3c7, #95a5a6);
+        }
+
+        .user-medal-icon.bronze {
+            background: linear-gradient(135deg, #e67e22, #d35400);
+        }
+
+        .user-medal-icon.platinum {
+            background: linear-gradient(135deg, #3498db, #2980b9);
         }
     </style>
 </head>
@@ -1588,6 +2074,7 @@
                     <div class="user-details">
                         <h3 id="displayName"></h3>
                         <p id="displayMajor"></p>
+                        <div class="user-medals-container" id="userMedals"></div>
                     </div>
                 </div>
                 <button class="logout-btn" onclick="logout()">
@@ -1614,6 +2101,10 @@
                         <i class="fas fa-stopwatch"></i>
                         <span>تایمر</span>
                     </div>
+                    <div class="menu-item" onclick="showSection('notes')">
+                        <i class="fas fa-sticky-note"></i>
+                        <span>دفترچه نکات</span>
+                    </div>
                     <div class="menu-item" onclick="showSection('exams')">
                         <i class="fas fa-clipboard-check"></i>
                         <span>آزمون‌ها</span>
@@ -1625,6 +2116,14 @@
                     <div class="menu-item" onclick="showSection('progress')">
                         <i class="fas fa-star"></i>
                         <span>پیشرفت</span>
+                    </div>
+                    <div class="menu-item" onclick="showSection('tree')">
+                        <i class="fas fa-tree"></i>
+                        <span>درخت رشد</span>
+                    </div>
+                    <div class="menu-item" onclick="showSection('medals')">
+                        <i class="fas fa-medal"></i>
+                        <span>مدال‌ها</span>
                     </div>
                 </div>
             </div>
@@ -1772,26 +2271,56 @@
                         </button>
                     </div>
 
-                    <div style="display: flex; gap: 15px; margin-top: 20px;">
-                        <select id="timerSubject" style="flex: 2; padding: 12px; border-radius: 10px; border: none;">
-                            <option value="">انتخاب درس</option>
-                        </select>
-                        <select id="timerGrade" style="flex: 1; padding: 12px; border-radius: 10px; border: none;">
-                            <option value="10">دهم</option>
-                            <option value="11">یازدهم</option>
-                            <option value="12">دوازدهم</option>
-                        </select>
+                    <div class="timer-inputs">
+                        <div class="timer-input-group">
+                            <label>درس</label>
+                            <select id="timerSubject">
+                                <option value="">انتخاب درس</option>
+                            </select>
+                        </div>
+                        <div class="timer-input-group">
+                            <label>پایه</label>
+                            <select id="timerGrade">
+                                <option value="10">دهم</option>
+                                <option value="11">یازدهم</option>
+                                <option value="12">دوازدهم</option>
+                            </select>
+                        </div>
                     </div>
 
-                    <div id="testFields" style="display: none; margin-top: 15px;">
-                        <div style="display: flex; gap: 10px;">
-                            <input type="number" id="correctCount" placeholder="تعداد صحیح" style="flex: 1; padding: 12px; border-radius: 10px; border: none;">
-                            <input type="number" id="wrongCount" placeholder="تعداد غلط" style="flex: 1; padding: 12px; border-radius: 10px; border: none;">
+                    <div id="testFields" style="display: none;" class="timer-inputs">
+                        <div class="timer-input-group">
+                            <label>تعداد صحیح</label>
+                            <input type="number" id="correctCount" placeholder="مثلاً ۳۲">
+                        </div>
+                        <div class="timer-input-group">
+                            <label>تعداد غلط</label>
+                            <input type="number" id="wrongCount" placeholder="مثلاً ۸">
                         </div>
                     </div>
 
                     <button class="btn btn-primary" onclick="saveSession()" style="margin-top: 20px; width: 100%;">
                         <i class="fas fa-save"></i> ذخیره جلسه
+                    </button>
+                </div>
+            </div>
+
+            <!-- بخش دفترچه نکات -->
+            <div id="notes" class="section">
+                <div class="notes-section">
+                    <div class="section-header">
+                        <div class="section-title">
+                            <i class="fas fa-sticky-note"></i>
+                            <span>دفترچه نکات</span>
+                        </div>
+                    </div>
+
+                    <div id="notesGrid" class="notes-grid">
+                        <!-- نکات با جاوااسکریپت پر می‌شوند -->
+                    </div>
+
+                    <button class="add-note-btn" onclick="openAddNoteModal()">
+                        <i class="fas fa-plus"></i> افزودن نکته جدید
                     </button>
                 </div>
             </div>
@@ -1807,18 +2336,20 @@
                     </div>
 
                     <div class="exam-form">
-                        <select id="examGrade" class="exam-input">
+                        <select id="examGrade" class="exam-input" onchange="updateExamSubjects()">
                             <option value="">انتخاب پایه</option>
                             <option value="10">دهم</option>
                             <option value="11">یازدهم</option>
                             <option value="12">دوازدهم</option>
                         </select>
-                        <div id="examSubjectsContainer" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; grid-column: 1/-1;">
-                            <!-- دروس تخصصی با جاوااسکریپت پر می‌شوند -->
-                        </div>
                         <input type="text" id="examName" class="exam-input" placeholder="نام آزمون">
-                        <button class="btn btn-primary" onclick="saveExam()">ثبت آزمون</button>
                     </div>
+
+                    <div id="examSubjectsContainer" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 20px;">
+                        <!-- دروس تخصصی با جاوااسکریپت پر می‌شوند -->
+                    </div>
+
+                    <button class="btn btn-primary" onclick="saveExam()">ثبت آزمون</button>
 
                     <div id="examList" class="exam-list">
                         <!-- آزمون‌های قبلی -->
@@ -1846,9 +2377,9 @@
                                 <span>ساعت مطالعه روزانه</span>
                             </div>
                             <div class="chart-controls">
-                                <span class="chart-btn active" onclick="changeChartPeriod('week', this)">هفته</span>
-                                <span class="chart-btn" onclick="changeChartPeriod('month', this)">ماه</span>
-                                <span class="chart-btn" onclick="changeChartPeriod('year', this)">سال</span>
+                                <span class="chart-btn active" onclick="changeTimeChartPeriod('week', this)">هفته</span>
+                                <span class="chart-btn" onclick="changeTimeChartPeriod('month', this)">ماه</span>
+                                <span class="chart-btn" onclick="changeTimeChartPeriod('year', this)">سال</span>
                             </div>
                         </div>
                         <canvas id="timeChart"></canvas>
@@ -1883,16 +2414,6 @@
                         </div>
                         <canvas id="radarChart"></canvas>
                     </div>
-
-                    <div class="chart-container">
-                        <div class="chart-header">
-                            <div class="chart-title">
-                                <i class="fas fa-chart-scatter"></i>
-                                <span>روند پیشرفت هفتگی</span>
-                            </div>
-                        </div>
-                        <canvas id="trendChart"></canvas>
-                    </div>
                 </div>
             </div>
 
@@ -1919,7 +2440,66 @@
                     </div>
 
                     <div style="margin-top: 30px;">
-                        <canvas id="successRateChart"></canvas>
+                        <canvas id="sixMonthProgressChart"></canvas>
+                    </div>
+
+                    <div style="margin-top: 30px;">
+                        <canvas id="yearlyProgressChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- بخش درخت رشد -->
+            <div id="tree" class="section">
+                <div class="tree-section">
+                    <div class="section-header">
+                        <div class="section-title">
+                            <i class="fas fa-tree"></i>
+                            <span>درخت رشد</span>
+                        </div>
+                    </div>
+
+                    <div class="tree-container">
+                        <div class="tree-graphic">
+                            <div class="tree-leaves" id="treeLeaves" style="border-bottom-color: #2ecc71;"></div>
+                            <div class="tree-trunk" id="treeTrunk" style="height: 50px;"></div>
+                        </div>
+                        <div class="tree-stage" id="treeStage">نهال</div>
+                    </div>
+
+                    <div class="tree-progress">
+                        <div class="tree-progress-bar" id="treeProgress" style="width: 0%"></div>
+                    </div>
+
+                    <div class="tree-stats">
+                        <div class="tree-stat">
+                            <div class="tree-stat-value" id="treeDays">۰</div>
+                            <div class="tree-stat-label">روز تلاش</div>
+                        </div>
+                        <div class="tree-stat">
+                            <div class="tree-stat-value" id="treeHours">۰</div>
+                            <div class="tree-stat-label">ساعت مطالعه</div>
+                        </div>
+                        <div class="tree-stat">
+                            <div class="tree-stat-value" id="treeTests">۰</div>
+                            <div class="tree-stat-label">تست</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- بخش مدال‌ها -->
+            <div id="medals" class="section">
+                <div class="medals-section">
+                    <div class="section-header">
+                        <div class="section-title">
+                            <i class="fas fa-medal"></i>
+                            <span>مدال‌های افتخار</span>
+                        </div>
+                    </div>
+
+                    <div class="medals-grid" id="medalsGrid">
+                        <!-- مدال‌ها با جاوااسکریپت پر می‌شوند -->
                     </div>
                 </div>
             </div>
@@ -1980,6 +2560,35 @@
                 <input type="number" id="modalCorrect" placeholder="تعداد صحیح" class="exam-input" style="margin-bottom: 15px;">
                 <input type="number" id="modalWrong" placeholder="تعداد غلط" class="exam-input" style="margin-bottom: 15px;">
                 <button class="btn btn-primary" onclick="saveTestResult()">ثبت</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- مدال افزودن نکته -->
+    <div id="noteModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>افزودن نکته جدید</h3>
+                <button class="modal-close" onclick="closeModal('noteModal')">&times;</button>
+            </div>
+            <div class="note-editor">
+                <select id="noteSubject">
+                    <option value="">انتخاب درس</option>
+                </select>
+                <select id="noteGrade">
+                    <option value="10">دهم</option>
+                    <option value="11">یازدهم</option>
+                    <option value="12">دوازدهم</option>
+                </select>
+                <input type="text" id="noteTitle" placeholder="عنوان نکته">
+                <textarea id="noteContent" placeholder="متن نکته ..."></textarea>
+                <div class="image-upload" onclick="document.getElementById('noteImage').click()">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <p>برای آپلود عکس کلیک کنید</p>
+                    <input type="file" id="noteImage" accept="image/*" style="display: none;" onchange="previewImage(this)">
+                </div>
+                <img id="imagePreview" class="image-preview" style="display: none;">
+                <button class="btn btn-primary" onclick="saveNote()">ذخیره نکته</button>
             </div>
         </div>
     </div>
@@ -2095,6 +2704,31 @@
             }
         };
 
+        // ==================== مدال‌ها ====================
+        const MEDALS = {
+            study: [
+                { name: 'مطالعه‌گر تازه‌کار', desc: '۸ ساعت مطالعه در یک روز', icon: 'fa-clock', target: 8, color: 'bronze' },
+                { name: 'مطالعه‌گر فعال', desc: '۱۰ ساعت مطالعه در یک روز', icon: 'fa-clock', target: 10, color: 'silver' },
+                { name: 'مطالعه‌گر حرفه‌ای', desc: '۱۲ ساعت مطالعه در یک روز', icon: 'fa-clock', target: 12, color: 'gold' },
+                { name: 'مطالعه‌گر افسانه‌ای', desc: '۱۴ ساعت مطالعه در یک روز', icon: 'fa-clock', target: 14, color: 'platinum' }
+            ],
+            test: [
+                { name: 'آزمون‌دهنده تازه‌کار', desc: 'میانگین ۳۰٪ در آزمون‌ها', icon: 'fa-clipboard-check', target: 30, color: 'bronze' },
+                { name: 'آزمون‌دهنده فعال', desc: 'میانگین ۴۰٪ در آزمون‌ها', icon: 'fa-clipboard-check', target: 40, color: 'silver' },
+                { name: 'آزمون‌دهنده حرفه‌ای', desc: 'میانگین ۵۰٪ در آزمون‌ها', icon: 'fa-clipboard-check', target: 50, color: 'gold' },
+                { name: 'آزمون‌دهنده خبره', desc: 'میانگین ۶۰٪ در آزمون‌ها', icon: 'fa-clipboard-check', target: 60, color: 'platinum' },
+                { name: 'آزمون‌دهنده استاد', desc: 'میانگین ۷۰٪ در آزمون‌ها', icon: 'fa-clipboard-check', target: 70, color: 'platinum' },
+                { name: 'آزمون‌دهنده نابغه', desc: 'میانگین ۸۰٪ در آزمون‌ها', icon: 'fa-clipboard-check', target: 80, color: 'gold' },
+                { name: 'آزمون‌دهنده فوق‌العاده', desc: 'میانگین ۹۰٪ در آزمون‌ها', icon: 'fa-clipboard-check', target: 90, color: 'platinum' }
+            ],
+            consistency: [
+                { name: 'پایدار تازه‌کار', desc: '۷ روز متوالی مطالعه', icon: 'fa-calendar-check', target: 7, color: 'bronze' },
+                { name: 'پایدار فعال', desc: '۳۰ روز متوالی مطالعه', icon: 'fa-calendar-check', target: 30, color: 'silver' },
+                { name: 'پایدار حرفه‌ای', desc: '۱۰۰ روز متوالی مطالعه', icon: 'fa-calendar-check', target: 100, color: 'gold' },
+                { name: 'پایدار افسانه‌ای', desc: '۳۶۵ روز متوالی مطالعه', icon: 'fa-calendar-check', target: 365, color: 'platinum' }
+            ]
+        };
+
         // ==================== متغیرهای اصلی ====================
         let currentUser = null;
         let selectedMajor = null;
@@ -2109,11 +2743,11 @@
 
         // ==================== مدیریت کاربران ====================
         function getUsers() {
-            return JSON.parse(localStorage.getItem('konkour_users_v3') || '{}');
+            return JSON.parse(localStorage.getItem('konkour_users_v4') || '{}');
         }
 
         function saveUsers(users) {
-            localStorage.setItem('konkour_users_v3', JSON.stringify(users));
+            localStorage.setItem('konkour_users_v4', JSON.stringify(users));
         }
 
         function togglePassword(inputId, btn) {
@@ -2178,8 +2812,11 @@
                     subjects: [],
                     sessions: [],
                     exams: [],
+                    notes: [],
                     tasks: {},
-                    createdAt: Date.now()
+                    medals: [],
+                    createdAt: Date.now(),
+                    lastActive: Date.now()
                 }
             };
 
@@ -2253,6 +2890,7 @@
             
             initializeSubjects();
             initializeTasks();
+            initializeNotes();
             loadUserData();
             showMainApp();
         }
@@ -2289,14 +2927,25 @@
             saveUsers(users);
         }
 
+        function initializeNotes() {
+            if (!currentUser) return;
+            
+            const users = getUsers();
+            if (!users[currentUser].data.notes) {
+                users[currentUser].data.notes = [];
+            }
+            saveUsers(users);
+        }
+
         function loadUserData() {
             if (!currentUser) return;
             
             const users = getUsers();
-            const user = users[currentUser];
+            users[currentUser].data.lastActive = Date.now();
+            saveUsers(users);
             
             document.getElementById('displayName').textContent = currentUser;
-            document.getElementById('displayMajor').textContent = `رشته ${user.major}`;
+            document.getElementById('displayMajor').textContent = `رشته ${users[currentUser].major}`;
             
             renderSubjects();
             updateStats();
@@ -2307,6 +2956,10 @@
             updateCharts();
             updateWeeklyProgress();
             updateRecentActivities();
+            renderNotes();
+            renderMedals();
+            updateTree();
+            updateUserMedals();
         }
 
         function showMainApp() {
@@ -2322,6 +2975,11 @@
             
             document.getElementById(sectionId).classList.add('active');
             event.currentTarget.classList.add('active');
+            
+            // به‌روزرسانی داده‌های بخش
+            if (sectionId === 'tree') updateTree();
+            if (sectionId === 'medals') renderMedals();
+            if (sectionId === 'notes') renderNotes();
         }
 
         function showMessage(element, text, type) {
@@ -2385,6 +3043,9 @@
                         <button class="subject-btn btn-test" onclick="startTestFromSubject('${subject.name}', '${subject.grade}')">
                             <i class="fas fa-clipboard-check"></i> تست
                         </button>
+                        <button class="subject-btn btn-notes" onclick="openNoteForSubject('${subject.name}', '${subject.grade}')">
+                            <i class="fas fa-sticky-note"></i> نکته
+                        </button>
                     </div>
                 `;
                 grid.appendChild(card);
@@ -2416,6 +3077,10 @@
             document.getElementById('timerSubject').value = subject;
             document.getElementById('timerGrade').value = grade;
             selectTimerType('test', document.querySelectorAll('.timer-type')[1]);
+        }
+
+        function openNoteForSubject(subject, grade) {
+            openAddNoteModal(subject, grade);
         }
 
         // ==================== برنامه‌ریزی هفتگی ====================
@@ -2616,6 +3281,8 @@
             updateStats();
             updateWeeklyProgress();
             updateCharts();
+            updateTree();
+            checkMedals();
             showNotification('تسک با موفقیت ثبت شد', 'success');
             
             document.getElementById('completePercent').value = '';
@@ -2728,7 +3395,7 @@
             document.querySelectorAll('.timer-type').forEach(t => t.classList.remove('active'));
             element.classList.add('active');
             
-            document.getElementById('testFields').style.display = type === 'test' ? 'block' : 'none';
+            document.getElementById('testFields').style.display = type === 'test' ? 'flex' : 'none';
             
             resetTimer();
         }
@@ -2807,7 +3474,7 @@
             }
             
             // ذخیره جلسه
-            userData.sessions.push({
+            const session = {
                 subject: subject,
                 grade: grade,
                 duration: timerSeconds,
@@ -2815,7 +3482,27 @@
                 date: new Date().toISOString(),
                 correct: timerType === 'test' ? document.getElementById('correctCount').value : null,
                 wrong: timerType === 'test' ? document.getElementById('wrongCount').value : null
-            });
+            };
+            
+            userData.sessions.push(session);
+            
+            // اگر تست است، به tests درس هم اضافه کن
+            if (timerType === 'test' && session.correct && session.wrong) {
+                const correct = parseInt(session.correct);
+                const wrong = parseInt(session.wrong);
+                const total = correct + wrong;
+                const percent = Math.round((correct / total) * 100);
+                
+                if (subjectIndex !== -1) {
+                    userData.subjects[subjectIndex].tests.push({
+                        date: new Date().toISOString(),
+                        correct: correct,
+                        wrong: wrong,
+                        total: total,
+                        percent: percent
+                    });
+                }
+            }
             
             saveUsers(users);
             
@@ -2828,6 +3515,8 @@
             updateStats();
             updateCharts();
             updateRecentActivities();
+            updateTree();
+            checkMedals();
             showNotification('جلسه با موفقیت ذخیره شد', 'success');
         }
 
@@ -2887,7 +3576,144 @@
             
             renderSubjects();
             updateCharts();
+            updateTree();
+            checkMedals();
             showNotification(`تست با درصد ${percent}% ثبت شد`, 'success');
+        }
+
+        // ==================== دفترچه نکات ====================
+        function renderNotes() {
+            const container = document.getElementById('notesGrid');
+            const users = getUsers();
+            const notes = users[currentUser].data.notes || [];
+            
+            if (notes.length === 0) {
+                container.innerHTML = '<p style="color: #999; text-align: center;">هنوز نکته‌ای ثبت نکرده‌اید</p>';
+                return;
+            }
+            
+            container.innerHTML = notes.slice().reverse().map(note => `
+                <div class="note-card" onclick="viewNote('${note.id}')">
+                    <div class="note-header">
+                        <div class="note-icon">
+                            <i class="fas fa-sticky-note"></i>
+                        </div>
+                        <div>
+                            <div class="note-title">${note.title}</div>
+                            <div class="note-date">${note.subject} - ${note.grade === '10' ? 'دهم' : note.grade === '11' ? 'یازدهم' : 'دوازدهم'}</div>
+                        </div>
+                    </div>
+                    <div class="note-preview">
+                        ${note.content.substring(0, 100)}${note.content.length > 100 ? '...' : ''}
+                    </div>
+                    ${note.image ? '<i class="fas fa-image" style="color: #667eea; margin-top: 10px;"></i>' : ''}
+                </div>
+            `).join('');
+        }
+
+        function openAddNoteModal(subject = null, grade = null) {
+            document.getElementById('noteModal').classList.add('active');
+            
+            // پر کردن انتخابگر درس
+            const subjectSelect = document.getElementById('noteSubject');
+            const users = getUsers();
+            const subjects = users[currentUser].data.subjects;
+            
+            subjectSelect.innerHTML = '<option value="">انتخاب درس</option>';
+            subjects.forEach(s => {
+                const option = document.createElement('option');
+                option.value = s.name;
+                option.textContent = s.name;
+                subjectSelect.appendChild(option);
+            });
+            
+            if (subject) {
+                subjectSelect.value = subject;
+            }
+            
+            if (grade) {
+                document.getElementById('noteGrade').value = grade;
+            }
+        }
+
+        function previewImage(input) {
+            const preview = document.getElementById('imagePreview');
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        function saveNote() {
+            const subject = document.getElementById('noteSubject').value;
+            const grade = document.getElementById('noteGrade').value;
+            const title = document.getElementById('noteTitle').value;
+            const content = document.getElementById('noteContent').value;
+            const image = document.getElementById('imagePreview').src;
+            
+            if (!subject || !grade || !title || !content) {
+                showNotification('لطفاً تمام فیلدها را پر کنید', 'error');
+                return;
+            }
+            
+            const users = getUsers();
+            
+            const note = {
+                id: Date.now().toString(),
+                subject: subject,
+                grade: grade,
+                title: title,
+                content: content,
+                image: image || null,
+                createdAt: new Date().toISOString()
+            };
+            
+            users[currentUser].data.notes.push(note);
+            saveUsers(users);
+            
+            closeModal('noteModal');
+            renderNotes();
+            showNotification('نکته با موفقیت ذخیره شد', 'success');
+            
+            // ریست فرم
+            document.getElementById('noteSubject').value = '';
+            document.getElementById('noteGrade').value = '10';
+            document.getElementById('noteTitle').value = '';
+            document.getElementById('noteContent').value = '';
+            document.getElementById('imagePreview').src = '';
+            document.getElementById('imagePreview').style.display = 'none';
+        }
+
+        function viewNote(noteId) {
+            const users = getUsers();
+            const note = users[currentUser].data.notes.find(n => n.id === noteId);
+            
+            if (!note) return;
+            
+            const modal = document.createElement('div');
+            modal.className = 'modal active';
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>${note.title}</h3>
+                        <button class="modal-close" onclick="this.parentElement.parentElement.parentElement.remove()">&times;</button>
+                    </div>
+                    <div style="padding: 20px;">
+                        <p><strong>درس:</strong> ${note.subject} - پایه ${note.grade === '10' ? 'دهم' : note.grade === '11' ? 'یازدهم' : 'دوازدهم'}</p>
+                        <p><strong>تاریخ:</strong> ${new Date(note.createdAt).toLocaleDateString('fa-IR')}</p>
+                        <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin: 20px 0;">
+                            ${note.content}
+                        </div>
+                        ${note.image ? `<img src="${note.image}" style="max-width: 100%; border-radius: 10px;">` : ''}
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
         }
 
         // ==================== آزمون ====================
@@ -2955,6 +3781,7 @@
             
             updateExamList();
             updateCharts();
+            checkMedals();
             showNotification('آزمون با موفقیت ثبت شد', 'success');
         }
 
@@ -3036,30 +3863,62 @@
             
             if (charts.time) charts.time.destroy();
             
-            const last7Days = [];
-            const last7Hours = [];
+            const period = document.querySelector('#timeChart').parentElement.querySelector('.chart-btn.active')?.textContent || 'هفته';
+            let labels = [];
+            let data = [];
             
-            for (let i = 6; i >= 0; i--) {
-                const date = new Date();
-                date.setDate(date.getDate() - i);
-                const dateKey = date.toISOString().split('T')[0];
-                
-                const daySessions = userData.sessions.filter(s => 
-                    s.date.split('T')[0] === dateKey
-                );
-                const dayHours = daySessions.reduce((sum, s) => sum + s.duration / 3600, 0);
-                
-                last7Days.push(date.toLocaleDateString('fa-IR', { weekday: 'short' }));
-                last7Hours.push(dayHours);
+            if (period === 'هفته') {
+                for (let i = 6; i >= 0; i--) {
+                    const date = new Date();
+                    date.setDate(date.getDate() - i);
+                    const dateKey = date.toISOString().split('T')[0];
+                    
+                    const daySessions = userData.sessions.filter(s => 
+                        s.date.split('T')[0] === dateKey
+                    );
+                    const dayHours = daySessions.reduce((sum, s) => sum + s.duration / 3600, 0);
+                    
+                    labels.push(date.toLocaleDateString('fa-IR', { weekday: 'short' }));
+                    data.push(dayHours);
+                }
+            } else if (period === 'ماه') {
+                for (let i = 29; i >= 0; i--) {
+                    const date = new Date();
+                    date.setDate(date.getDate() - i);
+                    const dateKey = date.toISOString().split('T')[0];
+                    
+                    const daySessions = userData.sessions.filter(s => 
+                        s.date.split('T')[0] === dateKey
+                    );
+                    const dayHours = daySessions.reduce((sum, s) => sum + s.duration / 3600, 0);
+                    
+                    labels.push(date.getDate().toString());
+                    data.push(dayHours);
+                }
+            } else {
+                // سال - به صورت ماهانه
+                for (let i = 11; i >= 0; i--) {
+                    const date = new Date();
+                    date.setMonth(date.getMonth() - i);
+                    const monthKey = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`;
+                    
+                    const monthSessions = userData.sessions.filter(s => 
+                        s.date.startsWith(monthKey)
+                    );
+                    const monthHours = monthSessions.reduce((sum, s) => sum + s.duration / 3600, 0);
+                    
+                    labels.push(date.toLocaleDateString('fa-IR', { month: 'short' }));
+                    data.push(monthHours);
+                }
             }
             
             charts.time = new Chart(timeCtx, {
                 type: 'bar',
                 data: {
-                    labels: last7Days,
+                    labels: labels,
                     datasets: [{
                         label: 'ساعت مطالعه',
-                        data: last7Hours,
+                        data: data,
                         backgroundColor: 'rgba(102,126,234,0.7)',
                         borderRadius: 8,
                         borderSkipped: false,
@@ -3134,6 +3993,7 @@
                     });
                 });
                 
+                const colors = ['#667eea', '#764ba2', '#2ecc71', '#f39c12', '#e74c3c', '#3498db', '#9b59b6', '#1abc9c'];
                 const datasets = Object.entries(examSubjects).map(([subject, scores], index) => ({
                     label: subject,
                     data: scores,
@@ -3203,78 +4063,33 @@
                 }
             });
             
-            // نمودار روند
-            const trendCtx = document.getElementById('trendChart').getContext('2d');
-            
-            if (charts.trend) charts.trend.destroy();
-            
-            const weeklyProgress = [];
-            for (let i = 0; i < 4; i++) {
-                const weekTasks = [];
-                for (let j = 0; j < 7; j++) {
-                    const dateKey = getDateForDay(j - (i * 7));
-                    const dayTasks = userData.tasks[dateKey] || [];
-                    weekTasks.push(...dayTasks);
-                }
-                const completed = weekTasks.filter(t => t.completed).length;
-                const percent = weekTasks.length > 0 ? (completed / weekTasks.length) * 100 : 0;
-                weeklyProgress.push(percent);
-            }
-            
-            charts.trend = new Chart(trendCtx, {
-                type: 'line',
-                data: {
-                    labels: ['هفته ۴', 'هفته ۳', 'هفته ۲', 'هفته ۱'],
-                    datasets: [{
-                        label: 'موفقیت هفتگی',
-                        data: weeklyProgress.reverse(),
-                        borderColor: '#2ecc71',
-                        backgroundColor: 'rgba(46,204,113,0.1)',
-                        borderWidth: 3,
-                        fill: true,
-                        tension: 0.4
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    plugins: {
-                        legend: { display: false }
-                    },
-                    scales: {
-                        y: { beginAtZero: true, max: 100 }
-                    },
-                    animation: { duration: 2000 }
-                }
-            });
-            
-            // نمودار موفقیت
-            const successCtx = document.getElementById('successRateChart')?.getContext('2d');
-            
-            if (successCtx) {
-                if (charts.success) charts.success.destroy();
+            // نمودار پیشرفت هفتگی
+            const weeklyCtx = document.getElementById('weeklyProgressChart')?.getContext('2d');
+            if (weeklyCtx) {
+                if (charts.weekly) charts.weekly.destroy();
                 
-                const days = ['ش', 'ی', 'د', 'س', 'چ', 'پ', 'ج'];
-                const successData = [];
-                
-                for (let i = 0; i < 7; i++) {
-                    const dateKey = getDateForDay(i);
-                    const dayTasks = userData.tasks[dateKey] || [];
-                    const completed = dayTasks.filter(t => t.completed).length;
-                    const percent = dayTasks.length > 0 ? (completed / dayTasks.length) * 100 : 0;
-                    successData.push(percent);
+                const weekData = [];
+                for (let i = 0; i < 4; i++) {
+                    const weekStart = new Date();
+                    weekStart.setDate(weekStart.getDate() - (i * 7));
+                    const weekSessions = userData.sessions.filter(s => 
+                        new Date(s.date) > weekStart
+                    );
+                    weekData.push(weekSessions.reduce((sum, s) => sum + s.duration / 3600, 0));
                 }
                 
-                charts.success = new Chart(successCtx, {
-                    type: 'bar',
+                charts.weekly = new Chart(weeklyCtx, {
+                    type: 'line',
                     data: {
-                        labels: days,
+                        labels: ['هفته ۴', 'هفته ۳', 'هفته ۲', 'هفته ۱'],
                         datasets: [{
-                            label: 'درصد موفقیت',
-                            data: successData,
-                            backgroundColor: successData.map(v => 
-                                v >= 80 ? '#2ecc71' : v >= 60 ? '#f39c12' : '#e74c3c'
-                            ),
-                            borderRadius: 8
+                            label: 'ساعت مطالعه',
+                            data: weekData.reverse(),
+                            borderColor: '#667eea',
+                            backgroundColor: 'rgba(102,126,234,0.1)',
+                            borderWidth: 3,
+                            fill: true,
+                            tension: 0.4
                         }]
                     },
                     options: {
@@ -3283,18 +4098,311 @@
                             legend: { display: false }
                         },
                         scales: {
-                            y: { beginAtZero: true, max: 100 }
-                        },
-                        animation: { duration: 2000 }
+                            y: { beginAtZero: true }
+                        }
+                    }
+                });
+            }
+            
+            // نمودار شش ماهه
+            const sixMonthCtx = document.getElementById('sixMonthProgressChart')?.getContext('2d');
+            if (sixMonthCtx) {
+                if (charts.sixMonth) charts.sixMonth.destroy();
+                
+                const sixMonthData = [];
+                const sixMonthLabels = [];
+                
+                for (let i = 5; i >= 0; i--) {
+                    const month = new Date();
+                    month.setMonth(month.getMonth() - i);
+                    const monthKey = `${month.getFullYear()}-${String(month.getMonth() + 1).padStart(2, '0')}`;
+                    
+                    const monthSessions = userData.sessions.filter(s => 
+                        s.date.startsWith(monthKey)
+                    );
+                    sixMonthData.push(monthSessions.reduce((sum, s) => sum + s.duration / 3600, 0));
+                    sixMonthLabels.push(month.toLocaleDateString('fa-IR', { month: 'short' }));
+                }
+                
+                charts.sixMonth = new Chart(sixMonthCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: sixMonthLabels,
+                        datasets: [{
+                            label: 'ساعت مطالعه',
+                            data: sixMonthData,
+                            backgroundColor: 'rgba(46,204,113,0.7)',
+                            borderRadius: 8
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: { display: false }
+                        }
+                    }
+                });
+            }
+            
+            // نمودار سالانه
+            const yearlyCtx = document.getElementById('yearlyProgressChart')?.getContext('2d');
+            if (yearlyCtx) {
+                if (charts.yearly) charts.yearly.destroy();
+                
+                const yearlyData = [];
+                const yearlyLabels = [];
+                
+                for (let i = 11; i >= 0; i--) {
+                    const month = new Date();
+                    month.setMonth(month.getMonth() - i);
+                    const monthKey = `${month.getFullYear()}-${String(month.getMonth() + 1).padStart(2, '0')}`;
+                    
+                    const monthSessions = userData.sessions.filter(s => 
+                        s.date.startsWith(monthKey)
+                    );
+                    yearlyData.push(monthSessions.reduce((sum, s) => sum + s.duration / 3600, 0));
+                    yearlyLabels.push(month.toLocaleDateString('fa-IR', { month: 'short' }));
+                }
+                
+                charts.yearly = new Chart(yearlyCtx, {
+                    type: 'line',
+                    data: {
+                        labels: yearlyLabels,
+                        datasets: [{
+                            label: 'ساعت مطالعه',
+                            data: yearlyData,
+                            borderColor: '#f39c12',
+                            backgroundColor: 'rgba(243,156,18,0.1)',
+                            borderWidth: 3,
+                            fill: true,
+                            tension: 0.4
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: { display: false }
+                        }
                     }
                 });
             }
         }
 
-        function changeChartPeriod(period, element) {
-            document.querySelectorAll('.chart-btn').forEach(b => b.classList.remove('active'));
+        function changeTimeChartPeriod(period, element) {
+            document.querySelectorAll('#timeChart').parentElement.querySelectorAll('.chart-btn').forEach(b => b.classList.remove('active'));
             element.classList.add('active');
             updateCharts();
+        }
+
+        // ==================== درخت رشد ====================
+        function updateTree() {
+            const users = getUsers();
+            const userData = users[currentUser].data;
+            
+            // محاسبه روزهای فعالیت
+            const firstDay = new Date(userData.createdAt);
+            const today = new Date();
+            const daysDiff = Math.floor((today - firstDay) / (1000 * 60 * 60 * 24));
+            
+            // محاسبه ساعت کل مطالعه
+            const totalHours = userData.sessions.reduce((sum, s) => sum + s.duration / 3600, 0);
+            
+            // محاسبه تعداد تست‌ها
+            const totalTests = userData.subjects.reduce((sum, s) => sum + s.tests.length, 0);
+            
+            // محاسبه مرحله رشد (بر اساس روزها)
+            const growthStage = Math.min(100, daysDiff);
+            
+            // ارتفاع درخت
+            const trunkHeight = 50 + (growthStage * 1.5);
+            document.getElementById('treeTrunk').style.height = trunkHeight + 'px';
+            
+            // اندازه برگ‌ها
+            const leafSize = 40 + growthStage;
+            document.getElementById('treeLeaves').style.borderLeftWidth = leafSize + 'px';
+            document.getElementById('treeLeaves').style.borderRightWidth = leafSize + 'px';
+            document.getElementById('treeLeaves').style.borderBottomWidth = (leafSize * 2) + 'px';
+            
+            // رنگ برگ‌ها (هرچه بیشتر رشد کنه، سبزتر)
+            const greenIntensity = Math.min(255, 100 + growthStage);
+            document.getElementById('treeLeaves').style.borderBottomColor = `rgb(46, ${greenIntensity}, 71)`;
+            
+            // متن مرحله
+            let stageText = 'نهال';
+            if (growthStage >= 100) stageText = 'درخت تنومند';
+            else if (growthStage >= 75) stageText = 'درخت جوان';
+            else if (growthStage >= 50) stageText = 'نهال بزرگ';
+            else if (growthStage >= 25) stageText = 'نهال کوچک';
+            
+            document.getElementById('treeStage').textContent = stageText;
+            document.getElementById('treeProgress').style.width = growthStage + '%';
+            
+            // آمار
+            document.getElementById('treeDays').textContent = daysDiff;
+            document.getElementById('treeHours').textContent = totalHours.toFixed(0);
+            document.getElementById('treeTests').textContent = totalTests;
+        }
+
+        // ==================== مدال‌ها ====================
+        function renderMedals() {
+            const container = document.getElementById('medalsGrid');
+            const users = getUsers();
+            const userMedals = users[currentUser].data.medals || [];
+            
+            let html = '';
+            
+            // مدال‌های مطالعه
+            MEDALS.study.forEach(medal => {
+                const unlocked = userMedals.includes(medal.name);
+                const progress = calculateMedalProgress(medal);
+                
+                html += `
+                    <div class="medal-card ${unlocked ? 'unlocked' : ''}">
+                        <div class="medal-icon ${medal.color}">
+                            <i class="fas ${medal.icon}"></i>
+                        </div>
+                        <div class="medal-name">${medal.name}</div>
+                        <div class="medal-desc">${medal.desc}</div>
+                        <div class="medal-progress">
+                            <div class="medal-progress-bar" style="width: ${progress}%"></div>
+                        </div>
+                        ${unlocked ? '<div class="medal-unlocked">🏆 باز شده</div>' : '<div class="medal-locked">🔒 قفل</div>'}
+                    </div>
+                `;
+            });
+            
+            // مدال‌های آزمون
+            MEDALS.test.forEach(medal => {
+                const unlocked = userMedals.includes(medal.name);
+                const progress = calculateMedalProgress(medal);
+                
+                html += `
+                    <div class="medal-card ${unlocked ? 'unlocked' : ''}">
+                        <div class="medal-icon ${medal.color}">
+                            <i class="fas ${medal.icon}"></i>
+                        </div>
+                        <div class="medal-name">${medal.name}</div>
+                        <div class="medal-desc">${medal.desc}</div>
+                        <div class="medal-progress">
+                            <div class="medal-progress-bar" style="width: ${progress}%"></div>
+                        </div>
+                        ${unlocked ? '<div class="medal-unlocked">🏆 باز شده</div>' : '<div class="medal-locked">🔒 قفل</div>'}
+                    </div>
+                `;
+            });
+            
+            // مدال‌های استمرار
+            MEDALS.consistency.forEach(medal => {
+                const unlocked = userMedals.includes(medal.name);
+                const progress = calculateMedalProgress(medal);
+                
+                html += `
+                    <div class="medal-card ${unlocked ? 'unlocked' : ''}">
+                        <div class="medal-icon ${medal.color}">
+                            <i class="fas ${medal.icon}"></i>
+                        </div>
+                        <div class="medal-name">${medal.name}</div>
+                        <div class="medal-desc">${medal.desc}</div>
+                        <div class="medal-progress">
+                            <div class="medal-progress-bar" style="width: ${progress}%"></div>
+                        </div>
+                        ${unlocked ? '<div class="medal-unlocked">🏆 باز شده</div>' : '<div class="medal-locked">🔒 قفل</div>'}
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+        }
+
+        function calculateMedalProgress(medal) {
+            const users = getUsers();
+            const userData = users[currentUser].data;
+            
+            if (medal.name.includes('مطالعه')) {
+                // مدال مطالعه
+                const maxHours = medal.target;
+                const today = new Date().toISOString().split('T')[0];
+                const todayHours = userData.sessions
+                    .filter(s => s.date.split('T')[0] === today)
+                    .reduce((sum, s) => sum + s.duration / 3600, 0);
+                return Math.min(100, (todayHours / maxHours) * 100);
+            } else if (medal.name.includes('آزمون')) {
+                // مدال آزمون
+                const allTests = userData.subjects.flatMap(s => s.tests);
+                const avgScore = allTests.length > 0 
+                    ? allTests.reduce((sum, t) => sum + t.percent, 0) / allTests.length
+                    : 0;
+                return Math.min(100, (avgScore / medal.target) * 100);
+            } else {
+                // مدال استمرار
+                const firstDay = new Date(userData.createdAt);
+                const today = new Date();
+                const daysDiff = Math.floor((today - firstDay) / (1000 * 60 * 60 * 24));
+                return Math.min(100, (daysDiff / medal.target) * 100);
+            }
+        }
+
+        function checkMedals() {
+            const users = getUsers();
+            const userData = users[currentUser].data;
+            
+            // بررسی مدال‌های مطالعه
+            const today = new Date().toISOString().split('T')[0];
+            const todayHours = userData.sessions
+                .filter(s => s.date.split('T')[0] === today)
+                .reduce((sum, s) => sum + s.duration / 3600, 0);
+            
+            MEDALS.study.forEach(medal => {
+                if (todayHours >= medal.target && !userData.medals.includes(medal.name)) {
+                    userData.medals.push(medal.name);
+                    showNotification(`🏆 مدال "${medal.name}" را به دست آوردید!`, 'success');
+                }
+            });
+            
+            // بررسی مدال‌های آزمون
+            const allTests = userData.subjects.flatMap(s => s.tests);
+            const avgScore = allTests.length > 0 
+                ? allTests.reduce((sum, t) => sum + t.percent, 0) / allTests.length
+                : 0;
+            
+            MEDALS.test.forEach(medal => {
+                if (avgScore >= medal.target && !userData.medals.includes(medal.name)) {
+                    userData.medals.push(medal.name);
+                    showNotification(`🏆 مدال "${medal.name}" را به دست آوردید!`, 'success');
+                }
+            });
+            
+            // بررسی مدال‌های استمرار
+            const firstDay = new Date(userData.createdAt);
+            const today2 = new Date();
+            const daysDiff = Math.floor((today2 - firstDay) / (1000 * 60 * 60 * 24));
+            
+            MEDALS.consistency.forEach(medal => {
+                if (daysDiff >= medal.target && !userData.medals.includes(medal.name)) {
+                    userData.medals.push(medal.name);
+                    showNotification(`🏆 مدال "${medal.name}" را به دست آوردید!`, 'success');
+                }
+            });
+            
+            saveUsers(users);
+            renderMedals();
+            updateUserMedals();
+        }
+
+        function updateUserMedals() {
+            const container = document.getElementById('userMedals');
+            const users = getUsers();
+            const userMedals = users[currentUser].data.medals || [];
+            
+            container.innerHTML = userMedals.slice(0, 3).map(medal => {
+                let color = 'gold';
+                if (medal.includes('تازه‌کار')) color = 'bronze';
+                else if (medal.includes('فعال')) color = 'silver';
+                else if (medal.includes('حرفه‌ای')) color = 'gold';
+                else color = 'platinum';
+                
+                return `<div class="user-medal-icon ${color}" title="${medal}"><i class="fas fa-medal"></i></div>`;
+            }).join('');
         }
 
         // ==================== نوتیفیکیشن ====================
