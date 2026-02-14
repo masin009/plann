@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap');
+        
         * {
             margin: 0;
             padding: 0;
@@ -15,19 +17,35 @@
         }
 
         body {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
             min-height: 100vh;
             padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="white" stroke-width="0.5" stroke-opacity="0.05"/></svg>');
+            opacity: 0.3;
+            pointer-events: none;
         }
 
         .container {
             max-width: 1400px;
             margin: 0 auto;
-            background: white;
-            border-radius: 30px;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3), 0 0 0 2px rgba(255,255,255,0.1) inset;
             overflow: hidden;
             position: relative;
+            z-index: 1;
         }
 
         /* بنر تلگرام */
@@ -39,11 +57,24 @@
             align-items: center;
             justify-content: space-between;
             animation: slideDown 0.5s ease;
+            position: relative;
+            overflow: hidden;
         }
 
-        @keyframes slideDown {
-            from { transform: translateY(-100%); }
-            to { transform: translateY(0); }
+        .telegram-banner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
         }
 
         .telegram-banner i {
@@ -63,6 +94,7 @@
             align-items: center;
             gap: 8px;
             border: 1px solid rgba(255,255,255,0.3);
+            backdrop-filter: blur(5px);
         }
 
         .telegram-banner a:hover {
@@ -77,7 +109,7 @@
             align-items: center;
             justify-content: center;
             padding: 40px;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background: linear-gradient(135deg, #667eea20, #764ba220);
         }
 
         .auth-box {
@@ -86,7 +118,13 @@
             padding: 40px;
             width: 100%;
             max-width: 450px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1), 0 0 0 1px rgba(255,255,255,0.5) inset;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
 
         .logo {
@@ -103,6 +141,13 @@
             align-items: center;
             justify-content: center;
             margin: 0 auto 15px;
+            box-shadow: 0 10px 20px rgba(102,126,234,0.3);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
 
         .logo-icon i {
@@ -114,6 +159,9 @@
             color: #333;
             font-size: 1.8rem;
             margin-bottom: 5px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .logo p {
@@ -171,6 +219,7 @@
 
         .toggle-password:hover {
             color: #667eea;
+            transform: translateY(-50%) scale(1.1);
         }
 
         .btn {
@@ -186,6 +235,26 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
         }
 
         .btn-primary {
@@ -196,17 +265,6 @@
         .btn-primary:hover {
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(102,126,234,0.3);
-        }
-
-        .btn-outline {
-            background: transparent;
-            border: 2px solid #667eea;
-            color: #667eea;
-        }
-
-        .btn-outline:hover {
-            background: #667eea;
-            color: white;
         }
 
         .btn-success {
@@ -224,6 +282,24 @@
             color: white;
         }
 
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #667eea;
+            color: #667eea;
+        }
+
+        .btn-outline:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-glass {
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+        }
+
         .switch-link {
             text-align: center;
             margin-top: 20px;
@@ -235,6 +311,25 @@
             text-decoration: none;
             font-weight: bold;
             cursor: pointer;
+            position: relative;
+        }
+
+        .switch-link a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            transform: scaleX(0);
+            transition: transform 0.3s;
+            transform-origin: right;
+        }
+
+        .switch-link a:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
         }
 
         .message {
@@ -284,12 +379,30 @@
             padding: 25px;
             cursor: pointer;
             transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .major-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 0;
+        }
+
+        .major-card:hover::before {
+            opacity: 0.1;
         }
 
         .major-card:hover {
-            border-color: #667eea;
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border-color: #667eea;
         }
 
         .major-card.selected {
@@ -301,17 +414,25 @@
         .major-card i {
             font-size: 3rem;
             margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
         }
 
         .major-card h3 {
             font-size: 1.3rem;
+            position: relative;
+            z-index: 1;
         }
 
         /* منوی اصلی */
         .main-menu {
-            background: white;
-            border-bottom: 1px solid #e0e0e0;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.1);
             padding: 0 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         .menu-items {
@@ -319,6 +440,22 @@
             gap: 5px;
             overflow-x: auto;
             padding: 10px 0;
+            scrollbar-width: thin;
+            scrollbar-color: #667eea #e0e0e0;
+        }
+
+        .menu-items::-webkit-scrollbar {
+            height: 5px;
+        }
+
+        .menu-items::-webkit-scrollbar-track {
+            background: #e0e0e0;
+            border-radius: 10px;
+        }
+
+        .menu-items::-webkit-scrollbar-thumb {
+            background: #667eea;
+            border-radius: 10px;
         }
 
         .menu-item {
@@ -331,6 +468,23 @@
             align-items: center;
             gap: 8px;
             color: #666;
+            position: relative;
+        }
+
+        .menu-item::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            transition: all 0.3s;
+            transform: translateX(-50%);
+        }
+
+        .menu-item:hover::before {
+            width: 80%;
         }
 
         .menu-item:hover {
@@ -339,8 +493,12 @@
         }
 
         .menu-item.active {
-            background: #667eea;
+            background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
+        }
+
+        .menu-item.active::before {
+            display: none;
         }
 
         .menu-item i {
@@ -355,6 +513,12 @@
 
         .section.active {
             display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* هدر برنامه */
@@ -367,12 +531,32 @@
             justify-content: space-between;
             flex-wrap: wrap;
             gap: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .app-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
         .user-info {
             display: flex;
             align-items: center;
             gap: 15px;
+            position: relative;
+            z-index: 1;
         }
 
         .user-avatar {
@@ -384,6 +568,7 @@
             align-items: center;
             justify-content: center;
             font-size: 1.2rem;
+            backdrop-filter: blur(5px);
         }
 
         .user-details h3 {
@@ -407,10 +592,14 @@
             align-items: center;
             gap: 5px;
             transition: all 0.3s;
+            backdrop-filter: blur(5px);
+            position: relative;
+            z-index: 1;
         }
 
         .logout-btn:hover {
             background: rgba(255,255,255,0.25);
+            transform: translateY(-2px);
         }
 
         /* کارت‌های آمار */
@@ -422,16 +611,35 @@
         }
 
         .stat-card {
-            background: #f8f9fa;
+            background: white;
             border-radius: 20px;
             padding: 25px;
-            border-right: 5px solid #667eea;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #667eea);
+            background-size: 200% 100%;
+            animation: gradientMove 3s linear infinite;
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
         }
 
         .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
         }
 
         .stat-header {
@@ -442,14 +650,18 @@
         }
 
         .stat-header i {
-            font-size: 1.5rem;
-            color: #667eea;
+            font-size: 2rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .stat-value {
             font-size: 2.5rem;
             font-weight: bold;
-            color: #333;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             margin: 10px 0;
         }
 
@@ -468,9 +680,9 @@
 
         .stat-progress-bar {
             height: 100%;
-            background: linear-gradient(to right, #667eea, #764ba2);
+            background: linear-gradient(90deg, #667eea, #764ba2);
             border-radius: 4px;
-            transition: width 0.5s ease;
+            transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         /* دروس */
@@ -499,6 +711,10 @@
             gap: 10px;
         }
 
+        .section-title i {
+            color: #667eea;
+        }
+
         .grade-tabs {
             display: flex;
             gap: 10px;
@@ -516,28 +732,46 @@
         }
 
         .grade-tab.active {
-            background: #667eea;
+            background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
         }
 
         .subjects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 20px;
         }
 
         .subject-card {
-            background: #f8f9fa;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
             border-radius: 15px;
             padding: 20px;
             border: 2px solid transparent;
             transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .subject-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #667eea10, #764ba210);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .subject-card:hover::before {
+            opacity: 1;
         }
 
         .subject-card:hover {
+            transform: translateY(-5px) scale(1.02);
             border-color: #667eea;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 20px 40px rgba(102,126,234,0.2);
         }
 
         .subject-header {
@@ -545,6 +779,8 @@
             align-items: center;
             gap: 15px;
             margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
         }
 
         .subject-icon {
@@ -556,6 +792,7 @@
             justify-content: center;
             font-size: 1.5rem;
             color: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
         .subject-info {
@@ -580,6 +817,8 @@
             padding: 10px 0;
             border-top: 1px solid #e0e0e0;
             border-bottom: 1px solid #e0e0e0;
+            position: relative;
+            z-index: 1;
         }
 
         .subject-stat {
@@ -604,128 +843,180 @@
             border-radius: 4px;
             overflow: hidden;
             margin: 15px 0;
+            position: relative;
+            z-index: 1;
         }
 
         .progress-fill {
             height: 100%;
-            background: linear-gradient(to right, #667eea, #764ba2);
+            background: linear-gradient(90deg, #667eea, #764ba2);
             border-radius: 4px;
-            transition: width 0.5s ease;
+            transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .subject-actions {
             display: flex;
             gap: 10px;
             margin-top: 15px;
+            position: relative;
+            z-index: 1;
         }
 
         .subject-btn {
             flex: 1;
-            padding: 10px;
+            padding: 12px;
             border: none;
-            border-radius: 8px;
+            border-radius: 10px;
             cursor: pointer;
             transition: all 0.3s;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 5px;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
+            font-weight: 500;
         }
 
         .btn-study {
-            background: #667eea;
+            background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
         }
 
         .btn-test {
-            background: #2ecc71;
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
             color: white;
         }
 
         .subject-btn:hover {
-            transform: translateY(-2px);
-            filter: brightness(1.1);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
 
         /* تایمر */
         .timer-section {
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
             color: white;
-            padding: 30px;
-            border-radius: 20px;
+            padding: 40px;
+            border-radius: 30px;
             margin: 25px 0;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .timer-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
         }
 
         .timer-display {
-            font-size: 4rem;
-            font-weight: bold;
+            font-size: 6rem;
+            font-weight: 800;
             text-align: center;
-            font-family: monospace;
-            margin: 20px 0;
-            text-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            font-family: 'Courier New', monospace;
+            margin: 30px 0;
+            text-shadow: 0 0 20px rgba(102,126,234,0.5);
+            position: relative;
+            z-index: 1;
         }
 
         .timer-controls {
             display: flex;
             justify-content: center;
-            gap: 15px;
+            gap: 20px;
             flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
         }
 
         .timer-btn {
-            padding: 15px 30px;
+            padding: 15px 40px;
             border: none;
-            border-radius: 10px;
+            border-radius: 50px;
             font-weight: bold;
+            font-size: 1.1rem;
             cursor: pointer;
             transition: all 0.3s;
             display: flex;
             align-items: center;
-            gap: 8px;
-            min-width: 120px;
+            gap: 10px;
+            min-width: 150px;
             justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .timer-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .timer-btn:hover::before {
+            width: 300px;
+            height: 300px;
         }
 
         .timer-btn.start {
-            background: #2ecc71;
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
             color: white;
         }
 
         .timer-btn.pause {
-            background: #f39c12;
+            background: linear-gradient(135deg, #f39c12, #e67e22);
             color: white;
         }
 
         .timer-btn.stop {
-            background: #e74c3c;
-            color: white;
+            display: none;
         }
 
         .timer-btn:hover {
-            transform: translateY(-3px);
-            filter: brightness(1.1);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
         }
 
         .timer-selector {
             display: flex;
             justify-content: center;
-            gap: 10px;
-            margin: 20px 0;
+            gap: 15px;
+            margin: 30px 0;
+            position: relative;
+            z-index: 1;
         }
 
         .timer-type {
-            padding: 10px 20px;
-            background: rgba(255,255,255,0.15);
+            padding: 12px 30px;
+            background: rgba(255,255,255,0.1);
             border-radius: 50px;
             cursor: pointer;
             transition: all 0.3s;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
         }
 
         .timer-type.active {
             background: white;
-            color: #667eea;
+            color: #1a1a2e;
+            transform: scale(1.1);
+        }
+
+        .timer-type:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-3px);
         }
 
         /* برنامه‌ریزی هفتگی */
@@ -745,21 +1036,41 @@
         }
 
         .day-planner {
-            background: #f8f9fa;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
             border-radius: 15px;
             padding: 15px;
-            min-height: 300px;
+            min-height: 350px;
             border: 2px solid #e0e0e0;
             transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .day-planner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            transform: translateX(-100%);
+            transition: transform 0.3s;
+        }
+
+        .day-planner:hover::before {
+            transform: translateX(0);
         }
 
         .day-planner:hover {
+            transform: translateY(-5px);
             border-color: #667eea;
+            box-shadow: 0 10px 20px rgba(102,126,234,0.2);
         }
 
         .day-planner.today {
             border-color: #667eea;
-            background: #eef2ff;
+            background: linear-gradient(135deg, #eef2ff, #e0e7ff);
         }
 
         .day-header {
@@ -774,6 +1085,7 @@
         .day-name {
             font-weight: bold;
             color: #333;
+            font-size: 1.1rem;
         }
 
         .day-date {
@@ -782,35 +1094,54 @@
         }
 
         .day-tasks {
-            min-height: 200px;
+            min-height: 250px;
+            max-height: 250px;
+            overflow-y: auto;
+            padding-right: 5px;
+        }
+
+        .day-tasks::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        .day-tasks::-webkit-scrollbar-track {
+            background: #e0e0e0;
+            border-radius: 10px;
+        }
+
+        .day-tasks::-webkit-scrollbar-thumb {
+            background: #667eea;
+            border-radius: 10px;
         }
 
         .task-item {
             background: white;
-            padding: 10px;
-            border-radius: 8px;
+            padding: 12px;
+            border-radius: 10px;
             margin-bottom: 8px;
             border-right: 3px solid #667eea;
             font-size: 0.9rem;
             cursor: pointer;
             transition: all 0.3s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
 
         .task-item:hover {
-            transform: translateX(-3px);
-            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            transform: translateX(-5px);
+            box-shadow: 0 5px 15px rgba(102,126,234,0.2);
         }
 
         .task-item.completed {
             opacity: 0.7;
             border-right-color: #2ecc71;
-            text-decoration: line-through;
+            background: linear-gradient(135deg, #f0fff0, #e8ffe8);
         }
 
         .task-item .task-time {
-            color: #666;
+            color: #667eea;
             font-size: 0.8rem;
             margin-bottom: 3px;
+            font-weight: bold;
         }
 
         .task-item .task-subject {
@@ -828,7 +1159,7 @@
             padding: 10px;
             background: #f0f0f0;
             border: 2px dashed #999;
-            border-radius: 8px;
+            border-radius: 10px;
             color: #666;
             cursor: pointer;
             transition: all 0.3s;
@@ -842,7 +1173,7 @@
         .add-task-btn:hover {
             background: #e0e0e0;
             border-color: #667eea;
-            color: #333;
+            color: #667eea;
         }
 
         /* نمودارها */
@@ -852,10 +1183,24 @@
 
         .chart-container {
             background: white;
-            border-radius: 20px;
-            padding: 20px;
+            border-radius: 30px;
+            padding: 25px;
             margin-bottom: 25px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chart-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #667eea);
+            background-size: 200% 100%;
+            animation: gradientMove 3s linear infinite;
         }
 
         .chart-header {
@@ -866,11 +1211,16 @@
         }
 
         .chart-title {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             color: #333;
             display: flex;
             align-items: center;
             gap: 10px;
+        }
+
+        .chart-title i {
+            color: #667eea;
+            font-size: 1.5rem;
         }
 
         .chart-controls {
@@ -879,23 +1229,23 @@
         }
 
         .chart-btn {
-            padding: 8px 15px;
+            padding: 8px 20px;
             border: 2px solid #e0e0e0;
-            border-radius: 8px;
+            border-radius: 50px;
             background: white;
             cursor: pointer;
             transition: all 0.3s;
         }
 
         .chart-btn.active {
-            background: #667eea;
+            background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
-            border-color: #667eea;
+            border-color: transparent;
         }
 
         canvas {
             width: 100%;
-            height: 300px;
+            height: 350px;
         }
 
         /* آزمون‌ها */
@@ -919,11 +1269,13 @@
             border: 2px solid #e0e0e0;
             border-radius: 10px;
             font-size: 1rem;
+            transition: all 0.3s;
         }
 
         .exam-input:focus {
             border-color: #667eea;
             outline: none;
+            box-shadow: 0 0 0 3px rgba(102,126,234,0.1);
         }
 
         .exam-list {
@@ -931,7 +1283,7 @@
         }
 
         .exam-item {
-            background: #f8f9fa;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
             padding: 15px;
             border-radius: 10px;
             margin-bottom: 10px;
@@ -939,11 +1291,12 @@
             align-items: center;
             justify-content: space-between;
             transition: all 0.3s;
+            border-right: 3px solid #667eea;
         }
 
         .exam-item:hover {
             transform: translateX(-5px);
-            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(102,126,234,0.2);
         }
 
         /* پیشرفت هفتگی */
@@ -956,19 +1309,37 @@
 
         .progress-day {
             text-align: center;
-            padding: 15px;
-            background: #f8f9fa;
-            border-radius: 10px;
+            padding: 20px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 15px;
             transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-day::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .progress-day:hover::before {
+            opacity: 0.1;
         }
 
         .progress-day:hover {
-            transform: translateY(-3px);
-            background: #eef2ff;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(102,126,234,0.2);
         }
 
         .progress-day.today {
-            background: #667eea;
+            background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
         }
 
@@ -978,7 +1349,7 @@
         }
 
         .progress-day .day-percent {
-            font-size: 1.3rem;
+            font-size: 1.8rem;
             font-weight: bold;
             color: #667eea;
         }
@@ -996,6 +1367,7 @@
             right: 0;
             bottom: 0;
             background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(10px);
             z-index: 1000;
             align-items: center;
             justify-content: center;
@@ -1004,16 +1376,19 @@
 
         .modal.active {
             display: flex;
+            animation: fadeIn 0.3s ease;
         }
 
         .modal-content {
             background: white;
-            border-radius: 20px;
+            border-radius: 30px;
             padding: 30px;
             max-width: 500px;
             width: 100%;
             max-height: 80vh;
             overflow-y: auto;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+            position: relative;
         }
 
         .modal-header {
@@ -1023,12 +1398,22 @@
             margin-bottom: 20px;
         }
 
+        .modal-header h3 {
+            color: #333;
+        }
+
         .modal-close {
             background: none;
             border: none;
             font-size: 1.5rem;
             cursor: pointer;
             color: #999;
+            transition: all 0.3s;
+        }
+
+        .modal-close:hover {
+            color: #e74c3c;
+            transform: rotate(90deg);
         }
 
         /* نوتیفیکیشن */
@@ -1037,15 +1422,15 @@
             bottom: 20px;
             right: 20px;
             background: white;
-            border-radius: 10px;
-            padding: 15px 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border-radius: 15px;
+            padding: 15px 25px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
             border-right: 4px solid #667eea;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             z-index: 1001;
-            animation: slideIn 0.3s ease;
+            animation: slideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         @keyframes slideIn {
@@ -1385,9 +1770,6 @@
                         <button class="timer-btn pause" onclick="pauseTimer()">
                             <i class="fas fa-pause"></i> توقف
                         </button>
-                        <button class="timer-btn stop" onclick="stopTimer()">
-                            <i class="fas fa-stop"></i> پایان
-                        </button>
                     </div>
 
                     <div style="display: flex; gap: 15px; margin-top: 20px;">
@@ -1425,18 +1807,16 @@
                     </div>
 
                     <div class="exam-form">
-                        <select id="examSubject" class="exam-input">
-                            <option value="">انتخاب درس</option>
-                        </select>
                         <select id="examGrade" class="exam-input">
+                            <option value="">انتخاب پایه</option>
                             <option value="10">دهم</option>
                             <option value="11">یازدهم</option>
                             <option value="12">دوازدهم</option>
                         </select>
+                        <div id="examSubjectsContainer" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; grid-column: 1/-1;">
+                            <!-- دروس تخصصی با جاوااسکریپت پر می‌شوند -->
+                        </div>
                         <input type="text" id="examName" class="exam-input" placeholder="نام آزمون">
-                        <input type="number" id="examCorrect" class="exam-input" placeholder="تعداد صحیح">
-                        <input type="number" id="examWrong" class="exam-input" placeholder="تعداد غلط">
-                        <input type="number" id="examBlank" class="exam-input" placeholder="تعداد نزده">
                         <button class="btn btn-primary" onclick="saveExam()">ثبت آزمون</button>
                     </div>
 
@@ -1468,6 +1848,7 @@
                             <div class="chart-controls">
                                 <span class="chart-btn active" onclick="changeChartPeriod('week', this)">هفته</span>
                                 <span class="chart-btn" onclick="changeChartPeriod('month', this)">ماه</span>
+                                <span class="chart-btn" onclick="changeChartPeriod('year', this)">سال</span>
                             </div>
                         </div>
                         <canvas id="timeChart"></canvas>
@@ -1492,6 +1873,26 @@
                         </div>
                         <canvas id="examChart"></canvas>
                     </div>
+
+                    <div class="chart-container">
+                        <div class="chart-header">
+                            <div class="chart-title">
+                                <i class="fas fa-chart-radar"></i>
+                                <span>تحلیل جامع دروس</span>
+                            </div>
+                        </div>
+                        <canvas id="radarChart"></canvas>
+                    </div>
+
+                    <div class="chart-container">
+                        <div class="chart-header">
+                            <div class="chart-title">
+                                <i class="fas fa-chart-scatter"></i>
+                                <span>روند پیشرفت هفتگی</span>
+                            </div>
+                        </div>
+                        <canvas id="trendChart"></canvas>
+                    </div>
                 </div>
             </div>
 
@@ -1515,6 +1916,10 @@
 
                     <div style="margin-top: 30px;">
                         <canvas id="monthlyProgressChart"></canvas>
+                    </div>
+
+                    <div style="margin-top: 30px;">
+                        <canvas id="successRateChart"></canvas>
                     </div>
                 </div>
             </div>
@@ -1564,6 +1969,21 @@
         </div>
     </div>
 
+    <!-- مدال ثبت تست از بخش دروس -->
+    <div id="testModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>ثبت نتیجه تست</h3>
+                <button class="modal-close" onclick="closeModal('testModal')">&times;</button>
+            </div>
+            <div style="padding: 20px;">
+                <input type="number" id="modalCorrect" placeholder="تعداد صحیح" class="exam-input" style="margin-bottom: 15px;">
+                <input type="number" id="modalWrong" placeholder="تعداد غلط" class="exam-input" style="margin-bottom: 15px;">
+                <button class="btn btn-primary" onclick="saveTestResult()">ثبت</button>
+            </div>
+        </div>
+    </div>
+
     <script>
         // ==================== دروس کامل ====================
         const SUBJECTS = {
@@ -1573,6 +1993,7 @@
                     { name: 'فیزیک دهم', icon: 'fa-atom', color: '#3498db' },
                     { name: 'شیمی دهم', icon: 'fa-flask', color: '#2ecc71' },
                     { name: 'ریاضی دهم', icon: 'fa-calculator', color: '#9b59b6' },
+                    { name: 'زمین‌شناسی دهم', icon: 'fa-globe', color: '#95a5a6' },
                     { name: 'فارسی دهم', icon: 'fa-book', color: '#f1c40f' },
                     { name: 'عربی دهم', icon: 'fa-language', color: '#e67e22' },
                     { name: 'دینی دهم', icon: 'fa-mosque', color: '#1abc9c' },
@@ -1594,6 +2015,7 @@
                     { name: 'فیزیک دوازدهم', icon: 'fa-atom', color: '#3498db' },
                     { name: 'شیمی دوازدهم', icon: 'fa-flask', color: '#2ecc71' },
                     { name: 'ریاضی دوازدهم', icon: 'fa-calculator', color: '#9b59b6' },
+                    { name: 'زمین‌شناسی دوازدهم', icon: 'fa-globe', color: '#95a5a6' },
                     { name: 'فارسی دوازدهم', icon: 'fa-book', color: '#f1c40f' },
                     { name: 'عربی دوازدهم', icon: 'fa-language', color: '#e67e22' },
                     { name: 'دینی دوازدهم', icon: 'fa-mosque', color: '#1abc9c' },
@@ -1602,17 +2024,18 @@
             },
             ریاضی: {
                 10: [
-                    { name: 'ریاضی دهم', icon: 'fa-calculator', color: '#3498db' },
+                    { name: 'حسابان دهم', icon: 'fa-calculator', color: '#3498db' },
                     { name: 'فیزیک دهم', icon: 'fa-atom', color: '#9b59b6' },
                     { name: 'شیمی دهم', icon: 'fa-flask', color: '#2ecc71' },
                     { name: 'هندسه دهم', icon: 'fa-shapes', color: '#e74c3c' },
+                    { name: 'گسسته دهم', icon: 'fa-project-diagram', color: '#f39c12' },
                     { name: 'فارسی دهم', icon: 'fa-book', color: '#f1c40f' },
                     { name: 'عربی دهم', icon: 'fa-language', color: '#e67e22' },
                     { name: 'دینی دهم', icon: 'fa-mosque', color: '#1abc9c' },
                     { name: 'زبان دهم', icon: 'fa-globe', color: '#e84393' }
                 ],
                 11: [
-                    { name: 'ریاضی یازدهم', icon: 'fa-calculator', color: '#3498db' },
+                    { name: 'حسابان یازدهم', icon: 'fa-calculator', color: '#3498db' },
                     { name: 'فیزیک یازدهم', icon: 'fa-atom', color: '#9b59b6' },
                     { name: 'شیمی یازدهم', icon: 'fa-flask', color: '#2ecc71' },
                     { name: 'هندسه یازدهم', icon: 'fa-shapes', color: '#e74c3c' },
@@ -1623,7 +2046,7 @@
                     { name: 'زبان یازدهم', icon: 'fa-globe', color: '#e84393' }
                 ],
                 12: [
-                    { name: 'ریاضی دوازدهم', icon: 'fa-calculator', color: '#3498db' },
+                    { name: 'حسابان دوازدهم', icon: 'fa-calculator', color: '#3498db' },
                     { name: 'فیزیک دوازدهم', icon: 'fa-atom', color: '#9b59b6' },
                     { name: 'شیمی دوازدهم', icon: 'fa-flask', color: '#2ecc71' },
                     { name: 'هندسه دوازدهم', icon: 'fa-shapes', color: '#e74c3c' },
@@ -1686,11 +2109,11 @@
 
         // ==================== مدیریت کاربران ====================
         function getUsers() {
-            return JSON.parse(localStorage.getItem('konkour_users_v2') || '{}');
+            return JSON.parse(localStorage.getItem('konkour_users_v3') || '{}');
         }
 
         function saveUsers(users) {
-            localStorage.setItem('konkour_users_v2', JSON.stringify(users));
+            localStorage.setItem('konkour_users_v3', JSON.stringify(users));
         }
 
         function togglePassword(inputId, btn) {
@@ -1883,6 +2306,7 @@
             updateExamList();
             updateCharts();
             updateWeeklyProgress();
+            updateRecentActivities();
         }
 
         function showMainApp() {
@@ -1955,10 +2379,10 @@
                         <div class="progress-fill" style="width: ${subject.progress}%;"></div>
                     </div>
                     <div class="subject-actions">
-                        <button class="subject-btn btn-study" onclick="startStudy(${index})">
+                        <button class="subject-btn btn-study" onclick="startStudyFromSubject('${subject.name}', '${subject.grade}')">
                             <i class="fas fa-play"></i> مطالعه
                         </button>
-                        <button class="subject-btn btn-test" onclick="openTestModal(${index})">
+                        <button class="subject-btn btn-test" onclick="startTestFromSubject('${subject.name}', '${subject.grade}')">
                             <i class="fas fa-clipboard-check"></i> تست
                         </button>
                     </div>
@@ -1978,6 +2402,20 @@
                     card.style.display = 'none';
                 }
             });
+        }
+
+        function startStudyFromSubject(subject, grade) {
+            showSection('timer');
+            document.getElementById('timerSubject').value = subject;
+            document.getElementById('timerGrade').value = grade;
+            selectTimerType('study', document.querySelector('.timer-type'));
+        }
+
+        function startTestFromSubject(subject, grade) {
+            showSection('timer');
+            document.getElementById('timerSubject').value = subject;
+            document.getElementById('timerGrade').value = grade;
+            selectTimerType('test', document.querySelectorAll('.timer-type')[1]);
         }
 
         // ==================== برنامه‌ریزی هفتگی ====================
@@ -2033,7 +2471,7 @@
                     <div class="task-time">${task.time || 'زمان نامشخص'}</div>
                     <div class="task-subject">${task.subject}</div>
                     <div class="task-desc">${task.description || ''}</div>
-                    ${task.completed ? `<div style="color: #2ecc71; font-size: 0.8rem;">${task.note || ''}</div>` : ''}
+                    ${task.completed ? `<div style="color: #2ecc71; font-size: 0.8rem;">✅ تکمیل شده: ${task.percent}% - ${task.note || ''}</div>` : ''}
                 </div>
             `).join('');
         }
@@ -2138,6 +2576,7 @@
             renderWeekDays();
             renderTodayTasks();
             updateStats();
+            updateWeeklyProgress();
             showNotification('تسک با موفقیت افزوده شد', 'success');
             
             // ریست فرم
@@ -2176,6 +2615,7 @@
             renderTodayTasks();
             updateStats();
             updateWeeklyProgress();
+            updateCharts();
             showNotification('تسک با موفقیت ثبت شد', 'success');
             
             document.getElementById('completePercent').value = '';
@@ -2258,6 +2698,30 @@
             }).join('');
         }
 
+        function updateRecentActivities() {
+            const container = document.getElementById('recentActivities');
+            const users = getUsers();
+            const sessions = users[currentUser].data.sessions.slice(-5).reverse();
+            
+            if (sessions.length === 0) {
+                container.innerHTML = '<p style="color: #999; text-align: center;">هنوز فعالیتی ثبت نشده</p>';
+                return;
+            }
+            
+            container.innerHTML = sessions.map(session => `
+                <div class="exam-item">
+                    <div>
+                        <strong>${session.subject}</strong> - ${session.type === 'study' ? 'مطالعه' : session.type === 'test' ? 'تست‌زنی' : 'استراحت'}
+                    </div>
+                    <div>
+                        <span>${Math.floor(session.duration / 60)} دقیقه</span>
+                        ${session.correct ? `<span style="color: #2ecc71; margin-right: 10px;">${session.correct} صحیح</span>` : ''}
+                        ${session.wrong ? `<span style="color: #e74c3c;">${session.wrong} غلط</span>` : ''}
+                    </div>
+                </div>
+            `).join('');
+        }
+
         // ==================== تایمر ====================
         function selectTimerType(type, element) {
             timerType = type;
@@ -2296,13 +2760,6 @@
             timerRunning = false;
             if (timerInterval) clearInterval(timerInterval);
             showNotification('تایمر متوقف شد', 'warning');
-        }
-
-        function stopTimer() {
-            timerRunning = false;
-            if (timerInterval) clearInterval(timerInterval);
-            resetTimer();
-            showNotification('تایمر متوقف شد', 'info');
         }
 
         function resetTimer() {
@@ -2370,6 +2827,7 @@
             renderSubjects();
             updateStats();
             updateCharts();
+            updateRecentActivities();
             showNotification('جلسه با موفقیت ذخیره شد', 'success');
         }
 
@@ -2433,40 +2891,67 @@
         }
 
         // ==================== آزمون ====================
+        function updateExamSubjects() {
+            const grade = document.getElementById('examGrade').value;
+            const container = document.getElementById('examSubjectsContainer');
+            
+            if (!grade || !selectedMajor) return;
+            
+            const subjects = SUBJECTS[selectedMajor][grade].filter(s => 
+                s.name.includes('زیست') || s.name.includes('فیزیک') || 
+                s.name.includes('شیمی') || s.name.includes('حسابان') ||
+                s.name.includes('هندسه') || s.name.includes('گسسته') ||
+                s.name.includes('فلسفه') || s.name.includes('جامعه') ||
+                s.name.includes('تاریخ') || s.name.includes('جغرافیا') ||
+                s.name.includes('اقتصاد') || s.name.includes('روانشناسی')
+            );
+            
+            container.innerHTML = subjects.map(subject => `
+                <div>
+                    <input type="number" id="exam_${subject.name}" placeholder="${subject.name}" class="exam-input" style="width: 100%;">
+                </div>
+            `).join('');
+        }
+
         function saveExam() {
-            const subject = document.getElementById('examSubject').value;
             const grade = document.getElementById('examGrade').value;
             const name = document.getElementById('examName').value;
-            const correct = parseInt(document.getElementById('examCorrect').value);
-            const wrong = parseInt(document.getElementById('examWrong').value);
-            const blank = parseInt(document.getElementById('examBlank').value);
             
-            if (!subject || !grade || !name || isNaN(correct) || isNaN(wrong) || isNaN(blank)) {
-                showNotification('لطفاً تمام فیلدها را پر کنید', 'error');
+            if (!grade || !name) {
+                showNotification('لطفاً پایه و نام آزمون را وارد کنید', 'error');
                 return;
             }
             
             const users = getUsers();
-            
-            users[currentUser].data.exams.push({
-                subject: subject,
+            const examData = {
                 grade: grade,
                 name: name,
-                correct: correct,
-                wrong: wrong,
-                blank: blank,
-                total: correct + wrong + blank,
-                percent: Math.round((correct / (correct + wrong)) * 100),
+                subjects: {},
                 date: new Date().toISOString()
+            };
+            
+            const subjects = SUBJECTS[selectedMajor][grade].filter(s => 
+                s.name.includes('زیست') || s.name.includes('فیزیک') || 
+                s.name.includes('شیمی') || s.name.includes('حسابان') ||
+                s.name.includes('هندسه') || s.name.includes('گسسته') ||
+                s.name.includes('فلسفه') || s.name.includes('جامعه') ||
+                s.name.includes('تاریخ') || s.name.includes('جغرافیا') ||
+                s.name.includes('اقتصاد') || s.name.includes('روانشناسی')
+            );
+            
+            subjects.forEach(subject => {
+                const input = document.getElementById(`exam_${subject.name}`);
+                if (input && input.value) {
+                    examData.subjects[subject.name] = parseInt(input.value);
+                }
             });
             
+            users[currentUser].data.exams.push(examData);
             saveUsers(users);
             
-            document.getElementById('examSubject').value = '';
+            document.getElementById('examGrade').value = '';
             document.getElementById('examName').value = '';
-            document.getElementById('examCorrect').value = '';
-            document.getElementById('examWrong').value = '';
-            document.getElementById('examBlank').value = '';
+            document.getElementById('examSubjectsContainer').innerHTML = '';
             
             updateExamList();
             updateCharts();
@@ -2486,13 +2971,12 @@
             list.innerHTML = exams.slice(-5).reverse().map(exam => `
                 <div class="exam-item">
                     <div>
-                        <strong>${exam.name}</strong> - ${exam.subject}
+                        <strong>${exam.name}</strong> - پایه ${exam.grade === '10' ? 'دهم' : exam.grade === '11' ? 'یازدهم' : 'دوازدهم'}
                     </div>
                     <div>
-                        <span style="color: #2ecc71;">${exam.correct} صحیح</span>
-                        <span style="color: #e74c3c;">${exam.wrong} غلط</span>
-                        <span style="color: #95a5a6;">${exam.blank} نزده</span>
-                        <strong style="margin-right: 10px; color: #667eea;">${exam.percent}%</strong>
+                        ${Object.entries(exam.subjects).map(([subject, score]) => `
+                            <span style="margin-right: 10px;">${subject}: ${score}%</span>
+                        `).join('')}
                     </div>
                 </div>
             `).join('');
@@ -2524,17 +3008,26 @@
                         backgroundColor: subjects.map(s => s.color + '40'),
                         borderColor: subjects.map(s => s.color),
                         borderWidth: 3,
-                        tension: 0.3
+                        tension: 0.4,
+                        pointBackgroundColor: subjects.map(s => s.color),
+                        pointBorderColor: '#fff',
+                        pointBorderWidth: 2,
+                        pointRadius: 6,
+                        pointHoverRadius: 8,
+                        fill: true
                     }]
                 },
                 options: {
                     responsive: true,
                     plugins: {
-                        legend: { display: false }
+                        legend: { display: false },
+                        tooltip: { mode: 'index', intersect: false }
                     },
                     scales: {
-                        y: { beginAtZero: true, max: 100 }
-                    }
+                        y: { beginAtZero: true, max: 100, grid: { color: 'rgba(0,0,0,0.05)' } },
+                        x: { grid: { display: false } }
+                    },
+                    animation: { duration: 2000, easing: 'easeInOutQuart' }
                 }
             });
             
@@ -2567,18 +3060,24 @@
                     datasets: [{
                         label: 'ساعت مطالعه',
                         data: last7Hours,
-                        backgroundColor: '#667eea',
-                        borderRadius: 5
+                        backgroundColor: 'rgba(102,126,234,0.7)',
+                        borderRadius: 8,
+                        borderSkipped: false,
+                        barPercentage: 0.7,
+                        categoryPercentage: 0.8
                     }]
                 },
                 options: {
                     responsive: true,
                     plugins: {
-                        legend: { display: false }
+                        legend: { display: false },
+                        tooltip: { callbacks: { label: (ctx) => `${ctx.raw} ساعت` } }
                     },
                     scales: {
-                        y: { beginAtZero: true }
-                    }
+                        y: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' } },
+                        x: { grid: { display: false } }
+                    },
+                    animation: { duration: 2000, easing: 'easeInOutQuart' }
                 }
             });
             
@@ -2593,20 +3092,28 @@
             });
             
             if (Object.keys(subjectHours).length > 0) {
+                const colors = ['#667eea', '#764ba2', '#2ecc71', '#f39c12', '#e74c3c', '#3498db', '#9b59b6', '#1abc9c', '#e84393', '#95a5a6'];
+                
                 charts.distribution = new Chart(distCtx, {
                     type: 'doughnut',
                     data: {
                         labels: Object.keys(subjectHours),
                         datasets: [{
                             data: Object.values(subjectHours),
-                            backgroundColor: ['#667eea', '#764ba2', '#2ecc71', '#f39c12', '#e74c3c', '#3498db', '#9b59b6', '#1abc9c']
+                            backgroundColor: Object.keys(subjectHours).map((_, i) => colors[i % colors.length] + '80'),
+                            borderColor: Object.keys(subjectHours).map((_, i) => colors[i % colors.length]),
+                            borderWidth: 2,
+                            hoverOffset: 20
                         }]
                     },
                     options: {
                         responsive: true,
                         plugins: {
-                            legend: { position: 'bottom' }
-                        }
+                            legend: { position: 'bottom', rtl: true, labels: { usePointStyle: true, pointStyle: 'circle' } },
+                            tooltip: { callbacks: { label: (ctx) => `${ctx.label}: ${ctx.raw.toFixed(1)} ساعت` } }
+                        },
+                        cutout: '60%',
+                        animation: { animateRotate: true, animateScale: true }
                     }
                 });
             }
@@ -2619,25 +3126,166 @@
             const exams = userData.exams.slice(-10);
             
             if (exams.length > 0) {
+                const examSubjects = {};
+                exams.forEach(exam => {
+                    Object.entries(exam.subjects).forEach(([subject, score]) => {
+                        if (!examSubjects[subject]) examSubjects[subject] = [];
+                        examSubjects[subject].push(score);
+                    });
+                });
+                
+                const datasets = Object.entries(examSubjects).map(([subject, scores], index) => ({
+                    label: subject,
+                    data: scores,
+                    borderColor: colors[index % colors.length],
+                    backgroundColor: colors[index % colors.length] + '20',
+                    borderWidth: 3,
+                    tension: 0.4,
+                    fill: false,
+                    pointBackgroundColor: colors[index % colors.length],
+                    pointBorderColor: '#fff',
+                    pointBorderWidth: 2,
+                    pointRadius: 5
+                }));
+                
                 charts.exam = new Chart(examCtx, {
                     type: 'line',
                     data: {
-                        labels: exams.map(e => e.name),
+                        labels: exams.map((_, i) => `آزمون ${i + 1}`),
+                        datasets: datasets
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: { position: 'bottom', rtl: true, labels: { usePointStyle: true } },
+                            tooltip: { mode: 'index', intersect: false }
+                        },
+                        scales: {
+                            y: { beginAtZero: true, max: 100, grid: { color: 'rgba(0,0,0,0.05)' } },
+                            x: { grid: { display: false } }
+                        },
+                        animation: { duration: 2000 }
+                    }
+                });
+            }
+            
+            // نمودار رادار
+            const radarCtx = document.getElementById('radarChart').getContext('2d');
+            
+            if (charts.radar) charts.radar.destroy();
+            
+            const radarSubjects = userData.subjects.slice(0, 8);
+            charts.radar = new Chart(radarCtx, {
+                type: 'radar',
+                data: {
+                    labels: radarSubjects.map(s => s.name.split(' ')[0]),
+                    datasets: [{
+                        label: 'پیشرفت',
+                        data: radarSubjects.map(s => s.progress),
+                        backgroundColor: 'rgba(102,126,234,0.2)',
+                        borderColor: '#667eea',
+                        borderWidth: 2,
+                        pointBackgroundColor: '#667eea',
+                        pointBorderColor: '#fff',
+                        pointBorderWidth: 2,
+                        pointRadius: 5
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        r: { beginAtZero: true, max: 100, ticks: { stepSize: 20 } }
+                    },
+                    animation: { duration: 2000 }
+                }
+            });
+            
+            // نمودار روند
+            const trendCtx = document.getElementById('trendChart').getContext('2d');
+            
+            if (charts.trend) charts.trend.destroy();
+            
+            const weeklyProgress = [];
+            for (let i = 0; i < 4; i++) {
+                const weekTasks = [];
+                for (let j = 0; j < 7; j++) {
+                    const dateKey = getDateForDay(j - (i * 7));
+                    const dayTasks = userData.tasks[dateKey] || [];
+                    weekTasks.push(...dayTasks);
+                }
+                const completed = weekTasks.filter(t => t.completed).length;
+                const percent = weekTasks.length > 0 ? (completed / weekTasks.length) * 100 : 0;
+                weeklyProgress.push(percent);
+            }
+            
+            charts.trend = new Chart(trendCtx, {
+                type: 'line',
+                data: {
+                    labels: ['هفته ۴', 'هفته ۳', 'هفته ۲', 'هفته ۱'],
+                    datasets: [{
+                        label: 'موفقیت هفتگی',
+                        data: weeklyProgress.reverse(),
+                        borderColor: '#2ecc71',
+                        backgroundColor: 'rgba(46,204,113,0.1)',
+                        borderWidth: 3,
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        y: { beginAtZero: true, max: 100 }
+                    },
+                    animation: { duration: 2000 }
+                }
+            });
+            
+            // نمودار موفقیت
+            const successCtx = document.getElementById('successRateChart')?.getContext('2d');
+            
+            if (successCtx) {
+                if (charts.success) charts.success.destroy();
+                
+                const days = ['ش', 'ی', 'د', 'س', 'چ', 'پ', 'ج'];
+                const successData = [];
+                
+                for (let i = 0; i < 7; i++) {
+                    const dateKey = getDateForDay(i);
+                    const dayTasks = userData.tasks[dateKey] || [];
+                    const completed = dayTasks.filter(t => t.completed).length;
+                    const percent = dayTasks.length > 0 ? (completed / dayTasks.length) * 100 : 0;
+                    successData.push(percent);
+                }
+                
+                charts.success = new Chart(successCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: days,
                         datasets: [{
-                            label: 'درصد',
-                            data: exams.map(e => e.percent),
-                            borderColor: '#667eea',
-                            backgroundColor: '#667eea20',
-                            borderWidth: 3,
-                            tension: 0.3,
-                            fill: true
+                            label: 'درصد موفقیت',
+                            data: successData,
+                            backgroundColor: successData.map(v => 
+                                v >= 80 ? '#2ecc71' : v >= 60 ? '#f39c12' : '#e74c3c'
+                            ),
+                            borderRadius: 8
                         }]
                     },
                     options: {
                         responsive: true,
+                        plugins: {
+                            legend: { display: false }
+                        },
                         scales: {
                             y: { beginAtZero: true, max: 100 }
-                        }
+                        },
+                        animation: { duration: 2000 }
                     }
                 });
             }
@@ -2662,7 +3310,8 @@
             document.body.appendChild(notif);
             
             setTimeout(() => {
-                notif.remove();
+                notif.style.animation = 'slideIn 0.3s reverse';
+                setTimeout(() => notif.remove(), 300);
             }, 3000);
         }
 
