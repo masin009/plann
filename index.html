@@ -250,7 +250,7 @@
         .stat-progress { height: 5px; background: #e0e0e0; border-radius: 3px; margin-top: 10px; overflow: hidden; }
         .stat-progress-bar { height: 100%; background: linear-gradient(90deg, #667eea, #764ba2); transition: width 0.5s ease; }
 
-        .subjects-section, .weekly-planner, .notes-section, .exam-section, .medals-section {
+        .subjects-section, .weekly-planner, .notes-section, .exam-section {
             background: white; border-radius: 15px; padding: 15px; margin: 15px 0; box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
 
@@ -371,7 +371,7 @@
         }
         .table-task.completed { border-right-color: #2ecc71; }
 
-        /* ========== نمودارهای حرفه‌ای ========== */
+        /* ========== نمودارهای شاهکار ========== */
         .charts-section { padding: 15px 0; }
         
         .chart-card {
@@ -379,10 +379,16 @@
             border-radius: 20px;
             padding: 20px;
             margin-bottom: 25px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            border: 1px solid rgba(102,126,234,0.1);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border: 1px solid rgba(102,126,234,0.2);
             position: relative;
             overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .chart-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(102,126,234,0.2);
         }
 
         .chart-card::before {
@@ -392,12 +398,12 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(90deg, #667eea, #764ba2, #667eea);
-            background-size: 200% 100%;
-            animation: gradientMove 3s linear infinite;
+            background: linear-gradient(90deg, #667eea, #764ba2, #ff6b6b, #4ecdc4, #667eea);
+            background-size: 300% 100%;
+            animation: gradientFlow 6s linear infinite;
         }
 
-        @keyframes gradientMove { 0% { background-position: 0% 50%; } 100% { background-position: 200% 50%; } }
+        @keyframes gradientFlow { 0% { background-position: 0% 50%; } 100% { background-position: 300% 50%; } }
 
         .chart-header {
             display: flex;
@@ -409,19 +415,20 @@
         }
 
         .chart-title {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             color: #333;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
 
         .chart-title i {
-            font-size: 1.4rem;
-            color: #667eea;
-            background: rgba(102,126,234,0.1);
-            padding: 8px;
-            border-radius: 10px;
+            font-size: 1.6rem;
+            color: white;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            padding: 10px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(102,126,234,0.3);
         }
 
         .chart-controls {
@@ -433,94 +440,28 @@
         }
 
         .chart-btn {
-            padding: 6px 15px;
+            padding: 6px 16px;
             border: none;
             border-radius: 50px;
             background: transparent;
             cursor: pointer;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
+            font-weight: 500;
             transition: all 0.3s;
         }
 
         .chart-btn.active {
             background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
+            box-shadow: 0 5px 10px rgba(102,126,234,0.3);
         }
 
         .chart-wrapper {
             position: relative;
-            height: 300px;
+            height: 350px;
             width: 100%;
-        }
-
-        /* مدال‌ها - فقط در بخش خودشون */
-        .medals-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 15px;
             margin-top: 15px;
         }
-
-        .medal-card {
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-            border-radius: 12px;
-            padding: 15px;
-            text-align: center;
-            transition: all 0.3s;
-            border: 2px solid transparent;
-        }
-
-        .medal-card.unlocked {
-            border-color: #ffd700;
-            box-shadow: 0 0 20px rgba(255,215,0,0.2);
-        }
-
-        .medal-icon {
-            width: 50px;
-            height: 50px;
-            margin: 0 auto 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .medal-icon i { font-size: 2rem; }
-        .medal-bronze { color: #cd7f32; }
-        .medal-silver { color: #c0c0c0; }
-        .medal-gold { color: #ffd700; }
-        .medal-platinum { color: #e5e4e2; }
-        .medal-diamond { color: #b9f2ff; }
-
-        .medal-name { font-weight: bold; margin: 5px 0; font-size: 0.95rem; }
-        .medal-desc { color: #666; font-size: 0.8rem; margin-bottom: 10px; }
-        .medal-progress { height: 4px; background: #e0e0e0; border-radius: 2px; overflow: hidden; margin: 10px 0; }
-        .medal-progress-fill { height: 100%; background: linear-gradient(90deg, #ffd700, #ff6b6b); transition: width 0.5s ease; }
-        .medal-status { font-size: 0.8rem; font-weight: bold; }
-        .medal-status.unlocked { color: #27ae60; }
-        .medal-status.locked { color: #e74c3c; }
-
-        .modal {
-            display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0,0,0,0.5); backdrop-filter: blur(8px); z-index: 1000;
-            align-items: center; justify-content: center; padding: 15px;
-        }
-        .modal.active { display: flex; animation: fadeIn 0.3s ease; }
-        .modal-content {
-            background: white; border-radius: 20px; padding: 20px; max-width: 500px; width: 100%;
-            max-height: 80vh; overflow-y: auto;
-        }
-        .modal-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 15px; }
-        .modal-header h3 { color: #333; font-size: 1.2rem; }
-        .modal-close { background: none; border: none; font-size: 1.3rem; cursor: pointer; color: #999; }
-        .modal-close:hover { color: #e74c3c; transform: rotate(90deg); }
-
-        .notification {
-            position: fixed; left: 10px; right: 10px; bottom: 10px; background: white; border-radius: 10px;
-            padding: 12px 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.2); border-right: 4px solid #667eea;
-            display: flex; align-items: center; gap: 10px; z-index: 1001; animation: slideIn 0.3s ease;
-            font-size: 0.95rem;
-        }
-        @keyframes slideIn { from { transform: translateY(100%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
 
         .notes-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px; margin-top: 15px; }
         .note-card {
@@ -557,6 +498,29 @@
         }
         .exam-item:hover { transform: translateX(-3px); box-shadow: 0 5px 10px rgba(102,126,234,0.1); }
         @media (min-width: 768px) { .exam-form { grid-template-columns: repeat(2, 1fr); } .exam-subjects-grid { grid-template-columns: repeat(3, 1fr); } }
+
+        .modal {
+            display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.5); backdrop-filter: blur(8px); z-index: 1000;
+            align-items: center; justify-content: center; padding: 15px;
+        }
+        .modal.active { display: flex; animation: fadeIn 0.3s ease; }
+        .modal-content {
+            background: white; border-radius: 20px; padding: 20px; max-width: 500px; width: 100%;
+            max-height: 80vh; overflow-y: auto;
+        }
+        .modal-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 15px; }
+        .modal-header h3 { color: #333; font-size: 1.2rem; }
+        .modal-close { background: none; border: none; font-size: 1.3rem; cursor: pointer; color: #999; }
+        .modal-close:hover { color: #e74c3c; transform: rotate(90deg); }
+
+        .notification {
+            position: fixed; left: 10px; right: 10px; bottom: 10px; background: white; border-radius: 10px;
+            padding: 12px 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.2); border-right: 4px solid #667eea;
+            display: flex; align-items: center; gap: 10px; z-index: 1001; animation: slideIn 0.3s ease;
+            font-size: 0.95rem;
+        }
+        @keyframes slideIn { from { transform: translateY(100%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
     </style>
 </head>
 <body>
@@ -650,7 +614,6 @@
                     <div class="menu-item" onclick="showSection('notes')"><i class="fas fa-sticky-note"></i>دفترچه نکات</div>
                     <div class="menu-item" onclick="showSection('exams')"><i class="fas fa-clipboard-check"></i>آزمون‌ها</div>
                     <div class="menu-item" onclick="showSection('charts')"><i class="fas fa-chart-line"></i>نمودارها</div>
-                    <div class="menu-item" onclick="showSection('medals')"><i class="fas fa-medal"></i>مدال‌ها</div>
                 </div>
             </div>
 
@@ -758,15 +721,16 @@
                 </div>
             </div>
 
-            <!-- بخش نمودارها با طراحی حرفه‌ای -->
+            <!-- بخش نمودارهای شاهکار -->
             <div id="charts" class="section">
                 <div class="charts-section">
-                    <!-- نمودار رادار (تار عنکبوت) -->
+                    
+                    <!-- نمودار رادار Spider Chart -->
                     <div class="chart-card">
                         <div class="chart-header">
                             <div class="chart-title">
                                 <i class="fas fa-chart-pie"></i>
-                                <span>نمودار تجمیعی دروس (تار عنکبوت)</span>
+                                <span>Spider Chart - تحلیل جامع دروس</span>
                             </div>
                         </div>
                         <div class="chart-wrapper">
@@ -774,16 +738,16 @@
                         </div>
                     </div>
 
-                    <!-- نمودار پیشرفت هفتگی -->
+                    <!-- نمودار پیشرفت هفتگی Weekly Progress -->
                     <div class="chart-card">
                         <div class="chart-header">
                             <div class="chart-title">
                                 <i class="fas fa-chart-line"></i>
-                                <span>پیشرفت هفتگی</span>
+                                <span>Weekly Progress - پیشرفت هفتگی</span>
                             </div>
                             <div class="chart-controls">
-                                <span class="chart-btn active" onclick="changeChartPeriod('week', this)">هفته</span>
-                                <span class="chart-btn" onclick="changeChartPeriod('month', this)">ماه</span>
+                                <span class="chart-btn active" onclick="changeWeeklyChartPeriod('week', this)">Week</span>
+                                <span class="chart-btn" onclick="changeWeeklyChartPeriod('month', this)">Month</span>
                             </div>
                         </div>
                         <div class="chart-wrapper">
@@ -791,30 +755,30 @@
                         </div>
                     </div>
 
-                    <!-- نمودار ساعت مطالعه روزانه -->
+                    <!-- نمودار مطالعه روزانه Daily Study Hours -->
                     <div class="chart-card">
                         <div class="chart-header">
                             <div class="chart-title">
                                 <i class="fas fa-clock"></i>
-                                <span>ساعت مطالعه روزانه</span>
+                                <span>Daily Study Hours - ساعت مطالعه روزانه</span>
                             </div>
                             <div class="chart-controls">
-                                <span class="chart-btn active" onclick="changeTimeChartPeriod('week', this)">هفته</span>
-                                <span class="chart-btn" onclick="changeTimeChartPeriod('month', this)">ماه</span>
-                                <span class="chart-btn" onclick="changeTimeChartPeriod('year', this)">سال</span>
+                                <span class="chart-btn active" onclick="changeDailyChartPeriod('week', this)">Week</span>
+                                <span class="chart-btn" onclick="changeDailyChartPeriod('month', this)">Month</span>
+                                <span class="chart-btn" onclick="changeDailyChartPeriod('year', this)">Year</span>
                             </div>
                         </div>
                         <div class="chart-wrapper">
-                            <canvas id="timeChart"></canvas>
+                            <canvas id="dailyChart"></canvas>
                         </div>
                     </div>
 
-                    <!-- نمودار توزیع زمان مطالعه -->
+                    <!-- نمودار توزیع زمان Time Distribution -->
                     <div class="chart-card">
                         <div class="chart-header">
                             <div class="chart-title">
                                 <i class="fas fa-chart-pie"></i>
-                                <span>توزیع زمان مطالعه</span>
+                                <span>Time Distribution - توزیع زمان مطالعه</span>
                             </div>
                         </div>
                         <div class="chart-wrapper">
@@ -822,12 +786,12 @@
                         </div>
                     </div>
 
-                    <!-- نمودار نتایج آزمون‌ها -->
+                    <!-- نمودار نتایج آزمون Exam Results -->
                     <div class="chart-card">
                         <div class="chart-header">
                             <div class="chart-title">
                                 <i class="fas fa-chart-bar"></i>
-                                <span>نتایج آزمون‌ها</span>
+                                <span>Exam Results - نتایج آزمون‌ها</span>
                             </div>
                         </div>
                         <div class="chart-wrapper">
@@ -835,39 +799,44 @@
                         </div>
                     </div>
 
-                    <!-- نمودار پیشرفت شش ماهه -->
+                    <!-- نمودار تست‌ها Test Performance -->
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <div class="chart-title">
+                                <i class="fas fa-clipboard-check"></i>
+                                <span>Test Performance - عملکرد تست‌ها</span>
+                            </div>
+                        </div>
+                        <div class="chart-wrapper">
+                            <canvas id="testChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- نمودار شش ماهه 6-Month Progress -->
                     <div class="chart-card">
                         <div class="chart-header">
                             <div class="chart-title">
                                 <i class="fas fa-chart-area"></i>
-                                <span>پیشرفت شش ماهه</span>
+                                <span>6-Month Progress - پیشرفت شش ماهه</span>
                             </div>
                         </div>
                         <div class="chart-wrapper">
-                            <canvas id="sixMonthProgressChart"></canvas>
+                            <canvas id="sixMonthChart"></canvas>
                         </div>
                     </div>
 
-                    <!-- نمودار پیشرفت ماهانه -->
+                    <!-- نمودار ماهانه Monthly Progress -->
                     <div class="chart-card">
                         <div class="chart-header">
                             <div class="chart-title">
                                 <i class="fas fa-chart-bar"></i>
-                                <span>پیشرفت ماهانه</span>
+                                <span>Monthly Progress - پیشرفت ماهانه</span>
                             </div>
                         </div>
                         <div class="chart-wrapper">
-                            <canvas id="monthlyProgressChart"></canvas>
+                            <canvas id="monthlyChart"></canvas>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <!-- بخش مدال‌ها -->
-            <div id="medals" class="section">
-                <div class="medals-section">
-                    <div class="section-header"><div class="section-title"><i class="fas fa-medal"></i> مدال‌های افتخار</div></div>
-                    <div class="medals-grid" id="medalsGrid"></div>
                 </div>
             </div>
         </div>
@@ -1027,32 +996,6 @@
             { text: "سخت‌ترین قدم، قدم اول است", author: "ضرب‌المثل" }
         ];
 
-        const MEDALS = {
-            study: [
-                { name: 'مطالعه‌گر برنزی', desc: '۸ ساعت مطالعه در یک روز', icon: 'fa-clock', target: 8, color: 'bronze', emoji: '🥉' },
-                { name: 'مطالعه‌گر نقره‌ای', desc: '۱۰ ساعت مطالعه در یک روز', icon: 'fa-clock', target: 10, color: 'silver', emoji: '🥈' },
-                { name: 'مطالعه‌گر طلایی', desc: '۱۲ ساعت مطالعه در یک روز', icon: 'fa-clock', target: 12, color: 'gold', emoji: '🥇' },
-                { name: 'مطالعه‌گر پلاتینی', desc: '۱۴ ساعت مطالعه در یک روز', icon: 'fa-clock', target: 14, color: 'platinum', emoji: '💎' },
-                { name: 'مطالعه‌گر الماسی', desc: '۱۶ ساعت مطالعه در یک روز', icon: 'fa-crown', target: 16, color: 'diamond', emoji: '👑' }
-            ],
-            test: [
-                { name: 'آزمون‌دهنده برنزی', desc: 'میانگین ۳۰٪ در آزمون‌ها', icon: 'fa-clipboard-check', target: 30, color: 'bronze', emoji: '🥉' },
-                { name: 'آزمون‌دهنده نقره‌ای', desc: 'میانگین ۴۰٪ در آزمون‌ها', icon: 'fa-clipboard-check', target: 40, color: 'silver', emoji: '🥈' },
-                { name: 'آزمون‌دهنده طلایی', desc: 'میانگین ۵۰٪ در آزمون‌ها', icon: 'fa-clipboard-check', target: 50, color: 'gold', emoji: '🥇' },
-                { name: 'آزمون‌دهنده پلاتینی', desc: 'میانگین ۶۰٪ در آزمون‌ها', icon: 'fa-clipboard-check', target: 60, color: 'platinum', emoji: '💎' },
-                { name: 'آزمون‌دهنده الماسی', desc: 'میانگین ۷۰٪ در آزمون‌ها', icon: 'fa-clipboard-check', target: 70, color: 'diamond', emoji: '👑' },
-                { name: 'آزمون‌دهنده افسانه‌ای', desc: 'میانگین ۸۰٪ در آزمون‌ها', icon: 'fa-star', target: 80, color: 'gold', emoji: '⭐' },
-                { name: 'آزمون‌دهنده اسطوره‌ای', desc: 'میانگین ۹۰٪ در آزمون‌ها', icon: 'fa-crown', target: 90, color: 'diamond', emoji: '👑' }
-            ],
-            consistency: [
-                { name: 'استمرار برنزی', desc: '۷ روز متوالی مطالعه', icon: 'fa-calendar-check', target: 7, color: 'bronze', emoji: '🥉' },
-                { name: 'استمرار نقره‌ای', desc: '۳۰ روز متوالی مطالعه', icon: 'fa-calendar-check', target: 30, color: 'silver', emoji: '🥈' },
-                { name: 'استمرار طلایی', desc: '۱۰۰ روز متوالی مطالعه', icon: 'fa-calendar-check', target: 100, color: 'gold', emoji: '🥇' },
-                { name: 'استمرار پلاتینی', desc: '۲۰۰ روز متوالی مطالعه', icon: 'fa-calendar-check', target: 200, color: 'platinum', emoji: '💎' },
-                { name: 'استمرار الماسی', desc: '۳۶۵ روز متوالی مطالعه', icon: 'fa-crown', target: 365, color: 'diamond', emoji: '👑' }
-            ]
-        };
-
         let currentUser = null;
         let selectedMajor = null;
         let timerInterval = null;
@@ -1064,8 +1007,8 @@
         let currentQuoteIndex = -1;
         let currentWeekOffset = 0;
 
-        function getUsers() { return JSON.parse(localStorage.getItem('konkour_users_v8') || '{}'); }
-        function saveUsers(users) { localStorage.setItem('konkour_users_v8', JSON.stringify(users)); }
+        function getUsers() { return JSON.parse(localStorage.getItem('konkour_users_v9') || '{}'); }
+        function saveUsers(users) { localStorage.setItem('konkour_users_v9', JSON.stringify(users)); }
 
         function togglePassword(inputId, btn) {
             const input = document.getElementById(inputId);
@@ -1099,7 +1042,7 @@
 
             users[username] = {
                 password: password, major: null,
-                data: { subjects: [], sessions: [], exams: [], notes: [], tasks: {}, medals: [], createdAt: Date.now(), lastActive: Date.now() }
+                data: { subjects: [], sessions: [], exams: [], notes: [], tasks: {}, createdAt: Date.now(), lastActive: Date.now() }
             };
             saveUsers(users);
             showMessage(messageDiv, 'ثبت‌نام با موفقیت انجام شد', 'success');
@@ -1200,7 +1143,6 @@
             renderAllCharts();
             updateRecentActivities();
             renderNotes();
-            renderMedals();
         }
 
         function showMainApp() {
@@ -1215,7 +1157,6 @@
             document.querySelectorAll('.menu-item').forEach(m => m.classList.remove('active'));
             document.getElementById(sectionId).classList.add('active');
             event.currentTarget.classList.add('active');
-            if (sectionId === 'medals') renderMedals();
             if (sectionId === 'notes') renderNotes();
             if (sectionId === 'charts') renderAllCharts();
             if (sectionId === 'exams') updateExamList();
@@ -1304,7 +1245,7 @@
 
         function getDateForDayOffset(dayIndex) {
             const today = new Date();
-            const currentDay = today.getDay(); // 0 یکشنبه
+            const currentDay = today.getDay();
             const targetDate = new Date(today);
             targetDate.setDate(today.getDate() + (dayIndex - currentDay) + (currentWeekOffset * 7));
             const year = targetDate.getFullYear();
@@ -1478,7 +1419,7 @@
             renderWeekPlanner();
             renderTodayTasks();
             updateStats();
-            checkMedals();
+            renderAllCharts();
             showNotification('تسک با موفقیت ثبت شد', 'success');
         }
 
@@ -1579,7 +1520,7 @@
             saveUsers(users);
             timerSeconds = 0; updateTimerDisplay();
             document.getElementById('correctCount').value = ''; document.getElementById('wrongCount').value = '';
-            renderSubjects(); updateStats(); renderAllCharts(); updateRecentActivities(); checkMedals();
+            renderSubjects(); updateStats(); renderAllCharts(); updateRecentActivities();
             showNotification('جلسه با موفقیت ذخیره شد', 'success');
         }
 
@@ -1680,7 +1621,7 @@
             users[currentUser].data.exams.push(examData);
             saveUsers(users);
             document.getElementById('examGrade').value = ''; document.getElementById('examName').value = ''; document.getElementById('examSubjectsContainer').innerHTML = '';
-            updateExamList(); renderAllCharts(); checkMedals();
+            updateExamList(); renderAllCharts();
             showNotification('آزمون با موفقیت ثبت شد', 'success');
         }
 
@@ -1693,38 +1634,40 @@
             `).join('');
         }
 
-        // ==================== نمودارهای حرفه‌ای ====================
+        // ==================== نمودارهای شاهکار ====================
         function renderAllCharts() {
             if (!currentUser) return;
             const users = getUsers();
             const userData = users[currentUser].data;
 
-            // نمودار رادار (تار عنکبوت)
+            // 1. Spider Chart - Radar
             const radarCtx = document.getElementById('radarChart').getContext('2d');
             if (charts.radar) charts.radar.destroy();
             
-            const radarSubjects = userData.subjects.slice(0, 6);
+            const radarSubjects = userData.subjects.slice(0, 8);
             const radarLabels = radarSubjects.map(s => s.name.split(' ')[0]);
             const radarData = radarSubjects.map(s => {
                 const lastTest = s.tests[s.tests.length - 1];
                 return lastTest ? lastTest.percent : s.progress;
             });
+            const radarColors = radarSubjects.map(s => s.color);
 
             charts.radar = new Chart(radarCtx, {
                 type: 'radar',
                 data: {
                     labels: radarLabels,
                     datasets: [{
-                        label: 'پیشرفت دروس',
+                        label: 'Performance %',
                         data: radarData,
                         backgroundColor: 'rgba(102,126,234,0.2)',
                         borderColor: '#667eea',
                         borderWidth: 3,
-                        pointBackgroundColor: radarSubjects.map(s => s.color),
+                        pointBackgroundColor: radarColors,
                         pointBorderColor: '#fff',
                         pointBorderWidth: 2,
                         pointRadius: 6,
-                        pointHoverRadius: 8
+                        pointHoverRadius: 10,
+                        fill: true
                     }]
                 },
                 options: {
@@ -1742,41 +1685,51 @@
                         r: {
                             beginAtZero: true,
                             max: 100,
-                            ticks: { stepSize: 20, callback: (v) => v + '%' },
-                            grid: { color: 'rgba(0,0,0,0.1)' }
+                            ticks: { 
+                                stepSize: 20,
+                                callback: (v) => v + '%',
+                                backdropColor: 'transparent'
+                            },
+                            grid: { 
+                                color: ['rgba(102,126,234,0.2)', 'rgba(102,126,234,0.2)', 'rgba(102,126,234,0.2)', 'rgba(102,126,234,0.2)', 'rgba(102,126,234,0.2)']
+                            },
+                            pointLabels: { font: { size: 12 } }
                         }
                     }
                 }
             });
 
-            // نمودار پیشرفت هفتگی
-            const weekCtx = document.getElementById('weeklyProgressChart').getContext('2d');
+            // 2. Weekly Progress Chart
+            const weeklyCtx = document.getElementById('weeklyProgressChart').getContext('2d');
             if (charts.weekly) charts.weekly.destroy();
             
-            const weekDays = ['ش', 'ی', 'د', 'س', 'چ', 'پ', 'ج'];
-            let weekData = [];
-            for (let i = 0; i < 7; i++) {
-                const dateKey = getDateForDayOffset(i);
+            const weekDays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+            let weeklyData = [];
+            for (let i = 6; i >= 0; i--) {
+                const date = new Date();
+                date.setDate(date.getDate() - i);
+                const dateKey = date.toISOString().split('T')[0];
                 const daySessions = userData.sessions.filter(s => s.date.split('T')[0] === dateKey);
-                weekData.push(daySessions.reduce((sum, s) => sum + s.duration / 3600, 0));
+                weeklyData.push(daySessions.reduce((sum, s) => sum + s.duration / 3600, 0));
             }
 
-            charts.weekly = new Chart(weekCtx, {
+            charts.weekly = new Chart(weeklyCtx, {
                 type: 'line',
                 data: {
                     labels: weekDays,
                     datasets: [{
-                        label: 'ساعت مطالعه',
-                        data: weekData,
+                        label: 'Study Hours',
+                        data: weeklyData,
                         borderColor: '#667eea',
                         backgroundColor: 'rgba(102,126,234,0.1)',
-                        borderWidth: 3,
+                        borderWidth: 4,
                         fill: true,
                         tension: 0.4,
                         pointBackgroundColor: '#667eea',
                         pointBorderColor: '#fff',
                         pointBorderWidth: 2,
-                        pointRadius: 6
+                        pointRadius: 6,
+                        pointHoverRadius: 8
                     }]
                 },
                 options: {
@@ -1784,7 +1737,11 @@
                     maintainAspectRatio: false,
                     plugins: {
                         legend: { display: false },
-                        tooltip: { callbacks: { label: (ctx) => `${ctx.raw} ساعت` } }
+                        tooltip: { 
+                            callbacks: { 
+                                label: (ctx) => `${ctx.raw.toFixed(1)} hours` 
+                            } 
+                        }
                     },
                     scales: {
                         y: { 
@@ -1797,51 +1754,30 @@
                 }
             });
 
-            // نمودار ساعت مطالعه روزانه
-            const timeCtx = document.getElementById('timeChart').getContext('2d');
-            if (charts.time) charts.time.destroy();
+            // 3. Daily Study Hours Chart
+            const dailyCtx = document.getElementById('dailyChart').getContext('2d');
+            if (charts.daily) charts.daily.destroy();
 
-            let timeLabels = [];
-            let timeData = [];
-            const period = document.querySelector('#timeChart').parentElement.parentElement.querySelector('.chart-btn.active')?.textContent || 'هفته';
+            let dailyLabels = [];
+            let dailyData = [];
 
-            if (period === 'هفته') {
-                for (let i = 6; i >= 0; i--) {
-                    const date = new Date();
-                    date.setDate(date.getDate() - i);
-                    const dateKey = date.toISOString().split('T')[0];
-                    const daySessions = userData.sessions.filter(s => s.date.split('T')[0] === dateKey);
-                    timeLabels.push(date.toLocaleDateString('fa-IR', { weekday: 'short' }));
-                    timeData.push(daySessions.reduce((sum, s) => sum + s.duration / 3600, 0));
-                }
-            } else if (period === 'ماه') {
-                for (let i = 29; i >= 0; i--) {
-                    const date = new Date();
-                    date.setDate(date.getDate() - i);
-                    const dateKey = date.toISOString().split('T')[0];
-                    const daySessions = userData.sessions.filter(s => s.date.split('T')[0] === dateKey);
-                    if (i % 5 === 0) timeLabels.push(date.getDate());
-                    else timeLabels.push('');
-                    timeData.push(daySessions.reduce((sum, s) => sum + s.duration / 3600, 0));
-                }
-            } else {
-                for (let i = 11; i >= 0; i--) {
-                    const date = new Date();
-                    date.setMonth(date.getMonth() - i);
-                    const monthKey = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`;
-                    const monthSessions = userData.sessions.filter(s => s.date.startsWith(monthKey));
-                    timeLabels.push(date.toLocaleDateString('fa-IR', { month: 'short' }));
-                    timeData.push(monthSessions.reduce((sum, s) => sum + s.duration / 3600, 0));
-                }
+            for (let i = 29; i >= 0; i--) {
+                const date = new Date();
+                date.setDate(date.getDate() - i);
+                const dateKey = date.toISOString().split('T')[0];
+                const daySessions = userData.sessions.filter(s => s.date.split('T')[0] === dateKey);
+                if (i % 5 === 0) dailyLabels.push(date.getDate());
+                else dailyLabels.push('');
+                dailyData.push(daySessions.reduce((sum, s) => sum + s.duration / 3600, 0));
             }
 
-            charts.time = new Chart(timeCtx, {
+            charts.daily = new Chart(dailyCtx, {
                 type: 'bar',
                 data: {
-                    labels: timeLabels,
+                    labels: dailyLabels,
                     datasets: [{
-                        label: 'ساعت مطالعه',
-                        data: timeData,
+                        label: 'Study Hours',
+                        data: dailyData,
                         backgroundColor: 'rgba(102,126,234,0.7)',
                         borderRadius: 8,
                         barPercentage: 0.7
@@ -1852,7 +1788,11 @@
                     maintainAspectRatio: false,
                     plugins: {
                         legend: { display: false },
-                        tooltip: { callbacks: { label: (ctx) => `${ctx.raw} ساعت` } }
+                        tooltip: { 
+                            callbacks: { 
+                                label: (ctx) => `${ctx.raw.toFixed(1)} hours` 
+                            } 
+                        }
                     },
                     scales: {
                         y: { 
@@ -1865,7 +1805,7 @@
                 }
             });
 
-            // نمودار توزیع زمان
+            // 4. Distribution Chart
             const distCtx = document.getElementById('distributionChart').getContext('2d');
             if (charts.distribution) charts.distribution.destroy();
 
@@ -1875,40 +1815,52 @@
             });
 
             if (Object.keys(subjectHours).length > 0) {
-                const colors = ['#667eea', '#764ba2', '#2ecc71', '#f39c12', '#e74c3c', '#3498db', '#9b59b6', '#1abc9c'];
+                const colors = ['#667eea', '#764ba2', '#2ecc71', '#f39c12', '#e74c3c', '#3498db', '#9b59b6', '#1abc9c', '#e84393', '#95a5a6'];
                 charts.distribution = new Chart(distCtx, {
                     type: 'doughnut',
                     data: {
                         labels: Object.keys(subjectHours),
                         datasets: [{
                             data: Object.values(subjectHours),
-                            backgroundColor: Object.keys(subjectHours).map((_, i) => colors[i % colors.length] + '80'),
+                            backgroundColor: Object.keys(subjectHours).map((_, i) => colors[i % colors.length] + 'CC'),
                             borderColor: Object.keys(subjectHours).map((_, i) => colors[i % colors.length]),
                             borderWidth: 2,
-                            hoverOffset: 20
+                            hoverOffset: 15
                         }]
                     },
                     options: {
                         responsive: true,
                         maintainAspectRatio: false,
                         plugins: {
-                            legend: { position: 'bottom', rtl: true, labels: { usePointStyle: true, boxWidth: 8 } },
-                            tooltip: { callbacks: { label: (ctx) => `${ctx.label}: ${ctx.raw.toFixed(1)} ساعت` } }
+                            legend: { 
+                                position: 'bottom', 
+                                rtl: true, 
+                                labels: { 
+                                    usePointStyle: true, 
+                                    boxWidth: 8,
+                                    font: { size: 11 }
+                                } 
+                            },
+                            tooltip: { 
+                                callbacks: { 
+                                    label: (ctx) => `${ctx.label}: ${ctx.raw.toFixed(1)} hours (${((ctx.raw / Object.values(subjectHours).reduce((a,b) => a+b,0))*100).toFixed(1)}%)` 
+                                } 
+                            }
                         },
-                        cutout: '60%',
-                        animation: { animateRotate: true }
+                        cutout: '65%',
+                        animation: { animateRotate: true, animateScale: true }
                     }
                 });
             }
 
-            // نمودار آزمون‌ها
+            // 5. Exam Results Chart
             const examCtx = document.getElementById('examChart').getContext('2d');
             if (charts.exam) charts.exam.destroy();
 
-            const exams = userData.exams.slice(-10);
+            const exams = userData.exams.slice(-8);
             if (exams.length > 0) {
-                const examLabels = exams.map((_, i) => i + 1);
-                const examScores = exams.map(e => 
+                const examLabels = exams.map((_, i) => `Exam ${i+1}`);
+                const examAverages = exams.map(e => 
                     Object.values(e.subjects).reduce((a, b) => a + b, 0) / Object.keys(e.subjects).length || 0
                 );
 
@@ -1917,17 +1869,18 @@
                     data: {
                         labels: examLabels,
                         datasets: [{
-                            label: 'میانگین درصد',
-                            data: examScores,
-                            borderColor: '#667eea',
-                            backgroundColor: 'rgba(102,126,234,0.1)',
-                            borderWidth: 3,
+                            label: 'Average Score %',
+                            data: examAverages,
+                            borderColor: '#2ecc71',
+                            backgroundColor: 'rgba(46,204,113,0.1)',
+                            borderWidth: 4,
                             fill: true,
                             tension: 0.4,
-                            pointBackgroundColor: '#667eea',
+                            pointBackgroundColor: '#2ecc71',
                             pointBorderColor: '#fff',
                             pointBorderWidth: 2,
-                            pointRadius: 6
+                            pointRadius: 6,
+                            pointHoverRadius: 8
                         }]
                     },
                     options: {
@@ -1935,7 +1888,11 @@
                         maintainAspectRatio: false,
                         plugins: {
                             legend: { display: false },
-                            tooltip: { callbacks: { label: (ctx) => `${ctx.raw.toFixed(1)}%` } }
+                            tooltip: { 
+                                callbacks: { 
+                                    label: (ctx) => `${ctx.raw.toFixed(1)}%` 
+                                } 
+                            }
                         },
                         scales: {
                             y: { 
@@ -1944,14 +1901,68 @@
                                 grid: { color: 'rgba(0,0,0,0.05)' },
                                 ticks: { callback: (v) => v + '%' }
                             },
-                            x: { grid: { display: false }, title: { display: true, text: 'آزمون‌ها' } }
+                            x: { grid: { display: false } }
                         }
                     }
                 });
             }
 
-            // نمودار شش ماهه
-            const sixMonthCtx = document.getElementById('sixMonthProgressChart').getContext('2d');
+            // 6. Test Performance Chart
+            const testCtx = document.getElementById('testChart').getContext('2d');
+            if (charts.test) charts.test.destroy();
+
+            const testData = [];
+            const testLabels = [];
+            const testColors = [];
+
+            userData.subjects.slice(0, 6).forEach(subject => {
+                if (subject.tests.length > 0) {
+                    const avgScore = subject.tests.reduce((sum, t) => sum + t.percent, 0) / subject.tests.length;
+                    testData.push(avgScore);
+                    testLabels.push(subject.name.split(' ')[0]);
+                    testColors.push(subject.color);
+                }
+            });
+
+            if (testData.length > 0) {
+                charts.test = new Chart(testCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: testLabels,
+                        datasets: [{
+                            label: 'Average Test Score %',
+                            data: testData,
+                            backgroundColor: testColors.map(c => c + 'CC'),
+                            borderRadius: 8,
+                            barPercentage: 0.7
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { display: false },
+                            tooltip: { 
+                                callbacks: { 
+                                    label: (ctx) => `${ctx.raw.toFixed(1)}%` 
+                                } 
+                            }
+                        },
+                        scales: {
+                            y: { 
+                                beginAtZero: true, 
+                                max: 100,
+                                grid: { color: 'rgba(0,0,0,0.05)' },
+                                ticks: { callback: (v) => v + '%' }
+                            },
+                            x: { grid: { display: false } }
+                        }
+                    }
+                });
+            }
+
+            // 7. 6-Month Chart
+            const sixMonthCtx = document.getElementById('sixMonthChart').getContext('2d');
             if (charts.sixMonth) charts.sixMonth.destroy();
 
             let sixMonthData = [];
@@ -1962,18 +1973,26 @@
                 const monthKey = `${month.getFullYear()}-${String(month.getMonth() + 1).padStart(2, '0')}`;
                 const monthSessions = userData.sessions.filter(s => s.date.startsWith(monthKey));
                 sixMonthData.push(monthSessions.reduce((sum, s) => sum + s.duration / 3600, 0));
-                sixMonthLabels.push(month.toLocaleDateString('fa-IR', { month: 'short' }));
+                sixMonthLabels.push(month.toLocaleDateString('en-US', { month: 'short' }));
             }
 
             charts.sixMonth = new Chart(sixMonthCtx, {
-                type: 'bar',
+                type: 'line',
                 data: {
                     labels: sixMonthLabels,
                     datasets: [{
-                        label: 'ساعت مطالعه',
+                        label: 'Monthly Study Hours',
                         data: sixMonthData,
-                        backgroundColor: 'rgba(46,204,113,0.7)',
-                        borderRadius: 8
+                        borderColor: '#f39c12',
+                        backgroundColor: 'rgba(243,156,18,0.1)',
+                        borderWidth: 4,
+                        fill: true,
+                        tension: 0.4,
+                        pointBackgroundColor: '#f39c12',
+                        pointBorderColor: '#fff',
+                        pointBorderWidth: 2,
+                        pointRadius: 6,
+                        pointHoverRadius: 8
                     }]
                 },
                 options: {
@@ -1981,24 +2000,28 @@
                     maintainAspectRatio: false,
                     plugins: {
                         legend: { display: false },
-                        tooltip: { callbacks: { label: (ctx) => `${ctx.raw.toFixed(1)} ساعت` } }
+                        tooltip: { 
+                            callbacks: { 
+                                label: (ctx) => `${ctx.raw.toFixed(1)} hours` 
+                            } 
+                        }
                     },
                     scales: {
                         y: { 
                             beginAtZero: true,
                             grid: { color: 'rgba(0,0,0,0.05)' },
                             ticks: { callback: (v) => v + 'h' }
-                        }
+                        },
+                        x: { grid: { display: false } }
                     }
                 }
             });
 
-            // نمودار ماهانه
-            const monthCtx = document.getElementById('monthlyProgressChart').getContext('2d');
+            // 8. Monthly Progress Chart
+            const monthlyCtx = document.getElementById('monthlyChart').getContext('2d');
             if (charts.monthly) charts.monthly.destroy();
 
-            let monthData = [];
-            let monthLabels = [];
+            let monthlyData = [];
             for (let i = 3; i >= 0; i--) {
                 const weekStart = new Date();
                 weekStart.setDate(weekStart.getDate() - (i * 7));
@@ -2008,23 +2031,19 @@
                     const d = new Date(s.date);
                     return d >= weekStart && d < weekEnd;
                 });
-                monthData.push(weekSessions.reduce((sum, s) => sum + s.duration / 3600, 0));
-                monthLabels.push(`هفته ${4 - i}`);
+                monthlyData.push(weekSessions.reduce((sum, s) => sum + s.duration / 3600, 0));
             }
 
-            charts.monthly = new Chart(monthCtx, {
-                type: 'line',
+            charts.monthly = new Chart(monthlyCtx, {
+                type: 'bar',
                 data: {
-                    labels: monthLabels,
+                    labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
                     datasets: [{
-                        label: 'ساعت مطالعه',
-                        data: monthData,
-                        borderColor: '#f39c12',
-                        backgroundColor: 'rgba(243,156,18,0.1)',
-                        borderWidth: 3,
-                        fill: true,
-                        tension: 0.4,
-                        pointBackgroundColor: '#f39c12'
+                        label: 'Weekly Study Hours',
+                        data: monthlyData,
+                        backgroundColor: ['#667eea', '#764ba2', '#2ecc71', '#f39c12'],
+                        borderRadius: 8,
+                        barPercentage: 0.7
                     }]
                 },
                 options: {
@@ -2032,108 +2051,34 @@
                     maintainAspectRatio: false,
                     plugins: {
                         legend: { display: false },
-                        tooltip: { callbacks: { label: (ctx) => `${ctx.raw.toFixed(1)} ساعت` } }
+                        tooltip: { 
+                            callbacks: { 
+                                label: (ctx) => `${ctx.raw.toFixed(1)} hours` 
+                            } 
+                        }
                     },
                     scales: {
                         y: { 
                             beginAtZero: true,
                             grid: { color: 'rgba(0,0,0,0.05)' },
                             ticks: { callback: (v) => v + 'h' }
-                        }
+                        },
+                        x: { grid: { display: false } }
                     }
                 }
             });
         }
 
-        function changeTimeChartPeriod(period, element) {
-            document.querySelectorAll('#timeChart').parentElement.parentElement.querySelectorAll('.chart-btn').forEach(b => b.classList.remove('active'));
+        function changeDailyChartPeriod(period, element) {
+            document.querySelectorAll('#dailyChart').parentElement.parentElement.querySelectorAll('.chart-btn').forEach(b => b.classList.remove('active'));
             element.classList.add('active');
             renderAllCharts();
         }
 
-        function changeChartPeriod(period, element) {
+        function changeWeeklyChartPeriod(period, element) {
             document.querySelectorAll('#weeklyProgressChart').parentElement.parentElement.querySelectorAll('.chart-btn').forEach(b => b.classList.remove('active'));
             element.classList.add('active');
             renderAllCharts();
-        }
-
-        // ==================== مدال‌ها ====================
-        function renderMedals() {
-            const container = document.getElementById('medalsGrid');
-            const users = getUsers();
-            const userMedals = users[currentUser].data.medals || [];
-            let html = '';
-            [...MEDALS.study, ...MEDALS.test, ...MEDALS.consistency].forEach(medal => {
-                const unlocked = userMedals.includes(medal.name);
-                const progress = calculateMedalProgress(medal);
-                html += `
-                    <div class="medal-card ${unlocked ? 'unlocked' : ''}">
-                        <div class="medal-icon"><i class="fas ${medal.icon} medal-${medal.color}"></i></div>
-                        <div class="medal-name">${medal.emoji} ${medal.name}</div>
-                        <div class="medal-desc">${medal.desc}</div>
-                        <div class="medal-progress"><div class="medal-progress-fill" style="width:${progress}%"></div></div>
-                        <div class="medal-status ${unlocked ? 'unlocked' : 'locked'}">${unlocked ? '🏆 باز شده' : '🔒 در حال پیشرفت'}</div>
-                    </div>
-                `;
-            });
-            container.innerHTML = html;
-        }
-
-        function calculateMedalProgress(medal) {
-            const users = getUsers();
-            const userData = users[currentUser].data;
-            if (medal.name.includes('مطالعه')) {
-                const today = new Date().toISOString().split('T')[0];
-                const todayHours = userData.sessions.filter(s => s.date.split('T')[0] === today).reduce((sum, s) => sum + s.duration / 3600, 0);
-                return Math.min(100, (todayHours / medal.target) * 100);
-            } else if (medal.name.includes('آزمون')) {
-                const allTests = userData.subjects.flatMap(s => s.tests);
-                const avgScore = allTests.length ? allTests.reduce((sum, t) => sum + t.percent, 0) / allTests.length : 0;
-                return Math.min(100, (avgScore / medal.target) * 100);
-            } else {
-                const firstDay = new Date(userData.createdAt);
-                const today = new Date();
-                const daysDiff = Math.floor((today - firstDay) / (1000 * 60 * 60 * 24));
-                return Math.min(100, (daysDiff / medal.target) * 100);
-            }
-        }
-
-        function checkMedals() {
-            const users = getUsers();
-            const userData = users[currentUser].data;
-            let newMedals = false;
-            const today = new Date().toISOString().split('T')[0];
-            const todayHours = userData.sessions.filter(s => s.date.split('T')[0] === today).reduce((sum, s) => sum + s.duration / 3600, 0);
-            
-            MEDALS.study.forEach(medal => {
-                if (todayHours >= medal.target && !userData.medals.includes(medal.name)) {
-                    userData.medals.push(medal.name); newMedals = true;
-                    showNotification(`🏆 مدال "${medal.name}" را به دست آوردید!`, 'success');
-                }
-            });
-            
-            const allTests = userData.subjects.flatMap(s => s.tests);
-            const avgScore = allTests.length ? allTests.reduce((sum, t) => sum + t.percent, 0) / allTests.length : 0;
-            
-            MEDALS.test.forEach(medal => {
-                if (avgScore >= medal.target && !userData.medals.includes(medal.name)) {
-                    userData.medals.push(medal.name); newMedals = true;
-                    showNotification(`🏆 مدال "${medal.name}" را به دست آوردید!`, 'success');
-                }
-            });
-            
-            const firstDay = new Date(userData.createdAt);
-            const today2 = new Date();
-            const daysDiff = Math.floor((today2 - firstDay) / (1000 * 60 * 60 * 24));
-            
-            MEDALS.consistency.forEach(medal => {
-                if (daysDiff >= medal.target && !userData.medals.includes(medal.name)) {
-                    userData.medals.push(medal.name); newMedals = true;
-                    showNotification(`🏆 مدال "${medal.name}" را به دست آوردید!`, 'success');
-                }
-            });
-            
-            if (newMedals) { saveUsers(users); renderMedals(); }
         }
 
         function showNotification(message, type) {
