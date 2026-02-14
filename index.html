@@ -36,7 +36,6 @@
             z-index: 1;
         }
 
-        /* بنر تلگرام */
         .telegram-banner {
             background: linear-gradient(135deg, #0088cc, #006699);
             color: white;
@@ -64,7 +63,6 @@
             font-size: 0.85rem;
         }
 
-        /* صفحه احراز هویت */
         .auth-container {
             min-height: 500px;
             display: flex;
@@ -101,56 +99,308 @@
 
         .logo h1 {
             font-size: 1.6rem;
+            margin-bottom: 5px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .input-group {
-            margin-bottom: 15px;
-        }
-
-        .input-group input {
-            padding: 12px 45px;
-            font-size: 0.95rem;
-        }
-
-        .btn {
-            padding: 12px;
-            font-size: 1rem;
-        }
-
-        /* منوی اصلی */
-        .menu-items {
-            gap: 3px;
-            padding: 8px 0;
-        }
-
-        .menu-item {
-            padding: 8px 12px;
-            font-size: 0.85rem;
-        }
-
-        .menu-item i {
+        .logo p {
+            color: #666;
             font-size: 0.9rem;
         }
 
-        /* کارت‌های آمار */
-        .stats-grid {
-            gap: 12px;
-            margin-bottom: 20px;
+        .input-group {
+            position: relative;
+            margin-bottom: 15px;
         }
 
-        .stat-card {
-            padding: 15px;
+        .input-group i {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+            font-size: 1.1rem;
+            z-index: 1;
         }
 
-        .stat-header i {
-            font-size: 1.3rem;
+        .input-group input {
+            width: 100%;
+            padding: 12px 45px;
+            border: 2px solid #e0e0e0;
+            border-radius: 15px;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            background: #f8f9fa;
         }
 
-        .stat-value {
-            font-size: 1.8rem;
+        .input-group input:focus {
+            border-color: #667eea;
+            background: white;
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(102,126,234,0.1);
         }
 
-        /* بنر جمله انگیزشی */
+        .toggle-password {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+            cursor: pointer;
+            font-size: 1.1rem;
+            background: transparent;
+            border: none;
+            padding: 5px;
+        }
+
+        .toggle-password:hover {
+            color: #667eea;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 15px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(102,126,234,0.3);
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            color: white;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #667eea;
+            color: #667eea;
+        }
+
+        .btn-outline:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .switch-link {
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+        }
+
+        .switch-link a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .switch-link a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            transform: scaleX(0);
+            transition: transform 0.3s;
+            transform-origin: right;
+        }
+
+        .switch-link a:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .message {
+            padding: 12px;
+            border-radius: 10px;
+            margin: 15px 0;
+            display: none;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .message.error {
+            background: #fee;
+            color: #c33;
+            display: flex;
+        }
+
+        .message.success {
+            background: #e8f5e9;
+            color: #2e7d32;
+            display: flex;
+        }
+
+        .major-selector {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .major-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .major-card {
+            background: #f8f9fa;
+            border: 2px solid #e0e0e0;
+            border-radius: 15px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .major-card:hover {
+            transform: translateY(-5px);
+            border-color: #667eea;
+        }
+
+        .major-card.selected {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-color: transparent;
+        }
+
+        .major-card i {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .major-card h3 {
+            font-size: 1.2rem;
+        }
+
+        .app-header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .user-avatar {
+            width: 45px;
+            height: 45px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            backdrop-filter: blur(5px);
+        }
+
+        .user-details h3 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .user-details p {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        .user-medals-container {
+            display: flex;
+            gap: 5px;
+            margin-top: 5px;
+        }
+
+        .user-medal-icon {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            color: white;
+        }
+
+        .user-medal-icon.bronze { background: linear-gradient(135deg, #cd7f32, #b06d2a); }
+        .user-medal-icon.silver { background: linear-gradient(135deg, #c0c0c0, #a0a0a0); }
+        .user-medal-icon.gold { background: linear-gradient(135deg, #ffd700, #e6c300); }
+        .user-medal-icon.platinum { background: linear-gradient(135deg, #e5e4e2, #c0c0c0); }
+        .user-medal-icon.diamond { background: linear-gradient(135deg, #b9f2ff, #9ad9e6); }
+
+        .logout-btn {
+            background: rgba(255,255,255,0.15);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s;
+            backdrop-filter: blur(5px);
+            position: relative;
+            z-index: 1;
+        }
+
+        .logout-btn:hover {
+            background: rgba(255,255,255,0.25);
+            transform: translateY(-2px);
+        }
+
         .motivation-banner {
             background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
@@ -165,17 +415,6 @@
             overflow: hidden;
         }
 
-        .motivation-banner::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
-            animation: shimmer 3s infinite;
-        }
-
         .motivation-author {
             font-size: 0.9rem;
             opacity: 0.9;
@@ -183,27 +422,396 @@
             font-style: italic;
         }
 
-        /* تایمر */
+        .main-menu {
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            padding: 0 15px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .menu-items {
+            display: flex;
+            gap: 3px;
+            overflow-x: auto;
+            padding: 8px 0;
+            scrollbar-width: thin;
+            scrollbar-color: #667eea #e0e0e0;
+        }
+
+        .menu-items::-webkit-scrollbar {
+            height: 5px;
+        }
+
+        .menu-items::-webkit-scrollbar-track {
+            background: #e0e0e0;
+            border-radius: 10px;
+        }
+
+        .menu-items::-webkit-scrollbar-thumb {
+            background: #667eea;
+            border-radius: 10px;
+        }
+
+        .menu-item {
+            padding: 8px 12px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        .menu-item:hover {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .menu-item.active {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .menu-item i {
+            font-size: 0.9rem;
+        }
+
+        .section {
+            display: none;
+            padding: 15px;
+        }
+
+        .section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 15px;
+            padding: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .stat-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .stat-header i {
+            font-size: 1.3rem;
+            color: #667eea;
+        }
+
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #667eea;
+            margin: 5px 0;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        .stat-progress {
+            height: 5px;
+            background: #e0e0e0;
+            border-radius: 3px;
+            margin-top: 10px;
+            overflow: hidden;
+        }
+
+        .stat-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 3px;
+            transition: width 0.5s ease;
+        }
+
+        .subjects-section {
+            background: white;
+            border-radius: 15px;
+            padding: 15px;
+            margin: 15px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-title i {
+            color: #667eea;
+        }
+
+        .grade-tabs {
+            display: flex;
+            gap: 5px;
+            background: #f0f0f0;
+            padding: 3px;
+            border-radius: 50px;
+        }
+
+        .grade-tab {
+            padding: 5px 12px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+            font-size: 0.85rem;
+        }
+
+        .grade-tab.active {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .subjects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 15px;
+        }
+
+        .subject-card {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 12px;
+            padding: 15px;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .subject-card:hover {
+            transform: translateY(-3px);
+            border-color: #667eea;
+            box-shadow: 0 10px 20px rgba(102,126,234,0.1);
+        }
+
+        .subject-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .subject-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: white;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        }
+
+        .subject-info {
+            flex: 1;
+        }
+
+        .subject-name {
+            font-weight: bold;
+            font-size: 1rem;
+            margin-bottom: 3px;
+        }
+
+        .subject-grade {
+            color: #666;
+            font-size: 0.8rem;
+        }
+
+        .subject-stats {
+            display: flex;
+            justify-content: space-between;
+            margin: 12px 0;
+            padding: 8px 0;
+            border-top: 1px solid #e0e0e0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .subject-stat {
+            text-align: center;
+        }
+
+        .subject-stat-value {
+            font-weight: bold;
+            color: #667eea;
+            font-size: 1.1rem;
+        }
+
+        .subject-stat-label {
+            color: #666;
+            font-size: 0.75rem;
+            margin-top: 3px;
+        }
+
+        .progress-bar {
+            height: 6px;
+            background: #e0e0e0;
+            border-radius: 3px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 3px;
+            transition: width 0.5s ease;
+        }
+
+        .subject-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .subject-btn {
+            flex: 1;
+            padding: 8px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .btn-study {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .btn-test {
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            color: white;
+        }
+
+        .btn-notes {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            color: white;
+        }
+
+        .subject-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        }
+
         .timer-section {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: white;
             padding: 20px;
+            border-radius: 20px;
+            margin: 15px 0;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
         }
 
         .timer-display {
             font-size: 3.5rem;
+            font-weight: 800;
+            text-align: center;
+            font-family: 'Courier New', monospace;
             margin: 15px 0;
+            text-shadow: 0 0 15px rgba(102,126,234,0.5);
         }
 
         .timer-controls {
+            display: flex;
+            justify-content: center;
             gap: 10px;
+            flex-wrap: wrap;
         }
 
         .timer-btn {
             padding: 12px 20px;
+            border: none;
+            border-radius: 50px;
+            font-weight: bold;
             font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
             min-width: 120px;
+            justify-content: center;
+        }
+
+        .timer-btn.start {
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            color: white;
+        }
+
+        .timer-btn.pause {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            color: white;
+        }
+
+        .timer-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
         }
 
         .timer-selector {
+            display: flex;
+            justify-content: center;
             gap: 8px;
             margin: 15px 0;
             flex-wrap: wrap;
@@ -211,19 +819,61 @@
 
         .timer-type {
             padding: 8px 15px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
             font-size: 0.9rem;
         }
 
+        .timer-type.active {
+            background: white;
+            color: #1a1a2e;
+            transform: scale(1.05);
+        }
+
+        .timer-type:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
         .timer-inputs {
+            display: flex;
             flex-direction: column;
             gap: 10px;
+            margin-top: 15px;
         }
 
         .timer-input-group {
             width: 100%;
         }
 
+        .timer-input-group label {
+            display: block;
+            color: rgba(255,255,255,0.8);
+            font-size: 0.85rem;
+            margin-bottom: 5px;
+        }
+
+        .timer-input-group select,
+        .timer-input-group input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: none;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            font-size: 0.95rem;
+        }
+
+        .timer-input-group select option {
+            background: #1a1a2e;
+            color: white;
+        }
+
         #testFields {
+            display: none;
             flex-direction: column;
             gap: 10px;
         }
@@ -240,121 +890,25 @@
             }
         }
 
-        /* آزمون‌ها */
-        .exam-section {
+        .weekly-planner {
+            background: white;
+            border-radius: 15px;
             padding: 15px;
-        }
-
-        .exam-form {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 12px;
-        }
-
-        .exam-input {
-            padding: 10px;
-            font-size: 0.95rem;
-        }
-
-        .exam-subjects-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
             margin: 15px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
 
-        @media (min-width: 768px) {
-            .exam-form {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .exam-subjects-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        /* مدال‌ها */
-        .medal-card-new {
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-            border-radius: 20px;
-            padding: 15px;
-            text-align: center;
-            transition: all 0.3s;
-            border: 2px solid transparent;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .medal-card-new.unlocked {
-            border-color: #ffd700;
-            box-shadow: 0 0 30px rgba(255,215,0,0.3);
-        }
-
-        .medal-icon-new {
-            width: 60px;
-            height: 60px;
-            margin: 0 auto 10px;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .medal-icon-new i {
-            font-size: 2.5rem;
-            z-index: 2;
-            position: relative;
-        }
-
-        .medal-bronze { color: #cd7f32; }
-        .medal-silver { color: #c0c0c0; }
-        .medal-gold { color: #ffd700; }
-        .medal-platinum { color: #e5e4e2; }
-        .medal-diamond { color: #b9f2ff; }
-
-        .medal-progress-new {
-            height: 6px;
-            background: #e0e0e0;
-            border-radius: 3px;
-            overflow: hidden;
-            margin: 10px 0;
-        }
-
-        .medal-progress-fill-new {
-            height: 100%;
-            background: linear-gradient(90deg, #ffd700, #ff6b6b);
-            border-radius: 3px;
-            transition: width 1s ease;
-        }
-
-        /* نمودارها */
-        .chart-section-title {
-            font-size: 1.2rem;
-            margin: 25px 0 10px;
-            padding-right: 10px;
-            border-right: 4px solid #667eea;
-        }
-
-        .chart-container {
-            padding: 15px;
-            margin-bottom: 15px;
-        }
-
-        canvas {
-            height: 250px !important;
-        }
-
-        /* روزهای هفته */
         .week-days-modern {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
-            gap: 8px;
+            gap: 5px;
             margin: 15px 0;
         }
 
         .day-card-modern {
             background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-            border-radius: 15px;
-            padding: 12px 5px;
+            border-radius: 10px;
+            padding: 10px 3px;
             text-align: center;
             transition: all 0.3s;
             border: 2px solid transparent;
@@ -368,12 +922,12 @@
 
         .day-name-modern {
             font-weight: bold;
-            font-size: 1rem;
-            margin-bottom: 5px;
+            font-size: 0.9rem;
+            margin-bottom: 3px;
         }
 
         .day-progress-modern {
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: bold;
             color: #667eea;
         }
@@ -383,10 +937,10 @@
         }
 
         .day-bar-modern {
-            height: 4px;
+            height: 3px;
             background: #e0e0e0;
             border-radius: 2px;
-            margin-top: 8px;
+            margin-top: 5px;
             overflow: hidden;
         }
 
@@ -397,33 +951,559 @@
             transition: width 0.5s ease;
         }
 
-        /* نوتیفیکیشن */
+        .week-days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .day-planner {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 12px;
+            padding: 12px;
+            min-height: 300px;
+            border: 2px solid #e0e0e0;
+            transition: all 0.3s;
+        }
+
+        .day-planner:hover {
+            transform: translateY(-3px);
+            border-color: #667eea;
+        }
+
+        .day-planner.today {
+            border-color: #667eea;
+            background: linear-gradient(135deg, #eef2ff, #e0e7ff);
+        }
+
+        .day-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .day-name {
+            font-weight: bold;
+            color: #333;
+            font-size: 1rem;
+        }
+
+        .day-date {
+            color: #666;
+            font-size: 0.8rem;
+        }
+
+        .day-tasks {
+            min-height: 200px;
+            max-height: 200px;
+            overflow-y: auto;
+            padding-right: 5px;
+        }
+
+        .day-tasks::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .day-tasks::-webkit-scrollbar-track {
+            background: #e0e0e0;
+            border-radius: 10px;
+        }
+
+        .day-tasks::-webkit-scrollbar-thumb {
+            background: #667eea;
+            border-radius: 10px;
+        }
+
+        .task-item {
+            background: white;
+            padding: 8px;
+            border-radius: 8px;
+            margin-bottom: 6px;
+            border-right: 3px solid #667eea;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .task-item:hover {
+            transform: translateX(-3px);
+            box-shadow: 0 5px 10px rgba(102,126,234,0.1);
+        }
+
+        .task-item.completed {
+            opacity: 0.7;
+            border-right-color: #2ecc71;
+            background: linear-gradient(135deg, #f0fff0, #e8ffe8);
+        }
+
+        .task-item .task-time {
+            color: #667eea;
+            font-size: 0.75rem;
+            margin-bottom: 2px;
+            font-weight: bold;
+        }
+
+        .task-item .task-subject {
+            font-weight: bold;
+            margin-bottom: 2px;
+        }
+
+        .task-item .task-desc {
+            color: #666;
+            font-size: 0.75rem;
+        }
+
+        .add-task-btn {
+            width: 100%;
+            padding: 8px;
+            background: #f0f0f0;
+            border: 2px dashed #999;
+            border-radius: 8px;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            margin-top: 8px;
+            font-size: 0.85rem;
+        }
+
+        .add-task-btn:hover {
+            background: #e0e0e0;
+            border-color: #667eea;
+            color: #667eea;
+        }
+
+        .notes-section {
+            background: white;
+            border-radius: 15px;
+            padding: 15px;
+            margin: 15px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .notes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .note-card {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 12px;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .note-card:hover {
+            transform: translateY(-3px);
+            border-color: #f39c12;
+            box-shadow: 0 8px 15px rgba(243,156,18,0.1);
+        }
+
+        .note-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .note-icon {
+            width: 35px;
+            height: 35px;
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .note-title {
+            font-weight: bold;
+            color: #333;
+            font-size: 0.95rem;
+        }
+
+        .note-date {
+            color: #666;
+            font-size: 0.75rem;
+            margin-top: 3px;
+        }
+
+        .note-preview {
+            color: #666;
+            font-size: 0.85rem;
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .add-note-btn {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .add-note-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(243,156,18,0.3);
+        }
+
+        .exam-section {
+            background: white;
+            border-radius: 15px;
+            padding: 15px;
+            margin: 15px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .exam-form {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        .exam-input {
+            padding: 10px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+        }
+
+        .exam-input:focus {
+            border-color: #667eea;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(102,126,234,0.1);
+        }
+
+        .exam-subjects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .exam-list {
+            margin-top: 20px;
+        }
+
+        .exam-item {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 12px;
+            border-radius: 10px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.3s;
+            border-right: 3px solid #667eea;
+            font-size: 0.9rem;
+        }
+
+        .exam-item:hover {
+            transform: translateX(-3px);
+            box-shadow: 0 5px 10px rgba(102,126,234,0.1);
+        }
+
+        @media (min-width: 768px) {
+            .exam-form {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .exam-subjects-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .charts-section {
+            padding: 15px 0;
+        }
+
+        .chart-section-title {
+            font-size: 1.1rem;
+            margin: 20px 0 10px;
+            padding-right: 10px;
+            border-right: 3px solid #667eea;
+            color: #333;
+        }
+
+        .chart-container {
+            background: white;
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .chart-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .chart-title {
+            font-size: 1rem;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .chart-title i {
+            color: #667eea;
+        }
+
+        .chart-controls {
+            display: flex;
+            gap: 5px;
+            overflow-x: auto;
+            padding-bottom: 5px;
+        }
+
+        .chart-btn {
+            padding: 5px 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 50px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.8rem;
+            white-space: nowrap;
+        }
+
+        .chart-btn.active {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-color: transparent;
+        }
+
+        canvas {
+            width: 100%;
+            height: 200px !important;
+        }
+
+        .medals-section {
+            background: white;
+            border-radius: 15px;
+            padding: 15px;
+            margin: 15px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .medals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .medal-card-new {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .medal-card-new.unlocked {
+            border-color: #ffd700;
+            box-shadow: 0 0 20px rgba(255,215,0,0.2);
+        }
+
+        .medal-icon-new {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .medal-icon-new i {
+            font-size: 2rem;
+        }
+
+        .medal-bronze { color: #cd7f32; }
+        .medal-silver { color: #c0c0c0; }
+        .medal-gold { color: #ffd700; }
+        .medal-platinum { color: #e5e4e2; }
+        .medal-diamond { color: #b9f2ff; }
+
+        .medal-name-new {
+            font-weight: bold;
+            margin: 5px 0;
+            font-size: 0.95rem;
+        }
+
+        .medal-desc-new {
+            color: #666;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+        }
+
+        .medal-progress-new {
+            height: 4px;
+            background: #e0e0e0;
+            border-radius: 2px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+
+        .medal-progress-fill-new {
+            height: 100%;
+            background: linear-gradient(90deg, #ffd700, #ff6b6b);
+            border-radius: 2px;
+            transition: width 0.5s ease;
+        }
+
+        .medal-status-new {
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .medal-status-new.unlocked { color: #27ae60; }
+        .medal-status-new.locked { color: #e74c3c; }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+        }
+
+        .modal.active {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            max-width: 500px;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .modal-header h3 {
+            color: #333;
+            font-size: 1.2rem;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 1.3rem;
+            cursor: pointer;
+            color: #999;
+            transition: all 0.3s;
+        }
+
+        .modal-close:hover {
+            color: #e74c3c;
+            transform: rotate(90deg);
+        }
+
         .notification {
             position: fixed;
             left: 10px;
             right: 10px;
             bottom: 10px;
             background: white;
-            border-radius: 15px;
-            padding: 15px 20px;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            border-radius: 10px;
+            padding: 12px 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
             border-right: 4px solid #667eea;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             z-index: 1001;
             animation: slideIn 0.3s ease;
+            font-size: 0.95rem;
         }
 
         @keyframes slideIn {
             from { transform: translateY(100%); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
         }
+
+        @media (min-width: 768px) {
+            .stats-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            .subjects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .week-days {
+                grid-template-columns: repeat(7, 1fr);
+            }
+            .medals-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .notification {
+                left: 20px;
+                right: 20px;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .subjects-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .medals-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- بنر تلگرام -->
         <div class="telegram-banner">
             <div>
                 <i class="fab fa-telegram"></i>
@@ -435,7 +1515,6 @@
             </a>
         </div>
 
-        <!-- صفحه احراز هویت -->
         <div id="authContainer" class="auth-container">
             <div class="auth-box">
                 <div class="logo">
@@ -446,7 +1525,6 @@
                     <p>برنامه‌ریزی هوشمند برای موفقیت</p>
                 </div>
 
-                <!-- فرم ورود -->
                 <div id="loginForm">
                     <div class="input-group">
                         <i class="fas fa-user"></i>
@@ -468,7 +1546,6 @@
                     </div>
                 </div>
 
-                <!-- فرم ثبت‌نام -->
                 <div id="registerForm" style="display: none;">
                     <div class="input-group">
                         <i class="fas fa-user"></i>
@@ -499,7 +1576,6 @@
             </div>
         </div>
 
-        <!-- انتخاب رشته -->
         <div id="majorSelector" style="display: none; padding: 20px;">
             <div class="major-selector">
                 <div class="logo">
@@ -531,7 +1607,6 @@
             </div>
         </div>
 
-        <!-- برنامه اصلی -->
         <div id="mainApp" class="main-app" style="display: none;">
             <div class="app-header">
                 <div class="user-info">
@@ -549,12 +1624,8 @@
                 </button>
             </div>
 
-            <!-- جمله انگیزشی -->
-            <div id="motivationBanner" class="motivation-banner">
-                <!-- با جاوااسکریپت پر می‌شود -->
-            </div>
+            <div id="motivationBanner" class="motivation-banner"></div>
 
-            <!-- منوی اصلی -->
             <div class="main-menu">
                 <div class="menu-items">
                     <div class="menu-item active" onclick="showSection('dashboard')">
@@ -592,7 +1663,6 @@
                 </div>
             </div>
 
-            <!-- بخش داشبورد -->
             <div id="dashboard" class="section active">
                 <div class="stats-grid">
                     <div class="stat-card">
@@ -641,7 +1711,6 @@
                     </div>
                 </div>
 
-                <!-- برنامه امروز -->
                 <div class="weekly-planner">
                     <div class="section-header">
                         <div class="section-title">
@@ -652,13 +1721,9 @@
                             <i class="fas fa-edit"></i> ویرایش
                         </button>
                     </div>
-
-                    <div id="todayTasks" class="day-tasks">
-                        <!-- تسک‌های امروز -->
-                    </div>
+                    <div id="todayTasks" class="day-tasks"></div>
                 </div>
 
-                <!-- فعالیت‌های اخیر -->
                 <div class="subjects-section">
                     <div class="section-header">
                         <div class="section-title">
@@ -666,13 +1731,10 @@
                             <span>فعالیت‌های اخیر</span>
                         </div>
                     </div>
-                    <div id="recentActivities">
-                        <!-- فعالیت‌های اخیر -->
-                    </div>
+                    <div id="recentActivities"></div>
                 </div>
             </div>
 
-            <!-- بخش برنامه‌ریزی هفتگی -->
             <div id="planner" class="section">
                 <div class="weekly-planner">
                     <div class="section-header">
@@ -685,17 +1747,11 @@
                         </button>
                     </div>
 
-                    <div class="week-days-modern" id="weekDaysModern">
-                        <!-- روزهای هفته -->
-                    </div>
-
-                    <div class="week-days" id="weekDays">
-                        <!-- روزهای هفته با جزئیات -->
-                    </div>
+                    <div class="week-days-modern" id="weekDaysModern"></div>
+                    <div class="week-days" id="weekDays"></div>
                 </div>
             </div>
 
-            <!-- بخش دروس -->
             <div id="subjects" class="section">
                 <div class="subjects-section">
                     <div class="section-header">
@@ -710,14 +1766,10 @@
                             <span class="grade-tab" onclick="filterGrade('12', this)">دوازدهم</span>
                         </div>
                     </div>
-
-                    <div id="subjectsGrid" class="subjects-grid">
-                        <!-- دروس -->
-                    </div>
+                    <div id="subjectsGrid" class="subjects-grid"></div>
                 </div>
             </div>
 
-            <!-- بخش تایمر -->
             <div id="timer" class="section">
                 <div class="timer-section">
                     <h3 style="text-align: center; margin-bottom: 15px;">تایمر هوشمند</h3>
@@ -742,9 +1794,7 @@
                     <div class="timer-inputs">
                         <div class="timer-input-group">
                             <label>درس</label>
-                            <select id="timerSubject">
-                                <option value="">انتخاب درس</option>
-                            </select>
+                            <select id="timerSubject"></select>
                         </div>
                         <div class="timer-input-group">
                             <label>پایه</label>
@@ -756,7 +1806,7 @@
                         </div>
                     </div>
 
-                    <div id="testFields" style="display: none;" class="timer-inputs">
+                    <div id="testFields" class="timer-inputs">
                         <div class="timer-input-group">
                             <label>تعداد صحیح</label>
                             <input type="number" id="correctCount" placeholder="مثلاً ۳۲">
@@ -767,13 +1817,12 @@
                         </div>
                     </div>
 
-                    <button class="btn btn-primary" onclick="saveSession()" style="margin-top: 15px; width: 100%;">
+                    <button class="btn btn-primary" onclick="saveSession()" style="margin-top: 15px;">
                         <i class="fas fa-save"></i> ذخیره جلسه
                     </button>
                 </div>
             </div>
 
-            <!-- بخش دفترچه نکات -->
             <div id="notes" class="section">
                 <div class="notes-section">
                     <div class="section-header">
@@ -782,18 +1831,13 @@
                             <span>دفترچه نکات</span>
                         </div>
                     </div>
-
-                    <div id="notesGrid" class="notes-grid">
-                        <!-- نکات -->
-                    </div>
-
+                    <div id="notesGrid" class="notes-grid"></div>
                     <button class="add-note-btn" onclick="openAddNoteModal()">
                         <i class="fas fa-plus"></i> افزودن نکته جدید
                     </button>
                 </div>
             </div>
 
-            <!-- بخش آزمون‌ها -->
             <div id="exams" class="section">
                 <div class="exam-section">
                     <div class="section-header">
@@ -813,22 +1857,16 @@
                         <input type="text" id="examName" class="exam-input" placeholder="نام آزمون (مثلاً قلمچی)">
                     </div>
 
-                    <div id="examSubjectsContainer" class="exam-subjects-grid">
-                        <!-- دروس تخصصی هر پایه -->
-                    </div>
+                    <div id="examSubjectsContainer" class="exam-subjects-grid"></div>
 
                     <button class="btn btn-primary" onclick="saveExam()">ثبت آزمون</button>
 
-                    <div id="examList" class="exam-list">
-                        <!-- آزمون‌های قبلی -->
-                    </div>
+                    <div id="examList" class="exam-list"></div>
                 </div>
             </div>
 
-            <!-- بخش نمودارها -->
             <div id="charts" class="section">
                 <div class="charts-section">
-                    
                     <div class="chart-section-title">
                         <i class="fas fa-chart-line"></i> پیشرفت هفتگی
                     </div>
@@ -894,7 +1932,6 @@
                 </div>
             </div>
 
-            <!-- بخش مدال‌ها -->
             <div id="medals" class="section">
                 <div class="medals-section">
                     <div class="section-header">
@@ -903,10 +1940,7 @@
                             <span>مدال‌های افتخار</span>
                         </div>
                     </div>
-
-                    <div class="medals-grid" id="medalsGrid">
-                        <!-- مدال‌ها -->
-                    </div>
+                    <div class="medals-grid" id="medalsGrid"></div>
                 </div>
             </div>
         </div>
@@ -931,7 +1965,7 @@
                     { name: 'فیزیک یازدهم', icon: 'fa-atom', color: '#3498db' },
                     { name: 'شیمی یازدهم', icon: 'fa-flask', color: '#2ecc71' },
                     { name: 'ریاضی یازدهم', icon: 'fa-calculator', color: '#9b59b6' },
-                    { name: 'زمین‌شناسی یازدهم', icon: 'fa-globe', color: '#95a5a6' }, // زمین فقط یازدهم
+                    { name: 'زمین‌شناسی یازدهم', icon: 'fa-globe', color: '#95a5a6' },
                     { name: 'فارسی یازدهم', icon: 'fa-book', color: '#f1c40f' },
                     { name: 'عربی یازدهم', icon: 'fa-language', color: '#e67e22' },
                     { name: 'دینی یازدهم', icon: 'fa-mosque', color: '#1abc9c' },
@@ -960,12 +1994,12 @@
                     { name: 'زبان دهم', icon: 'fa-globe', color: '#e84393' }
                 ],
                 11: [
-                    { name: 'حسابان یازدهم', icon: 'fa-calculator', color: '#3498db' }, // حسابان جایگزین ریاضی
+                    { name: 'حسابان یازدهم', icon: 'fa-calculator', color: '#3498db' },
                     { name: 'فیزیک یازدهم', icon: 'fa-atom', color: '#9b59b6' },
                     { name: 'شیمی یازدهم', icon: 'fa-flask', color: '#2ecc71' },
                     { name: 'هندسه یازدهم', icon: 'fa-shapes', color: '#e74c3c' },
-                    { name: 'آمار و احتمال یازدهم', icon: 'fa-chart-bar', color: '#f39c12' }, // آمار به جای گسسته
-                    { name: 'زمین‌شناسی یازدهم', icon: 'fa-globe', color: '#95a5a6' }, // زمین برای ریاضی هم هست
+                    { name: 'آمار و احتمال یازدهم', icon: 'fa-chart-bar', color: '#f39c12' },
+                    { name: 'زمین‌شناسی یازدهم', icon: 'fa-globe', color: '#95a5a6' },
                     { name: 'فارسی یازدهم', icon: 'fa-book', color: '#f1c40f' },
                     { name: 'عربی یازدهم', icon: 'fa-language', color: '#e67e22' },
                     { name: 'دینی یازدهم', icon: 'fa-mosque', color: '#1abc9c' },
@@ -976,7 +2010,7 @@
                     { name: 'فیزیک دوازدهم', icon: 'fa-atom', color: '#9b59b6' },
                     { name: 'شیمی دوازدهم', icon: 'fa-flask', color: '#2ecc71' },
                     { name: 'هندسه دوازدهم', icon: 'fa-shapes', color: '#e74c3c' },
-                    { name: 'گسسته دوازدهم', icon: 'fa-project-diagram', color: '#f39c12' }, // گسسته فقط دوازدهم
+                    { name: 'گسسته دوازدهم', icon: 'fa-project-diagram', color: '#f39c12' },
                     { name: 'فارسی دوازدهم', icon: 'fa-book', color: '#f1c40f' },
                     { name: 'عربی دوازدهم', icon: 'fa-language', color: '#e67e22' },
                     { name: 'دینی دوازدهم', icon: 'fa-mosque', color: '#1abc9c' },
@@ -1021,81 +2055,60 @@
             }
         };
 
-        // ==================== دروس تخصصی هر پایه (اصلاح شده) ====================
+        // ==================== دروس تخصصی هر پایه ====================
         function getSpecializedSubjects(major, grade) {
             const allSubjects = SUBJECTS[major][grade];
             if (!allSubjects) return [];
             
             if (major === 'تجربی') {
-                // تخصصی تجربی: زیست، فیزیک، شیمی، ریاضی، زمین (زمین فقط یازدهم)
                 if (grade === '11') {
                     return allSubjects.filter(s => 
-                        s.name.includes('زیست') || 
-                        s.name.includes('فیزیک') || 
-                        s.name.includes('شیمی') || 
-                        s.name.includes('ریاضی') || 
+                        s.name.includes('زیست') || s.name.includes('فیزیک') || 
+                        s.name.includes('شیمی') || s.name.includes('ریاضی') || 
                         s.name.includes('زمین')
                     );
                 } else {
                     return allSubjects.filter(s => 
-                        s.name.includes('زیست') || 
-                        s.name.includes('فیزیک') || 
-                        s.name.includes('شیمی') || 
-                        s.name.includes('ریاضی')
+                        s.name.includes('زیست') || s.name.includes('فیزیک') || 
+                        s.name.includes('شیمی') || s.name.includes('ریاضی')
                     );
                 }
             } else if (major === 'ریاضی') {
-                // تخصصی ریاضی: حسابان/ریاضی، فیزیک، شیمی، هندسه، آمار/گسسته، زمین (زمین یازدهم)
                 if (grade === '10') {
                     return allSubjects.filter(s => 
-                        s.name.includes('ریاضی') || 
-                        s.name.includes('فیزیک') || 
-                        s.name.includes('شیمی') || 
-                        s.name.includes('هندسه')
+                        s.name.includes('ریاضی') || s.name.includes('فیزیک') || 
+                        s.name.includes('شیمی') || s.name.includes('هندسه')
                     );
                 } else if (grade === '11') {
                     return allSubjects.filter(s => 
-                        s.name.includes('حسابان') || 
-                        s.name.includes('فیزیک') || 
-                        s.name.includes('شیمی') || 
-                        s.name.includes('هندسه') || 
-                        s.name.includes('آمار') ||
-                        s.name.includes('زمین')
+                        s.name.includes('حسابان') || s.name.includes('فیزیک') || 
+                        s.name.includes('شیمی') || s.name.includes('هندسه') || 
+                        s.name.includes('آمار') || s.name.includes('زمین')
                     );
                 } else if (grade === '12') {
                     return allSubjects.filter(s => 
-                        s.name.includes('حسابان') || 
-                        s.name.includes('فیزیک') || 
-                        s.name.includes('شیمی') || 
-                        s.name.includes('هندسه') || 
+                        s.name.includes('حسابان') || s.name.includes('فیزیک') || 
+                        s.name.includes('شیمی') || s.name.includes('هندسه') || 
                         s.name.includes('گسسته')
                     );
                 }
             } else if (major === 'انسانی') {
-                // تخصصی انسانی: فلسفه، منطق، جامعه، اقتصاد، تاریخ، جغرافیا، روانشناسی
                 if (grade === '10') {
                     return allSubjects.filter(s => 
-                        s.name.includes('فلسفه') || 
-                        s.name.includes('منطق') || 
-                        s.name.includes('جامعه') || 
-                        s.name.includes('اقتصاد') || 
-                        s.name.includes('تاریخ') || 
-                        s.name.includes('جغرافیا')
+                        s.name.includes('فلسفه') || s.name.includes('منطق') || 
+                        s.name.includes('جامعه') || s.name.includes('اقتصاد') || 
+                        s.name.includes('تاریخ') || s.name.includes('جغرافیا')
                     );
                 } else if (grade === '11') {
                     return allSubjects.filter(s => 
-                        s.name.includes('فلسفه') || 
-                        s.name.includes('روانشناسی') || 
-                        s.name.includes('جامعه') || 
-                        s.name.includes('تاریخ') || 
+                        s.name.includes('فلسفه') || s.name.includes('روانشناسی') || 
+                        s.name.includes('جامعه') || s.name.includes('تاریخ') || 
                         s.name.includes('جغرافیا')
                     );
                 } else if (grade === '12') {
                     return allSubjects.filter(s => 
-                        s.name.includes('فلسفه') || 
-                        s.name.includes('منطق') || 
-                        s.name.includes('جامعه') || 
-                        s.name.includes('تاریخ') || 
+                        s.name.includes('فلسفه') || s.name.includes('منطق') || 
+                        s.name.includes('جامعه') || s.name.includes('تاریخ') || 
                         s.name.includes('جغرافیا')
                     );
                 }
@@ -1103,7 +2116,7 @@
             return [];
         }
 
-        // ==================== جملات انگیزشی (۱۰۰ جمله واقعی و شعر) ====================
+        // ==================== جملات انگیزشی ====================
         const MOTIVATIONAL_QUOTES = [
             { text: "تا نهایت شب صبور باش که صبح نزدیک است", author: "مولانا" },
             { text: "توانا بود هر که دانا بود", author: "فردوسی" },
@@ -1144,7 +2157,7 @@
             { text: "با برنامه‌ریزی به هدف می‌رسی", author: "مشاور کنکور" },
             { text: "تکرار، مادر مهارت است", author: "ضرب‌المثل" },
             { text: "تمرین و تکرار، رمز موفقیت", author: "ضرب‌المثل" },
-                        { text: "سحرخیز باش تا کامروا شوی", author: "ضرب‌المثل" },
+            { text: "سحرخیز باش تا کامروا شوی", author: "ضرب‌المثل" },
             { text: "کار نیکو کردن از پر کردن است", author: "سعدی" },
             { text: "عاقلان را یک اشاره بس بود", author: "مولانا" },
             { text: "هر چه کنی به خود کنی، گر همه نیک و بد کنی", author: "سعدی" },
@@ -1168,7 +2181,6 @@
             { text: "امروز بهتر از دیروز", author: "ضرب‌المثل" },
             { text: "فردا دیر است، امروز را غنیمت شمار", author: "ضرب‌المثل" },
             { text: "زندگی صحنه یکتای هنرمندی ماست", author: "فردوسی" },
-            { text: "توانا بود هر که دانا بود", author: "فردوسی" },
             { text: "به دانش فزای و به یزدان گرای", author: "فردوسی" },
             { text: "که راز موفقیت در تلاش است", author: "سعدی" },
             { text: "به کوشش ز هر چیز، بهتر سرای", author: "فردوسی" },
@@ -1197,7 +2209,6 @@
             { text: "با تلاش، می‌توان به قله رسید", author: "ضرب‌المثل" },
             { text: "تلاش کن و ناامید مشو", author: "ضرب‌المثل" },
             { text: "تلاش امروز، ثمره فردا", author: "ضرب‌المثل" },
-            { text: "هر که بامش بیش، برفش بیشتر", author: "ضرب‌المثل" },
             { text: "هر که طاووس خواهد، جور هندوستان کشد", author: "سعدی" },
             { text: "هر که میوه خواهد، باید درخت بنشاند", author: "سعدی" },
             { text: "هر که زر خواهد، سخن باید گفت", author: "سعدی" },
@@ -1208,6 +2219,33 @@
             { text: "هر که دانش خواهد، به تلاش رسد", author: "ضرب‌المثل" },
             { text: "هر که موفقیت خواهد، به کوشش رسد", author: "ضرب‌المثل" }
         ];
+
+        // ==================== مدال‌ها ====================
+        const MEDALS = {
+            study: [
+                { name: 'مطالعه‌گر برنزی', desc: '۸ ساعت مطالعه در یک روز', icon: 'fa-clock', target: 8, color: 'bronze', emoji: '🥉' },
+                { name: 'مطالعه‌گر نقره‌ای', desc: '۱۰ ساعت مطالعه در یک روز', icon: 'fa-clock', target: 10, color: 'silver', emoji: '🥈' },
+                { name: 'مطالعه‌گر طلایی', desc: '۱۲ ساعت مطالعه در یک روز', icon: 'fa-clock', target: 12, color: 'gold', emoji: '🥇' },
+                { name: 'مطالعه‌گر پلاتینی', desc: '۱۴ ساعت مطالعه در یک روز', icon: 'fa-clock', target: 14, color: 'platinum', emoji: '💎' },
+                { name: 'مطالعه‌گر الماسی', desc: '۱۶ ساعت مطالعه در یک روز', icon: 'fa-crown', target: 16, color: 'diamond', emoji: '👑' }
+            ],
+            test: [
+                { name: 'آزمون‌دهنده برنزی', desc: 'میانگین ۳۰٪ در آزمون‌ها', icon: 'fa-clipboard-check', target: 30, color: 'bronze', emoji: '🥉' },
+                { name: 'آزمون‌دهنده نقره‌ای', desc: 'میانگین ۴۰٪ در آزمون‌ها', icon: 'fa-clipboard-check', target: 40, color: 'silver', emoji: '🥈' },
+                { name: 'آزمون‌دهنده طلایی', desc: 'میانگین ۵۰٪ در آزمون‌ها', icon: 'fa-clipboard-check', target: 50, color: 'gold', emoji: '🥇' },
+                { name: 'آزمون‌دهنده پلاتینی', desc: 'میانگین ۶۰٪ در آزمون‌ها', icon: 'fa-clipboard-check', target: 60, color: 'platinum', emoji: '💎' },
+                { name: 'آزمون‌دهنده الماسی', desc: 'میانگین ۷۰٪ در آزمون‌ها', icon: 'fa-clipboard-check', target: 70, color: 'diamond', emoji: '👑' },
+                { name: 'آزمون‌دهنده افسانه‌ای', desc: 'میانگین ۸۰٪ در آزمون‌ها', icon: 'fa-star', target: 80, color: 'gold', emoji: '⭐' },
+                { name: 'آزمون‌دهنده اسطوره‌ای', desc: 'میانگین ۹۰٪ در آزمون‌ها', icon: 'fa-crown', target: 90, color: 'diamond', emoji: '👑' }
+            ],
+            consistency: [
+                { name: 'استمرار برنزی', desc: '۷ روز متوالی مطالعه', icon: 'fa-calendar-check', target: 7, color: 'bronze', emoji: '🥉' },
+                { name: 'استمرار نقره‌ای', desc: '۳۰ روز متوالی مطالعه', icon: 'fa-calendar-check', target: 30, color: 'silver', emoji: '🥈' },
+                { name: 'استمرار طلایی', desc: '۱۰۰ روز متوالی مطالعه', icon: 'fa-calendar-check', target: 100, color: 'gold', emoji: '🥇' },
+                { name: 'استمرار پلاتینی', desc: '۲۰۰ روز متوالی مطالعه', icon: 'fa-calendar-check', target: 200, color: 'platinum', emoji: '💎' },
+                { name: 'استمرار الماسی', desc: '۳۶۵ روز متوالی مطالعه', icon: 'fa-crown', target: 365, color: 'diamond', emoji: '👑' }
+            ]
+        };
 
         // ==================== متغیرهای اصلی ====================
         let currentUser = null;
@@ -1234,14 +2272,8 @@
         function togglePassword(inputId, btn) {
             const input = document.getElementById(inputId);
             const icon = btn.querySelector('i');
-            
-            if (input.type === 'password') {
-                input.type = 'text';
-                icon.className = 'fas fa-eye-slash';
-            } else {
-                input.type = 'password';
-                icon.className = 'fas fa-eye';
-            }
+            input.type = input.type === 'password' ? 'text' : 'password';
+            icon.className = input.type === 'password' ? 'fas fa-eye' : 'fas fa-eye-slash';
         }
 
         function showRegister() {
@@ -1428,9 +2460,7 @@
             document.getElementById('displayName').textContent = currentUser;
             document.getElementById('displayMajor').textContent = `رشته ${users[currentUser].major}`;
             
-            // نمایش جمله انگیزشی
             showMotivationalQuote();
-            
             renderSubjects();
             updateStats();
             renderWeekDays();
@@ -1439,7 +2469,6 @@
             updateTimerSubjects();
             updateExamList();
             updateCharts();
-            updateWeeklyProgress();
             updateRecentActivities();
             renderNotes();
             renderMedals();
@@ -1470,30 +2499,21 @@
             element.style.display = 'flex';
             element.className = `message ${type}`;
             element.innerHTML = `<i class="fas fa-${type === 'error' ? 'exclamation-circle' : 'check-circle'}"></i> ${text}`;
-            
-            setTimeout(() => {
-                element.style.display = 'none';
-            }, 3000);
+            setTimeout(() => element.style.display = 'none', 3000);
         }
 
         // ==================== جمله انگیزشی ====================
         function showMotivationalQuote() {
             const banner = document.getElementById('motivationBanner');
-            
-            // اگر قبلاً برای امروز جمل‌ای ذخیره شده، همان را نشان بده
             const today = new Date().toDateString();
             const savedQuote = localStorage.getItem(`quote_${currentUser}_${today}`);
             
             if (savedQuote) {
                 const quote = JSON.parse(savedQuote);
-                banner.innerHTML = `
-                    <div>${quote.text}</div>
-                    <div class="motivation-author">- ${quote.author}</div>
-                `;
+                banner.innerHTML = `<div>${quote.text}</div><div class="motivation-author">- ${quote.author}</div>`;
                 return;
             }
             
-            // انتخاب یک جمله تصادفی جدید
             let randomIndex;
             do {
                 randomIndex = Math.floor(Math.random() * MOTIVATIONAL_QUOTES.length);
@@ -1501,13 +2521,7 @@
             
             currentQuoteIndex = randomIndex;
             const quote = MOTIVATIONAL_QUOTES[randomIndex];
-            
-            banner.innerHTML = `
-                <div>${quote.text}</div>
-                <div class="motivation-author">- ${quote.author}</div>
-            `;
-            
-            // ذخیره برای امروز
+            banner.innerHTML = `<div>${quote.text}</div><div class="motivation-author">- ${quote.author}</div>`;
             localStorage.setItem(`quote_${currentUser}_${today}`, JSON.stringify(quote));
         }
 
@@ -1521,9 +2535,7 @@
             
             subjects.forEach((subject, index) => {
                 const totalTests = subject.tests.length;
-                const avgScore = totalTests > 0 
-                    ? (subject.tests.reduce((s, t) => s + t.percent, 0) / totalTests).toFixed(1)
-                    : 0;
+                const avgScore = totalTests > 0 ? (subject.tests.reduce((s, t) => s + t.percent, 0) / totalTests).toFixed(1) : 0;
                 
                 const card = document.createElement('div');
                 card.className = 'subject-card';
@@ -1576,11 +2588,7 @@
             element.classList.add('active');
             
             document.querySelectorAll('.subject-card').forEach(card => {
-                if (grade === 'all' || card.dataset.grade === grade) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
+                card.style.display = grade === 'all' || card.dataset.grade === grade ? 'block' : 'none';
             });
         }
 
@@ -1603,10 +2611,70 @@
         }
 
         // ==================== برنامه‌ریزی هفتگی ====================
+        function getDateForDayByIndex(dayIndex) {
+            const today = new Date();
+            const currentDay = today.getDay();
+            const diff = dayIndex - currentDay;
+            const targetDate = new Date(today);
+            targetDate.setDate(today.getDate() + diff);
+            const year = targetDate.getFullYear();
+            const month = String(targetDate.getMonth() + 1).padStart(2, '0');
+            const day = String(targetDate.getDate()).padStart(2, '0');
+            return `${year}-${month}-${day}`;
+        }
+
+        function getTasksForDayByDayName(dayName) {
+            const users = getUsers();
+            if (!users[currentUser]?.data?.tasks) return [];
+            
+            const today = new Date();
+            const days = ['یکشنبه', 'دوشنبه', 'سه‌شنبه', 'چهارشنبه', 'پنجشنبه', 'جمعه', 'شنبه'];
+            const dayIndex = days.indexOf(dayName);
+            const currentDay = today.getDay();
+            const diff = dayIndex - currentDay;
+            const targetDate = new Date(today);
+            targetDate.setDate(today.getDate() + diff);
+            const dateKey = targetDate.toISOString().split('T')[0];
+            
+            return users[currentUser].data.tasks[dateKey] || [];
+        }
+
+        function renderWeekDaysModern() {
+            const container = document.getElementById('weekDaysModern');
+            const days = ['یکشنبه', 'دوشنبه', 'سه‌شنبه', 'چهارشنبه', 'پنجشنبه', 'جمعه', 'شنبه'];
+            const shortDays = ['ی', 'د', 'س', 'چ', 'پ', 'ج', 'ش'];
+            const today = new Date().getDay();
+            
+            container.innerHTML = '';
+            
+            days.forEach((day, index) => {
+                const isToday = index === today;
+                const tasks = getTasksForDayByDayName(day);
+                const completed = tasks.filter(t => t.completed).length;
+                const percent = tasks.length > 0 ? Math.round((completed / tasks.length) * 100) : 0;
+                
+                const dayDiv = document.createElement('div');
+                dayDiv.className = `day-card-modern ${isToday ? 'today' : ''}`;
+                dayDiv.onclick = () => {
+                    const dateKey = getDateForDayByIndex(index);
+                    const dayTasks = tasks.map(t => `${t.subject} - ${t.time} ${t.completed ? '✅' : '⏳'}`).join('\n');
+                    alert(`برنامه ${day}\n${dateKey}\n\n${dayTasks || 'تسکی وجود ندارد'}`);
+                };
+                dayDiv.innerHTML = `
+                    <div class="day-name-modern">${shortDays[index]}</div>
+                    <div class="day-progress-modern">${percent}%</div>
+                    <div class="day-bar-modern">
+                        <div class="day-bar-fill-modern" style="width: ${percent}%"></div>
+                    </div>
+                `;
+                container.appendChild(dayDiv);
+            });
+        }
+
         function renderWeekDays() {
             const container = document.getElementById('weekDays');
             const days = ['یکشنبه', 'دوشنبه', 'سه‌شنبه', 'چهارشنبه', 'پنجشنبه', 'جمعه', 'شنبه'];
-            const today = new Date().getDay(); // 0 یکشنبه
+            const today = new Date().getDay();
             
             container.innerHTML = '';
             
@@ -1621,8 +2689,15 @@
                         <span class="day-name">${day}</span>
                         <span class="day-date">${getDateForDayByIndex(index)}</span>
                     </div>
-                    <div class="day-tasks" id="day-${index}">
-                        ${renderTaskList(tasks, index)}
+                    <div class="day-tasks">
+                        ${tasks.length ? tasks.map((task, taskIndex) => `
+                            <div class="task-item ${task.completed ? 'completed' : ''}" onclick="openCompleteTaskModal('${getDateForDayByIndex(index)}', ${taskIndex})">
+                                <div class="task-time">${task.time || 'زمان نامشخص'}</div>
+                                <div class="task-subject">${task.subject}</div>
+                                <div class="task-desc">${task.description || ''}</div>
+                                ${task.completed ? `<div style="color: #2ecc71; font-size: 0.75rem;">✅ ${task.percent}%</div>` : ''}
+                            </div>
+                        `).join('') : '<p style="color: #999; text-align: center; padding: 10px;">تسکی وجود ندارد</p>'}
                     </div>
                     <button class="add-task-btn" onclick="openAddTaskModal(${index})">
                         <i class="fas fa-plus"></i> افزودن تسک
@@ -1632,121 +2707,20 @@
             });
         }
 
-        function renderWeekDaysModern() {
-            const container = document.getElementById('weekDaysModern');
-            const days = ['یکشنبه', 'دوشنبه', 'سه‌شنبه', 'چهارشنبه', 'پنجشنبه', 'جمعه', 'شنبه'];
-            const shortDays = ['ی', 'د', 'س', 'چ', 'پ', 'ج', 'ش'];
-            const today = new Date().getDay(); // 0 یکشنبه
-            
-            container.innerHTML = '';
-            
-            days.forEach((day, index) => {
-                const isToday = index === today;
-                const tasks = getTasksForDayByDayName(day);
-                const completed = tasks.filter(t => t.completed).length;
-                const percent = tasks.length > 0 ? Math.round((completed / tasks.length) * 100) : 0;
-                
-                const dayDiv = document.createElement('div');
-                dayDiv.className = `day-card-modern ${isToday ? 'today' : ''}`;
-                dayDiv.onclick = () => showDayDetails(day);
-                dayDiv.innerHTML = `
-                    <div class="day-name-modern">${shortDays[index]}</div>
-                    <div class="day-progress-modern">${percent}%</div>
-                    <div class="day-bar-modern">
-                        <div class="day-bar-fill-modern" style="width: ${percent}%"></div>
-                    </div>
-                `;
-                container.appendChild(dayDiv);
-            });
-        }
-
-        function getTasksForDayByDayName(dayName) {
-            const users = getUsers();
-            if (!users[currentUser]?.data?.tasks) return [];
-            
-            const today = new Date();
-            const dayIndex = ['یکشنبه', 'دوشنبه', 'سه‌شنبه', 'چهارشنبه', 'پنجشنبه', 'جمعه', 'شنبه'].indexOf(dayName);
-            const currentDay = today.getDay();
-            
-            const diff = dayIndex - currentDay;
-            const targetDate = new Date(today);
-            targetDate.setDate(today.getDate() + diff);
-            const dateKey = targetDate.toISOString().split('T')[0];
-            
-            return users[currentUser].data.tasks[dateKey] || [];
-        }
-
-        function getDateForDayByIndex(dayIndex) {
-            const today = new Date();
-            const currentDay = today.getDay();
-            const diff = dayIndex - currentDay;
-            const targetDate = new Date(today);
-            targetDate.setDate(today.getDate() + diff);
-            
-            const year = targetDate.getFullYear();
-            const month = String(targetDate.getMonth() + 1).padStart(2, '0');
-            const day = String(targetDate.getDate()).padStart(2, '0');
-            
-            return `${year}/${month}/${day}`;
-        }
-
-        function renderTaskList(tasks, dayIndex) {
-            if (tasks.length === 0) {
-                return '<p style="color: #999; text-align: center; padding: 10px;">تسکی وجود ندارد</p>';
-            }
-            
-            return tasks.map((task, taskIndex) => `
-                <div class="task-item ${task.completed ? 'completed' : ''}" onclick="openCompleteTaskModal('${getDateForDayByIndex(dayIndex)}', ${taskIndex})">
-                    <div class="task-time">${task.time || 'زمان نامشخص'}</div>
-                    <div class="task-subject">${task.subject}</div>
-                    <div class="task-desc">${task.description || ''}</div>
-                    ${task.completed ? `<div style="color: #2ecc71; font-size: 0.8rem;">✅ تکمیل شده: ${task.percent}%</div>` : ''}
-                </div>
-            `).join('');
-        }
-
         function renderTodayTasks() {
             const container = document.getElementById('todayTasks');
-            const today = new Date();
-            const dateKey = today.toISOString().split('T')[0];
-            
+            const today = new Date().toISOString().split('T')[0];
             const users = getUsers();
-            const tasks = users[currentUser]?.data?.tasks?.[dateKey] || [];
+            const tasks = users[currentUser]?.data?.tasks?.[today] || [];
             
-            if (tasks.length === 0) {
-                container.innerHTML = '<p style="color: #999; text-align: center; padding: 20px;">برنامه‌ای برای امروز ندارید</p>';
-                return;
-            }
-            
-            container.innerHTML = tasks.map((task, index) => `
-                <div class="task-item ${task.completed ? 'completed' : ''}" onclick="openCompleteTaskModal('${dateKey}', ${index})">
+            container.innerHTML = tasks.length ? tasks.map((task, index) => `
+                <div class="task-item ${task.completed ? 'completed' : ''}" onclick="openCompleteTaskModal('${today}', ${index})">
                     <div class="task-time">${task.time || 'زمان نامشخص'}</div>
                     <div class="task-subject">${task.subject}</div>
                     <div class="task-desc">${task.description || ''}</div>
-                    ${task.completed ? `<div style="color: #2ecc71; font-size: 0.8rem;">✅ تکمیل شده: ${task.percent}%</div>` : ''}
+                    ${task.completed ? `<div style="color: #2ecc71; font-size: 0.75rem;">✅ ${task.percent}%</div>` : ''}
                 </div>
-            `).join('');
-        }
-
-        function showDayDetails(dayName) {
-            const tasks = getTasksForDayByDayName(dayName);
-            const dateKey = getDateForDayByIndex(['یکشنبه', 'دوشنبه', 'سه‌شنبه', 'چهارشنبه', 'پنجشنبه', 'جمعه', 'شنبه'].indexOf(dayName));
-            
-            let message = `📅 برنامه ${dayName} ${dateKey}\n\n`;
-            if (tasks.length === 0) {
-                message += '❌ تسکی برای این روز ثبت نشده';
-            } else {
-                tasks.forEach((task, i) => {
-                    message += `${i+1}. ${task.subject} - ${task.time}\n`;
-                    message += `   📝 ${task.description || 'بدون توضیح'}\n`;
-                    if (task.completed) {
-                        message += `   ✅ تکمیل شده: ${task.percent}%\n`;
-                    }
-                    message += '\n';
-                });
-            }
-            
-            alert(message);
+            `).join('') : '<p style="color: #999; text-align: center; padding: 20px;">برنامه‌ای برای امروز ندارید</p>';
         }
 
         function openAddTaskModal(dayIndex = null) {
@@ -1758,32 +2732,21 @@
                         <h3>افزودن تسک جدید</h3>
                         <button class="modal-close" onclick="this.parentElement.parentElement.parentElement.remove()">&times;</button>
                     </div>
-                    <div style="padding: 20px;">
-                        <select id="modalTaskDay" class="exam-input" style="margin-bottom: 15px;">
-                            <option value="0">یکشنبه</option>
-                            <option value="1">دوشنبه</option>
-                            <option value="2">سه‌شنبه</option>
-                            <option value="3">چهارشنبه</option>
-                            <option value="4">پنجشنبه</option>
-                            <option value="5">جمعه</option>
-                            <option value="6">شنبه</option>
+                    <div style="padding: 15px;">
+                        <select id="modalTaskDay" class="exam-input" style="margin-bottom: 10px;">
+                            <option value="0">یکشنبه</option><option value="1">دوشنبه</option><option value="2">سه‌شنبه</option>
+                            <option value="3">چهارشنبه</option><option value="4">پنجشنبه</option><option value="5">جمعه</option><option value="6">شنبه</option>
                         </select>
-                        <select id="modalTaskSubject" class="exam-input" style="margin-bottom: 15px;">
-                            ${getSubjectsOptions()}
-                        </select>
-                        <input type="time" id="modalTaskTime" class="exam-input" style="margin-bottom: 15px;">
-                        <input type="number" id="modalTaskDuration" class="exam-input" placeholder="مدت زمان (دقیقه)" style="margin-bottom: 15px;">
-                        <textarea id="modalTaskDesc" class="exam-input" placeholder="توضیحات" rows="3" style="margin-bottom: 15px;"></textarea>
+                        <select id="modalTaskSubject" class="exam-input" style="margin-bottom: 10px;">${getSubjectsOptions()}</select>
+                        <input type="time" id="modalTaskTime" class="exam-input" style="margin-bottom: 10px;">
+                        <input type="number" id="modalTaskDuration" class="exam-input" placeholder="مدت زمان (دقیقه)" style="margin-bottom: 10px;">
+                        <textarea id="modalTaskDesc" class="exam-input" placeholder="توضیحات" rows="3" style="margin-bottom: 10px;"></textarea>
                         <button class="btn btn-primary" onclick="saveTaskFromModal()">ذخیره تسک</button>
                     </div>
                 </div>
             `;
-            
             document.body.appendChild(modal);
-            
-            if (dayIndex !== null) {
-                document.getElementById('modalTaskDay').value = dayIndex;
-            }
+            if (dayIndex !== null) document.getElementById('modalTaskDay').value = dayIndex;
         }
 
         function getSubjectsOptions() {
@@ -1805,37 +2768,24 @@
             }
             
             const dateKey = getDateForDayByIndex(parseInt(day));
-            
             const users = getUsers();
-            if (!users[currentUser].data.tasks[dateKey]) {
-                users[currentUser].data.tasks[dateKey] = [];
-            }
+            if (!users[currentUser].data.tasks[dateKey]) users[currentUser].data.tasks[dateKey] = [];
             
             users[currentUser].data.tasks[dateKey].push({
-                subject: subject,
-                time: time,
-                duration: duration,
-                description: desc,
-                completed: false,
-                percent: 0,
-                note: '',
-                createdAt: Date.now()
+                subject, time, duration, description: desc, completed: false, percent: 0, note: '', createdAt: Date.now()
             });
             
             saveUsers(users);
-            
             document.querySelector('.modal').remove();
             renderWeekDays();
             renderWeekDaysModern();
             renderTodayTasks();
             updateStats();
-            updateWeeklyProgress();
             showNotification('تسک با موفقیت افزوده شد', 'success');
         }
 
         function openCompleteTaskModal(dateKey, taskIndex) {
             currentTaskId = { dateKey, taskIndex };
-            
             const modal = document.createElement('div');
             modal.className = 'modal active';
             modal.innerHTML = `
@@ -1844,14 +2794,13 @@
                         <h3>ثبت نتیجه تسک</h3>
                         <button class="modal-close" onclick="this.parentElement.parentElement.parentElement.remove()">&times;</button>
                     </div>
-                    <div style="padding: 20px;">
-                        <input type="number" id="modalCompletePercent" class="exam-input" placeholder="درصد تکمیل" min="0" max="100" style="margin-bottom: 15px;">
-                        <textarea id="modalCompleteNote" class="exam-input" placeholder="یادداشت (مثلاً: ۹۰ درصد رفتم، ۲ صفحه مونده)" rows="3" style="margin-bottom: 15px;"></textarea>
+                    <div style="padding: 15px;">
+                        <input type="number" id="modalCompletePercent" class="exam-input" placeholder="درصد تکمیل" min="0" max="100" style="margin-bottom: 10px;">
+                        <textarea id="modalCompleteNote" class="exam-input" placeholder="یادداشت" rows="3" style="margin-bottom: 10px;"></textarea>
                         <button class="btn btn-success" onclick="completeTaskFromModal()">ثبت و تکمیل</button>
                     </div>
                 </div>
             `;
-            
             document.body.appendChild(modal);
         }
 
@@ -1866,21 +2815,17 @@
             
             const users = getUsers();
             const task = users[currentUser].data.tasks[currentTaskId.dateKey][currentTaskId.taskIndex];
-            
             task.completed = true;
             task.percent = percent;
             task.note = note;
             task.completedAt = Date.now();
             
             saveUsers(users);
-            
             document.querySelector('.modal').remove();
             renderWeekDays();
             renderWeekDaysModern();
             renderTodayTasks();
             updateStats();
-            updateWeeklyProgress();
-            updateCharts();
             checkMedals();
             showNotification('تسک با موفقیت ثبت شد', 'success');
         }
@@ -1890,55 +2835,37 @@
             const users = getUsers();
             const userData = users[currentUser].data;
             
-            // امروز
             const today = new Date().toISOString().split('T')[0];
-            const todaySessions = userData.sessions.filter(s => 
-                s.date.split('T')[0] === today
-            );
+            const todaySessions = userData.sessions.filter(s => s.date.split('T')[0] === today);
             const todayHours = todaySessions.reduce((sum, s) => sum + s.duration / 3600, 0);
             
-            document.getElementById('todayStudy').textContent = todayHours.toFixed(1);
-            
-            // هفته
             const weekAgo = new Date();
             weekAgo.setDate(weekAgo.getDate() - 7);
-            const weekSessions = userData.sessions.filter(s => 
-                new Date(s.date) > weekAgo
-            );
+            const weekSessions = userData.sessions.filter(s => new Date(s.date) > weekAgo);
             const weekHours = weekSessions.reduce((sum, s) => sum + s.duration / 3600, 0);
             
-            document.getElementById('weekStudy').textContent = weekHours.toFixed(1);
-            
-            // موفقیت روز
             const todayTasks = userData.tasks[today] || [];
             const completedToday = todayTasks.filter(t => t.completed).length;
             const todaySuccess = todayTasks.length > 0 ? (completedToday / todayTasks.length) * 100 : 0;
             
-            document.getElementById('todaySuccess').textContent = todaySuccess.toFixed(0) + '%';
-            
-            // موفقیت هفته
-            let totalTasks = 0;
-            let completedTasks = 0;
-            
+            let totalTasks = 0, completedTasks = 0;
             for (let i = 0; i < 7; i++) {
                 const dateKey = getDateForDayByIndex(i);
                 const dayTasks = userData.tasks[dateKey] || [];
                 totalTasks += dayTasks.length;
                 completedTasks += dayTasks.filter(t => t.completed).length;
             }
-            
             const weekSuccess = totalTasks > 0 ? (completedTasks / totalTasks) * 100 : 0;
+            
+            document.getElementById('todayStudy').textContent = todayHours.toFixed(1);
+            document.getElementById('weekStudy').textContent = weekHours.toFixed(1);
+            document.getElementById('todaySuccess').textContent = todaySuccess.toFixed(0) + '%';
             document.getElementById('weekSuccess').textContent = weekSuccess.toFixed(0) + '%';
             
-            // نوارهای پیشرفت
             document.getElementById('todayProgress').style.width = Math.min(100, (todayHours / 8) * 100) + '%';
             document.getElementById('weekProgress').style.width = Math.min(100, (weekHours / 56) * 100) + '%';
             document.getElementById('successProgress').style.width = todaySuccess + '%';
             document.getElementById('weekSuccessProgress').style.width = weekSuccess + '%';
-        }
-
-        function updateWeeklyProgress() {
-            // این تابع برای نمودارها استفاده می‌شود
         }
 
         function updateRecentActivities() {
@@ -1946,20 +2873,18 @@
             const users = getUsers();
             const sessions = users[currentUser].data.sessions.slice(-5).reverse();
             
-            if (sessions.length === 0) {
+            if (!sessions.length) {
                 container.innerHTML = '<p style="color: #999; text-align: center;">هنوز فعالیتی ثبت نشده</p>';
                 return;
             }
             
-            container.innerHTML = sessions.map(session => `
+            container.innerHTML = sessions.map(s => `
                 <div class="exam-item">
+                    <div><strong>${s.subject}</strong> - ${s.type === 'study' ? 'مطالعه' : s.type === 'test' ? 'تست‌زنی' : 'استراحت'}</div>
                     <div>
-                        <strong>${session.subject}</strong> - ${session.type === 'study' ? 'مطالعه' : session.type === 'test' ? 'تست‌زنی' : 'استراحت'}
-                    </div>
-                    <div>
-                        <span>${Math.floor(session.duration / 60)} دقیقه</span>
-                        ${session.correct ? `<span style="color: #2ecc71; margin-right: 10px;">${session.correct} صحیح</span>` : ''}
-                        ${session.wrong ? `<span style="color: #e74c3c;">${session.wrong} غلط</span>` : ''}
+                        <span>${Math.floor(s.duration / 60)} دقیقه</span>
+                        ${s.correct ? `<span style="color: #2ecc71; margin-right: 10px;">${s.correct} صحیح</span>` : ''}
+                        ${s.wrong ? `<span style="color: #e74c3c;">${s.wrong} غلط</span>` : ''}
                     </div>
                 </div>
             `).join('');
@@ -1970,32 +2895,21 @@
             timerType = type;
             document.querySelectorAll('.timer-type').forEach(t => t.classList.remove('active'));
             element.classList.add('active');
-            
             document.getElementById('testFields').style.display = type === 'test' ? 'flex' : 'none';
-            
             resetTimer();
         }
 
         function startTimer() {
             if (timerRunning) return;
-            
             const subject = document.getElementById('timerSubject').value;
-            const grade = document.getElementById('timerGrade').value;
-            
             if (!subject) {
                 showNotification('لطفاً یک درس انتخاب کنید', 'error');
                 return;
             }
-            
             currentSubject = subject;
-            currentGrade = grade;
+            currentGrade = document.getElementById('timerGrade').value;
             timerRunning = true;
-            
-            timerInterval = setInterval(() => {
-                timerSeconds++;
-                updateTimerDisplay();
-            }, 1000);
-            
+            timerInterval = setInterval(() => { timerSeconds++; updateTimerDisplay(); }, 1000);
             showNotification('تایمر شروع شد', 'success');
         }
 
@@ -2013,8 +2927,7 @@
         function updateTimerDisplay() {
             const mins = Math.floor(timerSeconds / 60);
             const secs = timerSeconds % 60;
-            document.getElementById('timerDisplay').textContent = 
-                `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+            document.getElementById('timerDisplay').textContent = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
         }
 
         function saveSession() {
@@ -2025,7 +2938,6 @@
             
             const subject = document.getElementById('timerSubject').value;
             const grade = document.getElementById('timerGrade').value;
-            
             if (!subject || !grade) {
                 showNotification('لطفاً درس و پایه را انتخاب کنید', 'error');
                 return;
@@ -2033,56 +2945,33 @@
             
             const users = getUsers();
             const userData = users[currentUser].data;
-            
             const hours = timerSeconds / 3600;
             
-            // پیدا کردن درس
-            const subjectIndex = userData.subjects.findIndex(
-                s => s.name === subject && s.grade === grade
-            );
-            
+            const subjectIndex = userData.subjects.findIndex(s => s.name === subject && s.grade === grade);
             if (subjectIndex !== -1) {
                 userData.subjects[subjectIndex].hours += hours;
-                userData.subjects[subjectIndex].progress = Math.min(
-                    100,
-                    userData.subjects[subjectIndex].progress + (hours * 2)
-                );
+                userData.subjects[subjectIndex].progress = Math.min(100, userData.subjects[subjectIndex].progress + (hours * 2));
             }
             
-            // ذخیره جلسه
             const session = {
-                subject: subject,
-                grade: grade,
-                duration: timerSeconds,
-                type: timerType,
-                date: new Date().toISOString(),
+                subject, grade, duration: timerSeconds, type: timerType, date: new Date().toISOString(),
                 correct: timerType === 'test' ? document.getElementById('correctCount').value : null,
                 wrong: timerType === 'test' ? document.getElementById('wrongCount').value : null
             };
             
             userData.sessions.push(session);
             
-            // اگر تست است، به tests درس هم اضافه کن
-            if (timerType === 'test' && session.correct && session.wrong) {
+            if (timerType === 'test' && session.correct && session.wrong && subjectIndex !== -1) {
                 const correct = parseInt(session.correct);
                 const wrong = parseInt(session.wrong);
                 const total = correct + wrong;
                 const percent = Math.round((correct / total) * 100);
-                
-                if (subjectIndex !== -1) {
-                    userData.subjects[subjectIndex].tests.push({
-                        date: new Date().toISOString(),
-                        correct: correct,
-                        wrong: wrong,
-                        total: total,
-                        percent: percent
-                    });
-                }
+                userData.subjects[subjectIndex].tests.push({
+                    date: new Date().toISOString(), correct, wrong, total, percent
+                });
             }
             
             saveUsers(users);
-            
-            // ریست تایمر
             resetTimer();
             document.getElementById('correctCount').value = '';
             document.getElementById('wrongCount').value = '';
@@ -2099,15 +2988,8 @@
             const select = document.getElementById('timerSubject');
             const users = getUsers();
             const subjects = users[currentUser].data.subjects;
-            
-            select.innerHTML = '<option value="">انتخاب درس</option>';
-            
-            subjects.forEach(subject => {
-                const option = document.createElement('option');
-                option.value = subject.name;
-                option.textContent = subject.name;
-                select.appendChild(option);
-            });
+            select.innerHTML = '<option value="">انتخاب درس</option>' + 
+                subjects.map(s => `<option value="${s.name}">${s.name}</option>`).join('');
         }
 
         // ==================== دفترچه نکات ====================
@@ -2116,7 +2998,7 @@
             const users = getUsers();
             const notes = users[currentUser].data.notes || [];
             
-            if (notes.length === 0) {
+            if (!notes.length) {
                 container.innerHTML = '<p style="color: #999; text-align: center;">هنوز نکته‌ای ثبت نکرده‌اید</p>';
                 return;
             }
@@ -2124,18 +3006,13 @@
             container.innerHTML = notes.slice().reverse().map(note => `
                 <div class="note-card" onclick="viewNote('${note.id}')">
                     <div class="note-header">
-                        <div class="note-icon">
-                            <i class="fas fa-sticky-note"></i>
-                        </div>
+                        <div class="note-icon"><i class="fas fa-sticky-note"></i></div>
                         <div>
                             <div class="note-title">${note.title}</div>
                             <div class="note-date">${note.subject} - ${note.grade === '10' ? 'دهم' : note.grade === '11' ? 'یازدهم' : 'دوازدهم'}</div>
                         </div>
                     </div>
-                    <div class="note-preview">
-                        ${note.content.substring(0, 100)}${note.content.length > 100 ? '...' : ''}
-                    </div>
-                    ${note.image ? '<i class="fas fa-image" style="color: #667eea; margin-top: 10px;"></i>' : ''}
+                    <div class="note-preview">${note.content.substring(0, 100)}${note.content.length > 100 ? '...' : ''}</div>
                 </div>
             `).join('');
         }
@@ -2149,30 +3026,20 @@
                         <h3>افزودن نکته جدید</h3>
                         <button class="modal-close" onclick="this.parentElement.parentElement.parentElement.remove()">&times;</button>
                     </div>
-                    <div style="padding: 20px;">
-                        <select id="modalNoteSubject" class="exam-input" style="margin-bottom: 15px;">
-                            ${getSubjectsOptions()}
+                    <div style="padding: 15px;">
+                        <select id="modalNoteSubject" class="exam-input" style="margin-bottom: 10px;">${getSubjectsOptions()}</select>
+                        <select id="modalNoteGrade" class="exam-input" style="margin-bottom: 10px;">
+                            <option value="10">دهم</option><option value="11">یازدهم</option><option value="12">دوازدهم</option>
                         </select>
-                        <select id="modalNoteGrade" class="exam-input" style="margin-bottom: 15px;">
-                            <option value="10">دهم</option>
-                            <option value="11">یازدهم</option>
-                            <option value="12">دوازدهم</option>
-                        </select>
-                        <input type="text" id="modalNoteTitle" class="exam-input" placeholder="عنوان نکته" style="margin-bottom: 15px;">
-                        <textarea id="modalNoteContent" class="exam-input" placeholder="متن نکته ..." rows="5" style="margin-bottom: 15px;"></textarea>
+                        <input type="text" id="modalNoteTitle" class="exam-input" placeholder="عنوان نکته" style="margin-bottom: 10px;">
+                        <textarea id="modalNoteContent" class="exam-input" placeholder="متن نکته ..." rows="5" style="margin-bottom: 10px;"></textarea>
                         <button class="btn btn-primary" onclick="saveNoteFromModal()">ذخیره نکته</button>
                     </div>
                 </div>
             `;
-            
             document.body.appendChild(modal);
-            
-            if (subject) {
-                document.getElementById('modalNoteSubject').value = subject;
-            }
-            if (grade) {
-                document.getElementById('modalNoteGrade').value = grade;
-            }
+            if (subject) document.getElementById('modalNoteSubject').value = subject;
+            if (grade) document.getElementById('modalNoteGrade').value = grade;
         }
 
         function saveNoteFromModal() {
@@ -2187,19 +3054,11 @@
             }
             
             const users = getUsers();
+            users[currentUser].data.notes.push({
+                id: Date.now().toString(), subject, grade, title, content, createdAt: new Date().toISOString()
+            });
             
-            const note = {
-                id: Date.now().toString(),
-                subject: subject,
-                grade: grade,
-                title: title,
-                content: content,
-                createdAt: new Date().toISOString()
-            };
-            
-            users[currentUser].data.notes.push(note);
             saveUsers(users);
-            
             document.querySelector('.modal').remove();
             renderNotes();
             showNotification('نکته با موفقیت ذخیره شد', 'success');
@@ -2208,7 +3067,6 @@
         function viewNote(noteId) {
             const users = getUsers();
             const note = users[currentUser].data.notes.find(n => n.id === noteId);
-            
             if (!note) return;
             
             const modal = document.createElement('div');
@@ -2219,16 +3077,13 @@
                         <h3>${note.title}</h3>
                         <button class="modal-close" onclick="this.parentElement.parentElement.parentElement.remove()">&times;</button>
                     </div>
-                    <div style="padding: 20px;">
+                    <div style="padding: 15px;">
                         <p><strong>درس:</strong> ${note.subject} - پایه ${note.grade === '10' ? 'دهم' : note.grade === '11' ? 'یازدهم' : 'دوازدهم'}</p>
                         <p><strong>تاریخ:</strong> ${new Date(note.createdAt).toLocaleDateString('fa-IR')}</p>
-                        <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin: 20px 0; white-space: pre-wrap;">
-                            ${note.content}
-                        </div>
+                        <div style="background: #f8f9fa; padding: 15px; border-radius: 10px; margin: 15px 0; white-space: pre-wrap;">${note.content}</div>
                     </div>
                 </div>
             `;
-            
             document.body.appendChild(modal);
         }
 
@@ -2236,46 +3091,31 @@
         function updateExamSubjects() {
             const grade = document.getElementById('examGrade').value;
             const container = document.getElementById('examSubjectsContainer');
-            
             if (!grade || !selectedMajor) {
                 container.innerHTML = '';
                 return;
             }
-            
             const specializedSubjects = getSpecializedSubjects(selectedMajor, grade);
-            
             container.innerHTML = specializedSubjects.map(subject => `
-                <div>
-                    <input type="number" id="exam_${subject.name.replace(/\s+/g, '_')}" 
-                           placeholder="${subject.name}" class="exam-input" style="width: 100%;">
-                </div>
+                <div><input type="number" id="exam_${subject.name.replace(/\s+/g, '_')}" placeholder="${subject.name}" class="exam-input" style="width: 100%;"></div>
             `).join('');
         }
 
         function saveExam() {
             const grade = document.getElementById('examGrade').value;
             const name = document.getElementById('examName').value;
-            
             if (!grade || !name) {
                 showNotification('لطفاً پایه و نام آزمون را وارد کنید', 'error');
                 return;
             }
             
             const users = getUsers();
-            const examData = {
-                grade: grade,
-                name: name,
-                subjects: {},
-                date: new Date().toISOString()
-            };
-            
+            const examData = { grade, name, subjects: {}, date: new Date().toISOString() };
             const specializedSubjects = getSpecializedSubjects(selectedMajor, grade);
             
             specializedSubjects.forEach(subject => {
                 const input = document.getElementById(`exam_${subject.name.replace(/\s+/g, '_')}`);
-                if (input && input.value) {
-                    examData.subjects[subject.name] = parseInt(input.value);
-                }
+                if (input && input.value) examData.subjects[subject.name] = parseInt(input.value);
             });
             
             users[currentUser].data.exams.push(examData);
@@ -2296,21 +3136,15 @@
             const users = getUsers();
             const exams = users[currentUser].data.exams || [];
             
-            if (exams.length === 0) {
+            if (!exams.length) {
                 list.innerHTML = '<p style="text-align: center; color: #666;">هنوز آزمونی ثبت نشده</p>';
                 return;
             }
             
             list.innerHTML = exams.slice(-5).reverse().map(exam => `
                 <div class="exam-item">
-                    <div>
-                        <strong>${exam.name}</strong> - پایه ${exam.grade === '10' ? 'دهم' : exam.grade === '11' ? 'یازدهم' : 'دوازدهم'}
-                    </div>
-                    <div>
-                        ${Object.entries(exam.subjects).map(([subject, score]) => `
-                            <span style="margin-right: 10px;">${subject.split(' ')[0]}: ${score}%</span>
-                        `).join('')}
-                    </div>
+                    <div><strong>${exam.name}</strong> - پایه ${exam.grade === '10' ? 'دهم' : exam.grade === '11' ? 'یازدهم' : 'دوازدهم'}</div>
+                    <div>${Object.entries(exam.subjects).map(([s, score]) => `<span style="margin-right: 10px;">${s.split(' ')[0]}: ${score}%</span>`).join('')}</div>
                 </div>
             `).join('');
         }
@@ -2322,73 +3156,19 @@
             const userMedals = users[currentUser].data.medals || [];
             
             let html = '';
-            
-            // مدال‌های مطالعه
-            MEDALS.study.forEach(medal => {
+            [...MEDALS.study, ...MEDALS.test, ...MEDALS.consistency].forEach(medal => {
                 const unlocked = userMedals.includes(medal.name);
                 const progress = calculateMedalProgress(medal);
-                
                 html += `
                     <div class="medal-card-new ${unlocked ? 'unlocked' : ''}">
-                        <div class="medal-icon-new">
-                            <i class="fas ${medal.icon} medal-${medal.color}"></i>
-                        </div>
+                        <div class="medal-icon-new"><i class="fas ${medal.icon} medal-${medal.color}"></i></div>
                         <div class="medal-name-new">${medal.emoji} ${medal.name}</div>
                         <div class="medal-desc-new">${medal.desc}</div>
-                        <div class="medal-progress-new">
-                            <div class="medal-progress-fill-new" style="width: ${progress}%"></div>
-                        </div>
-                        <div class="medal-status-new ${unlocked ? 'unlocked' : 'locked'}">
-                            ${unlocked ? '🏆 باز شده' : '🔒 در حال پیشرفت'}
-                        </div>
+                        <div class="medal-progress-new"><div class="medal-progress-fill-new" style="width: ${progress}%"></div></div>
+                        <div class="medal-status-new ${unlocked ? 'unlocked' : 'locked'}">${unlocked ? '🏆 باز شده' : '🔒 در حال پیشرفت'}</div>
                     </div>
                 `;
             });
-            
-            // مدال‌های آزمون
-            MEDALS.test.forEach(medal => {
-                const unlocked = userMedals.includes(medal.name);
-                const progress = calculateMedalProgress(medal);
-                
-                html += `
-                    <div class="medal-card-new ${unlocked ? 'unlocked' : ''}">
-                        <div class="medal-icon-new">
-                            <i class="fas ${medal.icon} medal-${medal.color}"></i>
-                        </div>
-                        <div class="medal-name-new">${medal.emoji} ${medal.name}</div>
-                        <div class="medal-desc-new">${medal.desc}</div>
-                        <div class="medal-progress-new">
-                            <div class="medal-progress-fill-new" style="width: ${progress}%"></div>
-                        </div>
-                        <div class="medal-status-new ${unlocked ? 'unlocked' : 'locked'}">
-                            ${unlocked ? '🏆 باز شده' : '🔒 در حال پیشرفت'}
-                        </div>
-                    </div>
-                `;
-            });
-            
-            // مدال‌های استمرار
-            MEDALS.consistency.forEach(medal => {
-                const unlocked = userMedals.includes(medal.name);
-                const progress = calculateMedalProgress(medal);
-                
-                html += `
-                    <div class="medal-card-new ${unlocked ? 'unlocked' : ''}">
-                        <div class="medal-icon-new">
-                            <i class="fas ${medal.icon} medal-${medal.color}"></i>
-                        </div>
-                        <div class="medal-name-new">${medal.emoji} ${medal.name}</div>
-                        <div class="medal-desc-new">${medal.desc}</div>
-                        <div class="medal-progress-new">
-                            <div class="medal-progress-fill-new" style="width: ${progress}%"></div>
-                        </div>
-                        <div class="medal-status-new ${unlocked ? 'unlocked' : 'locked'}">
-                            ${unlocked ? '🏆 باز شده' : '🔒 در حال پیشرفت'}
-                        </div>
-                    </div>
-                `;
-            });
-            
             container.innerHTML = html;
         }
 
@@ -2398,15 +3178,11 @@
             
             if (medal.name.includes('مطالعه')) {
                 const today = new Date().toISOString().split('T')[0];
-                const todayHours = userData.sessions
-                    .filter(s => s.date.split('T')[0] === today)
-                    .reduce((sum, s) => sum + s.duration / 3600, 0);
+                const todayHours = userData.sessions.filter(s => s.date.split('T')[0] === today).reduce((sum, s) => sum + s.duration / 3600, 0);
                 return Math.min(100, (todayHours / medal.target) * 100);
             } else if (medal.name.includes('آزمون')) {
                 const allTests = userData.subjects.flatMap(s => s.tests);
-                const avgScore = allTests.length > 0 
-                    ? allTests.reduce((sum, t) => sum + t.percent, 0) / allTests.length
-                    : 0;
+                const avgScore = allTests.length ? allTests.reduce((sum, t) => sum + t.percent, 0) / allTests.length : 0;
                 return Math.min(100, (avgScore / medal.target) * 100);
             } else {
                 const firstDay = new Date(userData.createdAt);
@@ -2421,11 +3197,8 @@
             const userData = users[currentUser].data;
             let newMedals = false;
             
-            // بررسی مدال‌های مطالعه
             const today = new Date().toISOString().split('T')[0];
-            const todayHours = userData.sessions
-                .filter(s => s.date.split('T')[0] === today)
-                .reduce((sum, s) => sum + s.duration / 3600, 0);
+            const todayHours = userData.sessions.filter(s => s.date.split('T')[0] === today).reduce((sum, s) => sum + s.duration / 3600, 0);
             
             MEDALS.study.forEach(medal => {
                 if (todayHours >= medal.target && !userData.medals.includes(medal.name)) {
@@ -2435,11 +3208,8 @@
                 }
             });
             
-            // بررسی مدال‌های آزمون
             const allTests = userData.subjects.flatMap(s => s.tests);
-            const avgScore = allTests.length > 0 
-                ? allTests.reduce((sum, t) => sum + t.percent, 0) / allTests.length
-                : 0;
+            const avgScore = allTests.length ? allTests.reduce((sum, t) => sum + t.percent, 0) / allTests.length : 0;
             
             MEDALS.test.forEach(medal => {
                 if (avgScore >= medal.target && !userData.medals.includes(medal.name)) {
@@ -2449,7 +3219,6 @@
                 }
             });
             
-            // بررسی مدال‌های استمرار
             const firstDay = new Date(userData.createdAt);
             const today2 = new Date();
             const daysDiff = Math.floor((today2 - firstDay) / (1000 * 60 * 60 * 24));
@@ -2480,36 +3249,47 @@
                 else if (medal.includes('نقره')) color = 'silver';
                 else if (medal.includes('پلاتین')) color = 'platinum';
                 else if (medal.includes('الماس')) color = 'diamond';
-                else color = 'gold';
-                
                 return `<div class="user-medal-icon ${color}" title="${medal}"><i class="fas fa-medal"></i></div>`;
             }).join('');
         }
 
         // ==================== نمودارها ====================
         function updateCharts() {
-            // این تابع برای نمودارهاست - به دلیل طولانی بودن در اینجا خلاصه شده
-            console.log('نمودارها به‌روزرسانی شدند');
+            if (!currentUser) return;
+            const users = getUsers();
+            const userData = users[currentUser].data;
+            
+            const ctx1 = document.getElementById('weeklyProgressChart')?.getContext('2d');
+            if (ctx1) {
+                if (charts.weekly) charts.weekly.destroy();
+                const weekData = [];
+                for (let i = 0; i < 4; i++) {
+                    const weekStart = new Date();
+                    weekStart.setDate(weekStart.getDate() - (i * 7));
+                    weekData.push(userData.sessions.filter(s => new Date(s.date) > weekStart).reduce((sum, s) => sum + s.duration / 3600, 0));
+                }
+                charts.weekly = new Chart(ctx1, {
+                    type: 'line',
+                    data: {
+                        labels: ['هفته ۴', 'هفته ۳', 'هفته ۲', 'هفته ۱'],
+                        datasets: [{ label: 'ساعت مطالعه', data: weekData.reverse(), borderColor: '#667eea', backgroundColor: 'rgba(102,126,234,0.1)', borderWidth: 3, fill: true, tension: 0.4 }]
+                    },
+                    options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true } } }
+                });
+            }
         }
 
         function changeTimeChartPeriod(period, element) {
             document.querySelectorAll('.chart-btn').forEach(b => b.classList.remove('active'));
             element.classList.add('active');
-            updateCharts();
         }
 
         // ==================== نوتیفیکیشن ====================
         function showNotification(message, type) {
             const notif = document.createElement('div');
             notif.className = 'notification';
-            notif.innerHTML = `
-                <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}" 
-                   style="color: ${type === 'success' ? '#2ecc71' : '#e74c3c'};"></i>
-                <span>${message}</span>
-            `;
-            
+            notif.innerHTML = `<i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}" style="color: ${type === 'success' ? '#2ecc71' : '#e74c3c'};"></i><span>${message}</span>`;
             document.body.appendChild(notif);
-            
             setTimeout(() => {
                 notif.style.animation = 'slideIn 0.3s reverse';
                 setTimeout(() => notif.remove(), 300);
@@ -2520,17 +3300,10 @@
         (function checkLogin() {
             const users = getUsers();
             const lastUser = localStorage.getItem('lastUser');
-            
             if (lastUser && users[lastUser]) {
                 currentUser = lastUser;
                 selectedMajor = users[lastUser].major;
-                
-                if (selectedMajor) {
-                    loadUserData();
-                    showMainApp();
-                } else {
-                    showMajorSelection();
-                }
+                if (selectedMajor) { loadUserData(); showMainApp(); } else showMajorSelection();
             }
         })();
     </script>
