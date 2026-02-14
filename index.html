@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>کنکور همراه | تأیید عضویت</title>
+    <title>کنکور همراه | ثبت‌نام و ورود</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -13,7 +14,7 @@
         }
 
         body {
-            background: linear-gradient(135deg, #4776E6 0%, #8E54E9 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -22,256 +23,707 @@
         }
 
         .container {
-            max-width: 400px;
+            max-width: 500px;
             width: 100%;
             background: white;
             border-radius: 30px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
             overflow: hidden;
-            padding: 40px 30px;
-            text-align: center;
+            position: relative;
         }
 
-        h1 {
-            color: #333;
-            margin-bottom: 10px;
-            font-size: 2rem;
+        /* بنر کانال تلگرام */
+        .telegram-banner {
+            background: #0088cc;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.95rem;
         }
 
-        p {
-            color: #666;
-            margin-bottom: 30px;
-            line-height: 1.8;
+        .telegram-banner i {
+            font-size: 1.5rem;
+            margin-left: 10px;
         }
 
-        .channel {
-            background: #e3f2fd;
-            border: 2px solid #0088cc;
-            border-radius: 20px;
-            padding: 25px;
-            margin-bottom: 30px;
+        .telegram-banner a {
+            color: white;
+            text-decoration: none;
+            background: rgba(255,255,255,0.2);
+            padding: 8px 15px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .telegram-banner a:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
         }
 
         .channel-name {
-            font-size: 2rem;
             font-weight: bold;
-            color: #0088cc;
             direction: ltr;
-            margin: 10px 0;
+            display: inline-block;
         }
 
-        .btn {
+        /* محتوای اصلی */
+        .content {
+            padding: 40px 30px;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo i {
+            font-size: 3.5rem;
+            color: #667eea;
+            background: #f0f0ff;
+            padding: 20px;
+            border-radius: 50%;
+        }
+
+        .logo h1 {
+            margin-top: 15px;
+            color: #333;
+            font-size: 1.8rem;
+        }
+
+        .logo p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* فرم‌ها */
+        .form-container {
+            transition: all 0.3s ease;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
             display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 500;
+        }
+
+        .input-group {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .input-group i {
+            position: absolute;
+            right: 15px;
+            color: #999;
+            font-size: 1.1rem;
+        }
+
+        .input-group input {
             width: 100%;
-            padding: 15px;
-            border: none;
-            border-radius: 15px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            cursor: pointer;
-            text-decoration: none;
-            margin: 10px 0;
+            padding: 15px 45px 15px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 1rem;
             transition: all 0.3s;
         }
 
-        .btn-telegram {
-            background: #0088cc;
-            color: white;
+        .input-group input:focus {
+            border-color: #667eea;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
         }
 
-        .btn-telegram:hover {
-            background: #006699;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,136,204,0.3);
+        .toggle-password {
+            position: absolute;
+            left: 15px;
+            color: #999;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+
+        .toggle-password:hover {
+            color: #667eea;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin: 10px 0;
         }
 
         .btn-primary {
-            background: #4776E6;
+            background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
         }
 
         .btn-primary:hover {
-            background: #2c3e50;
             transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
         }
 
-        .bot-box {
-            background: #f8f9fa;
-            border-radius: 20px;
-            padding: 25px;
-            margin: 25px 0;
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #667eea;
+            color: #667eea;
         }
 
-        .bot-username {
-            background: #e3f2fd;
-            padding: 15px;
-            border-radius: 12px;
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #0088cc;
-            direction: ltr;
-            margin: 15px 0;
-            border: 2px dashed #0088cc;
+        .btn-outline:hover {
+            background: #667eea;
+            color: white;
         }
 
-        .code-input {
-            width: 100%;
-            padding: 15px;
-            font-size: 2.5rem;
+        .switch-form {
             text-align: center;
-            border: 3px solid #ddd;
-            border-radius: 15px;
-            margin: 20px 0;
-            letter-spacing: 15px;
+            margin-top: 20px;
+            color: #666;
+        }
+
+        .switch-form a {
+            color: #667eea;
+            text-decoration: none;
             font-weight: bold;
-            direction: ltr;
+            cursor: pointer;
         }
 
-        .code-input:focus {
-            border-color: #0088cc;
-            outline: none;
+        .switch-form a:hover {
+            text-decoration: underline;
         }
 
-        .message {
-            padding: 15px;
-            border-radius: 10px;
+        .error-message {
+            background: #fee;
+            color: #c33;
+            padding: 12px;
+            border-radius: 8px;
             margin: 15px 0;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .success-message {
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 12px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* برنامه اصلی (پس از ورود) */
+        .main-app {
             display: none;
         }
 
-        .message.success {
-            background: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-            display: block;
+        .user-header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
-        .message.error {
-            background: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-            display: block;
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        .loading {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 3px solid #f3f3f3;
-            border-top: 3px solid #0088cc;
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.2);
             border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-left: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
         }
 
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        .logout-btn {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .logout-btn:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .dashboard {
+            padding: 20px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            border-right: 4px solid #667eea;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #667eea;
+            margin: 10px 0;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .quick-actions {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .action-btn {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .action-btn:hover {
+            border-color: #667eea;
+            transform: translateY(-3px);
+        }
+
+        .action-icon {
+            font-size: 2rem;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #999;
+            font-size: 0.8rem;
+            border-top: 1px solid #eee;
+        }
+
+        .hidden {
+            display: none;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>📚 کنکور همراه</h1>
-        <p>برنامه‌ریزی هوشمند برای موفقیت در کنکور</p>
-
-        <div class="channel">
-            <div style="margin-bottom: 10px;">عضویت در کانال:</div>
-            <div class="channel-name">@konkorkhabar</div>
-            <a href="https://t.me/konkorkhabar" target="_blank">
-                <button class="btn btn-telegram">
-                    <i class="fab fa-telegram"></i> عضویت در کانال
-                </button>
-            </a>
-        </div>
-
-        <div class="bot-box">
-            <h3 style="margin-bottom: 15px;">🤖 دریافت کد تأیید</h3>
-            <p>به ربات زیر مراجعه و /start را بزنید:</p>
-            
-            <div class="bot-username">
-                @Taeeedbot
+        <!-- بنر کانال تلگرام (همیشه بالا) -->
+        <div class="telegram-banner">
+            <div>
+                <i class="fab fa-telegram"></i>
+                <span>آخرین آپدیت‌ها و اخبار</span>
             </div>
-            
-            <a href="https://t.me/Taeeedbot" target="_blank">
-                <button class="btn btn-telegram">
-                    <i class="fab fa-telegram"></i> رفتن به ربات
-                </button>
+            <a href="https://t.me/konkorkhabar" target="_blank">
+                <i class="fab fa-telegram"></i>
+                <span class="channel-name">@konkorkhabar</span>
+                <i class="fas fa-arrow-left"></i>
             </a>
         </div>
 
-        <div style="margin-top: 20px;">
-            <p style="margin-bottom: 10px; font-weight: bold;">کد دریافتی را وارد کنید:</p>
-            <input type="text" id="code" class="code-input" maxlength="6" placeholder="------">
-            
-            <div id="message" class="message"></div>
-            
-            <button class="btn btn-primary" onclick="verifyCode()">
-                <span id="btnText">تأیید عضویت</span>
-                <span id="loading" class="loading" style="display: none;"></span>
-            </button>
+        <!-- صفحه ثبت‌نام/ورود -->
+        <div id="authPage" class="content">
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                <h1>کنکور همراه</h1>
+                <p>برنامه‌ریزی هوشمند برای موفقیت</p>
+            </div>
+
+            <div id="loginForm" class="form-container">
+                <h2 style="text-align: center; margin-bottom: 25px; color: #333;">ورود به حساب</h2>
+                
+                <div class="form-group">
+                    <label>نام کاربری</label>
+                    <div class="input-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="loginUsername" placeholder="نام کاربری خود را وارد کنید">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>رمز عبور</label>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="loginPassword" placeholder="رمز عبور خود را وارد کنید">
+                        <i class="fas fa-eye toggle-password" onclick="togglePassword('loginPassword')"></i>
+                    </div>
+                </div>
+
+                <div id="loginMessage" class="error-message" style="display: none;"></div>
+
+                <button class="btn btn-primary" onclick="login()">
+                    <i class="fas fa-sign-in-alt"></i> ورود
+                </button>
+
+                <div class="switch-form">
+                    حساب کاربری ندارید؟ 
+                    <a onclick="showRegister()">ثبت‌نام کنید</a>
+                </div>
+            </div>
+
+            <div id="registerForm" class="form-container" style="display: none;">
+                <h2 style="text-align: center; margin-bottom: 25px; color: #333;">ثبت‌نام حساب جدید</h2>
+                
+                <div class="form-group">
+                    <label>نام کاربری</label>
+                    <div class="input-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="registerUsername" placeholder="یک نام کاربری انتخاب کنید">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>رمز عبور</label>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="registerPassword" placeholder="رمز عبور خود را وارد کنید">
+                        <i class="fas fa-eye toggle-password" onclick="togglePassword('registerPassword')"></i>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>تکرار رمز عبور</label>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="registerConfirmPassword" placeholder="رمز عبور را دوباره وارد کنید">
+                        <i class="fas fa-eye toggle-password" onclick="togglePassword('registerConfirmPassword')"></i>
+                    </div>
+                </div>
+
+                <div id="registerMessage" class="error-message" style="display: none;"></div>
+
+                <button class="btn btn-primary" onclick="register()">
+                    <i class="fas fa-user-plus"></i> ثبت‌نام
+                </button>
+
+                <div class="switch-form">
+                    قبلاً ثبت‌نام کرده‌اید؟ 
+                    <a onclick="showLogin()">وارد شوید</a>
+                </div>
+            </div>
         </div>
 
-        <p style="margin-top: 30px; font-size: 0.8rem; color: #999;">
-            <i class="fas fa-shield-alt"></i> داده‌های شما امن و محرمانه
-        </p>
+        <!-- برنامه اصلی (بعد از ورود) -->
+        <div id="mainApp" class="main-app">
+            <div class="user-header">
+                <div class="user-info">
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div>
+                        <div style="font-size: 0.8rem; opacity: 0.8;">خوش آمدید</div>
+                        <div style="font-weight: bold;" id="currentUser"></div>
+                    </div>
+                </div>
+                <button class="logout-btn" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i> خروج
+                </button>
+            </div>
+
+            <div class="dashboard">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <i class="fas fa-clock"></i>
+                        <div class="stat-value" id="todayStudy">۰:۰۰</div>
+                        <div class="stat-label">مطالعه امروز</div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-bullseye"></i>
+                        <div class="stat-value" id="totalHours">۰</div>
+                        <div class="stat-label">کل ساعت</div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-calendar"></i>
+                        <div class="stat-value" id="examDays">۱۸۰</div>
+                        <div class="stat-label">روز تا کنکور</div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-trophy"></i>
+                        <div class="stat-value" id="progressPercent">۰%</div>
+                        <div class="stat-label">پیشرفت</div>
+                    </div>
+                </div>
+
+                <h3 style="margin: 20px 0 15px 0; color: #333;">دسترسی سریع</h3>
+                <div class="quick-actions">
+                    <div class="action-btn" onclick="alert('شروع مطالعه')">
+                        <div class="action-icon"><i class="fas fa-play-circle"></i></div>
+                        <div>شروع مطالعه</div>
+                    </div>
+                    <div class="action-btn" onclick="alert('ثبت تست')">
+                        <div class="action-icon"><i class="fas fa-clipboard-check"></i></div>
+                        <div>ثبت تست</div>
+                    </div>
+                    <div class="action-btn" onclick="alert('گزارش')">
+                        <div class="action-icon"><i class="fas fa-chart-line"></i></div>
+                        <div>گزارش</div>
+                    </div>
+                    <div class="action-btn" onclick="alert('تنظیمات')">
+                        <div class="action-icon"><i class="fas fa-cog"></i></div>
+                        <div>تنظیمات</div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 30px; background: #f8f9fa; padding: 20px; border-radius: 15px;">
+                    <h4 style="color: #333; margin-bottom: 15px;">فعالیت‌های امروز</h4>
+                    <p style="color: #666; text-align: center;">هنوز فعالیتی ثبت نشده</p>
+                </div>
+            </div>
+
+            <div class="footer">
+                <i class="fas fa-shield-alt"></i> داده‌های شما در مرورگر ذخیره می‌شود
+            </div>
+        </div>
     </div>
 
     <script>
-        // کدهای معتبر (همونایی که ربات میده)
-        const validCodes = [
-            '123456', '234567', '345678', '456789', '567890',
-            '678901', '789012', '890123', '901234', '112233',
-            '223344', '334455', '445566', '556677', '667788',
-            '778899', '889900', '990011', '135791', '246802'
-        ];
+        // ==================== مدیریت کاربران ====================
+        
+        // کلید ذخیره‌سازی
+        const STORAGE_KEY = 'konkour_users';
+        const CURRENT_USER_KEY = 'konkour_current_user';
 
-        function verifyCode() {
-            const code = document.getElementById('code').value.trim();
-            const messageDiv = document.getElementById('message');
-            const btnText = document.getElementById('btnText');
-            const loading = document.getElementById('loading');
-            
-            if (code.length !== 6) {
-                messageDiv.className = 'message error';
-                messageDiv.innerHTML = '❌ لطفاً کد ۶ رقمی را کامل وارد کنید';
+        // بارگذاری کاربران
+        function getUsers() {
+            const users = localStorage.getItem(STORAGE_KEY);
+            return users ? JSON.parse(users) : {};
+        }
+
+        // ذخیره کاربران
+        function saveUsers(users) {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(users));
+        }
+
+        // ثبت‌نام
+        function register() {
+            const username = document.getElementById('registerUsername').value.trim();
+            const password = document.getElementById('registerPassword').value;
+            const confirm = document.getElementById('registerConfirmPassword').value;
+            const messageDiv = document.getElementById('registerMessage');
+
+            // اعتبارسنجی
+            if (!username || !password || !confirm) {
+                showMessage(messageDiv, 'لطفاً تمام فیلدها را پر کنید', 'error');
                 return;
             }
-            
-            // نمایش loading
-            btnText.style.display = 'none';
-            loading.style.display = 'inline-block';
-            messageDiv.className = 'message';
-            
-            // شبیه‌سازی بررسی با سرور
-            setTimeout(() => {
-                btnText.style.display = 'inline';
-                loading.style.display = 'none';
-                
-                if (validCodes.includes(code)) {
-                    messageDiv.className = 'message success';
-                    messageDiv.innerHTML = '✅ عضویت شما تأیید شد! در حال انتقال...';
-                    
-                    // ذخیره در localStorage
-                    localStorage.setItem('verified', 'true');
-                    localStorage.setItem('code', code);
-                    
-                    // انتقال به برنامه اصلی بعد از ۲ ثانیه
-                    setTimeout(() => {
-                        window.location.href = 'https://masin009.github.io/planb/main.html';
-                    }, 2000);
-                } else {
-                    messageDiv.className = 'message error';
-                    messageDiv.innerHTML = '❌ کد نامعتبر است. دوباره از ربات بگیرید';
+
+            if (username.length < 3) {
+                showMessage(messageDiv, 'نام کاربری باید حداقل ۳ کاراکتر باشد', 'error');
+                return;
+            }
+
+            if (password.length < 4) {
+                showMessage(messageDiv, 'رمز عبور باید حداقل ۴ کاراکتر باشد', 'error');
+                return;
+            }
+
+            if (password !== confirm) {
+                showMessage(messageDiv, 'رمز عبور و تکرار آن یکسان نیستند', 'error');
+                return;
+            }
+
+            // بررسی تکراری نبودن نام کاربری
+            const users = getUsers();
+            if (users[username]) {
+                showMessage(messageDiv, 'این نام کاربری قبلاً ثبت شده است', 'error');
+                return;
+            }
+
+            // ذخیره کاربر جدید
+            users[username] = {
+                password: password,
+                created: Date.now(),
+                data: {
+                    studySessions: [],
+                    totalHours: 0,
+                    subjects: []
                 }
+            };
+
+            saveUsers(users);
+            
+            showMessage(messageDiv, 'ثبت‌نام با موفقیت انجام شد! در حال ورود...', 'success');
+            
+            // ورود خودکار بعد از ثبت‌نام
+            setTimeout(() => {
+                loginUser(username);
             }, 1500);
         }
-        
-        // بررسی در شروع
-        if (localStorage.getItem('verified') === 'true') {
-            window.location.href = 'https://masin009.github.io/planb/main.html';
+
+        // ورود
+        function login() {
+            const username = document.getElementById('loginUsername').value.trim();
+            const password = document.getElementById('loginPassword').value;
+            const messageDiv = document.getElementById('loginMessage');
+
+            if (!username || !password) {
+                showMessage(messageDiv, 'لطفاً نام کاربری و رمز عبور را وارد کنید', 'error');
+                return;
+            }
+
+            const users = getUsers();
+            const user = users[username];
+
+            if (!user || user.password !== password) {
+                showMessage(messageDiv, 'نام کاربری یا رمز عبور اشتباه است', 'error');
+                return;
+            }
+
+            loginUser(username);
         }
+
+        // ورود کاربر
+        function loginUser(username) {
+            localStorage.setItem(CURRENT_USER_KEY, username);
+            
+            // نمایش برنامه اصلی
+            document.getElementById('authPage').style.display = 'none';
+            document.getElementById('mainApp').style.display = 'block';
+            document.getElementById('currentUser').textContent = username;
+            
+            // بارگذاری داده‌های کاربر
+            loadUserData(username);
+        }
+
+        // خروج
+        function logout() {
+            localStorage.removeItem(CURRENT_USER_KEY);
+            
+            // نمایش صفحه ورود
+            document.getElementById('authPage').style.display = 'block';
+            document.getElementById('mainApp').style.display = 'none';
+            
+            // پاک کردن فرم‌ها
+            document.getElementById('loginUsername').value = '';
+            document.getElementById('loginPassword').value = '';
+            document.getElementById('loginMessage').style.display = 'none';
+            
+            showLogin();
+        }
+
+        // نمایش فرم ثبت‌نام
+        function showRegister() {
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('registerForm').style.display = 'block';
+            document.getElementById('registerMessage').style.display = 'none';
+        }
+
+        // نمایش فرم ورود
+        function showLogin() {
+            document.getElementById('registerForm').style.display = 'none';
+            document.getElementById('loginForm').style.display = 'block';
+            document.getElementById('loginMessage').style.display = 'none';
+        }
+
+        // نمایش پیام
+        function showMessage(element, text, type) {
+            element.style.display = 'flex';
+            element.className = type === 'error' ? 'error-message' : 'success-message';
+            element.innerHTML = `<i class="fas fa-${type === 'error' ? 'exclamation-circle' : 'check-circle'}"></i> ${text}`;
+        }
+
+        // نمایش/مخفی کردن رمز عبور
+        function togglePassword(inputId) {
+            const input = document.getElementById(inputId);
+            const icon = event.target;
+            
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.className = 'fas fa-eye-slash toggle-password';
+            } else {
+                input.type = 'password';
+                icon.className = 'fas fa-eye toggle-password';
+            }
+        }
+
+        // بارگذاری داده‌های کاربر
+        function loadUserData(username) {
+            const users = getUsers();
+            const user = users[username];
+            
+            if (user && user.data) {
+                // محاسبه آمار
+                const today = new Date().toLocaleDateString('fa-IR');
+                const todaySessions = (user.data.studySessions || []).filter(s => s.date === today);
+                const todayHours = todaySessions.reduce((sum, s) => sum + (s.duration / 60), 0);
+                
+                document.getElementById('todayStudy').textContent = todayHours.toFixed(1);
+                document.getElementById('totalHours').textContent = (user.data.totalHours || 0).toFixed(1);
+                
+                // محاسبه روزهای باقی‌مانده تا کنکور (فرضی)
+                const examDate = new Date('2025-06-21');
+                const today2 = new Date();
+                const diff = Math.ceil((examDate - today2) / (1000 * 60 * 60 * 24));
+                document.getElementById('examDays').textContent = diff > 0 ? diff : 0;
+                
+                // محاسبه پیشرفت (فرضی)
+                document.getElementById('progressPercent').textContent = '۲۵%';
+            }
+        }
+
+        // بررسی وضعیت ورود در شروع
+        function checkLoginStatus() {
+            const currentUser = localStorage.getItem(CURRENT_USER_KEY);
+            
+            if (currentUser) {
+                const users = getUsers();
+                if (users[currentUser]) {
+                    document.getElementById('authPage').style.display = 'none';
+                    document.getElementById('mainApp').style.display = 'block';
+                    document.getElementById('currentUser').textContent = currentUser;
+                    loadUserData(currentUser);
+                } else {
+                    localStorage.removeItem(CURRENT_USER_KEY);
+                }
+            }
+        }
+
+        // اجرا در شروع
+        checkLoginStatus();
     </script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </body>
 </html>
