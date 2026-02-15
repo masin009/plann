@@ -371,7 +371,7 @@
         }
         .table-task.completed { border-right-color: #2ecc71; }
 
-        /* ========== نمودارهای شاهکار ========== */
+        /* ========== نمودارهای شاهکار آماری ========== */
         .charts-section { padding: 15px 0; }
         
         .chart-card {
@@ -461,6 +461,69 @@
             height: 350px;
             width: 100%;
             margin-top: 15px;
+        }
+
+        /* بخش القاب و ایموجی‌های تشویقی */
+        .achievement-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+            padding: 10px;
+            background: linear-gradient(135deg, #f0f4ff, #e8ecff);
+            border-radius: 15px;
+        }
+
+        .badge-item {
+            flex: 1 1 auto;
+            min-width: 120px;
+            padding: 10px;
+            background: white;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+        }
+
+        .badge-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102,126,234,0.2);
+        }
+
+        .badge-icon {
+            font-size: 2rem;
+        }
+
+        .badge-text {
+            flex: 1;
+        }
+
+        .badge-title {
+            font-weight: bold;
+            font-size: 0.9rem;
+            color: #333;
+        }
+
+        .badge-desc {
+            font-size: 0.75rem;
+            color: #666;
+        }
+
+        .badge-progress {
+            height: 4px;
+            background: #e0e0e0;
+            border-radius: 2px;
+            margin-top: 5px;
+            overflow: hidden;
+        }
+
+        .badge-progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
+            transition: width 0.5s ease;
         }
 
         .notes-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px; margin-top: 15px; }
@@ -721,16 +784,16 @@
                 </div>
             </div>
 
-            <!-- بخش نمودارهای شاهکار -->
+            <!-- بخش نمودارهای شاهکار آماری -->
             <div id="charts" class="section">
                 <div class="charts-section">
                     
-                    <!-- نمودار رادار Spider Chart -->
+                    <!-- نمودار رادار Spider Chart با نام‌گذاری دقیق -->
                     <div class="chart-card">
                         <div class="chart-header">
                             <div class="chart-title">
                                 <i class="fas fa-chart-pie"></i>
-                                <span>Spider Chart - تحلیل جامع دروس</span>
+                                <span>تحلیل جامع دروس (Radar Chart)</span>
                             </div>
                         </div>
                         <div class="chart-wrapper">
@@ -738,47 +801,49 @@
                         </div>
                     </div>
 
-                    <!-- نمودار پیشرفت هفتگی Weekly Progress -->
+                    <!-- نمودار پیشرفت هفتگی با القاب تشویقی -->
                     <div class="chart-card">
                         <div class="chart-header">
                             <div class="chart-title">
                                 <i class="fas fa-chart-line"></i>
-                                <span>Weekly Progress - پیشرفت هفتگی</span>
+                                <span>پیشرفت هفتگی (Weekly Progress)</span>
                             </div>
                             <div class="chart-controls">
-                                <span class="chart-btn active" onclick="changeWeeklyChartPeriod('week', this)">Week</span>
-                                <span class="chart-btn" onclick="changeWeeklyChartPeriod('month', this)">Month</span>
+                                <span class="chart-btn active" onclick="updateChartPeriod('weekly', 'week', this)">Week</span>
+                                <span class="chart-btn" onclick="updateChartPeriod('weekly', 'month', this)">Month</span>
                             </div>
                         </div>
                         <div class="chart-wrapper">
                             <canvas id="weeklyProgressChart"></canvas>
                         </div>
+                        <div id="weeklyBadges" class="achievement-badges"></div>
                     </div>
 
-                    <!-- نمودار مطالعه روزانه Daily Study Hours -->
+                    <!-- نمودار ساعت مطالعه روزانه با القاب تشویقی -->
                     <div class="chart-card">
                         <div class="chart-header">
                             <div class="chart-title">
                                 <i class="fas fa-clock"></i>
-                                <span>Daily Study Hours - ساعت مطالعه روزانه</span>
+                                <span>ساعت مطالعه روزانه (Daily Study Hours)</span>
                             </div>
                             <div class="chart-controls">
-                                <span class="chart-btn active" onclick="changeDailyChartPeriod('week', this)">Week</span>
-                                <span class="chart-btn" onclick="changeDailyChartPeriod('month', this)">Month</span>
-                                <span class="chart-btn" onclick="changeDailyChartPeriod('year', this)">Year</span>
+                                <span class="chart-btn active" onclick="updateChartPeriod('daily', 'week', this)">Week</span>
+                                <span class="chart-btn" onclick="updateChartPeriod('daily', 'month', this)">Month</span>
+                                <span class="chart-btn" onclick="updateChartPeriod('daily', 'year', this)">Year</span>
                             </div>
                         </div>
                         <div class="chart-wrapper">
                             <canvas id="dailyChart"></canvas>
                         </div>
+                        <div id="dailyBadges" class="achievement-badges"></div>
                     </div>
 
-                    <!-- نمودار توزیع زمان Time Distribution -->
+                    <!-- نمودار توزیع زمان مطالعه -->
                     <div class="chart-card">
                         <div class="chart-header">
                             <div class="chart-title">
                                 <i class="fas fa-chart-pie"></i>
-                                <span>Time Distribution - توزیع زمان مطالعه</span>
+                                <span>توزیع زمان مطالعه (Time Distribution)</span>
                             </div>
                         </div>
                         <div class="chart-wrapper">
@@ -786,38 +851,40 @@
                         </div>
                     </div>
 
-                    <!-- نمودار نتایج آزمون Exam Results -->
+                    <!-- نمودار نتایج آزمون با القاب تشویقی -->
                     <div class="chart-card">
                         <div class="chart-header">
                             <div class="chart-title">
                                 <i class="fas fa-chart-bar"></i>
-                                <span>Exam Results - نتایج آزمون‌ها</span>
+                                <span>نتایج آزمون‌ها (Exam Results)</span>
                             </div>
                         </div>
                         <div class="chart-wrapper">
                             <canvas id="examChart"></canvas>
                         </div>
+                        <div id="examBadges" class="achievement-badges"></div>
                     </div>
 
-                    <!-- نمودار تست‌ها Test Performance -->
+                    <!-- نمودار عملکرد تست‌ها با القاب تشویقی -->
                     <div class="chart-card">
                         <div class="chart-header">
                             <div class="chart-title">
                                 <i class="fas fa-clipboard-check"></i>
-                                <span>Test Performance - عملکرد تست‌ها</span>
+                                <span>عملکرد تست‌ها (Test Performance)</span>
                             </div>
                         </div>
                         <div class="chart-wrapper">
                             <canvas id="testChart"></canvas>
                         </div>
+                        <div id="testBadges" class="achievement-badges"></div>
                     </div>
 
-                    <!-- نمودار شش ماهه 6-Month Progress -->
+                    <!-- نمودار شش ماهه -->
                     <div class="chart-card">
                         <div class="chart-header">
                             <div class="chart-title">
                                 <i class="fas fa-chart-area"></i>
-                                <span>6-Month Progress - پیشرفت شش ماهه</span>
+                                <span>پیشرفت شش ماهه (6-Month Progress)</span>
                             </div>
                         </div>
                         <div class="chart-wrapper">
@@ -825,12 +892,12 @@
                         </div>
                     </div>
 
-                    <!-- نمودار ماهانه Monthly Progress -->
+                    <!-- نمودار ماهانه -->
                     <div class="chart-card">
                         <div class="chart-header">
                             <div class="chart-title">
                                 <i class="fas fa-chart-bar"></i>
-                                <span>Monthly Progress - پیشرفت ماهانه</span>
+                                <span>پیشرفت ماهانه (Monthly Progress)</span>
                             </div>
                         </div>
                         <div class="chart-wrapper">
@@ -1006,9 +1073,13 @@
         let charts = {};
         let currentQuoteIndex = -1;
         let currentWeekOffset = 0;
+        let chartPeriods = {
+            weekly: 'week',
+            daily: 'week'
+        };
 
-        function getUsers() { return JSON.parse(localStorage.getItem('konkour_users_v9') || '{}'); }
-        function saveUsers(users) { localStorage.setItem('konkour_users_v9', JSON.stringify(users)); }
+        function getUsers() { return JSON.parse(localStorage.getItem('konkour_users_v10') || '{}'); }
+        function saveUsers(users) { localStorage.setItem('konkour_users_v10', JSON.stringify(users)); }
 
         function togglePassword(inputId, btn) {
             const input = document.getElementById(inputId);
@@ -1387,6 +1458,7 @@
             renderWeekPlanner();
             renderTodayTasks();
             updateStats();
+            renderAllCharts();
             showNotification('تسک با موفقیت افزوده شد', 'success');
         }
 
@@ -1634,17 +1706,66 @@
             `).join('');
         }
 
-        // ==================== نمودارهای شاهکار ====================
+        // ==================== القاب تشویقی ====================
+        function getStudyBadges(hours) {
+            const badges = [];
+            if (hours >= 14) badges.push({ emoji: '👑', title: 'پادشاه مطالعه', desc: '۱۴+ ساعت در روز' });
+            else if (hours >= 12) badges.push({ emoji: '💎', title: 'الماس مطالعه', desc: '۱۲+ ساعت در روز' });
+            else if (hours >= 10) badges.push({ emoji: '🥇', title: 'طلایی', desc: '۱۰+ ساعت در روز' });
+            else if (hours >= 8) badges.push({ emoji: '🥈', title: 'نقره‌ای', desc: '۸+ ساعت در روز' });
+            else if (hours >= 6) badges.push({ emoji: '🥉', title: 'برنزی', desc: '۶+ ساعت در روز' });
+            else if (hours >= 4) badges.push({ emoji: '🌱', title: 'در حال رشد', desc: '۴+ ساعت در روز' });
+            return badges;
+        }
+
+        function getTestBadges(percent) {
+            const badges = [];
+            if (percent >= 90) badges.push({ emoji: '🧠', title: 'نابغه', desc: '۹۰%+ تست‌ها' });
+            else if (percent >= 80) badges.push({ emoji: '🚀', title: 'موشکی', desc: '۸۰%+ تست‌ها' });
+            else if (percent >= 70) badges.push({ emoji: '💪', title: 'قدرتمند', desc: '۷۰%+ تست‌ها' });
+            else if (percent >= 60) badges.push({ emoji: '📈', title: 'در حال پیشرفت', desc: '۶۰%+ تست‌ها' });
+            else if (percent >= 50) badges.push({ emoji: '🎯', title: 'هدف‌گذار', desc: '۵۰%+ تست‌ها' });
+            return badges;
+        }
+
+        function getExamBadges(percent) {
+            const badges = [];
+            if (percent >= 85) badges.push({ emoji: '🏆', title: 'قهرمان آزمون', desc: '۸۵%+ میانگین' });
+            else if (percent >= 75) badges.push({ emoji: '⭐', title: 'ستاره آزمون', desc: '۷۵%+ میانگین' });
+            else if (percent >= 65) badges.push({ emoji: '✨', title: 'درخشان', desc: '۶۵%+ میانگین' });
+            else if (percent >= 55) badges.push({ emoji: '📊', title: 'رو به رشد', desc: '۵۵%+ میانگین' });
+            return badges;
+        }
+
+        function renderBadges(containerId, badges) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+            if (badges.length === 0) {
+                container.innerHTML = '';
+                return;
+            }
+            container.innerHTML = badges.map(b => `
+                <div class="badge-item">
+                    <div class="badge-icon">${b.emoji}</div>
+                    <div class="badge-text">
+                        <div class="badge-title">${b.title}</div>
+                        <div class="badge-desc">${b.desc}</div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // ==================== نمودارهای شاهکار آماری ====================
         function renderAllCharts() {
             if (!currentUser) return;
             const users = getUsers();
             const userData = users[currentUser].data;
 
-            // 1. Spider Chart - Radar
+            // 1. Radar Chart
             const radarCtx = document.getElementById('radarChart').getContext('2d');
             if (charts.radar) charts.radar.destroy();
             
-            const radarSubjects = userData.subjects.slice(0, 8);
+            const radarSubjects = userData.subjects.slice(0, 6);
             const radarLabels = radarSubjects.map(s => s.name.split(' ')[0]);
             const radarData = radarSubjects.map(s => {
                 const lastTest = s.tests[s.tests.length - 1];
@@ -1657,7 +1778,7 @@
                 data: {
                     labels: radarLabels,
                     datasets: [{
-                        label: 'Performance %',
+                        label: 'درصد پیشرفت',
                         data: radarData,
                         backgroundColor: 'rgba(102,126,234,0.2)',
                         borderColor: '#667eea',
@@ -1675,25 +1796,14 @@
                     maintainAspectRatio: false,
                     plugins: {
                         legend: { display: false },
-                        tooltip: { 
-                            callbacks: { 
-                                label: (ctx) => `${ctx.raw}%` 
-                            } 
-                        }
+                        tooltip: { callbacks: { label: (ctx) => `${ctx.raw}%` } }
                     },
                     scales: {
                         r: {
                             beginAtZero: true,
                             max: 100,
-                            ticks: { 
-                                stepSize: 20,
-                                callback: (v) => v + '%',
-                                backdropColor: 'transparent'
-                            },
-                            grid: { 
-                                color: ['rgba(102,126,234,0.2)', 'rgba(102,126,234,0.2)', 'rgba(102,126,234,0.2)', 'rgba(102,126,234,0.2)', 'rgba(102,126,234,0.2)']
-                            },
-                            pointLabels: { font: { size: 12 } }
+                            ticks: { stepSize: 20, callback: (v) => v + '%' },
+                            grid: { color: ['rgba(102,126,234,0.2)'] }
                         }
                     }
                 }
@@ -1703,20 +1813,38 @@
             const weeklyCtx = document.getElementById('weeklyProgressChart').getContext('2d');
             if (charts.weekly) charts.weekly.destroy();
             
-            const weekDays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+            let weeklyLabels = [];
             let weeklyData = [];
-            for (let i = 6; i >= 0; i--) {
-                const date = new Date();
-                date.setDate(date.getDate() - i);
-                const dateKey = date.toISOString().split('T')[0];
-                const daySessions = userData.sessions.filter(s => s.date.split('T')[0] === dateKey);
-                weeklyData.push(daySessions.reduce((sum, s) => sum + s.duration / 3600, 0));
+            const weeklyPeriod = chartPeriods.weekly;
+
+            if (weeklyPeriod === 'week') {
+                for (let i = 6; i >= 0; i--) {
+                    const date = new Date();
+                    date.setDate(date.getDate() - i);
+                    const dateKey = date.toISOString().split('T')[0];
+                    const daySessions = userData.sessions.filter(s => s.date.split('T')[0] === dateKey);
+                    weeklyLabels.push(date.toLocaleDateString('en-US', { weekday: 'short' }));
+                    weeklyData.push(daySessions.reduce((sum, s) => sum + s.duration / 3600, 0));
+                }
+            } else {
+                for (let i = 3; i >= 0; i--) {
+                    const weekStart = new Date();
+                    weekStart.setDate(weekStart.getDate() - (i * 7));
+                    const weekEnd = new Date(weekStart);
+                    weekEnd.setDate(weekEnd.getDate() + 7);
+                    const weekSessions = userData.sessions.filter(s => {
+                        const d = new Date(s.date);
+                        return d >= weekStart && d < weekEnd;
+                    });
+                    weeklyLabels.push(`W${4-i}`);
+                    weeklyData.push(weekSessions.reduce((sum, s) => sum + s.duration / 3600, 0));
+                }
             }
 
             charts.weekly = new Chart(weeklyCtx, {
                 type: 'line',
                 data: {
-                    labels: weekDays,
+                    labels: weeklyLabels,
                     datasets: [{
                         label: 'Study Hours',
                         data: weeklyData,
@@ -1737,38 +1865,55 @@
                     maintainAspectRatio: false,
                     plugins: {
                         legend: { display: false },
-                        tooltip: { 
-                            callbacks: { 
-                                label: (ctx) => `${ctx.raw.toFixed(1)} hours` 
-                            } 
-                        }
+                        tooltip: { callbacks: { label: (ctx) => `${ctx.raw.toFixed(1)} hours` } }
                     },
                     scales: {
-                        y: { 
-                            beginAtZero: true,
-                            grid: { color: 'rgba(0,0,0,0.05)' },
-                            ticks: { callback: (v) => v + 'h' }
-                        },
+                        y: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' }, ticks: { callback: (v) => v + 'h' } },
                         x: { grid: { display: false } }
                     }
                 }
             });
 
-            // 3. Daily Study Hours Chart
+            // Weekly badges
+            const weeklyAvg = weeklyData.reduce((a, b) => a + b, 0) / weeklyData.length;
+            renderBadges('weeklyBadges', getStudyBadges(weeklyAvg));
+
+            // 3. Daily Chart
             const dailyCtx = document.getElementById('dailyChart').getContext('2d');
             if (charts.daily) charts.daily.destroy();
 
             let dailyLabels = [];
             let dailyData = [];
+            const dailyPeriod = chartPeriods.daily;
 
-            for (let i = 29; i >= 0; i--) {
-                const date = new Date();
-                date.setDate(date.getDate() - i);
-                const dateKey = date.toISOString().split('T')[0];
-                const daySessions = userData.sessions.filter(s => s.date.split('T')[0] === dateKey);
-                if (i % 5 === 0) dailyLabels.push(date.getDate());
-                else dailyLabels.push('');
-                dailyData.push(daySessions.reduce((sum, s) => sum + s.duration / 3600, 0));
+            if (dailyPeriod === 'week') {
+                for (let i = 6; i >= 0; i--) {
+                    const date = new Date();
+                    date.setDate(date.getDate() - i);
+                    const dateKey = date.toISOString().split('T')[0];
+                    const daySessions = userData.sessions.filter(s => s.date.split('T')[0] === dateKey);
+                    dailyLabels.push(date.toLocaleDateString('en-US', { weekday: 'short' }));
+                    dailyData.push(daySessions.reduce((sum, s) => sum + s.duration / 3600, 0));
+                }
+            } else if (dailyPeriod === 'month') {
+                for (let i = 29; i >= 0; i--) {
+                    const date = new Date();
+                    date.setDate(date.getDate() - i);
+                    const dateKey = date.toISOString().split('T')[0];
+                    const daySessions = userData.sessions.filter(s => s.date.split('T')[0] === dateKey);
+                    if (i % 5 === 0) dailyLabels.push(date.getDate());
+                    else dailyLabels.push('');
+                    dailyData.push(daySessions.reduce((sum, s) => sum + s.duration / 3600, 0));
+                }
+            } else {
+                for (let i = 11; i >= 0; i--) {
+                    const date = new Date();
+                    date.setMonth(date.getMonth() - i);
+                    const monthKey = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`;
+                    const monthSessions = userData.sessions.filter(s => s.date.startsWith(monthKey));
+                    dailyLabels.push(date.toLocaleDateString('en-US', { month: 'short' }));
+                    dailyData.push(monthSessions.reduce((sum, s) => sum + s.duration / 3600, 0));
+                }
             }
 
             charts.daily = new Chart(dailyCtx, {
@@ -1788,22 +1933,18 @@
                     maintainAspectRatio: false,
                     plugins: {
                         legend: { display: false },
-                        tooltip: { 
-                            callbacks: { 
-                                label: (ctx) => `${ctx.raw.toFixed(1)} hours` 
-                            } 
-                        }
+                        tooltip: { callbacks: { label: (ctx) => `${ctx.raw.toFixed(1)} hours` } }
                     },
                     scales: {
-                        y: { 
-                            beginAtZero: true,
-                            grid: { color: 'rgba(0,0,0,0.05)' },
-                            ticks: { callback: (v) => v + 'h' }
-                        },
+                        y: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' }, ticks: { callback: (v) => v + 'h' } },
                         x: { grid: { display: false } }
                     }
                 }
             });
+
+            // Daily badges
+            const maxDaily = Math.max(...dailyData);
+            renderBadges('dailyBadges', getStudyBadges(maxDaily));
 
             // 4. Distribution Chart
             const distCtx = document.getElementById('distributionChart').getContext('2d');
@@ -1832,28 +1973,15 @@
                         responsive: true,
                         maintainAspectRatio: false,
                         plugins: {
-                            legend: { 
-                                position: 'bottom', 
-                                rtl: true, 
-                                labels: { 
-                                    usePointStyle: true, 
-                                    boxWidth: 8,
-                                    font: { size: 11 }
-                                } 
-                            },
-                            tooltip: { 
-                                callbacks: { 
-                                    label: (ctx) => `${ctx.label}: ${ctx.raw.toFixed(1)} hours (${((ctx.raw / Object.values(subjectHours).reduce((a,b) => a+b,0))*100).toFixed(1)}%)` 
-                                } 
-                            }
+                            legend: { position: 'bottom', rtl: true, labels: { usePointStyle: true, boxWidth: 8 } },
+                            tooltip: { callbacks: { label: (ctx) => `${ctx.label}: ${ctx.raw.toFixed(1)} hours` } }
                         },
-                        cutout: '65%',
-                        animation: { animateRotate: true, animateScale: true }
+                        cutout: '65%'
                     }
                 });
             }
 
-            // 5. Exam Results Chart
+            // 5. Exam Chart
             const examCtx = document.getElementById('examChart').getContext('2d');
             if (charts.exam) charts.exam.destroy();
 
@@ -1888,26 +2016,20 @@
                         maintainAspectRatio: false,
                         plugins: {
                             legend: { display: false },
-                            tooltip: { 
-                                callbacks: { 
-                                    label: (ctx) => `${ctx.raw.toFixed(1)}%` 
-                                } 
-                            }
+                            tooltip: { callbacks: { label: (ctx) => `${ctx.raw.toFixed(1)}%` } }
                         },
                         scales: {
-                            y: { 
-                                beginAtZero: true, 
-                                max: 100,
-                                grid: { color: 'rgba(0,0,0,0.05)' },
-                                ticks: { callback: (v) => v + '%' }
-                            },
+                            y: { beginAtZero: true, max: 100, grid: { color: 'rgba(0,0,0,0.05)' }, ticks: { callback: (v) => v + '%' } },
                             x: { grid: { display: false } }
                         }
                     }
                 });
+
+                const avgExam = examAverages.reduce((a, b) => a + b, 0) / examAverages.length;
+                renderBadges('examBadges', getExamBadges(avgExam));
             }
 
-            // 6. Test Performance Chart
+            // 6. Test Chart
             const testCtx = document.getElementById('testChart').getContext('2d');
             if (charts.test) charts.test.destroy();
 
@@ -1942,26 +2064,20 @@
                         maintainAspectRatio: false,
                         plugins: {
                             legend: { display: false },
-                            tooltip: { 
-                                callbacks: { 
-                                    label: (ctx) => `${ctx.raw.toFixed(1)}%` 
-                                } 
-                            }
+                            tooltip: { callbacks: { label: (ctx) => `${ctx.raw.toFixed(1)}%` } }
                         },
                         scales: {
-                            y: { 
-                                beginAtZero: true, 
-                                max: 100,
-                                grid: { color: 'rgba(0,0,0,0.05)' },
-                                ticks: { callback: (v) => v + '%' }
-                            },
+                            y: { beginAtZero: true, max: 100, grid: { color: 'rgba(0,0,0,0.05)' }, ticks: { callback: (v) => v + '%' } },
                             x: { grid: { display: false } }
                         }
                     }
                 });
+
+                const avgTest = testData.reduce((a, b) => a + b, 0) / testData.length;
+                renderBadges('testBadges', getTestBadges(avgTest));
             }
 
-            // 7. 6-Month Chart
+            // 7. Six Month Chart
             const sixMonthCtx = document.getElementById('sixMonthChart').getContext('2d');
             if (charts.sixMonth) charts.sixMonth.destroy();
 
@@ -2000,24 +2116,16 @@
                     maintainAspectRatio: false,
                     plugins: {
                         legend: { display: false },
-                        tooltip: { 
-                            callbacks: { 
-                                label: (ctx) => `${ctx.raw.toFixed(1)} hours` 
-                            } 
-                        }
+                        tooltip: { callbacks: { label: (ctx) => `${ctx.raw.toFixed(1)} hours` } }
                     },
                     scales: {
-                        y: { 
-                            beginAtZero: true,
-                            grid: { color: 'rgba(0,0,0,0.05)' },
-                            ticks: { callback: (v) => v + 'h' }
-                        },
+                        y: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' }, ticks: { callback: (v) => v + 'h' } },
                         x: { grid: { display: false } }
                     }
                 }
             });
 
-            // 8. Monthly Progress Chart
+            // 8. Monthly Chart
             const monthlyCtx = document.getElementById('monthlyChart').getContext('2d');
             if (charts.monthly) charts.monthly.destroy();
 
@@ -2051,33 +2159,27 @@
                     maintainAspectRatio: false,
                     plugins: {
                         legend: { display: false },
-                        tooltip: { 
-                            callbacks: { 
-                                label: (ctx) => `${ctx.raw.toFixed(1)} hours` 
-                            } 
-                        }
+                        tooltip: { callbacks: { label: (ctx) => `${ctx.raw.toFixed(1)} hours` } }
                     },
                     scales: {
-                        y: { 
-                            beginAtZero: true,
-                            grid: { color: 'rgba(0,0,0,0.05)' },
-                            ticks: { callback: (v) => v + 'h' }
-                        },
+                        y: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' }, ticks: { callback: (v) => v + 'h' } },
                         x: { grid: { display: false } }
                     }
                 }
             });
         }
 
-        function changeDailyChartPeriod(period, element) {
-            document.querySelectorAll('#dailyChart').parentElement.parentElement.querySelectorAll('.chart-btn').forEach(b => b.classList.remove('active'));
+        function updateChartPeriod(chartName, period, element) {
+            const container = element.parentElement.parentElement;
+            container.querySelectorAll('.chart-btn').forEach(b => b.classList.remove('active'));
             element.classList.add('active');
-            renderAllCharts();
-        }
-
-        function changeWeeklyChartPeriod(period, element) {
-            document.querySelectorAll('#weeklyProgressChart').parentElement.parentElement.querySelectorAll('.chart-btn').forEach(b => b.classList.remove('active'));
-            element.classList.add('active');
+            
+            if (chartName === 'weekly') {
+                chartPeriods.weekly = period;
+            } else if (chartName === 'daily') {
+                chartPeriods.daily = period;
+            }
+            
             renderAllCharts();
         }
 
